@@ -27,7 +27,7 @@
     "turbo": "^2.3.3",
     "@turbo/gen": "^2.3.3",
     "typescript": "^5.7.2",
-    "ultracite": "^4.1.12"
+    "ultracite": "^4.1.14"
   },
   "engines": {
     "node": ">=18"
