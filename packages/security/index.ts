@@ -5,7 +5,7 @@ import arcjet, {
   request,
   shield,
 } from '@arcjet/next';
-import { env } from '@repo/env';
+import { env } from '@c14/env';
 
 // Create a base Arcjet instance which can be imported and extended in each route.
 const base = arcjet({
