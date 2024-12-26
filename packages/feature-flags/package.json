@@ -1,5 +1,5 @@
 {
-  "name": "@repo/feature-flags",
+  "name": "@c14/feature-flags",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,9 +7,8 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@repo/auth": "workspace:*",
-    "@repo/analytics": "workspace:*",
-    "@repo/design-system": "workspace:*",
+    "@c14/analytics": "workspace:*",
+    "@c14/design-system": "workspace:*",
     "@vercel/flags": "^2.6.3"
   },
   "peerDependencies": {
@@ -17,6 +16,6 @@
   },
   "devDependencies": {
     "typescript": "^5.7.2",
-    "@repo/typescript-config": "workspace:*"
+    "@c14/typescript-config": "workspace:*"
   }
 }

@@ -1,5 +1,5 @@
-import { env } from '@repo/env';
-import { config, withAnalyzer, withSentry } from '@repo/next-config';
+import { env } from '@c14/env';
+import { config, withAnalyzer, withSentry } from '@c14/next-config';
 import type { NextConfig } from 'next';
 
 let nextConfig: NextConfig = { ...config };

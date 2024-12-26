@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { cn } from "@repo/design-system/lib/utils"
+import { cn } from "@c14/design-system/lib/utils"
 import { DotFilledIcon } from "@radix-ui/react-icons"
 
 const RadioGroup = React.forwardRef<
@@ -32,8 +32,8 @@ const RadioGroupItem = React.forwardRef<
       )}
       {...props}
     >
-      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-        <DotFilledIcon className="h-3.5 w-3.5 fill-primary" />
+      <RadioGroupPrimitive.Indicator className="flex justify-center items-center">
+        <DotFilledIcon className="w-3.5 h-3.5 fill-primary" />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   )
