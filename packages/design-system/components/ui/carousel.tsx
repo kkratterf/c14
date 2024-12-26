@@ -4,8 +4,8 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { cn } from "@repo/design-system/lib/utils"
-import { Button } from "@repo/design-system/components/ui/button"
+import { cn } from "@c14/design-system/lib/utils"
+import { Button } from "@c14/design-system/components/ui/button"
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons"
 
 type CarouselApi = UseEmblaCarouselType[1]
@@ -215,7 +215,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeftIcon className="h-4 w-4" />
+      <ArrowLeftIcon className="w-4 h-4" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -244,7 +244,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRightIcon className="h-4 w-4" />
+      <ArrowRightIcon className="w-4 h-4" />
       <span className="sr-only">Next slide</span>
     </Button>
   )

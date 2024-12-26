@@ -8,7 +8,7 @@ import {
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent"
 
-import { cn } from "@repo/design-system/lib/utils"
+import { cn } from "@c14/design-system/lib/utils"
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
@@ -189,7 +189,7 @@ const ChartTooltipContent = React.forwardRef<
         )}
       >
         {!nestLabel ? tooltipLabel : null}
-        <div className="grid gap-1.5">
+        <div className="gap-1.5 grid">
           {payload.map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = getPayloadConfigFromPayload(config, item, key)
@@ -237,14 +237,14 @@ const ChartTooltipContent = React.forwardRef<
                         nestLabel ? "items-end" : "items-center"
                       )}
                     >
-                      <div className="grid gap-1.5">
+                      <div className="gap-1.5 grid">
                         {nestLabel ? tooltipLabel : null}
                         <span className="text-muted-foreground">
                           {itemConfig?.label || item.name}
                         </span>
                       </div>
                       {item.value && (
-                        <span className="font-mono font-medium tabular-nums text-foreground">
+                        <span className="font-medium font-mono text-foreground tabular-nums">
                           {item.value.toLocaleString()}
                         </span>
                       )}
@@ -305,7 +305,7 @@ const ChartLegendContent = React.forwardRef<
                 <itemConfig.icon />
               ) : (
                 <div
-                  className="h-2 w-2 shrink-0 rounded-[2px]"
+                  className="rounded-[2px] w-2 h-2 shrink-0"
                   style={{
                     backgroundColor: item.color,
                   }}

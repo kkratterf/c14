@@ -1,6 +1,5 @@
-import { AnalyticsProvider } from '@repo/analytics';
-import { AuthProvider } from '@repo/auth/provider';
-import { env } from '@repo/env';
+import { AnalyticsProvider } from '@c14/analytics';
+import { env } from '@c14/env';
 import { VercelToolbar } from '@vercel/toolbar/next';
 import type { ThemeProviderProps } from 'next-themes';
 import { Toaster } from './components/ui/sonner';
@@ -14,7 +13,6 @@ export const DesignSystemProvider = ({
   ...properties
 }: DesignSystemProviderProperties) => (
   <ThemeProvider {...properties}>
-    <AuthProvider>
       <AnalyticsProvider>
         <TooltipProvider>{children}</TooltipProvider>
         <Toaster />
@@ -22,6 +20,5 @@ export const DesignSystemProvider = ({
           <VercelToolbar />
         )}
       </AnalyticsProvider>
-    </AuthProvider>
   </ThemeProvider>
 );

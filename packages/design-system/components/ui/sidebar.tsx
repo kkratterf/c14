@@ -3,19 +3,19 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
-import { useIsMobile } from "@repo/design-system/hooks/use-mobile"
-import { cn } from "@repo/design-system/lib/utils"
-import { Button } from "@repo/design-system/components/ui/button"
-import { Input } from "@repo/design-system/components/ui/input"
-import { Separator } from "@repo/design-system/components/ui/separator"
-import { Sheet, SheetContent, SheetTitle } from "@repo/design-system/components/ui/sheet"
-import { Skeleton } from "@repo/design-system/components/ui/skeleton"
+import { useIsMobile } from "@c14/design-system/hooks/use-mobile"
+import { cn } from "@c14/design-system/lib/utils"
+import { Button } from "@c14/design-system/components/ui/button"
+import { Input } from "@c14/design-system/components/ui/input"
+import { Separator } from "@c14/design-system/components/ui/separator"
+import { Sheet, SheetContent, SheetTitle } from "@c14/design-system/components/ui/sheet"
+import { Skeleton } from "@c14/design-system/components/ui/skeleton"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@repo/design-system/components/ui/tooltip"
+} from "@c14/design-system/components/ui/tooltip"
 import { ViewVerticalIcon } from "@radix-ui/react-icons"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
@@ -206,7 +206,7 @@ const Sidebar = React.forwardRef<
             side={side}
           >
             <SheetTitle className="sr-only" />
-            <div className="flex h-full w-full flex-col">{children}</div>
+            <div className="flex flex-col w-full h-full">{children}</div>
           </SheetContent>
         </Sheet>
       )
@@ -215,7 +215,7 @@ const Sidebar = React.forwardRef<
     return (
       <div
         ref={ref}
-        className="group peer hidden md:block text-sidebar-foreground"
+        className="md:block hidden text-sidebar-foreground group peer"
         data-state={state}
         data-collapsible={state === "collapsed" ? collapsible : ""}
         data-variant={variant}
@@ -248,7 +248,7 @@ const Sidebar = React.forwardRef<
         >
           <div
             data-sidebar="sidebar"
-            className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow"
+            className="flex flex-col group-data-[variant=floating]:border-sidebar-border bg-sidebar group-data-[variant=floating]:shadow group-data-[variant=floating]:border group-data-[variant=floating]:rounded-lg w-full h-full"
           >
             {children}
           </div>
@@ -664,12 +664,12 @@ const SidebarMenuSkeleton = React.forwardRef<
     >
       {showIcon && (
         <Skeleton
-          className="size-4 rounded-md"
+          className="rounded-md size-4"
           data-sidebar="menu-skeleton-icon"
         />
       )}
       <Skeleton
-        className="h-4 flex-1 max-w-[--skeleton-width]"
+        className="flex-1 max-w-[--skeleton-width] h-4"
         data-sidebar="menu-skeleton-text"
         style={
           {

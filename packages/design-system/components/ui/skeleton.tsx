@@ -1,4 +1,4 @@
-import { cn } from "@repo/design-system/lib/utils"
+import { cn } from "@c14/design-system/lib/utils"
 
 function Skeleton({
   className,

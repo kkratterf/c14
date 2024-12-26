@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { OTPInput, OTPInputContext } from "input-otp"
-import { cn } from "@repo/design-system/lib/utils"
+import { cn } from "@c14/design-system/lib/utils"
 import { MinusIcon } from "@radix-ui/react-icons"
 
 const InputOTP = React.forwardRef<
@@ -48,8 +48,8 @@ const InputOTPSlot = React.forwardRef<
     >
       {char}
       {hasFakeCaret && (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
+        <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+          <div className="bg-foreground w-px h-4 animate-caret-blink duration-1000" />
         </div>
       )}
     </div>

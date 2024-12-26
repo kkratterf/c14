@@ -1,1 +1,1 @@
-export { default } from '@repo/testing';
+export { default } from '@c14/testing';
