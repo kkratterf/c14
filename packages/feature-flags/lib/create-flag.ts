@@ -1,4 +1,3 @@
-import { analytics } from '@c14/analytics/posthog/server';
 import { unstable_flag as flag } from '@vercel/flags/next';
 
 export const createFlag = (key: string) =>
