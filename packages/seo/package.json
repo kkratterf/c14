@@ -1,5 +1,5 @@
 {
-  "name": "@repo/seo",
+  "name": "@c14/seo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "schema-dts": "^1.1.2"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@c14/typescript-config": "workspace:*",
     "@types/lodash.merge": "^4.6.9",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",

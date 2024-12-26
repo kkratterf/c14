@@ -1,6 +1,6 @@
-import '@repo/design-system/styles/globals.css';
-import { DesignSystemProvider } from '@repo/design-system';
-import { fonts } from '@repo/design-system/lib/fonts';
+import '@c14/design-system/styles/globals.css';
+import { DesignSystemProvider } from '@c14/design-system';
+import { fonts } from '@c14/design-system/lib/fonts';
 import type { ReactNode } from 'react';
 
 type RootLayoutProperties = {

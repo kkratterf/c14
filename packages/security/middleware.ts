@@ -3,7 +3,7 @@ import {
   defaults,
   withVercelToolbar,
 } from '@nosecone/next';
-import { env } from '@repo/env';
+import { env } from '@c14/env';
 export { createMiddleware as noseconeMiddleware } from '@nosecone/next';
 
 // Nosecone security headers configuration
