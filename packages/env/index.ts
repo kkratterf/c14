@@ -4,7 +4,6 @@ import { z } from 'zod';
 const server: Parameters<typeof createEnv>[0]['server'] = {
   RESEND_FROM: z.string().min(1).email(),
   DATABASE_URL: z.string().min(1).url(),
-  DIRECT_URL: z.string().min(1).url(),
   RESEND_TOKEN: z.string().min(1).startsWith('re_'),
   BETTERSTACK_API_KEY: z.string().min(1).optional(),
   BETTERSTACK_URL: z.string().min(1).url().optional(),
@@ -47,7 +46,6 @@ export const env = createEnv({
   runtimeEnv: {
     RESEND_FROM: process.env.RESEND_FROM,
     DATABASE_URL: process.env.DATABASE_URL,
-    DIRECT_URL: process.env.DIRECT_URL,
     RESEND_TOKEN: process.env.RESEND_TOKEN,
     BETTERSTACK_API_KEY: process.env.BETTERSTACK_API_KEY,
     BETTERSTACK_URL: process.env.BETTERSTACK_URL,
