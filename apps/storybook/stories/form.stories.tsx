@@ -12,7 +12,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@repo/design-system/components/ui/form';
+} from '@c14/design-system/components/ui/form';
 
 /**
  * Building forms with React Hook Form and Zod.
@@ -56,7 +56,7 @@ const ProfileForm = (args: Story['args']) => {
               <FormLabel>Username</FormLabel>
               <FormControl>
                 <input
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  className="border-input bg-background px-3 py-2 border rounded-md w-full"
                   placeholder="username"
                   {...field}
                 />
@@ -69,7 +69,7 @@ const ProfileForm = (args: Story['args']) => {
           )}
         />
         <button
-          className="rounded bg-primary px-4 py-2 text-primary-foreground"
+          className="bg-primary px-4 py-2 rounded text-primary-foreground"
           type="submit"
         >
           Submit

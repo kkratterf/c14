@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@repo/design-system/components/ui/navigation-menu';
+} from '@c14/design-system/components/ui/navigation-menu';
 
 /**
  * A collection of links for navigating websites.
@@ -32,7 +32,7 @@ const meta = {
               Documentation
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-96 p-2">
+              <ul className="grid p-2 w-96">
                 <li>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     API Reference

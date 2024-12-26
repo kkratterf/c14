@@ -6,7 +6,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@repo/design-system/components/ui/carousel';
+} from '@c14/design-system/components/ui/carousel';
 
 /**
  * A carousel with motion and swipe built using Embla.
@@ -24,7 +24,7 @@ const meta: Meta<typeof Carousel> = {
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
-            <div className="flex aspect-square items-center justify-center rounded border bg-card p-6">
+            <div className="flex justify-center items-center bg-card p-6 border rounded aspect-square">
               <span className="font-semibold text-4xl">{index + 1}</span>
             </div>
           </CarouselItem>
@@ -57,7 +57,7 @@ export const Size: Story = {
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index} className="basis-1/3">
-            <div className="flex aspect-square items-center justify-center rounded border bg-card p-6">
+            <div className="flex justify-center items-center bg-card p-6 border rounded aspect-square">
               <span className="font-semibold text-4xl">{index + 1}</span>
             </div>
           </CarouselItem>

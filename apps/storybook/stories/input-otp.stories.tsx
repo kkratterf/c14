@@ -6,7 +6,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from '@repo/design-system/components/ui/input-otp';
+} from '@c14/design-system/components/ui/input-otp';
 
 /**
  * Accessible one-time password component with copy paste functionality.

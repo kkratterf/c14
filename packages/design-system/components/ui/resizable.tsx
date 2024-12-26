@@ -1,7 +1,7 @@
 "use client"
 import * as ResizablePrimitive from "react-resizable-panels"
 
-import { cn } from "@repo/design-system/lib/utils"
+import { cn } from "@c14/design-system/lib/utils"
 import { DragHandleDots2Icon } from "@radix-ui/react-icons"
 
 const ResizablePanelGroup = ({
@@ -34,8 +34,8 @@ const ResizableHandle = ({
     {...props}
   >
     {withHandle && (
-      <div className="z-10 flex h-4 w-3 items-center justify-center rounded-sm border bg-border">
-        <DragHandleDots2Icon className="h-2.5 w-2.5" />
+      <div className="z-10 flex justify-center items-center bg-border border rounded-sm w-3 h-4">
+        <DragHandleDots2Icon className="w-2.5 h-2.5" />
       </div>
     )}
   </ResizablePrimitive.PanelResizeHandle>

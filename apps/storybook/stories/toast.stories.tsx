@@ -5,9 +5,9 @@ import {
   ToastAction,
   type ToastActionElement,
   type ToastProps,
-} from '@repo/design-system/components/ui/toast';
-import { Toaster } from '@repo/design-system/components/ui/toaster';
-import { useToast } from '@repo/design-system/hooks/use-toast';
+} from '@c14/design-system/components/ui/toast';
+import { Toaster } from '@c14/design-system/components/ui/toaster';
+import { useToast } from '@c14/design-system/hooks/use-toast';
 
 /**
  * A succinct message that is displayed temporarily.

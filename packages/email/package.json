@@ -1,5 +1,5 @@
 {
-  "name": "@repo/email",
+  "name": "@c14/email",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,13 +8,13 @@
   },
   "dependencies": {
     "@react-email/components": "0.0.31",
-    "@repo/env": "workspace:*",
+    "@c14/env": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "resend": "^4.0.1"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@c14/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
     "@types/react-dom": "^19.0.2",

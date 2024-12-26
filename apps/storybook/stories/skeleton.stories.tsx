@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Skeleton } from '@repo/design-system/components/ui/skeleton';
+import { Skeleton } from '@c14/design-system/components/ui/skeleton';
 
 /**
  * Use to show a placeholder while content is loading.
@@ -25,10 +25,10 @@ type Story = StoryObj<typeof Skeleton>;
 export const Default: Story = {
   render: (args) => (
     <div className="flex items-center space-x-4">
-      <Skeleton {...args} className="h-12 w-12 rounded-full" />
+      <Skeleton {...args} className="rounded-full w-12 h-12" />
       <div className="space-y-2">
-        <Skeleton {...args} className="h-4 w-[250px]" />
-        <Skeleton {...args} className="h-4 w-[200px]" />
+        <Skeleton {...args} className="w-[250px] h-4" />
+        <Skeleton {...args} className="w-[200px] h-4" />
       </div>
     </div>
   ),

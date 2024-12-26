@@ -10,7 +10,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@repo/design-system/components/ui/alert-dialog';
+} from '@c14/design-system/components/ui/alert-dialog';
 
 /**
  * A modal dialog that interrupts the user with important content and expects

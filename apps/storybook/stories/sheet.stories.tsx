@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@repo/design-system/components/ui/sheet';
+} from '@c14/design-system/components/ui/sheet';
 
 /**
  * Extends the Dialog component to display content that complements the main
@@ -49,7 +49,7 @@ const meta: Meta<typeof SheetContent> = {
           </SheetClose>
           <button
             type="button"
-            className="rounded bg-primary px-4 py-2 text-primary-foreground"
+            className="bg-primary px-4 py-2 rounded text-primary-foreground"
           >
             Submit
           </button>

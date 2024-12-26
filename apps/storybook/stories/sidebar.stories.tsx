@@ -29,7 +29,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@repo/design-system/components/ui/avatar';
+} from '@c14/design-system/components/ui/avatar';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -37,12 +37,12 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@repo/design-system/components/ui/breadcrumb';
+} from '@c14/design-system/components/ui/breadcrumb';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@repo/design-system/components/ui/collapsible';
+} from '@c14/design-system/components/ui/collapsible';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -52,8 +52,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@repo/design-system/components/ui/dropdown-menu';
-import { Separator } from '@repo/design-system/components/ui/separator';
+} from '@c14/design-system/components/ui/dropdown-menu';
+import { Separator } from '@c14/design-system/components/ui/separator';
 import {
   Sidebar,
   SidebarContent,
@@ -72,7 +72,7 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
-} from '@repo/design-system/components/ui/sidebar';
+} from '@c14/design-system/components/ui/sidebar';
 import { useState } from 'react';
 
 const meta: Meta<typeof Sidebar> = {
@@ -230,14 +230,14 @@ export const Base: Story = {
                       size="lg"
                       className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                     >
-                      <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                      <div className="flex justify-center items-center bg-sidebar-primary rounded-lg text-sidebar-primary-foreground aspect-square size-8">
                         <activeTeam.logo className="size-4" />
                       </div>
-                      <div className="grid flex-1 text-left text-sm leading-tight">
-                        <span className="truncate font-semibold">
+                      <div className="flex-1 grid text-left text-sm leading-tight">
+                        <span className="font-semibold truncate">
                           {activeTeam.name}
                         </span>
-                        <span className="truncate text-xs">
+                        <span className="text-xs truncate">
                           {activeTeam.plan}
                         </span>
                       </div>
@@ -245,7 +245,7 @@ export const Base: Story = {
                     </SidebarMenuButton>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+                    className="rounded-lg w-[--radix-dropdown-menu-trigger-width] min-w-56"
                     align="start"
                     side="bottom"
                     sideOffset={4}
@@ -259,8 +259,8 @@ export const Base: Story = {
                         onClick={() => setActiveTeam(team)}
                         className="gap-2 p-2"
                       >
-                        <div className="flex size-6 items-center justify-center rounded-sm border">
-                          <team.logo className="size-4 shrink-0" />
+                        <div className="flex justify-center items-center border rounded-sm size-6">
+                          <team.logo className="shrink-0 size-4" />
                         </div>
                         {team.name}
                         <DropdownMenuShortcut>
@@ -270,7 +270,7 @@ export const Base: Story = {
                     ))}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem className="gap-2 p-2">
-                      <div className="flex size-6 items-center justify-center rounded-md border bg-background">
+                      <div className="flex justify-center items-center bg-background border rounded-md size-6">
                         <Plus className="size-4" />
                       </div>
                       <div className="font-medium text-muted-foreground">
@@ -298,7 +298,7 @@ export const Base: Story = {
                         <SidebarMenuButton tooltip={item.title}>
                           {item.icon && <item.icon />}
                           <span>{item.title}</span>
-                          <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                          <ChevronRight className="group-data-[state=open]/collapsible:rotate-90 ml-auto transition-transform duration-200" />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
@@ -338,7 +338,7 @@ export const Base: Story = {
                         </SidebarMenuAction>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
-                        className="w-48 rounded-lg"
+                        className="rounded-lg w-48"
                         side="bottom"
                         align="end"
                       >
@@ -377,7 +377,7 @@ export const Base: Story = {
                       size="lg"
                       className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                     >
-                      <Avatar className="h-8 w-8 rounded-lg">
+                      <Avatar className="rounded-lg w-8 h-8">
                         <AvatarImage
                           src={data.user.avatar}
                           alt={data.user.name}
@@ -386,11 +386,11 @@ export const Base: Story = {
                           CN
                         </AvatarFallback>
                       </Avatar>
-                      <div className="grid flex-1 text-left text-sm leading-tight">
-                        <span className="truncate font-semibold">
+                      <div className="flex-1 grid text-left text-sm leading-tight">
+                        <span className="font-semibold truncate">
                           {data.user.name}
                         </span>
-                        <span className="truncate text-xs">
+                        <span className="text-xs truncate">
                           {data.user.email}
                         </span>
                       </div>
@@ -398,14 +398,14 @@ export const Base: Story = {
                     </SidebarMenuButton>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+                    className="rounded-lg w-[--radix-dropdown-menu-trigger-width] min-w-56"
                     side="bottom"
                     align="end"
                     sideOffset={4}
                   >
                     <DropdownMenuLabel className="p-0 font-normal">
                       <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                        <Avatar className="h-8 w-8 rounded-lg">
+                        <Avatar className="rounded-lg w-8 h-8">
                           <AvatarImage
                             src={data.user.avatar}
                             alt={data.user.name}
@@ -414,11 +414,11 @@ export const Base: Story = {
                             CN
                           </AvatarFallback>
                         </Avatar>
-                        <div className="grid flex-1 text-left text-sm leading-tight">
-                          <span className="truncate font-semibold">
+                        <div className="flex-1 grid text-left text-sm leading-tight">
+                          <span className="font-semibold truncate">
                             {data.user.name}
                           </span>
-                          <span className="truncate text-xs">
+                          <span className="text-xs truncate">
                             {data.user.email}
                           </span>
                         </div>
@@ -459,18 +459,18 @@ export const Base: Story = {
           <SidebarRail />
         </Sidebar>
         <SidebarInset>
-          <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+          <header className="group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 flex items-center gap-2 h-16 transition-[width,height] ease-linear shrink-0">
             <div className="flex items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1" />
               <Separator orientation="vertical" className="mr-2 h-4" />
               <Breadcrumb>
                 <BreadcrumbList>
-                  <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbItem className="md:block hidden">
                     <BreadcrumbLink href="#">
                       Building Your Application
                     </BreadcrumbLink>
                   </BreadcrumbItem>
-                  <BreadcrumbSeparator className="hidden md:block" />
+                  <BreadcrumbSeparator className="md:block hidden" />
                   <BreadcrumbItem>
                     <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                   </BreadcrumbItem>
@@ -478,13 +478,13 @@ export const Base: Story = {
               </Breadcrumb>
             </div>
           </header>
-          <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-            <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-              <div className="aspect-video rounded-xl bg-muted/50" />
-              <div className="aspect-video rounded-xl bg-muted/50" />
-              <div className="aspect-video rounded-xl bg-muted/50" />
+          <div className="flex flex-col flex-1 gap-4 p-4 pt-0">
+            <div className="gap-4 grid md:grid-cols-3 auto-rows-min">
+              <div className="bg-muted/50 rounded-xl aspect-video" />
+              <div className="bg-muted/50 rounded-xl aspect-video" />
+              <div className="bg-muted/50 rounded-xl aspect-video" />
             </div>
-            <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+            <div className="flex-1 bg-muted/50 rounded-xl min-h-[100vh] md:min-h-min" />
           </div>
         </SidebarInset>
       </SidebarProvider>

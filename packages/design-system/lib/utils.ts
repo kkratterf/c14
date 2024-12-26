@@ -1,4 +1,4 @@
-import { parseError } from '@repo/observability/error';
+import { parseError } from '@c14/observability/error';
 import { clsx } from 'clsx';
 import type { ClassValue } from 'clsx';
 import { toast } from 'sonner';

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Textarea } from '@repo/design-system/components/ui/textarea';
+import { Textarea } from '@c14/design-system/components/ui/textarea';
 
 /**
  * Displays a form textarea or a component that looks like a textarea.
@@ -40,7 +40,7 @@ export const Disabled: Story = {
  */
 export const WithLabel: Story = {
   render: (args) => (
-    <div className="grid w-full gap-1.5">
+    <div className="gap-1.5 grid w-full">
       <label htmlFor="message">Your message</label>
       <Textarea {...args} id="message" />
     </div>
@@ -53,7 +53,7 @@ export const WithLabel: Story = {
  */
 export const WithText: Story = {
   render: (args) => (
-    <div className="grid w-full gap-1.5">
+    <div className="gap-1.5 grid w-full">
       <label htmlFor="message-2">Your Message</label>
       <Textarea {...args} id="message-2" />
       <p className="text-slate-500 text-sm">
@@ -69,10 +69,10 @@ export const WithText: Story = {
  */
 export const WithButton: Story = {
   render: (args) => (
-    <div className="grid w-full gap-2">
+    <div className="gap-2 grid w-full">
       <Textarea {...args} />
       <button
-        className="rounded bg-primary px-4 py-2 text-primary-foreground"
+        className="bg-primary px-4 py-2 rounded text-primary-foreground"
         type="submit"
       >
         Send Message

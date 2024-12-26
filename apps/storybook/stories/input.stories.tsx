@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Input } from '@repo/design-system/components/ui/input';
+import { Input } from '@c14/design-system/components/ui/input';
 
 /**
  * Displays a form input field or a component that looks like an input field.
@@ -44,7 +44,7 @@ export const Disabled: Story = {
  */
 export const WithLabel: Story = {
   render: (args) => (
-    <div className="grid items-center gap-1.5">
+    <div className="items-center gap-1.5 grid">
       <label htmlFor="email">{args.placeholder}</label>
       <Input {...args} id="email" />
     </div>
@@ -57,7 +57,7 @@ export const WithLabel: Story = {
  */
 export const WithHelperText: Story = {
   render: (args) => (
-    <div className="grid items-center gap-1.5">
+    <div className="items-center gap-1.5 grid">
       <label htmlFor="email-2">{args.placeholder}</label>
       <Input {...args} id="email-2" />
       <p className="text-foreground/50 text-sm">Enter your email address.</p>
@@ -74,7 +74,7 @@ export const WithButton: Story = {
     <div className="flex items-center space-x-2">
       <Input {...args} />
       <button
-        className="rounded bg-primary px-4 py-2 text-primary-foreground"
+        className="bg-primary px-4 py-2 rounded text-primary-foreground"
         type="submit"
       >
         Subscribe

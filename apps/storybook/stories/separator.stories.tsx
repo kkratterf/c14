@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Separator } from '@repo/design-system/components/ui/separator';
+import { Separator } from '@c14/design-system/components/ui/separator';
 
 /**
  * Visually or semantically separates content.
@@ -34,7 +34,7 @@ export const Horizontal: Story = {
  */
 export const Vertical: Story = {
   render: () => (
-    <div className="grid gap-2">
+    <div className="gap-2 grid">
       <div>Top</div>
       <Separator orientation="horizontal" />
       <div>Bottom</div>

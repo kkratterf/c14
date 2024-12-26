@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@repo/design-system/components/ui/card';
+} from '@c14/design-system/components/ui/card';
 
 const notifications = [
   {
@@ -42,7 +42,7 @@ const meta = {
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
+      <CardContent className="gap-4 grid">
         {notifications.map((notification, index) => (
           <div key={index} className="flex items-center gap-4">
             <BellRing className="size-6" />

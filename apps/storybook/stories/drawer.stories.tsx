@@ -9,7 +9,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@repo/design-system/components/ui/drawer';
+} from '@c14/design-system/components/ui/drawer';
 
 /**
  * A drawer component for React.
@@ -30,7 +30,7 @@ const meta: Meta<typeof Drawer> = {
         <DrawerFooter>
           <button
             type="button"
-            className="rounded bg-primary px-4 py-2 text-primary-foreground"
+            className="bg-primary px-4 py-2 rounded text-primary-foreground"
           >
             Submit
           </button>

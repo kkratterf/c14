@@ -1,9 +1,10 @@
-import { authMiddleware } from '@repo/auth/middleware';
-import { noseconeConfig, noseconeMiddleware } from '@repo/security/middleware';
+import { noseconeConfig, noseconeMiddleware } from '@c14/security/middleware';
 
-const securityHeaders = noseconeMiddleware(noseconeConfig);
+export const securityHeaders = noseconeMiddleware(noseconeConfig);
 
-export default authMiddleware(() => securityHeaders());
+export function middleware() {
+  return securityHeaders();
+}
 
 export const config = {
   matcher: [

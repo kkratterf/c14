@@ -1,4 +1,4 @@
-import { env } from '@repo/env';
+import { env } from '@c14/env';
 import { init } from '@sentry/nextjs';
 
 const opts = {

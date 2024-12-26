@@ -1,5 +1,5 @@
 import 'server-only';
-import { env } from '@repo/env';
+import { env } from '@c14/env';
 import type { BetterStackResponse } from './types';
 
 export const Status = async () => {
@@ -52,7 +52,7 @@ export const Status = async () => {
       rel="noreferrer"
       href={env.BETTERSTACK_URL}
     >
-      <span className="relative flex h-2 w-2">
+      <span className="relative flex w-2 h-2">
         <span
           className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${statusColor}`}
         />

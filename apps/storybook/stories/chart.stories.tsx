@@ -19,7 +19,7 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from '@repo/design-system/components/ui/chart';
+} from '@c14/design-system/components/ui/chart';
 
 const multiSeriesData = [
   { month: 'January', desktop: 186, mobile: 80 },
@@ -247,7 +247,7 @@ export const DoughnutChart: Story = {
                       <tspan
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        className="fill-foreground font-bold text-3xl"
+                        className="font-bold text-3xl fill-foreground"
                       >
                         {totalVisitors.toLocaleString()}
                       </tspan>

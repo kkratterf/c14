@@ -4,7 +4,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from '@repo/design-system/components/ui/resizable';
+} from '@c14/design-system/components/ui/resizable';
 
 /**
  * Accessible resizable panel groups and layouts with keyboard support.
@@ -25,7 +25,7 @@ const meta: Meta<typeof ResizablePanelGroup> = {
   render: (args) => (
     <ResizablePanelGroup {...args}>
       <ResizablePanel defaultSize={50}>
-        <div className="flex h-[200px] items-center justify-center p-6">
+        <div className="flex justify-center items-center p-6 h-[200px]">
           <span className="font-semibold">One</span>
         </div>
       </ResizablePanel>
@@ -33,13 +33,13 @@ const meta: Meta<typeof ResizablePanelGroup> = {
       <ResizablePanel defaultSize={50}>
         <ResizablePanelGroup direction="vertical">
           <ResizablePanel defaultSize={25}>
-            <div className="flex h-full items-center justify-center p-6">
+            <div className="flex justify-center items-center p-6 h-full">
               <span className="font-semibold">Two</span>
             </div>
           </ResizablePanel>
           <ResizableHandle />
           <ResizablePanel defaultSize={75}>
-            <div className="flex h-full items-center justify-center p-6">
+            <div className="flex justify-center items-center p-6 h-full">
               <span className="font-semibold">Three</span>
             </div>
           </ResizablePanel>

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Progress } from '@repo/design-system/components/ui/progress';
+import { Progress } from '@c14/design-system/components/ui/progress';
 
 /**
  * Displays an indicator showing the completion progress of a task, typically

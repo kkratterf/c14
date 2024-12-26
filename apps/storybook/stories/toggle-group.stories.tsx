@@ -4,7 +4,7 @@ import { Bold, Italic, Underline } from 'lucide-react';
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from '@repo/design-system/components/ui/toggle-group';
+} from '@c14/design-system/components/ui/toggle-group';
 
 /**
  * A set of two-state buttons that can be toggled on or off.
@@ -28,13 +28,13 @@ const meta = {
   render: (args) => (
     <ToggleGroup {...args}>
       <ToggleGroupItem value="bold" aria-label="Toggle bold">
-        <Bold className="h-4 w-4" />
+        <Bold className="w-4 h-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="italic" aria-label="Toggle italic">
-        <Italic className="h-4 w-4" />
+        <Italic className="w-4 h-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="underline" aria-label="Toggle underline">
-        <Underline className="h-4 w-4" />
+        <Underline className="w-4 h-4" />
       </ToggleGroupItem>
     </ToggleGroup>
   ),
