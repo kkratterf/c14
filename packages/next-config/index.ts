@@ -2,7 +2,7 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 
 // @ts-expect-error No declaration file
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
-import { env } from '@repo/env';
+import { env } from '@c14/env';
 import { withSentryConfig } from '@sentry/nextjs';
 import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';

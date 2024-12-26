@@ -1,5 +1,5 @@
 {
-  "name": "@repo/security",
+  "name": "@c14/security",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,11 +10,11 @@
   "dependencies": {
     "@arcjet/next": "1.0.0-alpha.34",
     "@nosecone/next": "1.0.0-alpha.34",
-    "@repo/env": "workspace:*",
-    "@repo/database": "workspace:*"
+    "@c14/env": "workspace:*",
+    "@c14/database": "workspace:*"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@c14/typescript-config": "workspace:*",
     "typescript": "^5.7.2"
   }
 }

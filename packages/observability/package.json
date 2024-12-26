@@ -1,5 +1,5 @@
 {
-  "name": "@repo/observability",
+  "name": "@c14/observability",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "@logtail/next": "^0.1.7",
-    "@repo/env": "workspace:*",
+    "@c14/env": "workspace:*",
     "@sentry/nextjs": "^8.43.0",
     "react": "^19.0.0"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@c14/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
     "@types/react-dom": "^19.0.2",

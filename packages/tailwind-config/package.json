@@ -1,5 +1,5 @@
 {
-  "name": "@repo/tailwind-config",
+  "name": "@c14/tailwind-config",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@c14/typescript-config": "workspace:*",
     "tailwindcss": "^3.4.16"
   }
 }
