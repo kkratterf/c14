@@ -11,6 +11,7 @@
         "BETTERSTACK_API_KEY",
         "BETTERSTACK_URL",
         "DATABASE_URL",
+        "DIRECT_URL",
         "FLAGS_SECRET",
         "SENTRY_AUTH_TOKEN",
         "SENTRY_ORG",
