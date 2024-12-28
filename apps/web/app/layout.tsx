@@ -1,4 +1,4 @@
-import '@c14/design-system/styles/globals.css';
+import '@c14/design-system/styles/shared-globals.css';
 import { DesignSystemProvider } from '@c14/design-system';
 import { fonts } from '@c14/design-system/lib/fonts';
 import type { ReactNode } from 'react';

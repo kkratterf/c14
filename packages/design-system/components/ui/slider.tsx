@@ -1,28 +1,74 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as SliderPrimitive from "@radix-ui/react-slider"
+import * as React from "react";
+import * as SliderPrimitive from "@radix-ui/react-slider";
 
-import { cn } from "@c14/design-system/lib/utils"
+import { cn, focusRing } from "@c14/design-system/lib/utils";
 
-const Slider = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <SliderPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative flex w-full touch-none select-none items-center",
-      className
-    )}
-    {...props}
-  >
-    <SliderPrimitive.Track className="relative bg-primary/20 rounded-full w-full h-1.5 overflow-hidden grow">
-      <SliderPrimitive.Range className="absolute bg-primary h-full" />
-    </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block border-primary/50 bg-background disabled:opacity-50 shadow border rounded-full focus-visible:ring-1 focus-visible:ring-ring w-4 h-4 transition-colors disabled:pointer-events-none focus-visible:outline-none" />
-  </SliderPrimitive.Root>
-))
-Slider.displayName = SliderPrimitive.Root.displayName
+interface SliderProps extends React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root> {
+  ariaLabelThumb?: string;
+}
 
-export { Slider }
+const Slider = React.forwardRef<React.ComponentRef<typeof SliderPrimitive.Root>, SliderProps>(
+  ({ className, ariaLabelThumb, ...props }, forwardedRef) => {
+    const value = props.value || props.defaultValue;
+    return (
+      <SliderPrimitive.Root
+        ref={forwardedRef}
+        className={cn(
+          // base
+          "relative flex cursor-pointer touch-none select-none",
+          // orientation
+          "data-[orientation='horizontal']:w-full data-[orientation='horizontal']:items-center",
+          "data-[orientation='vertical']:h-full data-[orientation='vertical']:w-fit data-[orientation='vertical']:justify-center",
+          // disabled
+          "data-[disabled]:pointer-events-none",
+          className
+        )}
+        {...props}>
+        <SliderPrimitive.Track
+          className={cn(
+            // base
+            "bg-muted relative grow overflow-hidden rounded-full",
+            // orientation
+            "data-[orientation='horizontal']:h-1.5 data-[orientation='horizontal']:w-full",
+            "data-[orientation='vertical']:h-full data-[orientation='vertical']:w-1.5"
+          )}>
+          <SliderPrimitive.Range
+            className={cn(
+              // base
+              "bg-neutral-hover absolute rounded-full dark:bg-zinc-300",
+              // orientation
+              "data-[orientation='horizontal']:h-full",
+              "data-[orientation='vertical']:w-full",
+              // disabled
+              "data-[disabled]:opacity-30"
+            )}
+          />
+        </SliderPrimitive.Track>
+        {value?.map((_, index) => (
+          <SliderPrimitive.Thumb
+            key={index}
+            className={cn(
+              // base
+              "block size-[17px] shrink-0 rounded-full border shadow-sm transition-colors",
+              // boder color
+              "border-item-hover",
+              // background color
+              "bg-white",
+              // disabled
+              "data-[disabled]:border-disabled data-[disabled]:bg-neutral-disabled data-[disabled]:pointer-events-none data-[disabled]:shadow-none",
+              focusRing,
+              "focus-visible:outline-brand-subtlest focus-visible:border-brand outline-offset-0"
+            )}
+            aria-label={ariaLabelThumb}
+          />
+        ))}
+      </SliderPrimitive.Root>
+    );
+  }
+);
+
+Slider.displayName = SliderPrimitive.Root.displayName;
+
+export { Slider };

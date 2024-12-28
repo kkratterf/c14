@@ -1,57 +1,159 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { LoaderCircle } from "lucide-react";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import { cn } from "@c14/design-system/lib/utils"
+import { cn, focusRing } from "@c14/design-system/lib/utils";
 
-const buttonVariants = cva(
-  "inline-flex justify-center items-center gap-2 disabled:opacity-50 rounded-md focus-visible:ring-1 focus-visible:ring-ring font-medium text-sm whitespace-nowrap transition-colors disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 focus-visible:outline-none",
-  {
-    variants: {
-      variant: {
-        default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
-      },
+const buttonVariants = tv({
+  base: [
+    // base
+    "relative flex text-md items-center justify-center whitespace-nowrap [&>svg]:stroke-[2.5px] [&>svg]:size-4 gap-1 rounded border text-center font-medium shadow-sm transition-all duration-100 ease-in-out",
+    // disabled
+    "disabled:pointer-events-none disabled:shadow-none",
+    // focus
+    focusRing,
+  ],
+  variants: {
+    variant: {
+      primary: [
+        // border
+        "border-transparent",
+        // text color
+        "text-inverse",
+        // background color
+        "bg-neutral",
+        // hover color
+        "hover:bg-neutral-hover",
+        // active color
+        "active:bg-neutral-active",
+        // disabled
+        "disabled:bg-neutral-disabled disabled:border-disabled disabled:text-disabled",
+      ],
+      secondary: [
+        // border
+        "border-item",
+        // text color
+        "text",
+        // background color
+        "bg-item",
+        //hover color
+        "hover:bg-item-hover",
+        //hover color
+        "active:bg-item-active dark:active:bg-item-selected",
+        // disabled
+        "disabled:text-disabled disabled:border-disabled disabled:bg-neutral-disabled",
+      ],
+      text: [
+        // base
+        "shadow-none",
+        // border
+        "border-transparent",
+        // text color
+        "text",
+        // hover color
+        "bg-transparent hover:bg-item-active active:bg-item-hover dark:active:bg-item-selected",
+        // disabled
+        "disabled:text-disabled",
+      ],
+      link: [
+        // base
+        "shadow-none underline underline-offset-4",
+        // border
+        "border-transparent",
+        // text color
+        "text-brand",
+        // hover color
+        "bg-transparent hover:text-brand-hover active:text-brand-active",
+        // disabled
+        "disabled:text-disabled",
+      ],
+      danger: [
+        // text color
+        "text-danger-inverse",
+        // border
+        "border-transparent",
+        // background color
+        "bg-danger",
+        // hover color
+        "hover:bg-danger-hover",
+        // active color
+        "active:bg-danger-active",
+        // disabled
+        "disabled:bg-neutral-disabled disabled:border-disabled disabled:text-disabled",
+      ],
     },
-    defaultVariants: {
-      variant: "default",
+    size: {
+      default: "px-2.5 h-9",
+      small: "px-2 h-8",
+    },
+    icon: {
+      true: "",
+    },
+  },
+  compoundVariants: [
+    {
       size: "default",
+      icon: true,
+      class: "w-9",
     },
-  }
-)
+    {
+      size: "small",
+      icon: true,
+      class: "w-8",
+    },
+  ],
+  defaultVariants: {
+    variant: "primary",
+    size: "default",
+  },
+});
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+interface ButtonProps extends React.ComponentPropsWithoutRef<"button">, VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+  isLoading?: boolean;
+  loadingText?: string;
+  size?: "default" | "small";
+  icon?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+  (
+    {
+      asChild,
+      isLoading = false,
+      loadingText,
+      className,
+      disabled,
+      variant,
+      size = "default",
+      icon = false,
+      children,
+      ...props
+    }: ButtonProps,
+    forwardedRef
+  ) => {
+    const Component = asChild ? Slot : "button";
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
+      <Component
+        ref={forwardedRef}
+        className={cn(buttonVariants({ variant, size, icon }), className)}
+        disabled={disabled || isLoading}
+        {...props}>
+        {isLoading ? (
+          <span className="flex justify-center items-center gap-1 pointer-events-none shrink-0">
+            <LoaderCircle className="animate-spin shrink-0 size-4" aria-hidden="true" />
+            {!icon && <span className="sr-only">{loadingText ? loadingText : "Loading"}</span>}
+            {!icon && (loadingText ? loadingText : children)}
+          </span>
+        ) : (
+          children
+        )}
+      </Component>
+    );
   }
-)
-Button.displayName = "Button"
+);
 
-export { Button, buttonVariants }
+Button.displayName = "Button";
+
+export { Button, buttonVariants, type ButtonProps };

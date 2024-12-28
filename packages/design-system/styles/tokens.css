@@ -1,0 +1,434 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* BG */
+    --color-bg-background: var(--color-neutral-0);
+    --color-bg-card: var(--color-neutral-0);
+    --color-bg-subtle: var(--color-neutral-50);
+    --color-bg-muted: var(--color-neutral-200);
+    --color-bg-inverse: var(--color-neutral-900);
+    --color-bg-elevated: var(--color-neutral-0);
+    --color-bg-mask: #09090b99;
+    --color-bg-item: var(--color-neutral-0);
+    --color-bg-item-hover: var(--color-neutral-50);
+    --color-bg-item-active: var(--color-neutral-100);
+    --color-bg-item-selected: var(--color-neutral-200);
+    /* BG BRAND */
+    --color-bg-brand-default: var(--color-brand-600);
+    --color-bg-brand-hover: var(--color-brand-500);
+    --color-bg-brand-active: var(--color-brand-700);
+    --color-bg-brand-subtle: var(--color-brand-100);
+    --color-bg-brand-subtlest: var(--color-brand-50);
+    /* BG NEUTRAL */
+    --color-bg-neutral-default: var(--color-neutral-900);
+    --color-bg-neutral-hover: var(--color-neutral-800);
+    --color-bg-neutral-active: var(--color-neutral-950);
+    --color-bg-neutral-disabled: var(--color-neutral-100);
+    /* BG DANGER */
+    --color-bg-danger-default: var(--color-red-600);
+    --color-bg-danger-hover: var(--color-red-500);
+    --color-bg-danger-active: var(--color-red-700);
+    --color-bg-danger-subtle: var(--color-red-100);
+    --color-bg-danger-subtlest: var(--color-red-50);
+    /* BG WARNING */
+    --color-bg-warning-default: var(--color-amber-600);
+    --color-bg-warning-hover: var(--color-amber-500);
+    --color-bg-warning-active: var(--color-amber-700);
+    --color-bg-warning-subtle: var(--color-amber-100);
+    --color-bg-warning-subtlest: var(--color-amber-50);
+    /* BG CHART */
+    --color-bg-chart-brand: var(--color-brand-500);
+    --color-bg-chart-brand-subtle: var(--color-brand-100);
+    --color-bg-chart-brand-subtlest: var(--color-brand-50);
+    --color-bg-chart-neutral: var(--color-neutral-500);
+    --color-bg-chart-neutral-subtle: var(--color-neutral-100);
+    --color-bg-chart-neutral-subtlest: var(--color-neutral-50);
+    --color-bg-chart-red: var(--color-red-500);
+    --color-bg-chart-red-subtle: var(--color-red-100);
+    --color-bg-chart-red-subtlest: var(--color-red-50);
+    --color-bg-chart-amber: var(--color-amber-500);
+    --color-bg-chart-amber-subtle: var(--color-amber-100);
+    --color-bg-chart-amber-subtlest: var(--color-amber-50);
+    --color-bg-chart-emerald: var(--color-emerald-500);
+    --color-bg-chart-emerald-subtle: var(--color-emerald-100);
+    --color-bg-chart-emerald-subtlest: var(--color-emerald-50);
+    --color-bg-chart-teal: var(--color-teal-500);
+    --color-bg-chart-teal-subtle: var(--color-teal-100);
+    --color-bg-chart-teal-subtlest: var(--color-teal-50);
+    --color-bg-chart-cyan: var(--color-cyan-500);
+    --color-bg-chart-cyan-subtle: var(--color-cyan-100);
+    --color-bg-chart-cyan-subtlest: var(--color-cyan-50);
+    --color-bg-chart-blue: var(--color-blue-500);
+    --color-bg-chart-blue-subtle: var(--color-blue-100);
+    --color-bg-chart-blue-subtlest: var(--color-blue-50);
+    --color-bg-chart-purple: var(--color-purple-500);
+    --color-bg-chart-purple-subtle: var(--color-purple-100);
+    --color-bg-chart-purple-subtlest: var(--color-purple-50);
+    --color-bg-chart-pink: var(--color-pink-500);
+    --color-bg-chart-pink-subtle: var(--color-pink-100);
+    --color-bg-chart-pink-subtlest: var(--color-pink-50);
+    /* TEXT */
+    --color-text-default: var(--color-neutral-900);
+    --color-text-description: var(--color-neutral-600);
+    --color-text-placeholder: var(--color-neutral-400);
+    --color-text-inverse: var(--color-neutral-50);
+    --color-text-disabled: var(--color-neutral-400);
+    /* TEXT BRAND */
+    --color-text-brand-default: var(--color-brand-600);
+    --color-text-brand-hover: var(--color-brand-500);
+    --color-text-brand-active: var(--color-brand-700);
+    --color-text-brand-strong: var(--color-brand-800);
+    --color-text-brand-inverse: var(--color-neutral-0);
+    /* TEXT DANGER */
+    --color-text-danger-default: var(--color-red-600);
+    --color-text-danger-hover: var(--color-red-500);
+    --color-text-danger-active: var(--color-red-700);
+    --color-text-danger-strong: var(--color-red-800);
+    --color-text-danger-inverse: var(--color-neutral-0);
+    /* TEXT WARNING */
+    --color-text-warning-default: var(--color-amber-600);
+    --color-text-warning-hover: var(--color-amber-500);
+    --color-text-warning-active: var(--color-amber-700);
+    --color-text-warning-strong: var(--color-amber-800);
+    --color-text-warning-inverse: var(--color-neutral-0);
+    /* TEXT CHART */
+    --color-text-chart-brand: var(--color-brand-500);
+    --color-text-chart-brand-strong: var(--color-brand-900);
+    --color-text-chart-neutral: var(--color-neutral-500);
+    --color-text-chart-neutral-strong: var(--color-neutral-900);
+    --color-text-chart-red: var(--color-red-500);
+    --color-text-chart-red-strong: var(--color-red-900);
+    --color-text-chart-amber: var(--color-amber-500);
+    --color-text-chart-amber-strong: var(--color-amber-900);
+    --color-text-chart-emerald: var(--color-emerald-500);
+    --color-text-chart-emerald-strong: var(--color-emerald-900);
+    --color-text-chart-teal: var(--color-teal-500);
+    --color-text-chart-teal-strong: var(--color-teal-900);
+    --color-text-chart-cyan: var(--color-cyan-500);
+    --color-text-chart-cyan-strong: var(--color-cyan-900);
+    --color-text-chart-blue: var(--color-blue-500);
+    --color-text-chart-blue-strong: var(--color-blue-900);
+    --color-text-chart-purple: var(--color-purple-500);
+    --color-text-chart-purple-strong: var(--color-purple-900);
+    --color-text-chart-pink: var(--color-pink-500);
+    --color-text-chart-pink-strong: var(--color-pink-900);
+    /* BORDER */
+    --color-border-default: var(--color-neutral-200);
+    --color-border-item: var(--color-neutral-300);
+    --color-border-item-hover: var(--color-neutral-400);
+    --color-border-disabled: var(--color-neutral-300);
+    /* BORDER BRAND */
+    --color-border-brand-default: var(--color-brand-600);
+    --color-border-brand-hover: var(--color-brand-500);
+    --color-border-brand-active: var(--color-brand-700);
+    --color-border-brand-subtle: var(--color-brand-300);
+    --color-border-brand-subtlest: var(--color-brand-200);
+    /* BORDER DANGER */
+    --color-border-danger-default: var(--color-red-600);
+    --color-border-danger-hover: var(--color-red-500);
+    --color-border-danger-active: var(--color-red-700);
+    --color-border-danger-subtle: var(--color-red-300);
+    --color-border-danger-subtlest: var(--color-red-200);
+    /* BORDER WARNING */
+    --color-border-warning-default: var(--color-amber-600);
+    --color-border-warning-hover: var(--color-amber-500);
+    --color-border-warning-active: var(--color-amber-700);
+    --color-border-warning-subtle: var(--color-amber-300);
+    --color-border-warning-subtlest: var(--color-amber-200);
+    /* BORDER CHART */
+    --color-border-chart-brand: var(--color-brand-500);
+    --color-border-chart-brand-subtle: var(--color-brand-300);
+    --color-border-chart-brand-subtlest: var(--color-brand-200);
+    --color-border-chart-neutral: var(--color-neutral-500);
+    --color-border-chart-neutral-subtle: var(--color-neutral-300);
+    --color-border-chart-neutral-subtlest: var(--color-neutral-200);
+    --color-border-chart-red: var(--color-red-500);
+    --color-border-chart-red-subtle: var(--color-red-300);
+    --color-border-chart-red-subtlest: var(--color-red-200);
+    --color-border-chart-amber: var(--color-amber-500);
+    --color-border-chart-amber-subtle: var(--color-amber-300);
+    --color-border-chart-amber-subtlest: var(--color-amber-200);
+    --color-border-chart-emerald: var(--color-emerald-500);
+    --color-border-chart-emeral-subtle: var(--color-emerald-300);
+    --color-border-chart-emerald-subtlest: var(--color-emerald-200);
+    --color-border-chart-teal: var(--color-teal-500);
+    --color-border-chart-teal-subtle: var(--color-teal-300);
+    --color-border-chart-teal-subtlest: var(--color-teal-200);
+    --color-border-chart-cyan: var(--color-cyan-500);
+    --color-border-chart-cyan-subtle: var(--color-cyan-300);
+    --color-border-chart-cyan-subtlest: var(--color-cyan-200);
+    --color-border-chart-blue: var(--color-blue-500);
+    --color-border-chart-blue-subtle: var(--color-blue-300);
+    --color-border-chart-blue-subtlest: var(--color-blue-200);
+    --color-border-chart-purple: var(--color-purple-500);
+    --color-border-chart-purple-subtle: var(--color-purple-300);
+    --color-border-chart-purple-subtlest: var(--color-purple-200);
+    --color-border-chart-pink: var(--color-pink-500);
+    --color-border-chart-pink-subtle: var(--color-pink-300);
+    --color-border-chart-pink-subtlest: var(--color-pink-200);
+    /* ICON */
+    --color-icon-default: var(--color-neutral-500);
+    --color-icon-hover: var(--color-neutral-800);
+    --color-icon-active: var(--color-neutral-900);
+    --color-icon-inverse: var(--color-neutral-50);
+    --color-icon-disabled: var(--color-neutral-400);
+    /* ICON BRAND */
+    --color-icon-brand-default: var(--color-brand-600);
+    --color-icon-brand-hover: var(--color-brand-500);
+    --color-icon-brand-active: var(--color-brand-700);
+    --color-icon-brand-strong: var(--color-brand-800);
+    --color-icon-brand-inverse: var(--color-neutral-0);
+    /* ICON DANGER */
+    --color-icon-danger-default: var(--color-red-600);
+    --color-icon-danger-hover: var(--color-red-500);
+    --color-icon-danger-active: var(--color-red-700);
+    --color-icon-danger-strong: var(--color-red-800);
+    --color-icon-danger-inverse: var(--color-neutral-0);
+    /* ICON WARNING */
+    --color-icon-warning-default: var(--color-amber-600);
+    --color-icon-warning-hover: var(--color-amber-500);
+    --color-icon-warning-active: var(--color-amber-700);
+    --color-icon-warning-strong: var(--color-amber-800);
+    --color-icon-warning-inverse: var(--color-neutral-0);
+    /* ICON CHART */
+    --color-icon-chart-brand: var(--color-brand-500);
+    --color-icon-chart-brand-strong: var(--color-brand-900);
+    --color-icon-chart-neutral: var(--color-neutral-500);
+    --color-icon-chart-neutral-strong: var(--color-neutral-900);
+    --color-icon-chart-red: var(--color-red-500);
+    --color-icon-chart-red-strong: var(--color-red-900);
+    --color-icon-chart-amber: var(--color-amber-500);
+    --color-icon-chart-amber-strong: var(--color-amber-900);
+    --color-icon-chart-emerald: var(--color-emerald-500);
+    --color-icon-chart-emerald-strong: var(--color-emerald-900);
+    --color-icon-chart-teal: var(--color-teal-500);
+    --color-icon-chart-teal-strong: var(--color-teal-900);
+    --color-icon-chart-cyan: var(--color-cyan-500);
+    --color-icon-chart-cyan-strong: var(--color-cyan-900);
+    --color-icon-chart-blue: var(--color-blue-500);
+    --color-icon-chart-blue-strong: var(--color-blue-900);
+    --color-icon-chart-purple: var(--color-purple-500);
+    --color-icon-chart-purple-strong: var(--color-purple-900);
+    --color-icon-chart-pink: var(--color-pink-500);
+    --color-icon-chart-pink-strong: var(--color-pink-900);
+    /* BORDER RADIUS */
+    --border-radius-sm: calc(var(--border-radius-default) - 2px);
+    --border-radius-default: 6px;
+    --border-radius-lg: calc(var(--border-radius-default) + 2px);
+  }
+  .dark {
+    /* BG */
+    --color-bg-background: var(--color-neutral-950);
+    --color-bg-card: var(--color-neutral-950);
+    --color-bg-subtle: var(--color-neutral-900);
+    --color-bg-muted: var(--color-neutral-800);
+    --color-bg-inverse: var(--color-neutral-50);
+    --color-bg-elevated: var(--color-neutral-900);
+    --color-bg-mask: #18181BE6;
+    --color-bg-item: var(--color-neutral-950);
+    --color-bg-item-hover: var(--color-neutral-900);
+    --color-bg-item-active: var(--color-neutral-900);
+    --color-bg-item-selected: var(--color-neutral-800);
+    /* BG BRAND */
+    --color-bg-brand-default: var(--color-brand-600);
+    --color-bg-brand-hover: var(--color-brand-700);
+    --color-bg-brand-active: var(--color-brand-500);
+    --color-bg-brand-subtle: var(--color-brand-950);
+    --color-bg-brand-subtlest: var(--color-brand-950);
+    /* BG NEUTRAL */
+    --color-bg-neutral-default: var(--color-neutral-50);
+    --color-bg-neutral-hover: var(--color-neutral-200);
+    --color-bg-neutral-active: var(--color-neutral-0);
+    --color-bg-neutral-disabled: var(--color-neutral-800);
+    /* BG DANGER */
+    --color-bg-danger-default: var(--color-red-600);
+    --color-bg-danger-hover: var(--color-red-700);
+    --color-bg-danger-active: var(--color-red-500);
+    --color-bg-danger-subtle: var(--color-red-950);
+    --color-bg-danger-subtlest: var(--color-red-950);
+    /* BG WARNING */
+    --color-bg-warning-default: var(--color-amber-600);
+    --color-bg-warning-hover: var(--color-amber-500);
+    --color-bg-warning-active: var(--color-amber-700);
+    --color-bg-warning-subtle: var(--color-amber-950);
+    --color-bg-warning-subtlest: var(--color-amber-950);
+    /* BG CHART */
+    --color-bg-chart-brand: var(--color-brand-500);
+    --color-bg-chart-brand-subtle: var(--color-brand-950);
+    --color-bg-chart-brand-subtlest: var(--color-brand-950);
+    --color-bg-chart-neutral: var(--color-neutral-500);
+    --color-bg-chart-neutral-subtle: var(--color-neutral-950);
+    --color-bg-chart-neutral-subtlest: var(--color-neutral-950);
+    --color-bg-chart-red: var(--color-red-500);
+    --color-bg-chart-red-subtle: var(--color-red-950);
+    --color-bg-chart-red-subtlest: var(--color-red-950);
+    --color-bg-chart-amber: var(--color-amber-500);
+    --color-bg-chart-amber-subtle: var(--color-amber-950);
+    --color-bg-chart-amber-subtlest: var(--color-amber-950);
+    --color-bg-chart-emerald: var(--color-emerald-500);
+    --color-bg-chart-emerald-subtle: var(--color-emerald-950);
+    --color-bg-chart-emerald-subtlest: var(--color-emerald-950);
+    --color-bg-chart-teal: var(--color-teal-500);
+    --color-bg-chart-teal-subtle: var(--color-teal-950);
+    --color-bg-chart-teal-subtlest: var(--color-teal-950);
+    --color-bg-chart-cyan: var(--color-cyan-500);
+    --color-bg-chart-cyan-subtle: var(--color-cyan-950);
+    --color-bg-chart-cyan-subtlest: var(--color-cyan-950);
+    --color-bg-chart-blue: var(--color-blue-500);
+    --color-bg-chart-blue-subtle: var(--color-blue-950);
+    --color-bg-chart-blue-subtlest: var(--color-blue-950);
+    --color-bg-chart-purple: var(--color-purple-500);
+    --color-bg-chart-purple-subtle: var(--color-purple-950);
+    --color-bg-chart-purple-subtlest: var(--color-purple-950);
+    --color-bg-chart-pink: var(--color-pink-500);
+    --color-bg-chart-pink-subtle: var(--color-pink-950);
+    --color-bg-chart-pink-subtlest: var(--color-pink-950);
+    /* TEXT */
+    --color-text-default: var(--color-neutral-50);
+    --color-text-description: var(--color-neutral-400);
+    --color-text-placeholder: var(--color-neutral-500);
+    --color-text-inverse: var(--color-neutral-900);
+    --color-text-disabled: var(--color-neutral-600);
+    /* TEXT BRAND */
+    --color-text-brand-default: var(--color-brand-500);
+    --color-text-brand-hover: var(--color-brand-600);
+    --color-text-brand-active: var(--color-brand-400);
+    --color-text-brand-strong: var(--color-brand-300);
+    --color-text-brand-inverse: var(--color-neutral-0);
+    /* TEXT DANGER */
+    --color-text-danger-default: var(--color-red-500);
+    --color-text-danger-hover: var(--color-red-600);
+    --color-text-danger-active: var(--color-red-400);
+    --color-text-danger-strong: var(--color-red-300);
+    --color-text-danger-inverse: var(--color-neutral-0);
+    /* TEXT WARNING */
+    --color-text-warning-default: var(--color-amber-500);
+    --color-text-warning-hover: var(--color-amber-600);
+    --color-text-warning-active: var(--color-amber-400);
+    --color-text-warning-strong: var(--color-amber-300);
+    --color-text-warning-inverse: var(--color-neutral-0);
+    /* TEXT CHART */
+    --color-text-chart-brand: var(--color-brand-500);
+    --color-text-chart-brand-strong: var(--color-brand-300);
+    --color-text-chart-neutral: var(--color-neutral-500);
+    --color-text-chart-neutral-strong: var(--color-neutral-300);
+    --color-text-chart-red: var(--color-red-500);
+    --color-text-chart-red-strong: var(--color-red-300);
+    --color-text-chart-amber: var(--color-amber-500);
+    --color-text-chart-amber-strong: var(--color-amber-300);
+    --color-text-chart-emerald: var(--color-emerald-500);
+    --color-text-chart-emerald-strong: var(--color-emerald-300);
+    --color-text-chart-teal: var(--color-teal-500);
+    --color-text-chart-teal-strong: var(--color-teal-300);
+    --color-text-chart-cyan: var(--color-cyan-500);
+    --color-text-chart-cyan-strong: var(--color-cyan-300);
+    --color-text-chart-blue: var(--color-blue-500);
+    --color-text-chart-blue-strong: var(--color-blue-300);
+    --color-text-chart-purple: var(--color-purple-500);
+    --color-text-chart-purple-strong: var(--color-purple-300);
+    --color-text-chart-pink: var(--color-pink-500);
+    --color-text-chart-pink-strong: var(--color-pink-300);
+    /* BORDER */
+    --color-border-default: var(--color-neutral-800);
+    --color-border-item: var(--color-neutral-700);
+    --color-border-item-hover: var(--color-neutral-600);
+    --color-border-disabled: var(--color-neutral-700);
+    /* BORDER BRAND */
+    --color-border-brand-default: var(--color-brand-600);
+    --color-border-brand-hover: var(--color-brand-700);
+    --color-border-brand-active: var(--color-brand-500);
+    --color-border-brand-subtle: var(--color-brand-800);
+    --color-border-brand-subtlest: var(--color-brand-800);
+    /* BORDER DANGER */
+    --color-border-danger-default: var(--color-red-600);
+    --color-border-danger-hover: var(--color-red-700);
+    --color-border-danger-active: var(--color-red-500);
+    --color-border-danger-subtle: var(--color-red-800);
+    --color-border-danger-subtlest: var(--color-red-800);
+    /* BORDER WARNING */
+    --color-border-warning-default: var(--color-amber-600);
+    --color-border-warning-hover: var(--color-amber-700);
+    --color-border-warning-active: var(--color-amber-500);
+    --color-border-warning-subtle: var(--color-amber-800);
+    --color-border-warning-subtlest: var(--color-amber-800);
+    /* BORDER CHART */
+    --color-border-chart-brand: var(--color-brand-500);
+    --color-border-chart-brand-subtle: var(--color-brand-800);
+    --color-border-chart-brand-subtlest: var(--color-brand-800);
+    --color-border-chart-neutral: var(--color-neutral-500);
+    --color-border-chart-neutral-subtle: var(--color-neutral-800);
+    --color-border-chart-neutral-subtlest: var(--color-neutral-800);
+    --color-border-chart-red: var(--color-red-500);
+    --color-border-chart-red-subtle: var(--color-red-800);
+    --color-border-chart-red-subtlest: var(--color-red-800);
+    --color-border-chart-amber: var(--color-amber-500);
+    --color-border-chart-amber-subtle: var(--color-amber-800);
+    --color-border-chart-amber-subtlest: var(--color-amber-800);
+    --color-border-chart-emerald: var(--color-emerald-500);
+    --color-border-chart-emeral-subtle: var(--color-emerald-800);
+    --color-border-chart-emerald-subtlest: var(--color-emerald-800);
+    --color-border-chart-teal: var(--color-teal-500);
+    --color-border-chart-teal-subtle: var(--color-teal-800);
+    --color-border-chart-teal-subtlest: var(--color-teal-800);
+    --color-border-chart-cyan: var(--color-cyan-500);
+    --color-border-chart-cyan-subtle: var(--color-cyan-800);
+    --color-border-chart-cyan-subtlest: var(--color-cyan-800);
+    --color-border-chart-blue: var(--color-blue-500);
+    --color-border-chart-blue-subtle: var(--color-blue-800);
+    --color-border-chart-blue-subtlest: var(--color-blue-800);
+    --color-border-chart-purple: var(--color-purple-500);
+    --color-border-chart-purple-subtle: var(--color-purple-800);
+    --color-border-chart-purple-subtlest: var(--color-purple-800);
+    --color-border-chart-pink: var(--color-pink-500);
+    --color-border-chart-pink-subtle: var(--color-pink-800);
+    --color-border-chart-pink-subtlest: var(--color-pink-800);
+    /* ICON */
+    --color-icon-default: var(--color-neutral-400);
+    --color-icon-hover: var(--color-neutral-100);
+    --color-icon-active: var(--color-neutral-50);
+    --color-icon-inverse: var(--color-neutral-900);
+    --color-icon-disabled: var(--color-neutral-600);
+    /* ICON BRAND */
+    --color-icon-brand-default: var(--color-brand-500);
+    --color-icon-brand-hover: var(--color-brand-600);
+    --color-icon-brand-active: var(--color-brand-400);
+    --color-icon-brand-strong: var(--color-brand-300);
+    --color-icon-brand-inverse: var(--color-neutral-0);
+    /* ICON DANGER */
+    --color-icon-danger-default: var(--color-red-500);
+    --color-icon-danger-hover: var(--color-red-600);
+    --color-icon-danger-active: var(--color-red-400);
+    --color-icon-danger-strong: var(--color-red-300);
+    --color-icon-danger-inverse: var(--color-neutral-0);
+    /* ICON WARNING */
+    --color-icon-warning-default: var(--color-amber-500);
+    --color-icon-warning-hover: var(--color-amber-600);
+    --color-icon-warning-active: var(--color-amber-400);
+    --color-icon-warning-strong: var(--color-amber-300);
+    --color-icon-warning-inverse: var(--color-neutral-0);
+    /* ICON CHART */
+    --color-icon-chart-brand: var(--color-brand-500);
+    --color-icon-chart-brand-strong: var(--color-brand-300);
+    --color-icon-chart-neutral: var(--color-neutral-500);
+    --color-icon-chart-neutral-strong: var(--color-neutral-300);
+    --color-icon-chart-red: var(--color-red-500);
+    --color-icon-chart-red-strong: var(--color-red-300);
+    --color-icon-chart-amber: var(--color-amber-500);
+    --color-icon-chart-amber-strong: var(--color-amber-300);
+    --color-icon-chart-emerald: var(--color-emerald-500);
+    --color-icon-chart-emerald-strong: var(--color-emerald-300);
+    --color-icon-chart-teal: var(--color-teal-500);
+    --color-icon-chart-teal-strong: var(--color-teal-300);
+    --color-icon-chart-cyan: var(--color-cyan-500);
+    --color-icon-chart-cyan-strong: var(--color-cyan-300);
+    --color-icon-chart-blue: var(--color-blue-500);
+    --color-icon-chart-blue-strong: var(--color-blue-300);
+    --color-icon-chart-purple: var(--color-purple-500);
+    --color-icon-chart-purple-strong: var(--color-purple-300);
+    --color-icon-chart-pink: var(--color-pink-500);
+    --color-icon-chart-pink-strong: var(--color-pink-300);
+  }
+}

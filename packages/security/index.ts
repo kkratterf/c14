@@ -17,7 +17,7 @@ const base = arcjet({
     // Protect against common attacks with Arcjet Shield
     shield({
       // Will block requests. Use "DRY_RUN" to log only
-      mode: 'LIVE',
+      mode: process.env.NODE_ENV === 'development' ? 'DRY_RUN' : 'LIVE',
     }),
     // Other rules are added in different routes
   ],

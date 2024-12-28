@@ -1,22 +1,42 @@
-import * as React from "react"
+import React from "react";
 
-import { cn } from "@c14/design-system/lib/utils"
+import { cn, focusInput, hasErrorInput } from "@c14/design-system/lib/utils";
 
-const Textarea = React.forwardRef<
-  HTMLTextAreaElement,
-  React.ComponentProps<"textarea">
->(({ className, ...props }, ref) => {
-  return (
-    <textarea
-      className={cn(
-        "flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        className
-      )}
-      ref={ref}
-      {...props}
-    />
-  )
-})
-Textarea.displayName = "Textarea"
+interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  hasError?: boolean;
+}
 
-export { Textarea }
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ className, hasError, ...props }: TextareaProps, forwardedRef) => {
+    return (
+      <textarea
+        ref={forwardedRef}
+        className={cn(
+          // base
+          "text-md flex min-h-20 w-full rounded border px-3 py-1.5 shadow-sm outline-none transition-colors",
+          // text color
+          "text",
+          // border color
+          "border-item",
+          // background color
+          "bg-item",
+          // placeholder color
+          "placeholder:text-placeholder placeholder:text-md",
+          // disabled
+          "disabled:border-disabled disabled:bg-neutral-disabled disabled:text-disabled",
+          // focus
+          focusInput,
+          // error
+          hasError ? hasErrorInput : "",
+          // invalid (optional)
+          // "aria-[invalid=true]:dark:ring-red-400/20 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-200 aria-[invalid=true]:border-red-500 invalid:ring-2 invalid:ring-red-200 invalid:border-red-500"
+          className
+        )}
+        {...props}
+      />
+    );
+  }
+);
+Textarea.displayName = "Textarea";
+
+export { Textarea, type TextareaProps };

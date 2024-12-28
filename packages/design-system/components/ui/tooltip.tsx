@@ -1,32 +1,91 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+import React from "react";
+import * as TooltipPrimitives from "@radix-ui/react-tooltip";
 
-import { cn } from "@c14/design-system/lib/utils"
+import { cn, focusRing } from "@c14/design-system/lib/utils";
 
-const TooltipProvider = TooltipPrimitive.Provider
 
-const Tooltip = TooltipPrimitive.Root
+const TooltipProvider = TooltipPrimitives.Provider
 
-const TooltipTrigger = TooltipPrimitive.Trigger
+interface TooltipProps
+  extends Omit<TooltipPrimitives.TooltipContentProps, "content" | "onClick">,
+    Pick<TooltipPrimitives.TooltipProps, "open" | "defaultOpen" | "onOpenChange" | "delayDuration"> {
+  content: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  side?: "bottom" | "left" | "top" | "right";
+  showArrow?: boolean;
+  triggerAsChild?: boolean;
+}
 
-const TooltipContent = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
-  <TooltipPrimitive.Portal>
-    <TooltipPrimitive.Content
-      ref={ref}
-      sideOffset={sideOffset}
-      className={cn(
-        "z-50 overflow-hidden rounded-md bg-primary px-3 py-1.5 text-xs text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        className
-      )}
-      {...props}
-    />
-  </TooltipPrimitive.Portal>
-))
-TooltipContent.displayName = TooltipPrimitive.Content.displayName
+const Tooltip = React.forwardRef<React.ComponentRef<typeof TooltipPrimitives.Content>, TooltipProps>(
+  (
+    {
+      children,
+      className,
+      content,
+      delayDuration,
+      defaultOpen,
+      open,
+      onClick,
+      onOpenChange,
+      showArrow = false,
+      side,
+      sideOffset = 4,
+      triggerAsChild = true,
+      ...props
+    }: TooltipProps,
+    forwardedRef
+  ) => {
+    return (
+      <TooltipPrimitives.Provider delayDuration={150}>
+        <TooltipPrimitives.Root
+          open={open}
+          defaultOpen={defaultOpen}
+          onOpenChange={onOpenChange}
+          delayDuration={delayDuration}>
+          <TooltipPrimitives.Trigger
+            className={cn("rounded", focusRing)}
+            onClick={onClick}
+            asChild={triggerAsChild}>
+            {children}
+          </TooltipPrimitives.Trigger>
+          <TooltipPrimitives.Portal>
+            <TooltipPrimitives.Content
+              ref={forwardedRef}
+              side={side}
+              sideOffset={sideOffset}
+              align="center"
+              className={cn(
+                // base
+                "text-md max-w-60 select-none rounded px-3 py-[5px] leading-5 shadow-md",
+                // text color
+                "text-inverse",
+                // background color
+                "bg-inverse",
+                // transition
+                "will-change-[transform,opacity]",
+                "data-[side=bottom]:animate-slideDownAndFade data-[side=left]:animate-slideLeftAndFade data-[side=right]:animate-slideRightAndFade data-[side=top]:animate-slideUpAndFade data-[state=closed]:animate-hide",
+                className
+              )}
+              {...props}>
+              {content}
+              {showArrow ? (
+                <TooltipPrimitives.Arrow
+                  className="bg-inverse border-none"
+                  width={12}
+                  height={7}
+                  aria-hidden="true"
+                />
+              ) : null}
+            </TooltipPrimitives.Content>
+          </TooltipPrimitives.Portal>
+        </TooltipPrimitives.Root>
+      </TooltipPrimitives.Provider>
+    );
+  }
+);
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+Tooltip.displayName = "Tooltip";
+
+export { Tooltip, TooltipProvider, type TooltipProps };

@@ -1,9 +1,14 @@
+import { Inter } from '@next/font/google'
 import { cn } from '@c14/design-system/lib/utils';
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
+
+const sansFont = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
 
 export const fonts = cn(
-  GeistSans.variable,
-  GeistMono.variable,
+  sansFont.variable,
   'touch-manipulation font-sans antialiased'
 );
+

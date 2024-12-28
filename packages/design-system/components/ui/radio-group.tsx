@@ -1,43 +1,75 @@
-"use client"
+import React from "react";
+import * as RadioGroupPrimitives from "@radix-ui/react-radio-group";
 
-import * as React from "react"
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { cn } from "@c14/design-system/lib/utils"
-import { DotFilledIcon } from "@radix-ui/react-icons"
+import { cn, focusRing } from "@c14/design-system/lib/utils";
 
 const RadioGroup = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
->(({ className, ...props }, ref) => {
+  React.ComponentRef<typeof RadioGroupPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitives.Root>
+>(({ className, ...props }, forwardedRef) => {
+  return <RadioGroupPrimitives.Root ref={forwardedRef} className={cn("grid gap-2", className)} {...props} />;
+});
+
+RadioGroup.displayName = "RadioGroup";
+
+const RadioGroupIndicator = React.forwardRef<
+  React.ComponentRef<typeof RadioGroupPrimitives.Indicator>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitives.Indicator>
+>(({ className, ...props }, forwardedRef) => {
   return (
-    <RadioGroupPrimitive.Root
-      className={cn("grid gap-2", className)}
-      {...props}
-      ref={ref}
-    />
-  )
-})
-RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
+    <RadioGroupPrimitives.Indicator
+      ref={forwardedRef}
+      className={cn("flex items-center justify-center", className)}
+      {...props}>
+      <div
+        className={cn(
+          // base
+          "size-1.5 shrink-0 rounded-full",
+          // indicator
+          "bg-white",
+          // disabled
+          "group-data-[disabled]:bg-neutral-disabled"
+        )}
+      />
+    </RadioGroupPrimitives.Indicator>
+  );
+});
+
+RadioGroupIndicator.displayName = "RadioGroupIndicator";
 
 const RadioGroupItem = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
->(({ className, ...props }, ref) => {
+  React.ComponentRef<typeof RadioGroupPrimitives.Item>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitives.Item>
+>(({ className, ...props }, forwardedRef) => {
   return (
-    <RadioGroupPrimitive.Item
-      ref={ref}
+    <RadioGroupPrimitives.Item
+      ref={forwardedRef}
       className={cn(
-        "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+        "text-md group relative flex size-4 appearance-none items-center justify-center rounded-full outline-none",
+        focusRing,
         className
       )}
-      {...props}
-    >
-      <RadioGroupPrimitive.Indicator className="flex justify-center items-center">
-        <DotFilledIcon className="w-3.5 h-3.5 fill-primary" />
-      </RadioGroupPrimitive.Indicator>
-    </RadioGroupPrimitive.Item>
-  )
-})
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
+      {...props}>
+      <div
+        className={cn(
+          // base
+          "flex size-4 shrink-0 items-center justify-center rounded-full border shadow-sm",
+          // border color
+          "border-item",
+          // background color
+          "bg-item",
+          // checked
+          "group-data-[state=checked]:bg-brand group-data-[state=checked]:border-0 group-data-[state=checked]:border-transparent",
+          // disabled
+          "group-data-[disabled]:border",
+          "group-data-[disabled]:border-disabled group-data-[disabled]:bg-neutral-disabled group-data-[disabled]:text-disabled"
+        )}>
+        <RadioGroupIndicator />
+      </div>
+    </RadioGroupPrimitives.Item>
+  );
+});
 
-export { RadioGroup, RadioGroupItem }
+RadioGroupItem.displayName = "RadioGroupItem";
+
+export { RadioGroup, RadioGroupItem };

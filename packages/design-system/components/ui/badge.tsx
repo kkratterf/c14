@@ -1,36 +1,33 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import React from "react";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import { cn } from "@c14/design-system/lib/utils"
+import { cn } from "@c14/design-system/lib/utils";
 
-const badgeVariants = cva(
-  "inline-flex items-center px-2.5 py-0.5 border rounded-md focus:ring-2 focus:ring-ring focus:ring-offset-2 font-semibold text-xs transition-colors focus:outline-none",
-  {
-    variants: {
-      variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "text-foreground",
-      },
+const badgeVariants = tv({
+  base: cn(
+    "flex h-5 min-w-5 items-center justify-center gap-x-1 whitespace-nowrap rounded-full px-1.5 text-sm font-medium [&>svg]:size-[14px]"
+  ),
+  variants: {
+    variant: {
+      default: ["bg-inverse text-inverse"],
+      brand: ["bg-brand text-brand-inverse"],
+      danger: ["bg-danger text-danger-inverse"],
+      warning: ["bg-warning text-warning-inverse"],
     },
-    defaultVariants: {
-      variant: "default",
-    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+interface BadgeProps extends React.ComponentPropsWithoutRef<"span">, VariantProps<typeof badgeVariants> {}
+
+const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
+  ({ className, variant, ...props }: BadgeProps, forwardedRef) => {
+    return <span ref={forwardedRef} className={cn(badgeVariants({ variant }), className)} {...props} />;
   }
-)
+);
 
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+Badge.displayName = "Badge";
 
-function Badge({ className, variant, ...props }: BadgeProps) {
-  return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
-}
-
-export { Badge, badgeVariants }
+export { Badge, badgeVariants, type BadgeProps };

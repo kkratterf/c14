@@ -1,29 +1,75 @@
-"use client"
+import React from "react";
+import * as CheckboxPrimitives from "@radix-ui/react-checkbox";
 
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { cn } from "@c14/design-system/lib/utils"
-import { CheckIcon } from "@radix-ui/react-icons"
+import { cn, focusRing } from "@c14/design-system/lib/utils";
 
 const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <CheckboxPrimitive.Root
-    ref={ref}
-    className={cn(
-      "peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-      className
-    )}
-    {...props}
-  >
-    <CheckboxPrimitive.Indicator
-      className={cn("flex items-center justify-center text-current")}
-    >
-      <CheckIcon className="w-4 h-4" />
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
-))
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+  React.ComponentRef<typeof CheckboxPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitives.Root>
+>(({ className, checked, ...props }, forwardedRef) => {
+  return (
+    <CheckboxPrimitives.Root
+      ref={forwardedRef}
+      {...props}
+      checked={checked}
+      className={cn(
+        // base
+        "text-md relative inline-flex size-4 shrink-0 appearance-none items-center justify-center rounded-sm border shadow-sm outline-none transition duration-100 enabled:cursor-pointer",
+        // text color
+        "text-white",
+        // background color
+        "bg-card",
+        // border color
+        "border-item",
+        // disabled
+        "data-[disabled]:bg-neutral-disabled data-[disabled]:text-disabled data-[disabled]:border-disabled",
+        // checked and enabled
+        "enabled:data-[state=checked]:bg-brand enabled:data-[state=checked]:border-none enabled:data-[state=checked]:border-transparent",
+        // indeterminate
+        "enabled:data-[state=indeterminate]:bg-brand enabled:data-[state=indeterminate]:border-none enabled:data-[state=indeterminate]:border-transparent",
+        // focus
+        focusRing,
+        className
+      )}>
+      <CheckboxPrimitives.Indicator asChild className="flex justify-center items-center size-full">
+        {checked === "indeterminate" ? (
+          <svg
+            aria-hidden="true"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <line
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeWidth="2"
+              x1="4"
+              x2="12"
+              y1="8"
+              y2="8"></line>
+          </svg>
+        ) : (
+          <svg
+            aria-hidden="true"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.2 5.59998L6.79999 9.99998L4.79999 7.99998"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"></path>
+          </svg>
+        )}
+      </CheckboxPrimitives.Indicator>
+    </CheckboxPrimitives.Root>
+  );
+});
 
-export { Checkbox }
+Checkbox.displayName = "Checkbox";
+
+export { Checkbox };

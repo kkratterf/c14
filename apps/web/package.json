@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "web",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000 --turbopack",
@@ -11,7 +11,6 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@prisma/client": "6.0.1",
     "@c14/analytics": "workspace:*",
     "@c14/database": "workspace:*",
     "@c14/design-system": "workspace:*",
@@ -21,7 +20,10 @@
     "@c14/security": "workspace:*",
     "@c14/seo": "workspace:*",
     "@c14/tailwind-config": "workspace:*",
+    "@next/font": "^14.2.15",
+    "@prisma/client": "6.0.1",
     "@sentry/nextjs": "^8.43.0",
+    "date-fns": "^4.1.0",
     "fuse.js": "^7.0.0",
     "import-in-the-middle": "^1.11.3",
     "lucide-react": "^0.468.0",

@@ -10,7 +10,12 @@
     "paths": {
       "@c14/*": ["../*"],
       "@c14/design-system/*": ["./*"]
-    }
+    },
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
