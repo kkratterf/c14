@@ -365,7 +365,7 @@ export const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
-        brand: 'var(--font-brand)',
+        brand: ['var(--font-brand)', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         'heading-screen': [
@@ -406,60 +406,6 @@ export const config: Config = {
             lineHeight: '1.25rem',
             letterSpacing: '1.5%',
             fontWeight: '500',
-          },
-        ],
-
-        md: [
-          '0.875rem',
-          {
-            lineHeight: '1.375rem',
-            letterSpacing: '1%',
-            fontWeight: '400',
-          },
-        ],
-        'lg-semibold': [
-          '1rem',
-          {
-            lineHeight: '1.5rem',
-            letterSpacing: '0.5%',
-            fontWeight: '600',
-          },
-        ],
-        'lg-medium': [
-          '1rem',
-          {
-            lineHeight: '1.5rem',
-            letterSpacing: '0.5%',
-            fontWeight: '500',
-          },
-        ],
-        lg: [
-          '1rem',
-          {
-            lineHeight: '1.5rem',
-            letterSpacing: '-0.5%',
-            fontWeight: '400',
-          },
-        ],
-        'sm-medium': [
-          '0.75rem',
-          {
-            lineHeight: '1rem',
-            fontWeight: '500',
-          },
-        ],
-        sm: [
-          '0.75rem',
-          {
-            lineHeight: '1rem',
-            fontWeight: '400',
-          },
-        ],
-        xs: [
-          '0.5rem',
-          {
-            lineHeight: '0.75rem',
-            fontWeight: '400',
           },
         ],
       },

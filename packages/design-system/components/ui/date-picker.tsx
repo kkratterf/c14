@@ -92,14 +92,14 @@ const Calendar = ({
       showOutsideDays={numberOfMonths === 1}
       className={cn(className)}
       classNames={{
-        months: "flex space-y-0 text-md",
-        month: "space-y-4 p-3 text-md",
-        nav: "gap-1 text-md flex items-center rounded-full size-full justify-between p-4",
-        table: "w-full border-collapse space-y-1 text-md",
-        head_cell: "w-9 text-sm text-center text-description pb-2",
+        months: "flex space-y-0 text-sm",
+        month: "space-y-4 p-3 text-sm",
+        nav: "gap-1 text-sm flex items-center rounded-full size-full justify-between p-4",
+        table: "w-full border-collapse space-y-1 text-sm",
+        head_cell: "w-9 text-xs text-center text-description pb-2",
         row: "w-full mt-0.5 ",
-        cell: cn("relative p-0 text-center focus-within:relative", "text text-md"),
-        day: cn("text size-9 rounded-lg focus:z-10", "hover:bg-item-hover text-md", focusRing),
+        cell: cn("relative p-0 text-center focus-within:relative", "text text-sm"),
+        day: cn("text size-9 rounded-lg focus:z-10", "hover:bg-item-hover text-sm", focusRing),
         day_today: "font-medium",
         day_selected: cn("rounded-lg", "aria-selected:bg-neutral aria-selected:text-inverse"),
         day_disabled: "!text-disabled line-through disabled:hover:bg-transparent",
@@ -139,7 +139,7 @@ const Calendar = ({
           };
 
           return (
-            <div className="flex justify-between items-center text-md">
+            <div className="flex justify-between items-center text-sm">
               <div className="flex items-center gap-1">
                 {enableYearNavigation && !hidePreviousButton && (
                   <NavigationButton
@@ -213,7 +213,7 @@ const Calendar = ({
             return (
               <div
                 {...divProps}
-                className={cn("text-md flex items-center justify-center", divProps.className)}
+                className={cn("text-sm flex items-center justify-center", divProps.className)}
               />
             );
           }
@@ -230,7 +230,7 @@ const Calendar = ({
               {today && (
                 <span
                   className={cn(
-                    "text-md absolute inset-x-1/2 bottom-1.5 h-0.5 w-4 -translate-x-1/2 rounded-[2px]",
+                    "text-sm absolute inset-x-1/2 bottom-1.5 h-0.5 w-4 -translate-x-1/2 rounded-[2px]",
                     {
                       "bg-brand": !selected,
                       "!bg-background": selected,

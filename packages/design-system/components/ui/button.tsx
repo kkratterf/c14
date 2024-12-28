@@ -8,7 +8,7 @@ import { cn, focusRing } from "@c14/design-system/lib/utils";
 const buttonVariants = tv({
   base: [
     // base
-    "relative flex text-md items-center justify-center whitespace-nowrap [&>svg]:stroke-[2.5px] [&>svg]:size-4 gap-1 rounded-lg border text-center font-medium shadow-sm transition-all duration-100 ease-in-out",
+    "relative flex text-sm items-center justify-center whitespace-nowrap [&>svg]:stroke-[2.5px] [&>svg]:size-4 gap-1 rounded-lg border text-center font-medium shadow-sm transition-all duration-100 ease-in-out",
     // disabled
     "disabled:pointer-events-none disabled:shadow-none",
     // focus

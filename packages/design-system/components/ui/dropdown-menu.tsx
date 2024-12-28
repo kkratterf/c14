@@ -29,7 +29,7 @@ const DropdownMenuSubMenuTrigger = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "data-[state=checked]:text-brand text-md relative flex h-9 cursor-default select-none items-center gap-2 rounded-md py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
+      "data-[state=checked]:text-brand text-sm relative flex h-9 cursor-default select-none items-center gap-2 rounded-md py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
@@ -58,7 +58,7 @@ const DropdownMenuSubMenuContent = React.forwardRef<
       collisionPadding={collisionPadding}
       className={cn(
         // base
-        "text-md relative z-50 overflow-hidden rounded-lg border p-1 shadow-xl",
+        "text-sm relative z-50 overflow-hidden rounded-lg border p-1 shadow-xl",
         // widths
         "min-w-32",
         // heights
@@ -93,7 +93,7 @@ const DropdownMenuContent = React.forwardRef<
         ref={forwardedRef}
         className={cn(
           // base
-          "text-md relative z-50 overflow-hidden rounded-lg border p-1 shadow-lg",
+          "text-sm relative z-50 overflow-hidden rounded-lg border p-1 shadow-lg",
           // widths
           "min-w-48",
           // heights
@@ -130,7 +130,7 @@ const DropdownMenuItem = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "group/DropdownMenuItem text-md data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
+      "group/DropdownMenuItem text-sm data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
@@ -141,9 +141,9 @@ const DropdownMenuItem = React.forwardRef<
     )}
     {...props}>
     {children}
-    {hint && <span className={cn("text-description ml-auto pl-2 pr-1 text-sm")}>{hint}</span>}
+    {hint && <span className={cn("text-description ml-auto pl-2 pr-1 text-xs")}>{hint}</span>}
     {shortcut && (
-      <span className={cn("text-description ml-auto pl-2 pr-1 text-sm opacity-70")}>{shortcut}</span>
+      <span className={cn("text-description ml-auto pl-2 pr-1 text-xs opacity-70")}>{shortcut}</span>
     )}
   </DropdownMenuPrimitives.Item>
 ));
@@ -160,7 +160,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "data-[state=checked]:text-brand text-md relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
+      "data-[state=checked]:text-brand text-sm relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
@@ -192,7 +192,7 @@ const DropdownMenuRadioItem = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "group/DropdownMenuRadioItem text-md data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
+      "group/DropdownMenuRadioItem text-sm data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
@@ -221,7 +221,7 @@ const DropdownMenuLabel = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "text-description text-md flex h-9 items-center justify-start px-3 font-medium tracking-wide",
+      "text-description text-sm flex h-9 items-center justify-start px-3 font-medium tracking-wide",
       className
     )}
     {...props}

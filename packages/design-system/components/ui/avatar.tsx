@@ -11,10 +11,10 @@ const avatarVariants = tv({
   variants: {
     size: {
       xs: "size-4 text-xs",
-      sm: "size-6 text-sm",
-      md: "text-md size-8",
-      lg: "text-md size-9",
-      xl: "size-10 text-lg",
+      sm: "size-6 text-xs",
+      md: "text-sm size-8",
+      lg: "text-sm size-9",
+      xl: "size-10 text-base",
     },
   },
   defaultVariants: {

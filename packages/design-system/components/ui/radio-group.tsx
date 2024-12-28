@@ -45,7 +45,7 @@ const RadioGroupItem = React.forwardRef<
     <RadioGroupPrimitives.Item
       ref={forwardedRef}
       className={cn(
-        "text-md group relative flex size-4 appearance-none items-center justify-center rounded-full outline-none",
+        "text-sm group relative flex size-4 appearance-none items-center justify-center rounded-full outline-none",
         focusRing,
         className
       )}

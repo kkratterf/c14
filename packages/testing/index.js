@@ -9,7 +9,7 @@ const config = defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './'),
+      '@': path.resolve(__dirname, '../../apps/web'),
       '@c14': path.resolve(__dirname, '../../packages'),
     },
   },

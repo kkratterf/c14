@@ -29,9 +29,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       <div ref={forwardedRef} className={cn(alertVariants({ variant }), className)} {...props}>
         <div className={cn("flex items-center justify-start")}>
           {Icon && <Icon className={cn("mr-1.5 size-5 shrink-0")} aria-hidden="true" />}
-          <span className={cn("text-lg font-medium")}>{title}</span>
+          <span className={cn("text-base font-medium")}>{title}</span>
         </div>
-        <div className={cn("text-md overflow-y-auto", children ? "mt-1" : "")}>{children}</div>
+        <div className={cn("text-sm overflow-y-auto", children ? "mt-1" : "")}>{children}</div>
       </div>
     );
   }

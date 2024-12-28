@@ -66,7 +66,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
           />
         </div>
         {label ? (
-          <span className={cn("text-md ml-2 whitespace-nowrap font-medium leading-none")}>{label}</span>
+          <span className={cn("text-sm ml-2 whitespace-nowrap font-medium leading-none")}>{label}</span>
         ) : null}
       </div>
     );

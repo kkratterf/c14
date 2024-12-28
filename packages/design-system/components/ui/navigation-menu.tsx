@@ -10,7 +10,7 @@ const NavigationMenu = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
-    className={cn("text-md relative z-10 flex flex-1 items-center justify-center", className)}
+    className={cn("text-sm relative z-10 flex flex-1 items-center justify-center", className)}
     {...props}>
     {children}
   </NavigationMenuPrimitive.Root>
@@ -18,7 +18,7 @@ const NavigationMenu = React.forwardRef<
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
 
 const navigationMenuVariants = tv({
-  base: ["group text-md flex list-none gap-1 items-center justify-start"],
+  base: ["group text-sm flex list-none gap-1 items-center justify-start"],
   variants: {
     orientation: {
       horizontal: ["flex-row"],
@@ -66,7 +66,7 @@ const NavigationMenuLink = React.forwardRef<
     ref={ref}
     className={cn(
       navigationMenuVariants({ size }),
-      "text-description text-md group flex w-max cursor-pointer items-center justify-center gap-1 rounded-lg font-medium transition-colors [&>svg]:size-4",
+      "text-description text-sm group flex w-max cursor-pointer items-center justify-center gap-1 rounded-lg font-medium transition-colors [&>svg]:size-4",
       "hover:bg-item-active hover:text",
       "data-[active]:text-brand",
       "disabled:bg-neutral-disabled disabled:text-disabled disabled:pointer-events-none",

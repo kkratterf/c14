@@ -8,7 +8,7 @@ const Accordion = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>
 >(({ className, ...props }, ref) => {
-  return <AccordionPrimitive.Root ref={ref} className={cn("bg-background text-md", className)} {...props} />;
+  return <AccordionPrimitive.Root ref={ref} className={cn("bg-background text-sm", className)} {...props} />;
 });
 Accordion.displayName = "Accordion";
 
@@ -32,7 +32,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "bg-item ring-offset-background focus-visible:ring-brand flex flex-1 items-center justify-between p-4 text-lg font-medium transition-all focus-visible:z-50 focus-visible:rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 [&[data-state=open]>svg]:rotate-180",
+        "bg-item ring-offset-background focus-visible:ring-brand flex flex-1 items-center justify-between p-4 text-base font-medium transition-all focus-visible:z-50 focus-visible:rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 [&[data-state=open]>svg]:rotate-180",
         className
       )}
       {...props}>
@@ -54,7 +54,7 @@ const AccordionContent = React.forwardRef<
       className
     )}
     {...props}>
-    <div className="px-4 pt-0 pb-4 text-md">{children}</div>
+    <div className="px-4 pt-0 pb-4 text-sm">{children}</div>
   </AccordionPrimitive.Content>
 ));
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;

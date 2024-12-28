@@ -14,7 +14,7 @@ const Command = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
-    className={cn("bg-card text-md flex size-full flex-col overflow-hidden rounded-xl", className)}
+    className={cn("bg-card text-sm flex size-full flex-col overflow-hidden rounded-xl", className)}
     {...props}
   />
 ));
@@ -23,7 +23,7 @@ Command.displayName = CommandPrimitive.displayName;
 const CommandDialog = ({ children, ...props }: DialogProps) => {
   return (
     <Dialog {...props}>
-      <DialogContent className="text-md overflow-hidden rounded-xl p-0 shadow-lg [&>svg]:size-4">
+      <DialogContent className="text-sm overflow-hidden rounded-xl p-0 shadow-lg [&>svg]:size-4">
         <Command className="[&_[cmdk-group-heading]]:text-description [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-item]]:px-3 [&_[cmdk-input-wrapper]_svg]:w-4 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:h-9 [&_[cmdk-item]_svg]:size-4">
           {children}
         </Command>
@@ -36,12 +36,12 @@ const CommandInput = React.forwardRef<
   React.ComponentRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center border-default px-3 border-b h-12 text-md" cmdk-input-wrapper="">
+  <div className="flex items-center border-default px-3 border-b h-12 text-sm" cmdk-input-wrapper="">
     <Search className="-mr-0.5 ml-1 shrink-0 size-4 stroke-2 stroke-icon" />
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "text-md placeholder:text-placeholder disabled:text-disabled flex h-12 w-full rounded-lg border-none bg-transparent outline-0 ring-0 focus:border-none focus:outline-0 focus:ring-0 disabled:cursor-not-allowed",
+        "text-sm placeholder:text-placeholder disabled:text-disabled flex h-12 w-full rounded-lg border-none bg-transparent outline-0 ring-0 focus:border-none focus:outline-0 focus:ring-0 disabled:cursor-not-allowed",
         className
       )}
       {...props}
@@ -68,7 +68,7 @@ const CommandEmpty = React.forwardRef<
   React.ComponentRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
 >((props, ref) => (
-  <CommandPrimitive.Empty ref={ref} className="py-10 text-center text-description text-md" {...props} />
+  <CommandPrimitive.Empty ref={ref} className="py-10 text-center text-description text-sm" {...props} />
 ));
 
 CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
@@ -80,7 +80,7 @@ const CommandGroup = React.forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      "[&_[cmdk-group-heading]]:text-description text-md overflow-hidden p-1 [&_[cmdk-group-heading]]:flex [&_[cmdk-group-heading]]:h-9 [&_[cmdk-group-heading]]:items-center [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:font-medium",
+      "[&_[cmdk-group-heading]]:text-description text-sm overflow-hidden p-1 [&_[cmdk-group-heading]]:flex [&_[cmdk-group-heading]]:h-9 [&_[cmdk-group-heading]]:items-center [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:font-medium",
       className
     )}
     {...props}
@@ -104,7 +104,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "aria-selected:bg-item-active text-md data-[disabled]:text-disabled ![&>svg]:size-4 relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-lg px-3 outline-none data-[disabled]:pointer-events-none",
+      "aria-selected:bg-item-active text-sm data-[disabled]:text-disabled ![&>svg]:size-4 relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-lg px-3 outline-none data-[disabled]:pointer-events-none",
       className
     )}
     {...props}
@@ -117,7 +117,7 @@ const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanE
   return (
     <span
       className={cn(
-        "text-description ml-auto pl-2 text-sm tracking-widest opacity-70 [&>svg]:size-4",
+        "text-description ml-auto pl-2 text-xs tracking-widest opacity-70 [&>svg]:size-4",
         className
       )}
       {...props}

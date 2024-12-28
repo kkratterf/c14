@@ -7,7 +7,7 @@ import { cn, focusInput, focusRing, hasErrorInput } from "@c14/design-system/lib
 const inputStyles = tv({
   base: [
     // base
-    "relative block items-center text-md w-full h-9 appearance-none rounded-lg border px-3 py-1.5 shadow-sm outline-none transition",
+    "relative block items-center text-sm w-full h-9 appearance-none rounded-lg border px-3 py-1.5 shadow-sm outline-none transition",
     // border color
     "border-item",
     // text color

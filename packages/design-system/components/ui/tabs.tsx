@@ -24,7 +24,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={forwardedRef}
     className={cn(
-      "text-description text-md [&>svg]:stroke-icon hover:text hover:border-item [&>svg]:hover:stroke-icon-active disabled:text-disabled [&>svg]:disabled:stroke-icon-disabled data-[state=active]:border-brand data-[state=active]:text-brand [&>svg]:data-[state=active]:stroke-icon-brand focus-visible:bg-item -mb-px inline-flex h-9 items-center justify-center gap-1 whitespace-nowrap border-b-2 border-transparent px-3 py-1 font-medium focus-visible:rounded-lg disabled:pointer-events-none data-[state=active]:focus-visible:border-0 [&>svg]:size-4 [&>svg]:stroke-2",
+      "text-description text-sm [&>svg]:stroke-icon hover:text hover:border-item [&>svg]:hover:stroke-icon-active disabled:text-disabled [&>svg]:disabled:stroke-icon-disabled data-[state=active]:border-brand data-[state=active]:text-brand [&>svg]:data-[state=active]:stroke-icon-brand focus-visible:bg-item -mb-px inline-flex h-9 items-center justify-center gap-1 whitespace-nowrap border-b-2 border-transparent px-3 py-1 font-medium focus-visible:rounded-lg disabled:pointer-events-none data-[state=active]:focus-visible:border-0 [&>svg]:size-4 [&>svg]:stroke-2",
       focusRing,
       className
     )}
@@ -39,7 +39,7 @@ const TabsContent = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <TabsPrimitive.Content
     ref={forwardedRef}
-    className={cn("text-md mt-2 p-3 outline-none focus-visible:rounded-lg", focusRing, className)}
+    className={cn("text-sm mt-2 p-3 outline-none focus-visible:rounded-lg", focusRing, className)}
     {...props}
   />
 ));
