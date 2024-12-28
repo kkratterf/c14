@@ -14,7 +14,7 @@ export const DesignSystemProvider = ({
 }: DesignSystemProviderProperties) => (
   <ThemeProvider {...properties}>
       <AnalyticsProvider>
-        <TooltipProvider>{children}</TooltipProvider>
+        <TooltipProvider delayDuration={150}>{children}</TooltipProvider>
         <ToastProvider />
         {env.NODE_ENV === 'development' && env.FLAGS_SECRET && (
           <VercelToolbar />

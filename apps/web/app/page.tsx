@@ -1,5 +1,6 @@
 "use client"
  
+import { ModeToggle } from '@c14/design-system/components/mode-toggle';
 import {
   Accordion,
   AccordionContent,
@@ -43,15 +44,93 @@ import { Popover, PopoverContent, PopoverTrigger } from '@c14/design-system/comp
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@c14/design-system/components/ui/select';
 import { toast } from '@c14/design-system/components/ui/toast';
 import { Tooltip } from '@c14/design-system/components/ui/tooltip';
+import { BarChart } from '@c14/design-system/components/visualizations/bar-chart';
 import { cn } from '@c14/design-system/lib/utils';
 import { format } from "date-fns";
 import { Activity, Calculator, CalendarIcon, CreditCard, FilePlus, Megaphone, Settings, Smile, User } from 'lucide-react';
 import * as React from "react";
 
+const chartdata = [
+  {
+    date: "Jan 23",
+    SolarPanels: 2890,
+    Inverters: 2338,
+  },
+  {
+    date: "Feb 23",
+    SolarPanels: 2756,
+    Inverters: 2103,
+  },
+  {
+    date: "Mar 23",
+    SolarPanels: 3322,
+    Inverters: 2194,
+  },
+  {
+    date: "Apr 23",
+    SolarPanels: 3470,
+    Inverters: 2108,
+  },
+  {
+    date: "May 23",
+    SolarPanels: 3475,
+    Inverters: 1812,
+  },
+  {
+    date: "Jun 23",
+    SolarPanels: 3129,
+    Inverters: 1726,
+  },
+  {
+    date: "Jul 23",
+    SolarPanels: 3490,
+    Inverters: 1982,
+  },
+  {
+    date: "Aug 23",
+    SolarPanels: 2903,
+    Inverters: 2012,
+  },
+  {
+    date: "Sep 23",
+    SolarPanels: 2643,
+    Inverters: 2342,
+  },
+  {
+    date: "Oct 23",
+    SolarPanels: 2837,
+    Inverters: 2473,
+  },
+  {
+    date: "Nov 23",
+    SolarPanels: 2954,
+    Inverters: 3848,
+  },
+  {
+    date: "Dec 23",
+    SolarPanels: 3239,
+    Inverters: 3736,
+  },
+]
+
 function page() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
   return (
     <div className="flex flex-col gap-4 p-10">
+      <div className='size-40 bg-brand'>Hello world</div>
+      <ModeToggle>
+      </ModeToggle>
+      <BarChart
+    className="h-80"
+    data={chartdata}
+    index="date"
+    colors={["red", "violet"]}
+    categories={["SolarPanels", "Inverters"]}
+    valueFormatter={(number: number) =>
+      `$${Intl.NumberFormat("us").format(number).toString()}`
+    }
+    onValueChange={(v) => console.log(v)}
+  />
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>Is it accessible?</AccordionTrigger>

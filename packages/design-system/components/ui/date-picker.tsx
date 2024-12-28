@@ -31,7 +31,7 @@ const NavigationButton = React.forwardRef<HTMLButtonElement, NavigationButtonPro
         type="button"
         disabled={disabled}
         className={cn(
-          "group flex size-7 shrink-0 select-none items-center justify-center rounded border p-1 outline-none transition",
+          "group flex size-7 shrink-0 select-none items-center justify-center rounded-lg border p-1 outline-none transition",
           // border color
           "border-item",
           // background color
@@ -99,9 +99,9 @@ const Calendar = ({
         head_cell: "w-9 text-sm text-center text-description pb-2",
         row: "w-full mt-0.5 ",
         cell: cn("relative p-0 text-center focus-within:relative", "text text-md"),
-        day: cn("text size-9 rounded focus:z-10", "hover:bg-item-hover text-md", focusRing),
+        day: cn("text size-9 rounded-lg focus:z-10", "hover:bg-item-hover text-md", focusRing),
         day_today: "font-medium",
-        day_selected: cn("rounded", "aria-selected:bg-neutral aria-selected:text-inverse"),
+        day_selected: cn("rounded-lg", "aria-selected:bg-neutral aria-selected:text-inverse"),
         day_disabled: "!text-disabled line-through disabled:hover:bg-transparent",
         day_outside: "text-disabled",
         day_range_middle: cn("!rounded-none", "aria-selected:!text aria-selected:bg-item-active"),

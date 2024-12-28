@@ -7,7 +7,7 @@ const skeletonVariants = tv({
   base: cn("bg-muted animate-pulse"),
   variants: {
     shape: {
-      line: "h-4 w-full rounded",
+      line: "h-4 w-full rounded-lg",
       circle: "h-9 w-9 rounded-full",
     },
   },

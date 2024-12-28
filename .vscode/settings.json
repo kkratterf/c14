@@ -23,6 +23,22 @@
   "editor.formatOnSave": true,
   "emmet.showExpandedAbbreviation": "never",
   "prettier.enable": false,
+  "css.lint.unknownAtRules": "ignore",
   "tailwindCSS.experimental.configFile": "./packages/tailwind-config/config.ts",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }

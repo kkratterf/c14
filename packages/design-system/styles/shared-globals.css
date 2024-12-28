@@ -9,9 +9,11 @@
   * {
     @apply border-default;
   }
-  body {
-    @apply bg-background text font-sans antialiased;
+  html {
+    text-rendering: optimizelegibility;
     font-synthesis-weight: none;
-    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background min-h-[100dvh] text;
   }
 }

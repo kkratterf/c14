@@ -14,7 +14,7 @@ const Command = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
-    className={cn("bg-card text-md flex size-full flex-col overflow-hidden rounded-lg", className)}
+    className={cn("bg-card text-md flex size-full flex-col overflow-hidden rounded-xl", className)}
     {...props}
   />
 ));
@@ -23,7 +23,7 @@ Command.displayName = CommandPrimitive.displayName;
 const CommandDialog = ({ children, ...props }: DialogProps) => {
   return (
     <Dialog {...props}>
-      <DialogContent className="text-md overflow-hidden rounded-lg p-0 shadow-lg [&>svg]:size-4">
+      <DialogContent className="text-md overflow-hidden rounded-xl p-0 shadow-lg [&>svg]:size-4">
         <Command className="[&_[cmdk-group-heading]]:text-description [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-item]]:px-3 [&_[cmdk-input-wrapper]_svg]:w-4 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:h-9 [&_[cmdk-item]_svg]:size-4">
           {children}
         </Command>
@@ -41,7 +41,7 @@ const CommandInput = React.forwardRef<
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "text-md placeholder:text-placeholder disabled:text-disabled flex h-12 w-full rounded border-none bg-transparent outline-0 ring-0 focus:border-none focus:outline-0 focus:ring-0 disabled:cursor-not-allowed",
+        "text-md placeholder:text-placeholder disabled:text-disabled flex h-12 w-full rounded-lg border-none bg-transparent outline-0 ring-0 focus:border-none focus:outline-0 focus:ring-0 disabled:cursor-not-allowed",
         className
       )}
       {...props}
@@ -104,7 +104,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "aria-selected:bg-item-active text-md data-[disabled]:text-disabled ![&>svg]:size-4 relative flex h-9 cursor-pointer select-none items-center gap-2 rounded px-3 outline-none data-[disabled]:pointer-events-none",
+      "aria-selected:bg-item-active text-md data-[disabled]:text-disabled ![&>svg]:size-4 relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-lg px-3 outline-none data-[disabled]:pointer-events-none",
       className
     )}
     {...props}

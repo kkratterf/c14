@@ -38,14 +38,13 @@ const Tooltip = React.forwardRef<React.ComponentRef<typeof TooltipPrimitives.Con
     forwardedRef
   ) => {
     return (
-      <TooltipPrimitives.Provider delayDuration={150}>
         <TooltipPrimitives.Root
           open={open}
           defaultOpen={defaultOpen}
           onOpenChange={onOpenChange}
           delayDuration={delayDuration}>
           <TooltipPrimitives.Trigger
-            className={cn("rounded", focusRing)}
+            className={cn("rounded-lg", focusRing)}
             onClick={onClick}
             asChild={triggerAsChild}>
             {children}
@@ -58,7 +57,7 @@ const Tooltip = React.forwardRef<React.ComponentRef<typeof TooltipPrimitives.Con
               align="center"
               className={cn(
                 // base
-                "text-md max-w-60 select-none rounded px-3 py-[5px] leading-5 shadow-md",
+                "text-md max-w-60 select-none rounded-lg px-3 py-[5px] leading-5 shadow-md",
                 // text color
                 "text-inverse",
                 // background color
@@ -81,7 +80,6 @@ const Tooltip = React.forwardRef<React.ComponentRef<typeof TooltipPrimitives.Con
             </TooltipPrimitives.Content>
           </TooltipPrimitives.Portal>
         </TooltipPrimitives.Root>
-      </TooltipPrimitives.Provider>
     );
   }
 );

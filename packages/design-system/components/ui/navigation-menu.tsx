@@ -66,7 +66,7 @@ const NavigationMenuLink = React.forwardRef<
     ref={ref}
     className={cn(
       navigationMenuVariants({ size }),
-      "text-description text-md group flex w-max cursor-pointer items-center justify-center gap-1 rounded font-medium transition-colors [&>svg]:size-4",
+      "text-description text-md group flex w-max cursor-pointer items-center justify-center gap-1 rounded-lg font-medium transition-colors [&>svg]:size-4",
       "hover:bg-item-active hover:text",
       "data-[active]:text-brand",
       "disabled:bg-neutral-disabled disabled:text-disabled disabled:pointer-events-none",

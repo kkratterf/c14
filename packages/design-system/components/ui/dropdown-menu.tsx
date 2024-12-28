@@ -29,7 +29,7 @@ const DropdownMenuSubMenuTrigger = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "data-[state=checked]:text-brand text-md relative flex h-9 cursor-default select-none items-center gap-2 rounded-sm py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
+      "data-[state=checked]:text-brand text-md relative flex h-9 cursor-default select-none items-center gap-2 rounded-md py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
@@ -58,7 +58,7 @@ const DropdownMenuSubMenuContent = React.forwardRef<
       collisionPadding={collisionPadding}
       className={cn(
         // base
-        "text-md relative z-50 overflow-hidden rounded border p-1 shadow-xl",
+        "text-md relative z-50 overflow-hidden rounded-lg border p-1 shadow-xl",
         // widths
         "min-w-32",
         // heights
@@ -93,7 +93,7 @@ const DropdownMenuContent = React.forwardRef<
         ref={forwardedRef}
         className={cn(
           // base
-          "text-md relative z-50 overflow-hidden rounded border p-1 shadow-lg",
+          "text-md relative z-50 overflow-hidden rounded-lg border p-1 shadow-lg",
           // widths
           "min-w-48",
           // heights
@@ -130,7 +130,7 @@ const DropdownMenuItem = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "group/DropdownMenuItem text-md data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-sm py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
+      "group/DropdownMenuItem text-md data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-1.5 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
@@ -160,7 +160,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "data-[state=checked]:text-brand text-md relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-sm py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
+      "data-[state=checked]:text-brand text-md relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
@@ -192,7 +192,7 @@ const DropdownMenuRadioItem = React.forwardRef<
     ref={forwardedRef}
     className={cn(
       // base
-      "group/DropdownMenuRadioItem text-md data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-sm py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
+      "group/DropdownMenuRadioItem text-md data-[state=checked]:text-brand relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-md py-1 pl-3 pr-8 outline-none transition-colors [&>svg]:size-4",
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus

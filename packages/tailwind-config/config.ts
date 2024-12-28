@@ -15,6 +15,7 @@ export const config: Config = {
     './lib/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './providers/**/*.{ts,tsx}',
+    './packages/design-system/styles/**/*.css',
   ],
   theme: {
     container: {
@@ -56,7 +57,7 @@ export const config: Config = {
         },
       },
       backgroundColor: {
-        // BG
+        /* background */
         background: 'var(--color-bg-background)',
         card: 'var(--color-bg-card)',
         subtle: 'var(--color-bg-subtle)',
@@ -68,35 +69,34 @@ export const config: Config = {
         'item-hover': 'var(--color-bg-item-hover)',
         'item-active': 'var(--color-bg-item-active)',
         'item-selected': 'var(--color-bg-item-selected)',
-        // BG BRAND
+        /* background brand */
         brand: 'var(--color-bg-brand-default)',
         'brand-hover': 'var(--color-bg-brand-hover)',
         'brand-active': 'var(--color-bg-brand-active)',
         'brand-subtle': 'var(--color-bg-brand-subtle)',
         'brand-subtlest': 'var(--color-bg-brand-subtlest)',
-        // BG NEUTRAL
+        /* background neutral */
         neutral: 'var(--color-bg-neutral-default)',
         'neutral-hover': 'var(--color-bg-neutral-hover)',
         'neutral-active': 'var(--color-bg-neutral-active)',
         'neutral-disabled': 'var(--color-bg-neutral-disabled)',
-        // BG DANGER
+        /* background danger */
         danger: 'var(--color-bg-danger-default)',
         'danger-hover': 'var(--color-bg-danger-hover)',
         'danger-active': 'var(--color-bg-danger-active)',
         'danger-subtle': 'var(--color-bg-danger-subtle)',
         'danger-subtlest': 'var(--color-bg-danger-subtlest)',
-        // BG WARNING
+        /* background warning */
         warning: 'var(--color-bg-warning-default)',
         'warning-hover': 'var(--color-bg-warning-hover)',
         'warning-active': 'var(--color-bg-warning-active)',
         'warning-subtle': 'var(--color-bg-warning-subtle)',
         'warning-subtlest': 'var(--color-bg-warning-subtlest)',
-        // BG BORDER
+        /* background border */
         border: 'var(--color-border-default)',
         'border-item': 'var(--color-border-item)',
         'border-item-hover': 'var(--color-border-item-hover)',
-        // BG CHART
-        'chart-brand': 'var(--color-bg-chart-brand)',
+        /* background chart */
         chart: {
           brand: 'var(--color-bg-chart-brand)',
           'brand-subtle': 'var(--color-bg-chart-brand-subtle)',
@@ -122,40 +122,40 @@ export const config: Config = {
           blue: 'var(--color-bg-chart-blue)',
           'blue-subtle': 'var(--color-bg-chart-blue-subtle)',
           'blue-subtlest': 'var(--color-bg-chart-blue-subtlest)',
-          purple: 'var(--color-bg-chart-purple)',
-          'purple-subtle': 'var(--color-bg-chart-purple-subtle)',
-          'purple-subtlest': 'var(--color-bg-chart-purple-subtlest)',
-          pink: 'var(--color-bg-chart-pink)',
-          'pink-subtle': 'var(--color-bg-chart-pink-subtle)',
-          'pink-subtlest': 'var(--color-bg-chart-pink-subtlest)',
+          violet: 'var(--color-bg-chart-violet)',
+          'violet-subtle': 'var(--color-bg-chart-violet-subtle)',
+          'violet-subtlest': 'var(--color-bg-chart-violet-subtlest)',
+          fuchsia: 'var(--color-bg-chart-fuchsia)',
+          'fuchsia-subtle': 'var(--color-bg-chart-fuchsia-subtle)',
+          'fuchsia-subtlest': 'var(--color-bg-chart-fuchsia-subtlest)',
         },
       },
       textColor: {
-        // TEXT
+        /* text */
         DEFAULT: 'var(--color-text-default)',
         description: 'var(--color-text-description)',
         placeholder: 'var(--color-text-placeholder)',
         inverse: 'var(--color-text-inverse)',
         disabled: 'var(--color-text-disabled)',
-        // TEXT BRAND
+        /* text brand */
         brand: 'var(--color-text-brand-default)',
         'brand-hover': 'var(--color-text-brand-hover)',
         'brand-active': 'var(--color-text-brand-active)',
         'brand-strong': 'var(--color-text-brand-strong)',
         'brand-inverse': 'var(--color-text-brand-inverse)',
-        // TEXT DANGER
+        /* text danger */
         danger: 'var(--color-text-danger-default)',
         'danger-hover': 'var(--color-text-danger-hover)',
         'danger-active': 'var(--color-text-danger-active)',
         'danger-strong': 'var(--color-text-danger-strong)',
         'danger-inverse': 'var(--color-text-danger-inverse)',
-        // TEXT WARNING
+        /* text warning */
         warning: 'var(--color-text-warning-default)',
         'warning-hover': 'var(--color-text-warning-hover)',
         'warning-active': 'var(--color-text-warning-active)',
         'warning-strong': 'var(--color-text-warning-strong)',
         'warning-inverse': 'var(--color-text-warning-inverse)',
-        // TEXT CHART
+        /* text chart */
         chart: {
           brand: 'var(--color-text-chart-brand)',
           'brand-strong': 'var(--color-text-chart-brand-strong)',
@@ -173,37 +173,37 @@ export const config: Config = {
           'cyan-strong': 'var(--color-text-chart-cyan-strong)',
           blue: 'var(--color-text-chart-blue)',
           'blue-strong': 'var(--color-text-chart-blue-strong)',
-          purple: 'var(--color-text-chart-purple)',
-          'purple-strong': 'var(--color-text-chart-purple-strong)',
-          pink: 'var(--color-text-chart-pink)',
-          'pink-strong': 'var(--color-text-chart-pink-strong)',
+          violet: 'var(--color-text-chart-violet)',
+          'violet-strong': 'var(--color-text-chart-violet-strong)',
+          fuchsia: 'var(--color-text-chart-fuchsia)',
+          'fuchsia-strong': 'var(--color-text-chart-fuchsia-strong)',
         },
       },
       borderColor: {
-        // BORDER
+        /* border */
         default: 'var(--color-border-default)',
         item: 'var(--color-border-item)',
         'item-hover': 'var(--color-border-item-hover)',
         disabled: 'var(--color-border-disabled)',
-        // BORDER BRAND
+        /* border brand */
         brand: 'var(--color-border-brand-default)',
         'brand-hover': 'var(--color-border-brand-hover)',
         'brand-active': 'var(--color-border-brand-active)',
         'brand-subtle': 'var(--color-border-brand-subtle)',
         'brand-subtlest': 'var(--color-border-brand-subtlest)',
-        // BORDER DANGER
+        /* border danger*/
         danger: 'var(--color-border-danger-default)',
         'danger-hover': 'var(--color-border-danger-hover)',
         'danger-active': 'var(--color-border-danger-active)',
         'danger-subtle': 'var(--color-border-danger-subtle)',
         'danger-subtlest': 'var(--color-border-danger-subtlest)',
-        // BORDER WARNING
+        /* border warning*/
         warning: 'var(--color-border-warning-default)',
         'warning-hover': 'var(--color-border-warning-hover)',
         'warning-active': 'var(--color-border-warning-active)',
         'warning-subtle': 'var(--color-border-warning-subtle)',
         'warning-subtlest': 'var(--color-border-warning-subtlest)',
-        // BORDER CHART
+        /* border chart */
         chart: {
           brand: 'var(--color-border-chart-brand)',
           'brand-subtle': 'var(--color-border-chart-brand-subtle)',
@@ -229,14 +229,14 @@ export const config: Config = {
           blue: 'var(--color-border-chart-blue)',
           'blue-subtle': 'var(--color-border-chart-blue-subtle)',
           'blue-subtlest': 'var(--color-border-chart-blue-subtlest)',
-          purple: 'var(--color-border-chart-purple)',
-          'purple-subtle': 'var(--color-border-chart-purple-subtle)',
-          'purple-subtlest': 'var(--color-border-chart-purple-subtlest)',
-          pink: 'var(--color-border-chart-pink)',
-          'pink-subtle': 'var(--color-border-chart-pink-subtle)',
-          'pink-subtlest': 'var(--color-border-chart-pink-subtlest)',
+          violet: 'var(--color-border-chart-violet)',
+          'violet-subtle': 'var(--color-border-chart-violet-subtle)',
+          'violet-subtlest': 'var(--color-border-chart-violet-subtlest)',
+          fuchsia: 'var(--color-border-chart-fuchsia)',
+          'fuchsia-subtle': 'var(--color-border-chart-fuchsia-subtle)',
+          'fuchsia-subtlest': 'var(--color-border-chart-fuchsia-subtlest)',
         },
-        // BACKGROUND
+        /* border background */
         background: 'var(--color-bg-background)',
       },
       divideColor: {
@@ -266,31 +266,31 @@ export const config: Config = {
         warning: 'var(--color-bg-warning-default)',
       },
       stroke: {
-        // STROKE
+        /* stroke */
         icon: 'var(--color-icon-default)',
         'icon-hover': 'var(--color-icon-hover)',
         'icon-active': 'var(--color-icon-active)',
         'icon-inverse': 'var(--color-icon-inverse)',
         'icon-disabled': 'var(--color-icon-disabled)',
-        // STROKE BRAND
+        /* stroke brand */
         'icon-brand': 'var(--color-icon-brand-default)',
         'icon-brand-hover': 'var(--color-icon-brand-hover)',
         'icon-brand-active': 'var(--color-icon-brand-active)',
         'icon-brand-strong': 'var(--color-icon-brand-strong)',
         'icon-brand-inverse': 'var(--color-icon-brand-inverse)',
-        // STROKE DANGER
+        /* stroke danger */
         'icon-danger': 'var(--color-icon-danger-default)',
         'icon-danger-hover': 'var(--color-icon-danger-hover)',
         'icon-danger-active': 'var(--color-icon-danger-active)',
         'icon-danger-strong': 'var(--color-icon-danger-strong)',
         'icon-danger-inverse': 'var(--color-icon-danger-inverse)',
-        // STROKE WARNING
+        /* stroke warning */
         'icon-warning': 'var(--color-icon-warning-default)',
         'icon-warning-hover': 'var(--color-icon-warning-hover)',
         'icon-warning-active': 'var(--color-icon-warning-active)',
         'icon-warning-strong': 'var(--color-icon-warning-strong)',
         'icon-warning-inverse': 'var(--color-icon-warning-inverse)',
-        // STROKE CHART
+        /* stroke chart */
         'icon-chart': {
           brand: 'var(--color-icon-chart-brand)',
           'brand-strong': 'var(--color-icon-chart-brand-strong)',
@@ -308,38 +308,38 @@ export const config: Config = {
           'cyan-strong': 'var(--color-icon-chart-cyan-strong)',
           blue: 'var(--color-icon-chart-blue)',
           'blue-strong': 'var(--color-icon-chart-blue-strong)',
-          purple: 'var(--color-icon-chart-purple)',
-          'purple-strong': 'var(--color-icon-chart-purple-strong)',
-          pink: 'var(--color-icon-chart-pink)',
-          'pink-strong': 'var(--color-icon-chart-pink-strong)',
+          violet: 'var(--color-icon-chart-violet)',
+          'violet-strong': 'var(--color-icon-chart-violet-strong)',
+          fuchsia: 'var(--color-icon-chart-fuchsia)',
+          'fuchsia-strong': 'var(--color-icon-chart-fuchsia-strong)',
         },
       },
       fill: {
-        // FILL
+        /* fill */
         icon: 'var(--color-icon-default)',
         'icon-hover': 'var(--color-icon-hover)',
         'icon-active': 'var(--color-icon-active)',
         'icon-inverse': 'var(--color-icon-inverse)',
         'icon-disabled': 'var(--color-icon-disabled)',
-        // FILL BRAND
+        /* fill brand */
         'icon-brand': 'var(--color-icon-brand-default)',
         'icon-brand-hover': 'var(--color-icon-brand-hover)',
         'icon-brand-active': 'var(--color-icon-brand-active)',
         'icon-brand-strong': 'var(--color-icon-brand-strong)',
         'icon-brand-inverse': 'var(--color-icon-brand-inverse)',
-        // FILL DANGER
+        /* fill danger */
         'icon-danger': 'var(--color-icon-danger-default)',
         'icon-danger-hover': 'var(--color-icon-danger-hover)',
         'icon-danger-active': 'var(--color-icon-danger-active)',
         'icon-danger-strong': 'var(--color-icon-danger-strong)',
         'icon-danger-inverse': 'var(--color-icon-danger-inverse)',
-        // FILL WARNING
+        /* fill warning */
         'icon-warning': 'var(--color-icon-warning-default)',
         'icon-warning-hover': 'var(--color-icon-warning-hover)',
         'icon-warning-active': 'var(--color-icon-warning-active)',
         'icon-warning-strong': 'var(--color-icon-warning-strong)',
         'icon-warning-inverse': 'var(--color-icon-warning-inverse)',
-        // FILL CHART
+        /* fill chart */
         'icon-chart': {
           brand: 'var(--color-icon-chart-brand)',
           'brand-strong': 'var(--color-icon-chart-brand-strong)',
@@ -357,10 +357,10 @@ export const config: Config = {
           'cyan-strong': 'var(--color-icon-chart-cyan-strong)',
           blue: 'var(--color-icon-chart-blue)',
           'blue-strong': 'var(--color-icon-chart-blue-strong)',
-          purple: 'var(--color-icon-chart-purple)',
-          'purple-strong': 'var(--color-icon-chart-purple-strong)',
-          pink: 'var(--color-icon-chart-pink)',
-          'pink-strong': 'var(--color-icon-chart-pink-strong)',
+          violet: 'var(--color-icon-chart-violet)',
+          'violet-strong': 'var(--color-icon-chart-violet-strong)',
+          fuchsia: 'var(--color-icon-chart-fuchsia)',
+          'fuchsia-strong': 'var(--color-icon-chart-fuchsia-strong)',
         },
       },
       fontFamily: {
@@ -368,14 +368,6 @@ export const config: Config = {
         brand: 'var(--font-brand)',
       },
       fontSize: {
-        'display-website': [
-          '3rem',
-          {
-            lineHeight: '1',
-            letterSpacing: '-2.5%',
-            fontWeight: '700',
-          },
-        ],
         'heading-screen': [
           '2.25rem',
           {
@@ -416,22 +408,7 @@ export const config: Config = {
             fontWeight: '500',
           },
         ],
-        'md-semibold': [
-          '0.875rem',
-          {
-            lineHeight: '1.375rem',
-            letterSpacing: '1.25%',
-            fontWeight: '600',
-          },
-        ],
-        'md-medium': [
-          '0.875rem',
-          {
-            lineHeight: '1.375rem',
-            letterSpacing: '1.25%',
-            fontWeight: '500',
-          },
-        ],
+
         md: [
           '0.875rem',
           {
@@ -485,14 +462,6 @@ export const config: Config = {
             fontWeight: '400',
           },
         ],
-      },
-      borderRadius: {
-        sm: 'var(--border-radius-sm)',
-        DEFAULT: 'var(--border-radius-default)',
-        lg: 'var(--border-radius-lg)',
-      },
-      screens: {
-        xs: '390px',
       },
       keyframes: {
         hide: {
