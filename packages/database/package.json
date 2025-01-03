@@ -22,7 +22,7 @@
     "@c14/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
     "@types/ws": "^8.5.13",
-    "bufferutil": "^4.0.8",
+    "bufferutil": "^4.0.9",
     "prisma": "6.0.1",
     "supabase": "^2.1.1",
     "typescript": "^5.7.2"
