@@ -9,7 +9,7 @@
   "dependencies": {
     "@logtail/next": "^0.1.7",
     "@c14/env": "workspace:*",
-    "@sentry/nextjs": "^8.43.0",
+    "@sentry/nextjs": "^8.47.0",
     "react": "^19.0.0"
   },
   "devDependencies": {

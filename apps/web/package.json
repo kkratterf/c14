@@ -22,7 +22,7 @@
     "@c14/tailwind-config": "workspace:*",
     "@next/font": "^14.2.15",
     "@prisma/client": "6.0.1",
-    "@sentry/nextjs": "^8.43.0",
+    "@sentry/nextjs": "^8.47.0",
     "date-fns": "^4.1.0",
     "fuse.js": "^7.0.0",
     "import-in-the-middle": "^1.11.3",
