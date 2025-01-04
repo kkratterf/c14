@@ -153,7 +153,7 @@ importers:
         version: link:../analytics
       '@hookform/resolvers':
         specifier: ^3.9.1
-        version: 3.9.1(react-hook-form@7.54.0(react@19.0.0))
+        version: 3.9.1(react-hook-form@7.54.2(react@19.0.0))
       '@internationalized/date':
         specifier: ^3.6.0
         version: 3.6.0
@@ -278,8 +278,8 @@ importers:
         specifier: 8.10.1
         version: 8.10.1(date-fns@4.1.0)(react@19.0.0)
       react-hook-form:
-        specifier: ^7.54.0
-        version: 7.54.0(react@19.0.0)
+        specifier: ^7.54.2
+        version: 7.54.2(react@19.0.0)
       react-moveable:
         specifier: ^0.56.0
         version: 0.56.0
@@ -4827,8 +4827,8 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
-  react-hook-form@7.54.0:
-    resolution: {integrity: sha512-PS05+UQy/IdSbJNojBypxAo9wllhHgGmyr8/dyGQcPoiMf3e7Dfb9PWYVRco55bLbxH9S+1yDDJeTdlYCSxO3A==}
+  react-hook-form@7.54.2:
+    resolution: {integrity: sha512-eHpAUgUjWbZocoQYUHposymRb4ZP6d0uwUnooL2uOybA9/3tPUvoAKqEWK1WaSiTxxOfTpffNZP7QwlnM3/gEg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -6123,9 +6123,9 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@hookform/resolvers@3.9.1(react-hook-form@7.54.0(react@19.0.0))':
+  '@hookform/resolvers@3.9.1(react-hook-form@7.54.2(react@19.0.0))':
     dependencies:
-      react-hook-form: 7.54.0(react@19.0.0)
+      react-hook-form: 7.54.2(react@19.0.0)
 
   '@iconify/types@2.0.0': {}
 
@@ -11182,7 +11182,7 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
-  react-hook-form@7.54.0(react@19.0.0):
+  react-hook-form@7.54.2(react@19.0.0):
     dependencies:
       react: 19.0.0
 
