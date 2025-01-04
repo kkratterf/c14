@@ -1,29 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": ["**/.env"],
   "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "test"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "env": [
-        "ARCJET_KEY",
-        "BETTERSTACK_API_KEY",
-        "BETTERSTACK_URL",
-        "DATABASE_URL",
-        "DIRECT_URL",
-        "FLAGS_SECRET",
-        "SENTRY_AUTH_TOKEN",
-        "SENTRY_ORG",
-        "SENTRY_PROJECT",
-        "SVIX_TOKEN"
-      ]
-    },
-    "test": {
-      "dependsOn": ["^test"]
-    },
-    "analyze": {
-      "dependsOn": ["^analyze"]
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
       "cache": false,

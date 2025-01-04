@@ -2,10 +2,19 @@
   "name": "docs",
   "private": true,
   "scripts": {
-    "dev": "mintlify dev --port 3004",
-    "lint": "mintlify broken-links"
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
-  "devDependencies": {
-    "typescript": "^5.7.2"
+  "dependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "lucide-react": "^0.468.0",
+    "next": "15.1.0",
+    "nextra": "^3.3.1",
+    "nextra-theme-docs": "^3.3.1",
+    "react": "^19.0.0",
+    "react-dom": "19.0.0"
   }
 }

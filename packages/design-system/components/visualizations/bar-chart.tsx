@@ -479,7 +479,7 @@ const ChartTooltip = ({
           {payload.map(({ value, category, color }, index) => (
             <div
               key={`id-${index}`}
-              className='flex items-center justify-between space-x-8'
+              className='flex justify-between items-center space-x-8'
             >
               <div className="flex items-center space-x-2">
                 <span
@@ -736,7 +736,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 <Label
                   position="insideBottom"
                   offset={-20}
-                  className='fill-neutral-800 font-medium dark:fill-neutral-200'
+                  className='font-medium dark:fill-neutral-200 fill-neutral-800'
                 >
                   {xAxisLabel}
                 </Label>
@@ -782,7 +782,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   style={{ textAnchor: 'middle' }}
                   angle={-90}
                   offset={-15}
-                  className='fill-neutral-800 font-medium dark:fill-neutral-200'
+                  className='font-medium dark:fill-neutral-200 fill-neutral-800'
                 >
                   {yAxisLabel}
                 </Label>

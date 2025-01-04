@@ -1,7 +1,9 @@
 {
   "recommendations": [
     "biomejs.biome",
+    "DavidAnson.vscode-markdownlint",
     "bradlc.vscode-tailwindcss",
+    "yzhang.markdown-all-in-one",
     "Prisma.prisma",
     "unifiedjs.vscode-mdx",
     "mikestead.dotenv",

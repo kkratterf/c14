@@ -5,26 +5,16 @@
     "dev": "next dev -p 3000 --turbopack",
     "build": "next build",
     "start": "next start",
-    "analyze": "ANALYZE=true pnpm build",
-    "test": "vitest run",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@c14/analytics": "workspace:*",
-    "@c14/database": "workspace:*",
     "@c14/design-system": "workspace:*",
-    "@c14/env": "workspace:*",
-    "@c14/feature-flags": "workspace:*",
-    "@c14/next-config": "workspace:*",
-    "@c14/security": "workspace:*",
-    "@c14/seo": "workspace:*",
     "@c14/tailwind-config": "workspace:*",
-    "@next/font": "^14.2.15",
     "@prisma/client": "6.0.1",
     "@sentry/nextjs": "^8.47.0",
     "date-fns": "^4.1.0",
-    "fuse.js": "^7.0.0",
     "import-in-the-middle": "^1.11.3",
     "lucide-react": "^0.468.0",
     "next": "15.1.0",
@@ -34,16 +24,12 @@
     "require-in-the-middle": "^7.4.0"
   },
   "devDependencies": {
-    "@c14/testing": "workspace:*",
     "@c14/typescript-config": "workspace:*",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/react": "^16.1.0",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
     "jsdom": "^25.0.1",
     "tailwindcss": "^3.4.16",
-    "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "typescript": "^5.7.2"
   }
 }

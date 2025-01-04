@@ -1,19 +1,21 @@
-import { env } from '@c14/env';
 import type { ReactNode } from 'react';
 import { GoogleAnalytics } from './google';
-import { PostHogProvider } from './posthog/client';
 import { VercelAnalytics } from './vercel';
 
 type AnalyticsProviderProps = {
   readonly children: ReactNode;
+  readonly gaId?: string;
 };
 
-export const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => (
-  <PostHogProvider>
+export const AnalyticsProvider = ({
+  children,
+  gaId,
+}: AnalyticsProviderProps) => (
+  <>
     {children}
     <VercelAnalytics />
-    {env.NODE_ENV !== 'development' && env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-      <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+    {process.env.NODE_ENV !== 'development' && gaId && (
+      <GoogleAnalytics gaId={gaId} />
     )}
-  </PostHogProvider>
+  </>
 );
