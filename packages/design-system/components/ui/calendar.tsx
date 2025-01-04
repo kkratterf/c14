@@ -1,72 +1,254 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { DayPicker } from "react-day-picker"
+import * as React from "react";
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { addYears, format, isSameMonth } from "date-fns";
+import {
+  DayPicker,
+  useDayPicker,
+  useDayRender,
+  useNavigation,
+  type DayPickerRangeProps,
+  type DayPickerSingleProps,
+  type DayProps,
+  type Matcher,
+} from "react-day-picker";
 
-import { cn } from "@c14/design-system/lib/utils"
-import { buttonVariants } from "@c14/design-system/components/ui/button"
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons"
+import { cn, focusRing } from "@c14/design-system/lib/utils";
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>
+interface NavigationButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  onClick: () => void;
+  icon: React.ElementType;
+  disabled?: boolean;
+}
 
-function Calendar({
+const NavigationButton = React.forwardRef<HTMLButtonElement, NavigationButtonProps>(
+  ({ onClick, icon, disabled, ...props }: NavigationButtonProps, forwardedRef) => {
+    const Icon = icon;
+    return (
+      <button
+        ref={forwardedRef}
+        type="button"
+        disabled={disabled}
+        className={cn(
+          "group flex size-7 shrink-0 select-none items-center justify-center rounded-lg border p-1 outline-none transition",
+          // border color
+          "border-item",
+          // background color
+          "hover:bg-item-hover active:bg-item-active",
+          // disabled
+          "disabled:pointer-events-none",
+          "disabled:border-disabled",
+          "disabled:stroke-icon-disabled",
+          focusRing
+        )}
+        onClick={onClick}
+        {...props}>
+        <Icon className="shrink-0 size-4 stroke-2 stroke-icon-active" />
+      </button>
+    );
+  }
+);
+
+NavigationButton.displayName = "NavigationButton";
+
+type OmitKeys<T, K extends keyof T> = {
+  [P in keyof T as P extends K ? never : P]: T[P];
+};
+
+type KeysToOmit = "showWeekNumber" | "captionLayout" | "mode";
+
+type SingleProps = OmitKeys<DayPickerSingleProps, KeysToOmit>;
+type RangeProps = OmitKeys<DayPickerRangeProps, KeysToOmit>;
+
+type CalendarProps =
+  | ({
+      mode: "single";
+    } & SingleProps)
+  | ({
+      mode?: undefined;
+    } & SingleProps)
+  | ({
+      mode: "range";
+    } & RangeProps);
+
+const Calendar = ({
+  mode = "single",
+  weekStartsOn = 1,
+  numberOfMonths = 1,
+  enableYearNavigation = false,
+  disableNavigation,
+  locale,
   className,
   classNames,
-  showOutsideDays = true,
   ...props
-}: CalendarProps) {
+}: CalendarProps & { enableYearNavigation?: boolean }) => {
   return (
     <DayPicker
-      showOutsideDays={showOutsideDays}
-      className={cn("p-3", className)}
+      mode={mode}
+      weekStartsOn={weekStartsOn}
+      numberOfMonths={numberOfMonths}
+      locale={locale}
+      showOutsideDays={numberOfMonths === 1}
+      className={cn(className)}
       classNames={{
-        months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
-        month: "space-y-4",
-        caption: "flex justify-center pt-1 relative items-center",
-        caption_label: "text-xs font-medium",
-        nav: "space-x-1 flex items-center",
-        nav_button: cn(
-          buttonVariants({ variant: "secondary" }),
-          "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
-        ),
-        nav_button_previous: "absolute left-1",
-        nav_button_next: "absolute right-1",
-        table: "w-full border-collapse space-y-1",
-        head_row: "flex",
-        head_cell:
-          "text-muted-foreground rounded-lg w-8 font-normal text-[0.8rem]",
-        row: "flex w-full mt-2",
-        cell: cn(
-          "relative p-0 text-center text-xs focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected].day-range-end)]:rounded-r-lg",
-          props.mode === "range"
-            ? "[&:has(>.day-range-end)]:rounded-r-lg [&:has(>.day-range-start)]:rounded-l-lg first:[&:has([aria-selected])]:rounded-l-lg last:[&:has([aria-selected])]:rounded-r-lg"
-            : "[&:has([aria-selected])]:rounded-lg"
-        ),
-        day: cn(
-          buttonVariants({ variant: "secondary" }),
-          "h-8 w-8 p-0 font-normal aria-selected:opacity-100"
-        ),
-        day_range_start: "day-range-start",
-        day_range_end: "day-range-end",
-        day_selected:
-          "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
-        day_today: "bg-accent text-accent-foreground",
-        day_outside:
-          "day-outside text-muted-foreground aria-selected:bg-accent/50 aria-selected:text-muted-foreground",
-        day_disabled: "text-muted-foreground opacity-50",
-        day_range_middle:
-          "aria-selected:bg-accent aria-selected:text-accent-foreground",
+        months: "flex space-y-0 text-md",
+        month: "space-y-4 p-3 text-md",
+        nav: "gap-1 text-md flex items-center rounded-full size-full justify-between p-4",
+        table: "w-full border-collapse space-y-1 text-md",
+        head_cell: "w-9 text-sm text-center text-description pb-2",
+        row: "w-full mt-0.5 ",
+        cell: cn("relative p-0 text-center focus-within:relative", "text text-md"),
+        day: cn("text size-9 rounded-lg focus:z-10", "hover:bg-item-hover text-md", focusRing),
+        day_today: "font-medium",
+        day_selected: cn("rounded-lg", "aria-selected:bg-neutral aria-selected:text-inverse"),
+        day_disabled: "!text-disabled line-through disabled:hover:bg-transparent",
+        day_outside: "text-disabled",
+        day_range_middle: cn("!rounded-none", "aria-selected:!text aria-selected:bg-item-active"),
+        day_range_start: "rounded-r-none !rounded-l",
+        day_range_end: "rounded-l-none !rounded-r",
         day_hidden: "invisible",
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ...props }) => <ChevronLeftIcon className="w-4 h-4" />,
-        IconRight: ({ ...props }) => <ChevronRightIcon className="w-4 h-4" />,
-      }}
-      {...props}
-    />
-  )
-}
-Calendar.displayName = "Calendar"
+        IconLeft: () => <ChevronLeft aria-hidden="true" className="size-4" />,
+        IconRight: () => <ChevronRight aria-hidden="true" className="size-4" />,
+        Caption: ({ ...props }) => {
+          const { goToMonth, nextMonth, previousMonth, currentMonth, displayMonths } = useNavigation();
+          const { numberOfMonths, fromDate, toDate } = useDayPicker();
 
-export { Calendar }
+          const displayIndex = displayMonths.findIndex((month) => isSameMonth(props.displayMonth, month));
+          const isFirst = displayIndex === 0;
+          const isLast = displayIndex === displayMonths.length - 1;
+
+          const hideNextButton = numberOfMonths > 1 && (isFirst || !isLast);
+          const hidePreviousButton = numberOfMonths > 1 && (isLast || !isFirst);
+
+          const goToPreviousYear = () => {
+            const targetMonth = addYears(currentMonth, -1);
+            if (previousMonth && (!fromDate || targetMonth.getTime() >= fromDate.getTime())) {
+              goToMonth(targetMonth);
+            }
+          };
+
+          const goToNextYear = () => {
+            const targetMonth = addYears(currentMonth, 1);
+            if (nextMonth && (!toDate || targetMonth.getTime() <= toDate.getTime())) {
+              goToMonth(targetMonth);
+            }
+          };
+
+          return (
+            <div className="flex justify-between items-center text-md">
+              <div className="flex items-center gap-1">
+                {enableYearNavigation && !hidePreviousButton && (
+                  <NavigationButton
+                    disabled={
+                      disableNavigation ||
+                      !previousMonth ||
+                      (fromDate && addYears(currentMonth, -1).getTime() < fromDate.getTime())
+                    }
+                    aria-label="Go to previous year"
+                    onClick={goToPreviousYear}
+                    icon={ChevronsLeft}
+                  />
+                )}
+                {!hidePreviousButton && (
+                  <NavigationButton
+                    disabled={disableNavigation || !previousMonth}
+                    aria-label="Go to previous month"
+                    onClick={() => previousMonth && goToMonth(previousMonth)}
+                    icon={ChevronLeft}
+                  />
+                )}
+              </div>
+
+              <div
+                role="presentation"
+                aria-live="polite"
+                className="font-medium capitalize tabular-nums text">
+                {format(props.displayMonth, "LLLL yyy", { locale })}
+              </div>
+
+              <div className="flex items-center gap-1">
+                {!hideNextButton && (
+                  <NavigationButton
+                    disabled={disableNavigation || !nextMonth}
+                    aria-label="Go to next month"
+                    onClick={() => nextMonth && goToMonth(nextMonth)}
+                    icon={ChevronRight}
+                  />
+                )}
+                {enableYearNavigation && !hideNextButton && (
+                  <NavigationButton
+                    disabled={
+                      disableNavigation ||
+                      !nextMonth ||
+                      (toDate && addYears(currentMonth, 1).getTime() > toDate.getTime())
+                    }
+                    aria-label="Go to next year"
+                    onClick={goToNextYear}
+                    icon={ChevronsRight}
+                  />
+                )}
+              </div>
+            </div>
+          );
+        },
+        Day: ({ date, displayMonth }: DayProps) => {
+          const buttonRef = React.useRef<HTMLButtonElement>(null) as React.RefObject<HTMLButtonElement>;
+          const { activeModifiers, buttonProps, divProps, isButton, isHidden } = useDayRender(
+            date,
+            displayMonth,
+            buttonRef
+          );
+
+          const { selected, today, disabled, range_middle } = activeModifiers;
+
+          if (isHidden) {
+            return <></>;
+          }
+
+          if (!isButton) {
+            return (
+              <div
+                {...divProps}
+                className={cn("text-md flex items-center justify-center", divProps.className)}
+              />
+            );
+          }
+
+          const { children: buttonChildren, className: buttonClassName, ...buttonPropsRest } = buttonProps;
+
+          return (
+            <button
+              ref={buttonRef}
+              {...buttonPropsRest}
+              type="button"
+              className={cn("relative", buttonClassName)}>
+              {buttonChildren}
+              {today && (
+                <span
+                  className={cn(
+                    "text-md absolute inset-x-1/2 bottom-1.5 h-0.5 w-4 -translate-x-1/2 rounded-lg",
+                    {
+                      "bg-brand": !selected,
+                      "!bg-background": selected,
+                      "!bg-inverse": selected && range_middle,
+                      "bg-neutral-disabled text-disabled": disabled,
+                    }
+                  )}
+                />
+              )}
+            </button>
+          );
+        },
+      }}
+      {...(props as SingleProps & RangeProps)}
+    />
+  );
+};
+
+Calendar.displayName = "Calendar";
+
+export { Calendar, type Matcher };

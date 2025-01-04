@@ -4,7 +4,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 import { cn } from "@c14/design-system/lib/utils";
 
 const alertVariants = tv({
-  base: "flex flex-col overflow-hidden border rounded-lg p-4",
+  base: "flex flex-col overflow-hidden border rounded-xl p-4",
   variants: {
     variant: {
       default: ["text-default bg-subtle border-item"],
