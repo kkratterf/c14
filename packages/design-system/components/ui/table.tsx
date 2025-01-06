@@ -64,7 +64,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
     <tr
       ref={forwardedRef}
       className={cn(
-        "border-b-default text-sm hover:bg-item-hover data-[state=selected]:bg-item-active border-b transition-colors",
+        "border-b-default text-sm hover:bg-item-hover data-[state=selected]:bg-item-hover border-b transition-colors",
         className
       )}
       {...props}
@@ -84,7 +84,7 @@ const TableFooter = React.forwardRef<HTMLTableSectionElement, React.HTMLAttribut
   ({ className, ...props }, forwardedRef) => (
     <tfoot
       ref={forwardedRef}
-      className={cn("bg-item-hover text-sm w-full font-medium", className)}
+      className={cn("bg-subtle text-sm w-full font-medium", className)}
       {...props}
     />
   )

@@ -108,7 +108,7 @@ const SelectContent = React.forwardRef<
           // heights
           "max-h-[--radix-select-content-available-height]",
           // background color
-          "bg-card",
+          "bg-elevated",
           // text color
           "text",
           // border color
@@ -175,9 +175,9 @@ const SelectItem = React.forwardRef<
         // disabled
         "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
         // focus
-        "focus-visible:bg-item-active",
+        "focus-visible:bg-item-hover",
         // hover
-        "hover:bg-item-active",
+        "hover:bg-item-hover",
         className
       )}
       {...props}>

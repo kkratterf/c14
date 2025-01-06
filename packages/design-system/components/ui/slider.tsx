@@ -37,7 +37,7 @@ const Slider = React.forwardRef<React.ComponentRef<typeof SliderPrimitive.Root>,
           <SliderPrimitive.Range
             className={cn(
               // base
-              "bg-neutral-hover absolute rounded-full dark:bg-zinc-300",
+              "bg-neutral absolute rounded-full",
               // orientation
               "data-[orientation='horizontal']:h-full",
               "data-[orientation='vertical']:w-full",

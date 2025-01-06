@@ -58,7 +58,7 @@ const DialogContent = React.forwardRef<
             // border color
             "border-default",
             // background color
-            "bg-card",
+            "bg-elevated",
             // transition
             "data-[state=open]:animate-dialogContentShow",
             focusRing,

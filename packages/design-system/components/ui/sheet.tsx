@@ -68,11 +68,11 @@ const SheetContent = React.forwardRef<
           ref={forwardedRef}
           className={cn(
             // base
-            "text-sm fixed inset-y-2 mx-auto flex w-[95vw] flex-1 flex-col overflow-y-auto rounded-lg border p-4 shadow-lg focus:outline-none max-sm:inset-x-2 sm:inset-y-2 sm:right-2 sm:max-w-lg sm:p-6",
+            "text-sm fixed inset-y-2 mx-auto flex w-[95vw] flex-1 flex-col overflow-y-auto rounded-xl border p-4 shadow-lg focus:outline-none max-sm:inset-x-2 sm:inset-y-2 sm:right-2 sm:max-w-lg sm:p-6",
             // border color
             "border-default",
             // background color
-            "bg-card",
+            "bg-elevated",
             // transition
             "data-[state=closed]:animate-drawerSlideRightAndFade data-[state=open]:animate-drawerSlideLeftAndFade",
             focusRing,

@@ -33,9 +33,9 @@ const DropdownMenuSubMenuTrigger = React.forwardRef<
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
-      "focus-visible:bg-item-active data-[state=open]:bg-item-active",
+      "focus-visible:bg-item-hover data-[state=open]:bg-item-hover",
       // hover
-      "hover:bg-item-active",
+      "hover:bg-item-hover",
       className
     )}
     {...props}>
@@ -64,7 +64,7 @@ const DropdownMenuSubMenuContent = React.forwardRef<
         // heights
         "max-h-[var(--radix-popper-available-height)]",
         // background color
-        "bg-card",
+        "bg-elevated",
         // border color
         "border-default",
         // transition
@@ -99,7 +99,7 @@ const DropdownMenuContent = React.forwardRef<
           // heights
           "max-h-[var(--radix-popper-available-height)]",
           // background color
-          "bg-card",
+          "bg-elevated",
           // border color
           "border-default",
           // transition
@@ -134,9 +134,9 @@ const DropdownMenuItem = React.forwardRef<
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
-      "focus-visible:bg-item-active",
+      "focus-visible:bg-item-hover",
       // hover
-      "hover:bg-item-active",
+      "hover:bg-item-hover",
       className
     )}
     {...props}>
@@ -164,9 +164,9 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
-      "focus-visible:bg-item-active",
+      "focus-visible:bg-item-hover",
       // hover
-      "hover:bg-item-active",
+      "hover:bg-item-hover",
       className
     )}
     checked={checked}
@@ -196,9 +196,9 @@ const DropdownMenuRadioItem = React.forwardRef<
       // disabled
       "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
       // focus
-      "focus-visible:bg-item-active",
+      "focus-visible:bg-item-hover",
       // hover
-      "hover:bg-item-active",
+      "hover:bg-item-hover",
       className
     )}
     {...props}>

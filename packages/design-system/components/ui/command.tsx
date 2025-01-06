@@ -3,10 +3,10 @@
 import * as React from "react";
 import type { DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
-import { Search } from "lucide-react";
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 import { cn } from "@c14/design-system/lib/utils";
-import { Dialog, DialogContent } from "@c14/design-system/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@c14/design-system/components/ui/dialog";
 
 const Command = React.forwardRef<
   React.ComponentRef<typeof CommandPrimitive>,
@@ -14,7 +14,7 @@ const Command = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
-    className={cn("bg-card text-sm flex size-full flex-col overflow-hidden rounded-xl", className)}
+    className={cn("bg-elevated text-sm flex size-full flex-col overflow-hidden rounded-xl", className)}
     {...props}
   />
 ));
@@ -23,8 +23,11 @@ Command.displayName = CommandPrimitive.displayName;
 const CommandDialog = ({ children, ...props }: DialogProps) => {
   return (
     <Dialog {...props}>
-      <DialogContent className="text-sm overflow-hidden rounded-xl p-0 shadow-lg [&>svg]:size-4">
-        <Command className="[&_[cmdk-group-heading]]:text-description [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-item]]:px-3 [&_[cmdk-input-wrapper]_svg]:w-4 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:h-9 [&_[cmdk-item]_svg]:size-4">
+      <DialogContent className="text-sm overflow-hidden rounded-xl p-0 shadow-lg [&>svg]:size-4 fixed z-50">
+        <DialogTitle asChild>
+          <VisuallyHidden>Command Menu</VisuallyHidden>
+        </DialogTitle>
+        <Command className="[&_[cmdk-group-heading]]:text-description [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-item]]:px-3 [&_[cmdk-input-wrapper]_svg]:w-4 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:h-9 [&_[cmdk-item]]:text [&_[cmdk-item]_svg]:size-4">
           {children}
         </Command>
       </DialogContent>
@@ -36,8 +39,7 @@ const CommandInput = React.forwardRef<
   React.ComponentRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center border-default px-3 border-b h-12 text-sm" cmdk-input-wrapper="">
-    <Search className="-mr-0.5 ml-1 shrink-0 size-4 stroke-2 stroke-icon" />
+  <div className="flex items-center border-default px-2 border-b h-12 text-sm" cmdk-input-wrapper="">
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
@@ -104,7 +106,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "aria-selected:bg-item-active text-sm data-[disabled]:text-disabled ![&>svg]:size-4 relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-lg px-3 outline-none data-[disabled]:pointer-events-none",
+      "aria-selected:bg-item-hover hover:bg-item-hover text-sm data-[disabled]:text-disabled ![&>svg]:size-4 relative flex h-9 cursor-pointer select-none items-center gap-2 rounded-lg px-3 outline-none",
       className
     )}
     {...props}
@@ -117,7 +119,7 @@ const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanE
   return (
     <span
       className={cn(
-        "text-description ml-auto pl-2 text-xs tracking-widest opacity-70 [&>svg]:size-4",
+        "text-description ml-auto pl-2 text-xs tracking-widest [&>svg]:size-4",
         className
       )}
       {...props}
