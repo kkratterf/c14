@@ -65,7 +65,7 @@
   "devDependencies": {
     "@c14/typescript-config": "workspace:*",
     "@types/node": "^22.10.1",
-    "@types/react": "^19.0.1",
+    "@types/react": "^19.0.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
