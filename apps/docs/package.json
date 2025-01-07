@@ -1,5 +1,5 @@
 {
-  "name": "design",
+  "name": "docs",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3002",
