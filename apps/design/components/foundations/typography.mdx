@@ -1,0 +1,41 @@
+export const FoundationsInter = () => (
+  <div className="nx-border nx-border-gray-200 dark:nx-border-neutral-800 nx-my-8 nx-overflow-x-auto nx-rounded-xl nx-subpixel-antialiased contrast-more:nx-border contrast-more:nx-border-primary-900/20 contrast-more:nx-contrast-150 contrast-more:dark:nx-border-primary-100/40 grid justify-center gap-10 px-10 py-20 lg:flex lg:space-x-20">
+    <div className="grid gap-3">
+      <p className="text-7xl font-normal">Aa</p>
+      <p className="text-center text-sm">Regular (400)</p>
+    </div>
+    <div className="grid gap-3">
+      <p className="text-7xl font-medium">Aa</p>
+      <p className="text-center text-sm">Medium (500)</p>
+    </div>
+    <div className="grid gap-3">
+      <p className="text-7xl font-semibold">Aa</p>
+      <p className="text-center text-sm">Semibold (600)</p>
+    </div>
+  </div>
+);
+
+export const FoundationsTypography = ({ fonts }) => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">OS</th>
+            <th align="left">Font family</th>
+          </tr>
+        </thead>
+        <tbody>
+          {fonts.map((font, index) => (
+            <tr key={index}>
+              <td className="cell-title">{font.os}</td>
+              <td>
+                <div className="cell-typography">{font.fontFamily}</div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    }
+  </>
+);

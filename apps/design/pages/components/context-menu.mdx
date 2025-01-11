@@ -1,0 +1,172 @@
+---
+title: Context Menu
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { contextMenuAccessibilityData } from "@/components/accessibility/context-menu.tsx";
+import { ContextMenuPreview } from "@/components/preview/context-menu.tsx";
+
+# Context Menu
+
+Displays a menu to the user — such as a set of actions or functions — triggered by a button.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ContextMenuPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="context-menu.tsx"
+import { ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger } from "@c14/design-system/components/ui/context-menu"
+
+export function ContextMenuDemo() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger className="flex h-40 w-80 items-center justify-center rounded border border-dashed border-default text-md">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-64">
+        <ContextMenuItem shortcut="⌘[">
+          Back
+        </ContextMenuItem>
+          <ContextMenuItem shortcut="⌘]" disabled>
+              Forward
+          </ContextMenuItem>
+          <ContextMenuItem shortcut="⌘R">
+              Reload
+          </ContextMenuItem>
+          <ContextMenuSub>
+            <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
+            <ContextMenuSubContent className="w-48">
+              <ContextMenuItem shortcut="⇧⌘S">
+                Save Page As...
+              </ContextMenuItem>
+              <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+              <ContextMenuItem>Name Window...</ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuItem>Developer Tools</ContextMenuItem>
+            </ContextMenuSubContent>
+          </ContextMenuSub>
+          <ContextMenuSeparator />
+          <ContextMenuCheckboxItem shortcut="⌘⇧B" checked>
+              Show Bookmarks Bar
+          </ContextMenuCheckboxItem>
+          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
+          <ContextMenuSeparator />
+          <ContextMenuRadioGroup value="michael">
+              <ContextMenuLabel>People</ContextMenuLabel>
+              <ContextMenuRadioItem value="michael">
+                  Michael Scott
+              </ContextMenuRadioItem>
+              <ContextMenuRadioItem value="dwight">
+                  Dwight Schrute
+              </ContextMenuRadioItem>
+              </ContextMenuRadioGroup>
+      </ContextMenuContent>
+    </ContextMenu>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Context Menu component is a type of dropdown menu that appears upon user interaction, typically a right-click or a long-press on touch devices.
+
+It provides a list of actions or options that are contextually relevant to the area of the interface where the interaction took place. This allows for a more efficient workflow, as users can quickly access commands specific to their current focus or task without navigating away.
+
+### When to use
+
+- **Content interaction**: Use a Context Menu to provide options for interacting with specific content, such as files in a file manager or items in a list.
+- **Efficient workflow**: Employ a Context Menu to streamline user workflows by reducing the number of steps to access frequently used commands.
+- **Space conservation**: Utilize a Context Menu to save space on the primary UI by hiding secondary options until they are needed.
+- **Functionality enhancement**: Enhance the functionality of UI elements by attaching a Context Menu with additional, relevant actions.
+
+Avoid using Context Menus as the only means of performing important actions, as this can make them less discoverable to users who may not expect to right-click or may be using devices without a secondary click. Do not clutter the Context Menu with too many options or actions unrelated to the current context, as this can overwhelm users and reduce efficiency.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ContextMenuPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="context-menu.tsx"
+import { ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger } from "@c14/design-system/components/ui/context-menu"
+
+export function ContextMenuDemo() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger className="flex h-40 w-80 items-center justify-center rounded border border-dashed border-default text-md">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-64">
+        <ContextMenuItem shortcut="⌘[">
+          Back
+        </ContextMenuItem>
+          <ContextMenuItem shortcut="⌘]" disabled>
+              Forward
+          </ContextMenuItem>
+          <ContextMenuItem shortcut="⌘R">
+              Reload
+          </ContextMenuItem>
+          <ContextMenuSub>
+            <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
+            <ContextMenuSubContent className="w-48">
+              <ContextMenuItem shortcut="⇧⌘S">
+                Save Page As...
+              </ContextMenuItem>
+              <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+              <ContextMenuItem>Name Window...</ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuItem>Developer Tools</ContextMenuItem>
+            </ContextMenuSubContent>
+          </ContextMenuSub>
+          <ContextMenuSeparator />
+          <ContextMenuCheckboxItem shortcut="⌘⇧B" checked>
+              Show Bookmarks Bar
+          </ContextMenuCheckboxItem>
+          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
+          <ContextMenuSeparator />
+          <ContextMenuRadioGroup value="michael">
+              <ContextMenuLabel>People</ContextMenuLabel>
+              <ContextMenuRadioItem value="michael">
+                  Michael Scott
+              </ContextMenuRadioItem>
+              <ContextMenuRadioItem value="dwight">
+                  Dwight Schrute
+              </ContextMenuRadioItem>
+              </ContextMenuRadioGroup>
+      </ContextMenuContent>
+    </ContextMenu>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-14455&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/context-menu#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Uses [roving tabindex](https://www.w3.org/WAI/ARIA/apg/patterns/kbd_roving_tabindex) to manage focus movement among menu items.
+
+### Keyboard interactions
+
+<AccessibilityTable rows={contextMenuAccessibilityData} />

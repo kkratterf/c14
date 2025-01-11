@@ -1,0 +1,135 @@
+---
+title: Hover Card
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { HoverCardPreview } from "@/components/preview/hover-card.tsx";
+
+# Hover Card
+
+For sighted users to preview content available behind a link.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<HoverCardPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="hover-card.tsx"
+import { Avatar, AvatarFallback, AvatarImage } from '@c14/design-system/components/ui/avatar';
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@c14/design-system/components/ui/hover-card";
+
+export function HoverCardDemo() {
+  return (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <Button variant="link">@nextjs</Button>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-80">
+        <div className="flex justify-between space-x-4">
+          <Avatar>
+            <AvatarImage src="https://github.com/vercel.png" />
+            <AvatarFallback>VC</AvatarFallback>
+          </Avatar>
+          <div className="space-y-1">
+            <p className="text-md-semibold">@nextjs</p>
+            <p className="text-md">The React Framework – created and maintained by @vercel.</p>
+            <div className="flex items-center pt-2">
+              <span className="text-description text-sm">Joined December 2021</span>
+            </div>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Hover Card component is a UI pattern that provides sighted users with a preview of the content available behind a hyperlink or another actionable element.
+
+It's commonly triggered by a mouse hover and presents a small overlay close to the cursor or element, offering additional information or a glimpse of the linked content without navigating away from the current page.
+
+### When to use
+
+- **Link preview**: Use a Hover Card to give users a quick preview of the content they can expect to see if they follow a link, which can help them decide whether to click through.
+- **Supplementary information**: Employ Hover Cards to provide additional context or supplementary information about an item without cluttering the UI.
+- **Enhanced user engagement**: Utilize Hover Cards to engage users by providing interactive elements or information that adds value to their browsing experience.
+- **Non-disruptive interaction**: Hover Cards can offer more detail about an element or feature without requiring a click, keeping users in their current context.
+
+Avoid using Hover Cards for critical information that users must see, as they are only accessible to sighted users with a mouse. They should not replace tooltips, which are a more suitable choice for short descriptions or label information. Ensure that the use of Hover Cards doesn't compromise the accessibility of your application; provide alternative ways for keyboard-only users and those using screen readers to access the same information.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<HoverCardPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="hover-card.tsx"
+import { Avatar, AvatarFallback, AvatarImage } from '@c14/design-system/components/ui/avatar';
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@c14/design-system/components/ui/hover-card";
+
+export function HoverCardDemo() {
+  return (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <Button variant="link">@nextjs</Button>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-80">
+        <div className="flex justify-between space-x-4">
+          <Avatar>
+            <AvatarImage src="https://github.com/vercel.png" />
+            <AvatarFallback>VC</AvatarFallback>
+          </Avatar>
+          <div className="space-y-1">
+            <p className="text-md-semibold">@nextjs</p>
+            <p className="text-md">The React Framework – created and maintained by @vercel.</p>
+            <div className="flex items-center pt-2">
+              <span className="text-description text-sm">Joined December 2021</span>
+            </div>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-22269&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/hover-card#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+### Keyboard interactions
+
+The hover card is intended for mouse users only so will not respond to keyboard navigation.

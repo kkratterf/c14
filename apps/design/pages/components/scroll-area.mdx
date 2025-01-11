@@ -1,0 +1,184 @@
+---
+title: Scroll Area
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { ScrollAreaPreview, ScrollAreaHorizontal } from "@/components/preview/scroll-area.tsx";
+
+# Scroll Area
+
+Augments native scroll functionality for custom, cross-browser styling.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ScrollAreaPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="scroll-area.tsx"
+import * as React from "react"
+
+import { ScrollArea } from '@c14/design-system/components/ui/scroll-area';
+import { Separator } from '@c14/design-system/components/ui/separator';
+
+const tags = Array.from({ length: 50 }).map(
+(\_, i, a) => `v1.2.0-beta.${a.length - i}`
+)
+
+export function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-72 w-48 rounded border border-default">
+      <div className="p-4">
+        <h4 className="mb-4 text-md-medium leading-none">Tags</h4>
+        {tags.map((tag) => (
+          <>
+            <div key={tag} className="text-md">{tag}</div>
+            <Separator className="my-2" />
+          </>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Scroll Area component enhances the native scrolling experience by providing a customizable, consistent, and cross-browser-compatible scrollbar.
+
+It allows designers and developers to style the scrollbar to match the application's design language, offering better visual integration and user experience than the default browser scrollbar.
+
+### When to use
+
+- **Custom styling**: Use a Scroll Area when the default browser scrollbar does not fit the design aesthetic of your application or when a more consistent cross-browser look is required.
+- **Enhanced user experience**: Employ a Scroll Area to provide users with a more visually appealing and potentially more intuitive scrolling interface.
+- **Limited space**: Utilize a Scroll Area in interfaces where space is at a premium, such as modals or side panels, and the default scrollbar takes up too much space or looks out of place.
+- **Content-heavy applications**: For applications that handle a lot of content and require extensive scrolling, a customized Scroll Area can improve the visual flow and readability.
+
+Avoid using a Scroll Area if it significantly alters the default scrolling behavior users expect or if it negatively impacts accessibility or usability. Be cautious not to over-customize to the point where the functionality of the scrollbar is obscured or its use is not intuitive. The primary goal should always be to enhance the user experience, not just the visual design.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ScrollAreaPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="scroll-area.tsx"
+import * as React from "react"
+
+import { ScrollArea } from '@c14/design-system/components/ui/scroll-area';
+import { Separator } from '@c14/design-system/components/ui/separator';
+
+const tags = Array.from({ length: 50 }).map(
+(\_, i, a) => `v1.2.0-beta.${a.length - i}`
+)
+
+export function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-72 w-48 rounded border border-default">
+      <div className="p-4">
+        <h4 className="mb-4 text-md-medium leading-none">Tags</h4>
+        {tags.map((tag) => (
+          <>
+            <div key={tag} className="text-md">{tag}</div>
+            <Separator className="my-2" />
+          </>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Horizontal
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ScrollAreaHorizontal />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /orientation="horizontal"/ filename="scroll-area.tsx"
+import * as React from "react"
+import Image from "next/image"
+
+import { ScrollArea, ScrollBar } from '@c14/design-system/components/ui/scroll-area';
+
+export interface Artwork {
+  artist: string
+  art: string
+}
+
+export const works: Artwork[] = [
+  {
+    artist: "Ornella Binni",
+    art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    artist: "Tom Byrom",
+    art: "https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    artist: "Vladimir Malyavko",
+    art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
+  },
+]
+
+export function ScrollAreaHorizontalDemo() {
+  return (
+    <ScrollArea className="w-96 whitespace-nowrap rounded border border-default">
+      <div className="flex w-max space-x-4 p-4">
+        {works.map((artwork) => (
+          <figure key={artwork.artist} className="shrink-0">
+            <div className="overflow-hidden rounded">
+              <Image
+                  src={artwork.art}
+                  alt={`Photo by ${artwork.artist}`}
+                  className="aspect-[3/4] h-fit w-fit object-cover"
+                  width={300}
+                  height={400}
+              />
+            </div>
+            <figcaption className="pt-2 text-sm text-description">
+              Photo by{' '}
+              <span className="font-semibold text">{artwork.artist}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <ScrollBar orientation="horizontal" />
+    </ScrollArea>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-26055&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/scroll-area#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+In most cases, it's best to rely on native scrolling and work with the customization options available in CSS. When that isn't enough, `ScrollArea` provides additional customizability while maintaining the browser's native scroll behavior (as well as accessibility features, like keyboard scrolling).
+
+### Keyboard interactions
+
+Scrolling via keyboard is supported by default because the component relies on native scrolling. Specific keyboard interactions may differ between platforms, so we do not specify them here or add specific event listeners to handle scrolling via key events.

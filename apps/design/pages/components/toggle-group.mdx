@@ -1,0 +1,187 @@
+---
+title: Toggle Group
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { toggleGroupAccessibilityData } from "@/components/accessibility/toggle-group.tsx";
+import {
+  ToggleGroupPreview,
+  ToggleGroupSingle,
+  ToggleGroupDisabled,
+} from "@/components/preview/toggle-group.tsx";
+
+# Toggle Group
+
+A set of two-state buttons that can be toggled on or off.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToggleGroupPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="toggle-group.tsx"
+import { Bold, Italic, Underline } from "lucide-react"
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from '@c14/design-system/components/ui/toggle-group';
+
+export function ToggleGroupDemo() {
+  return (
+    <ToggleGroup type="multiple">
+      <ToggleGroupItem value="bold" aria-label="Toggle bold">
+        <Bold />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Toggle italic">
+        <Italic />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="strikethrough" aria-label="Toggle strikethrough">
+        <Underline />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Toggle Group component consists of a set of toggle buttons that allow users to make multiple selections or toggle between different states.
+
+It's used to present users with a small set of options where multiple choices are permissible and state changes are clear and immediate.
+
+### When to use
+
+- **Multiple option selection**: Use Toggle Groups when users can select more than one option and need to see their choices reflected instantly.
+- **Setting preferences**: Employ Toggle Groups for settings that involve on/off switches, such as feature toggles.
+- **Filtering content**: Utilize Toggle Groups in interfaces where users filter content based on a small set of attributes, like showing or hiding elements on a page.
+- **Mode switching**: Toggle Groups are ideal for changing modes within an application, such as switching between different view types or themes.
+
+Do not use Toggle Groups for actions that require submission or have significant consequences without confirmation.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToggleGroupPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="toggle-group.tsx"
+import { Bold, Italic, Underline } from "lucide-react"
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from '@c14/design-system/components/ui/toggle-group';
+
+export function ToggleGroupDemo() {
+  return (
+    <ToggleGroup type="multiple">
+      <ToggleGroupItem value="bold" aria-label="Toggle bold">
+        <Bold />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Toggle italic">
+        <Italic />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="strikethrough" aria-label="Toggle strikethrough">
+        <Underline />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Single
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToggleGroupSingle />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /type="single"/ filename="toggle-group.tsx"
+import { Bold, Italic, Underline } from "lucide-react"
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from '@c14/design-system/components/ui/toggle-group';
+
+export function ToggleGroupDemo() {
+  return (
+    <ToggleGroup type="single">
+      <ToggleGroupItem value="bold" aria-label="Toggle bold">
+        <Bold />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Toggle italic">
+        <Italic />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="strikethrough" aria-label="Toggle strikethrough">
+        <Underline />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Disabled
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToggleGroupDisabled />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /disabled/ filename="toggle-group.tsx"
+import { Bold, Italic, Underline } from "lucide-react"
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from '@c14/design-system/components/ui/toggle-group';
+
+export function ToggleGroupDemo() {
+  return (
+    <ToggleGroup disabled type="single">
+      <ToggleGroupItem value="bold" aria-label="Toggle bold">
+        <Bold />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Toggle italic">
+        <Italic />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="strikethrough" aria-label="Toggle strikethrough">
+        <Underline />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=1162-12095&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/toggle-group#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Using [roving tabindex](https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/) to manage focus movement among items.
+
+### Keyboard interactions
+
+<AccessibilityTable rows={toggleGroupAccessibilityData} />

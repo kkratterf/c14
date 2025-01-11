@@ -1,0 +1,149 @@
+---
+title: Alert
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AlertPreview, AlertBrand, AlertDanger, AlertWarning } from "@/components/preview/alert.tsx";
+
+# Alert
+
+Displays a callout for user attention.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AlertPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="alert.tsx"
+import { Alert } from "@c14/design-system/components/ui/alert"
+import { Megaphone } from "lucide-react"
+
+export function AlertDemo() {
+  return (
+    <Alert icon={Megaphone} title="Notice">
+      This is a general notification for your attention. It provides neutral information or basic reminders for everyday tasks.
+    </Alert>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The alert component is designed to capture user attention quickly and deliver important information or feedback. The message within the alert should be concise and, if an action is required, it should provide clear guidance on what the user needs to do next.
+
+Alerts are typically used to inform users about a situation or a change in status that requires their immediate attention.
+
+### When to use
+
+- **To convey urgent information**: Use alerts to inform users of urgent and potentially disruptive issues that require immediate attention, such as error messages or warnings.
+- **To disclose important changes**: If there's a significant change to the system or to the user's account, such as a system outage or a security breach, use an alert to ensure that the user is aware of the change.
+
+Avoid overusing alerts for information that is not crucial or does not require immediate action, as this can lead to alert fatigue and reduce the effectiveness of the alerts.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AlertPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="default"/ filename="alert.tsx"
+import { Alert } from "@c14/design-system/components/ui/alert"
+import { Megaphone } from "lucide-react"
+
+export function AlertDemo() {
+  return (
+    <Alert variant="default" icon={Megaphone} title="Notice">
+      This is a general notification for your attention. It provides neutral information or basic reminders for everyday tasks.
+    </Alert>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Brand
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AlertBrand />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="brand"/ filename="alert.tsx"
+import { Alert } from "@c14/design-system/components/ui/alert"
+import { Info } from "lucide-react"
+
+export function AlertDemo() {
+  return (
+    <Alert variant="brand" icon={Info} title="Did you know?">
+        Here's some useful information or context about the current process or section that might be helpful to you.
+    </Alert>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Danger
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AlertDanger />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="danger"/ filename="alert.tsx"
+import { Alert } from "@c14/design-system/components/ui/alert"
+import { XCircle } from "lucide-react"
+
+export function AlertDemo() {
+  return (
+    <Alert variant="danger" icon={XCircle} title="Error Detected!">
+      Critical issue encountered! Please address this error immediately to prevent system failure or data loss.
+    </Alert>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Warning
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AlertWarning />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="warning"/ filename="alert.tsx"
+import { Alert } from "@c14/design-system/components/ui/alert"
+import { AlertTriangle } from "lucide-react"
+
+export function AlertDemo() {
+  return (
+    <Alert variant="warning" icon={AlertTriangle} title="Caution Advised">
+      Be cautious! There are certain risks associated with this action. Review and proceed with care.
+    </Alert>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=613-22656&t=jWCgbJWcyEzdpwjF-1"
+  />
+</Cards>
+
+## Accessibility
+
+Thanks to the native [WAI-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role) `alert role` the screen reader will be interrupted, announcing the new content immediately.

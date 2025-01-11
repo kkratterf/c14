@@ -1,0 +1,131 @@
+---
+title: Avatar
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AvatarPreview, AvatarSize, AvatarExampleFallback } from "@/components/preview/avatar.tsx";
+
+# Avatar
+
+Visual representation of a user or entity.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AvatarPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="avatar.tsx"
+import { Avatar, AvatarFallback, AvatarImage } from "@c14/design-system/components/ui/avatar"
+
+export function AvatarDemo() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://avatars.githubusercontent.com/u/70836137?s=400&v=4" alt="@kkratterf" />
+      <AvatarFallback>FK</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Avatar component serves as a visual representation of a user or entity, typically displayed as a profile image or a placeholder graphic when the image is not available.
+
+It can be used to signal user presence, attribute content, or indicate ownership.
+
+Avatars often accompany user names in interfaces where user identification is important, such as in comments, chat applications, or user profiles.
+
+### When to use
+
+- **User identification**: Use the Avatar in any part of your UI where it is necessary to identify the user quickly, such as in navigation bars, headers, or any social interactions.
+- **Content attribution**: Use an Avatar next to content created or owned by a user to provide a visual link between the content and its creator.
+- **Presence indication**: In collaborative applications, Avatars can indicate user presence, showing who is online or active.
+- **Listings and menus**: Incorporate Avatars into lists, such as contact lists or menus, to assist users in finding and selecting options more efficiently.
+
+Avoid using Avatars for decorative purposes that do not enhance user understanding or navigation. Also, be cautious with the use of Avatars in high-density displays, as they may clutter the interface and reduce readability.
+
+## Examples
+
+### Size
+
+There are 5 standard `size` available for the avatar component: `xs`, `sm`, `md`, `lg`, `xl`.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AvatarSize />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /size/ filename="avatar.tsx"
+import { Avatar, AvatarFallback, AvatarImage } from "@c14/design-system/components/ui/avatar"
+
+export function AvatarDemo() {
+  return (
+    <div className="flex items-center space-x-3">
+      <Avatar size="xs">
+        <AvatarImage src="https://avatars.githubusercontent.com/u/70836137?s=400&v=4" alt="@kkratterf" />
+        <AvatarFallback>FK</AvatarFallback>
+      </Avatar>
+      <Avatar size="sm">
+        <AvatarImage src="https://avatars.githubusercontent.com/u/70836137?s=400&v=4" alt="@kkratterf" />
+        <AvatarFallback>FK</AvatarFallback>
+      </Avatar>
+      <Avatar size="md">
+        <AvatarImage src="https://avatars.githubusercontent.com/u/70836137?s=400&v=4" alt="@kkratterf" />
+        <AvatarFallback>FK</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg">
+        <AvatarImage src="https://avatars.githubusercontent.com/u/70836137?s=400&v=4" alt="@kkratterf" />
+        <AvatarFallback>FK</AvatarFallback>
+      </Avatar>
+      <Avatar size="xl">
+        <AvatarImage src="https://avatars.githubusercontent.com/u/70836137?s=400&v=4" alt="@kkratterf" />
+        <AvatarFallback>FK</AvatarFallback>
+      </Avatar>
+    </div>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Fallback
+
+The `AvatarFallback` is an element that renders when the image hasn't loaded.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AvatarExampleFallback />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /AvatarFallback/ filename="avatar.tsx"
+import { Avatar, AvatarFallback, AvatarImage } from "@c14/design-system/components/ui/avatar"
+
+export function AvatarDemo() {
+  return (
+    <Avatar>
+      <AvatarImage src="" alt="@kkratterf" />
+      <AvatarFallback>FK</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-6893&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/avatar#api-reference"
+  />
+</Cards>

@@ -7,6 +7,7 @@ const withNextra = nextra({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['@c14/design-system'],
   reactStrictMode: true,
   images: {
     domains: ['images.unsplash.com'],

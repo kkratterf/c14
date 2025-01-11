@@ -1,0 +1,271 @@
+---
+title: Tag
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import {
+  TagPreview,
+  TagBrand,
+  TagNeutral,
+  TagRed,
+  TagAmber,
+  TagEmerald,
+  TagTeal,
+  TagCyan,
+  TagBlue,
+  TagViolet,
+  TagFuchsia,
+} from "@/components/preview/tag.tsx";
+
+# Tag
+
+Displays an element for categorizing or markup.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Tag component is a small label used to categorize or mark items with key information that enables quick recognition and navigation.
+
+Tags can encapsulate short pieces of text, such as keywords, statuses, or descriptors, and are often interactive, allowing users to add or remove them as filters.
+
+### When to use
+
+- **Categorization**: Use Tags to assign categories or types to items, helping users to filter or identify content based on shared characteristics.
+- **Metadata**: Implement Tags to display metadata, such as attributes of a product or article, which are not part of the main content but provide essential context.
+- **Interactivity**: When Tags represent interactive elements, such as filters or selections in a search, use them to allow users to manipulate the displayed content.
+- **Status indication**: Tags are effective for showing the status of items, like 'Completed', 'Pending', or 'New', providing a quick visual reference.
+
+Avoid using Tags for long or complex information that would be better served by a different UI element like a Tooltip or a dedicated text field. Tags should be concise to improve legibility and usability.
+
+## Examples
+
+### Brand
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagBrand />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="brand"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="brand"><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Neutral
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagNeutral />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="neutral"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="neutral"><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Red
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagRed />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="red"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="red"><TagIcon /> Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Amber
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagAmber />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="amber"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="amber"><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Emerald
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagEmerald />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="emerald"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="emerald"><TagIcon /> Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Teal
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagTeal />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="teal"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="teal"><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Cyan
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagCyan />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="cyan"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="cyan"><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Blue
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagBlue />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="blue"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react'
+
+export function TagDemo() {
+  return (
+      <Tag variant="blue">
+          <TagIcon /> Markup
+      </Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Violet
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagViolet />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="violet"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="violet"><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Fuchsia
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TagFuchsia />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="fuchsia"/ filename="tag.tsx"
+import { Tag } from "@c14/design-system/components/ui/tag";
+import { TagIcon } from 'lucide-react';
+
+export function TagDemo() {
+  return (
+    <Tag variant="fuchsia"><TagIcon />Markup</Tag>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-31205&t=jWCgbJWcyEzdpwjF-1"
+  />
+</Cards>

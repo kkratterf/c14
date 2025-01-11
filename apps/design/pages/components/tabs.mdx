@@ -1,0 +1,343 @@
+---
+title: Tabs
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { tabsAccessibilityData } from "@/components/accessibility/tabs.tsx";
+import {
+  TabsPreview,
+  TabsDefault,
+  TabsDefaultValue,
+  TabsDisabled,
+  TabsWithIcon,
+  TabsWithCard,
+} from "@/components/preview/tabs.tsx";
+
+# Tabs
+
+A set of layered sections of content—known as tab panels—that are displayed one at a time.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TabsPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="tabs.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Input } from '@c14/design-system/components/ui/input';
+import { Label } from '@c14/design-system/components/ui/label';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@c14/design-system/components/ui/tabs';
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="account" className="w-96">
+      <TabsList className="w-full">
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">
+        <div>
+          <div>
+            <p>Account</p>
+            <p>
+              Make changes to your account here. Click save when you&apos;re
+              done.
+            </p>
+          </div>
+          <div>
+            <div>
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" defaultValue="Michael Scott" />
+            </div>
+            <div>
+              <Label htmlFor="username">Username</Label>
+              <Input id="username" defaultValue="@mscott" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <Button>Save</Button>
+        </div>
+      </TabsContent>
+      <TabsContent value="password">
+        <div>
+          <div>
+            <p>Password</p>
+            <p>
+              Change your password here. After saving, you'll be logged out.
+            </p>
+          </div>
+          <div>
+            <div>
+              <Label htmlFor="current">Current password</Label>
+              <Input id="current" type="password" />
+            </div>
+            <div>
+              <Label htmlFor="new">New password</Label>
+              <Input id="new" type="password" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <Button>Save</Button>
+        </div>
+      </TabsContent>
+    </Tabs>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+Tabs organize content across different screens, data sets, and other interactive elements into separate sections with layered navigation. It’s a way to allow users to peruse a set of tab panels one at a time.
+
+Each tab is typically associated with a pane of content and when a user selects a tab, the associated content or panel is displayed, while others remain hidden.
+
+### When to use
+
+- **Content Organization**: Use Tabs when you have multiple content areas that are related and of equal importance, which need to be displayed separately to avoid overwhelming the user.
+- **Space-saving**: Employ Tabs as a means to save space on the page while still making all content easily accessible.
+- **Sequential Information**: When content naturally flows from one subject to the next, Tabs can segment the information in a logical manner.
+- **Feature or Data Segmentation**: Use Tabs to segregate different features, options, or datasets that users can navigate between without leaving the page.
+
+Avoid using Tabs for unrelated content that doesn’t require a clear separation within the same context. Tabs should not be used for primary navigation within an application where a more persistent form of navigation is needed. Additionally, avoid using Tabs when the content within each tab panel is too vast or complex, as this can lead to a cumbersome user experience.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TabsDefault />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="tabs.tsx"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@c14/design-system/components/ui/tabs';
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="account" className="w-96">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here</TabsContent>
+      <TabsContent value="password">Change your password here</TabsContent>
+    </Tabs>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Default value
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TabsDefaultValue />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /defaultValue="password"/ filename="tabs.tsx"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@c14/design-system/components/ui/tabs';
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="password" className="w-96">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here</TabsContent>
+      <TabsContent value="password">Change your password here</TabsContent>
+    </Tabs>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Disabled
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TabsDisabled />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /disabled/ filename="tabs.tsx"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@c14/design-system/components/ui/tabs';
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="account" className="w-96">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password" disabled>Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here</TabsContent>
+      <TabsContent value="password">Change your password here</TabsContent>
+    </Tabs>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With icon
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TabsWithIcon />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /User/ /Lock/ filename="tabs.tsx"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@c14/design-system/components/ui/tabs';
+import { User, Lock } from 'lucide-react';
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="account" className="w-96">
+      <TabsList>
+        <TabsTrigger value="account"><User />Account</TabsTrigger>
+        <TabsTrigger value="password"><Lock />Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here</TabsContent>
+      <TabsContent value="password">Change your password here</TabsContent>
+    </Tabs>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With card
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TabsWithCard />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="tabs.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Card } from '@c14/design-system/components/ui/card';
+import { Input } from '@c14/design-system/components/ui/input';
+import { Label } from '@c14/design-system/components/ui/label';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@c14/design-system/components/ui/tabs';
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="account" className="w-96">
+      <TabsList className="w-full">
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account" className="w-full space-y-4">
+        <Card>
+          <div className="space-y-2">
+            <div className="space-y-2">
+              <p className="text-heading-subsection">Account</p>
+              <p className="text-description text-md">
+                Make changes to your account here. Click save when you&apos;re done.
+              </p>
+            </div>
+            <div className="grid gap-2 py-4">
+              <div className="space-y-1">
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" defaultValue="Michael Scott" className="patch-input" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="username">Username</Label>
+                <Input id="username" defaultValue="@mscott" className="patch-input" />
+              </div>
+            </div>
+          </div>
+          <div className="flex mt-2">
+            <Button>Save</Button>
+          </div>
+        </Card>
+      </TabsContent>
+      <TabsContent value="password" className="w-full space-y-4">
+        <Card>
+          <div className="space-y-2">
+            <div className="space-y-2">
+              <p className="text-heading-subsection">Password</p>
+              <p className="text-description text-md">
+                Change your password here. After saving, you&apos;ll be logged out.
+              </p>
+            </div>
+            <div className="grid gap-2 py-4">
+              <div className="space-y-1">
+                <Label htmlFor="current">Current password</Label>
+                <Input id="current" type="password" className="patch-input" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="new">New password</Label>
+                <Input id="new" type="password" className="patch-input" />
+              </div>
+            </div>
+          </div>
+          <div className="flex mt-2">
+            <Button>Save</Button>
+          </div>
+        </Card>
+      </TabsContent>
+    </Tabs>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-31130&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/tabs#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+### Keyboard interactions
+
+<AccessibilityTable rows={tabsAccessibilityData} />

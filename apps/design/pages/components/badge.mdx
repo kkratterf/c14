@@ -1,0 +1,201 @@
+---
+title: Badge
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import {
+  BadgePreview,
+  BadgeDefault,
+  BadgeBrand,
+  BadgeDanger,
+  BadgeWarning,
+} from "@/components/preview/badge.tsx";
+
+# Badge
+
+Visual indicator for states or numeric values such as tallies and scores.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<BadgePreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="badge.tsx"
+import { Badge } from "@c14/design-system/components/ui/badge"
+import { Activity } from "lucide-react"
+
+export function BadgeDemo() {
+  return (
+    <Badge>
+      <Activity />
+      Active
+    </Badge>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Badge component serves as a visual indicator for numeric values and states, such as tallies, scores, or status labels. They are often used to draw attention to new or important information, like unread messages, or to categorize items using color-coded labels.
+
+Badges should be clear and legible, providing immediate understanding of the information they convey.
+
+### When to use
+
+- **Status indication**: Use Badges to indicate the status of an item, such as "active," "pending," or "completed."
+- **Notification alerts**: Employ Badges to alert users to new information or updates, such as unread messages or notifications.
+- **Quantitative counts**: Utilize Badges to display counts for items like emails, errors, or shopping cart items.
+
+Avoid using Badges for detailed information that requires more context; instead, use a tooltip or another method that allows for more explanation. Do not overuse Badges, as too many can clutter the interface and dilute their impact.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<BadgeDefault />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /default/ filename="badge.tsx"
+import { Badge } from "@c14/design-system/components/ui/badge"
+import { Activity } from "lucide-react"
+
+export function BadgeDemo() {
+  return (
+    <div className="grid justify-items-center gap-3 sm:flex">
+      <Badge variant="default">
+        <Activity />
+        Active
+      </Badge>
+      <Badge variant="default">
+        Active
+      </Badge>
+      <Badge variant="default">
+        <Activity />
+      </Badge>
+      <Badge variant="default">
+        7
+      </Badge>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Brand
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<BadgeBrand />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /info/ filename="badge.tsx"
+import { Badge } from "@c14/design-system/components/ui/badge"
+import { Info } from "lucide-react"
+
+export function BadgeDemo() {
+  return (
+    <div className="grid justify-items-center gap-3 sm:flex">
+      <Badge variant="info">
+        <Info />
+        Active
+      </Badge>
+      <Badge variant="info">
+        Active
+      </Badge>
+      <Badge variant="info">
+        <Info />
+      </Badge>
+      <Badge variant="info">
+        7
+      </Badge>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Danger
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<BadgeDanger />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /danger/ filename="badge.tsx"
+import { Badge } from "@c14/design-system/components/ui/badge"
+import { XCircle } from "lucide-react"
+
+export function BadgeDemo() {
+  return (
+    <div className="grid justify-items-center gap-3 sm:flex">
+      <Badge variant="danger">
+        <XCircle />
+        Active
+      </Badge>
+      <Badge variant="danger">
+        Active
+      </Badge>
+      <Badge variant="danger">
+        <XCircle />
+      </Badge>
+      <Badge variant="danger">
+        7
+      </Badge>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Warning
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<BadgeWarning />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /warning/ filename="badge.tsx"
+import { Badge } from "@c14/design-system/components/ui/badge"
+import { AlertTriangle } from "lucide-react"
+
+export function BadgeDemo() {
+  return (
+    <div className="grid justify-items-center gap-3 sm:flex">
+      <Badge variant="warning">
+        <AlertTriangle />
+        Active
+      </Badge>
+      <Badge variant="warning">
+        Active
+      </Badge>
+      <Badge variant="warning">
+        <AlertTriangle />
+      </Badge>
+      <Badge variant="warning">
+        7
+      </Badge>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-6968&t=jWCgbJWcyEzdpwjF-1"
+  />
+</Cards>

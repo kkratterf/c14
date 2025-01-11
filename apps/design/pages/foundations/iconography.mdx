@@ -1,0 +1,86 @@
+---
+title: Iconography
+---
+
+import { Tabs } from "nextra/components";
+
+# Iconography
+
+Icons serve as visual elements for commands, files and frequent actions.
+
+## Get started
+
+Icons ought to be utilized to enhance understanding and minimize mental effort, especially when highlighting specific actions, commands, or sections.
+
+They should be:
+
+- **[Simple](#simple)**
+- **[Consistent](#consistent)**
+- **[Universal](#universal)**
+
+### Simple
+
+Icons should be simple and effectively communicate their purpose. Steer clear of adding excessive details that might complicate recognition. The primary objective is to convey the message swiftly and unmistakably.
+
+### Consistent
+
+Icons should maintain a uniform visual style throughout the user interface. This encompasses consistent application of line thickness, shapes, sizes, perspectives, and overall design. Such uniformity in iconography aids users in quickly identifying their functions, leading to more intuitive navigation.
+
+### Universal
+
+Use universally acknowledged symbols and metaphors in icons to ensure they are easily understood by a wide audience. This approach helps in making the icons accessible and recognizable to users from diverse backgrounds.
+
+## Accessibility
+
+Given the limited number of universally recognized icons, it's advisable to pair icons with labels or explanatory text to guarantee their meaning is clear. In cases where an icon is used without an accompanying visible label, an aria-label should be implemented for accessibility.
+However, avoid using aria-labels when the icon is presented alongside visible text to prevent redundancy in accessibility labeling.
+
+For guidance on crafting meaningful text, refer to our [accessibility guidelines](/foundations/accessibility).
+
+Be cautious when combining less familiar icons with text, as this pairing can be confusing depending on user recognition of the icon. It's important to ensure that the icon and its text label are clearly associated. Furthermore, for improved usability, the color of the icon should comply with the [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/#use-of-color) (WCAG) 2.1 AA standard for color contrast ratios.
+
+## Lucide Icons
+
+In our pursuit of creating a design system that is both efficient and visually appealing, we have chosen [Lucide](https://lucide.dev/) as our primary icon pack.
+
+Lucide is an open-source icon library that provides 1000+ vector (svg) files for displaying icons and symbols in digital and non-digital projects.
+
+This decision is anchored in several key factors:
+
+- **Lightweight & Scalable**: Icons are lightweight, highly optimized scalable vector graphics (SVG).
+- **Clean & consistent**: Designed with a strict set of design rules for consistency in style and readability.
+- **Packages support**: Lucide is available as a package for all major package managers.
+- **Active community**: Lucide has active community on GitHub and Discord.
+
+### Code optimization
+
+In addition to design, code is also important. Assets like icons can significantly increase bandwidth usage in web projects. With the growing internet, Lucide has a responsibility to keep their assets as small as possible. To achieve this, Lucide uses SVG compression and specific code architecture for tree-shaking abilities. After tree-shaking, you only ship the icons you used, which helps to keep software distribution size to a minimum.
+
+### Installation
+
+```bash copy
+pnpm add lucide-react
+```
+
+### How to use
+
+Lucide is built with ES Modules, so it's completely tree-shakable.
+
+Each icon can be imported as a React component, which renders an inline SVG element. This way, only the icons that are imported into your project are included in the final bundle. The rest of the icons are tree-shaken away.
+
+Here you can find the [Icon Gallery](/components/icon#icon-gallery) with list of all available icons.
+
+#### Example
+
+Additional props can be passed to adjust the icon:
+
+```tsx copy
+import { Camera } from "lucide-react";
+
+// Usage
+const App = () => {
+  return <Camera size={48} />;
+};
+
+export default App;
+```

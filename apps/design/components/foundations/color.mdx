@@ -1,0 +1,75 @@
+import colors from "@/tokens/foundations";
+
+export const FoundationsColor = ({ color }) => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">Name</th>
+            <th align="left">Value</th>
+            <th className="hidden lg:table-cell" align="left">
+              Token
+            </th>
+            <th align="left">Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(colors.foundations.color[color]).map(([colorName, colorInfo]) => (
+            <tr key={colorName}>
+              <td className="cell-title">
+                {color}-{colorName}
+              </td>
+              <td>
+                <div className="cell-value">{colorInfo.value}</div>
+              </td>
+              <td className="hidden lg:table-cell">
+                <div className="cell-token">
+                  <code>
+                    color-{color}-{colorName}
+                  </code>
+                </div>
+              </td>
+              <td>
+                <div className="cell-preview" style={{ backgroundColor: colorInfo.value }}></div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    }
+  </>
+);
+
+export const ColorRoles = ({ colorRoles }) => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">Name</th>
+            <th align="left">Token</th>
+            <th className="hidden sm:table-cell" align="left">
+              Preview
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {colorRoles.map((role, index) => (
+            <tr key={index}>
+              <td className="cell-title">{role.name}</td>
+              <td>
+                <div className="cell-token">
+                  <code>color-{role.token}</code>
+                </div>
+              </td>
+              <td className="hidden sm:table-cell">
+                <div className="cell-preview" style={{ backgroundColor: `var(${role.previewClass})` }}></div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    }
+  </>
+);

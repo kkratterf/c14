@@ -1,0 +1,219 @@
+---
+title: Radio Group
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { radioGroupAccessibilityData } from "@/components/accessibility/radio-group.tsx";
+import {
+  RadioGroupPreview,
+  RadioGroupDefault,
+  RadioGroupWithForm,
+} from "@/components/preview/radio-group.tsx";
+
+# Radio Group
+
+A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <RadioGroupPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="radio-group.tsx"
+import { Label } from '@c14/design-system/components/ui/label';
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from '@c14/design-system/components/ui/radio-group';
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="comfortable">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="default" id="r1" />
+        <Label htmlFor="r1">Default</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="comfortable" id="r2" />
+        <Label htmlFor="r2">Comfortable</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="compact" id="r3" />
+        <Label htmlFor="r3">Compact</Label>
+      </div>
+    </RadioGroup>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Radio Group component consists of a set of radio buttons from which a user can make a single selection. Each radio button represents an option, and selecting one automatically deselects any other selected option within the same group.
+
+This is ideal for presenting a list of mutually exclusive choices where the user must choose only one item.
+
+### When to use
+
+- **Exclusive choices**: Use a Radio Group when you need users to select a single option from a list of two or more mutually exclusive choices, such as selecting a shipping method.
+- **Compact forms**: Employ Radio Groups in forms where space is limited and you want to present all available options directly without requiring additional user interaction to reveal them.
+- **Clear options comparison**: Utilize Radio Groups to allow users to compare all available options side-by-side to make an informed decision.
+- **Simplified interaction**: Radio Groups are useful for simplifying the interaction by allowing a choice with a single click or tap, without the need for a dropdown menu.
+
+Avoid using Radio Groups when multiple selections are allowed; checkboxes would be more appropriate in that scenario. Also, refrain from using them for large numbers of options where a dropdown might be less overwhelming and more user-friendly. It's important not to crowd too many radio buttons close together to prevent misclicks and to ensure ease of use on touch devices.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<RadioGroupDefault />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="radio-group.tsx"
+import { Label } from '@c14/design-system/components/ui/label';
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from '@c14/design-system/components/ui/radio-group';
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="comfortable">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="default" id="r1" />
+        <Label htmlFor="r1">Default</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="comfortable" id="r2" />
+        <Label htmlFor="r2">Comfortable</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="compact" id="r3" />
+        <Label htmlFor="r3">Compact</Label>
+      </div>
+    </RadioGroup>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With form
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <RadioGroupWithForm />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="radio-group.tsx"
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@c14/design-system/components/ui/form';
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from '@c14/design-system/components/ui/radio-group';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+const FormSchema = z.object({
+type: z.enum(["all", "mentions", "none"], {
+required_error: "You need to select a notification type.",
+}),
+})
+
+export function RadioGroupForm() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  })
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    toast({
+      title: "You submitted the following values:",
+      description: JSON.stringify(data, null, 2)
+    })
+  }
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+        <FormField
+          control={form.control}
+          name="type"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>Notify me about...</FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col space-y-1">
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="all" />
+                    </FormControl>
+                    <FormLabel className="font-normal">All new messages</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="mentions" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Direct messages and mentions</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="none" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Nothing</FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-25897&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/radio-group#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the `Radio Group` [WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) and uses [roving tabindex](https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/) to manage focus movement among radio items.
+
+### Keyboard interactions
+
+<AccessibilityTable rows={radioGroupAccessibilityData} />

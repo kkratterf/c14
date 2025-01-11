@@ -1,0 +1,28 @@
+export const FoundationsAccessibility = () => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">Element type</th>
+            <th align="left">Contrast ratio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr key="Standard text">
+            <td className="cell-title">Standard text</td>
+            <td>
+              <div className="cell-accessibility-contrast">4.5:1</div>
+            </td>
+          </tr>
+          <tr key="Large text">
+            <td className="cell-title">Large text</td>
+            <td>
+              <div className="cell-accessibility-contrast">3:1</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    }
+  </>
+);

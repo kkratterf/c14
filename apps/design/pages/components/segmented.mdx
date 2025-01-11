@@ -1,0 +1,210 @@
+---
+title: Segmented
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { segmentedAccessibilityData } from "@/components/accessibility/segmented.tsx";
+import {
+  SegmentedPreview,
+  SegmentedDefaultValue,
+  SegmentedDisabled,
+  SegmentedWithIcon,
+} from "@/components/preview/segmented.tsx";
+
+# Segmented
+
+Used to organize content by grouping similar information on the same area.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SegmentedPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="segmented.tsx"
+import {
+  Segmented,
+  SegmentedContent,
+  SegmentedList,
+  SegmentedTrigger,
+} from '@c14/design-system/components/ui/segmented';
+
+export function SegmentedDemo() {
+  return (
+    <Segmented defaultValue="grid">
+      <SegmentedList>
+        <SegmentedTrigger value="grid">Grid</SegmentedTrigger>
+        <SegmentedTrigger value="list">List</SegmentedTrigger>
+      </SegmentedList>
+      <SegmentedContent value="grid">Grid view</SegmentedContent>
+      <SegmentedContent value="list">List view</SegmentedContent>
+    </Segmented>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Segmented Control component allows users to choose between two or more mutually exclusive options. It is displayed as a horizontal set of segments, each representing an option, with the current selection highlighted.
+
+This component is often used to switch between different views, filters, or modes within the same context.
+
+### When to use
+
+- **Mode switching**: Use Segmented Controls for changing modes within a particular context, such as switching between list and grid views in a gallery.
+- **Filtering content**: Employ Segmented Controls to filter content on a page, such as sorting items by price or date.
+
+Avoid using Segmented Controls when the options represent a workflow or a process with sequential steps; in such cases, a stepper or progress indicator might be more appropriate.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SegmentedPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="segmented.tsx"
+import {
+  Segmented,
+  SegmentedContent,
+  SegmentedList,
+  SegmentedTrigger,
+} from '@c14/design-system/components/ui/segmented';
+
+export function SegmentedDemo() {
+  return (
+    <Segmented defaultValue="grid">
+      <SegmentedList>
+        <SegmentedTrigger value="grid">Grid</SegmentedTrigger>
+        <SegmentedTrigger value="list">List</SegmentedTrigger>
+      </SegmentedList>
+      <SegmentedContent value="grid">Grid view</SegmentedContent>
+      <SegmentedContent value="list">List view</SegmentedContent>
+    </Segmented>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Default value
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SegmentedDefaultValue />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /defaultValue/ filename="segmented.tsx"
+import {
+  Segmented,
+  SegmentedContent,
+  SegmentedList,
+  SegmentedTrigger,
+} from '@c14/design-system/components/ui/segmented';
+
+export function SegmentedDemo() {
+  return (
+    <Segmented defaultValue="list">
+      <SegmentedList>
+        <SegmentedTrigger value="grid">Grid</SegmentedTrigger>
+        <SegmentedTrigger value="list">List</SegmentedTrigger>
+      </SegmentedList>
+      <SegmentedContent value="grid">Grid view</SegmentedContent>
+      <SegmentedContent value="list">List view</SegmentedContent>
+    </Segmented>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Disabled
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SegmentedDisabled />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /disabled/ filename="segmented.tsx"
+import {
+  Segmented,
+  SegmentedContent,
+  SegmentedList,
+  SegmentedTrigger,
+} from '@c14/design-system/components/ui/segmented';
+
+export function SegmentedDemo() {
+  return (
+    <Segmented defaultValue="grid">
+      <SegmentedList>
+        <SegmentedTrigger value="grid">Grid</SegmentedTrigger>
+        <SegmentedTrigger value="list" disabled>List</SegmentedTrigger>
+      </SegmentedList>
+      <SegmentedContent value="grid">Grid view</SegmentedContent>
+      <SegmentedContent value="list">List view</SegmentedContent>
+    </Segmented>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With icon
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SegmentedWithIcon />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="segmented.tsx"
+import {
+  Segmented,
+  SegmentedContent,
+  SegmentedList,
+  SegmentedTrigger,
+} from '@c14/design-system/components/ui/segmented';
+import { Grid, List } from 'lucide-react'
+
+export function SegmentedDemo() {
+  return (
+    <Segmented defaultValue="grid">
+      <SegmentedList>
+        <SegmentedTrigger value="grid"><Grid /></SegmentedTrigger>
+        <SegmentedTrigger value="list"><List /></SegmentedTrigger>
+      </SegmentedList>
+      <SegmentedContent value="grid">Grid view</SegmentedContent>
+      <SegmentedContent value="list">List view</SegmentedContent>
+    </Segmented>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=763-4078&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/tabs#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the [Tabs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={segmentedAccessibilityData} />

@@ -1,0 +1,43 @@
+import screen from "@/tokens/tokens";
+
+export const TokensScreen = () => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">Token and description</th>
+            <th align="right">
+              <span className="pr-4">Value</span>
+            </th>
+            <th className="hidden sm:table-cell" align="left">
+              Preview
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(screen.tokens.light.screen).map(([tokenName, tokenInfo]) => (
+            <tr key={tokenName}>
+              <td className="w-full">
+                <div className="cell-tokens-name">
+                  <code className="font-medium">screen-{tokenName}</code>
+                  <div className="cell-description-tokens">{tokenInfo.description}</div>
+                </div>
+              </td>
+              <td>
+                <div className="cell-value-scale" align="right">
+                  {tokenInfo.value}
+                </div>
+              </td>
+              <td className="hidden sm:table-cell">
+                <div
+                  className="cell-preview-screen"
+                  style={{ width: `${parseInt(tokenInfo.value) / 4}px` }}></div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    }
+  </>
+);

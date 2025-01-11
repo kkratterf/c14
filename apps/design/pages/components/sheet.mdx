@@ -1,0 +1,166 @@
+---
+title: Sheet
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { sheetAccessibilityData } from "@/components/accessibility/sheet.tsx";
+import { SheetPreview } from "@/components/preview/sheet.tsx";
+
+# Sheet
+
+Extends the Dialog component to display content that complements the main content of the screen.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SheetPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="sheet.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Input } from '@c14/design-system/components/ui/input';
+import { Label } from '@c14/design-system/components/ui/label';
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, SheetBody } from '@c14/design-system/components/ui/sheet';
+
+export function SheetDemo() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="secondary">Open</Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Edit profile</SheetTitle>
+          <SheetDescription>Make changes to your profile here. Click save when youre done.</SheetDescription>
+        </SheetHeader>
+        <SheetBody className="flex w-full flex-col items-start gap-4 py-4">
+          <div className="flex w-full flex-col justify-start gap-2">
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" value="Michael Scott" className="col-span-3" />
+          </div>
+          <div className="flex w-full flex-col justify-start gap-2">
+            <Label htmlFor="username">Username</Label>
+            <Input id="username" value="@mscott" className="col-span-3" />
+          </div>
+        </SheetBody>
+        <SheetFooter>
+          <SheetClose asChild>
+            <Button variant="secondary">Cancel</Button>
+          </SheetClose>
+          <Button type="submit">Save changes</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Sheet component, an extension of the Dialog component, is utilized to display supplementary content that is secondary to the main content on a page. It can be presented as a sliding panel from the edges of the screen or as a more traditional modal overlay.
+
+Sheets are often used to show detailed information, additional options, or to house forms and filters that don't need to be in the main content flow.
+
+### When to use
+
+- **Detail or summary views**: Employ a Sheet to display additional details about a selected item from the main content, such as a list item's detailed view or summary.
+- **Auxiliary actions and options**: Use a Sheet to present actions or options related to the main content, such as sharing controls, additional filters, or secondary actions.
+- **Forms and data input**: Sheets can be an effective way to handle forms or data input related to the page's main content without taking the user to a separate page or cluttering the main view.
+- **Progressive disclosure**: Utilize Sheets to progressively disclose information or options as needed, keeping the user's context intact and reducing the cognitive load of too much information at once.
+
+Avoid using Sheets for critical actions or information that users must interact with directly, as their peripheral placement may cause them to be overlooked. Sheets should not be overused, as too many can lead to a cluttered interface and a confusing user experience. They should also not become a catch-all for content that doesn't fit neatly elsewhere; instead, consider whether the content deserves a more central place in the UI or if it can be structured differently.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SheetPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="sheet.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Input } from '@c14/design-system/components/ui/input';
+import { Label } from '@c14/design-system/components/ui/label';
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, SheetBody } from '@c14/design-system/components/ui/sheet';
+
+export function SheetDemo() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="secondary">Open</Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Edit profile</SheetTitle>
+          <SheetDescription>Make changes to your profile here. Click save when youre done.</SheetDescription>
+        </SheetHeader>
+        <SheetBody className="flex w-full flex-col items-start gap-4 py-4">
+          <div className="flex w-full flex-col justify-start gap-2">
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" value="Michael Scott" className="col-span-3" />
+          </div>
+          <div className="flex w-full flex-col justify-start gap-2">
+            <Label htmlFor="username">Username</Label>
+            <Input id="username" value="@mscott" className="col-span-3" />
+          </div>
+        </SheetBody>
+        <SheetFooter>
+          <SheetClose asChild>
+            <Button variant="secondary">Cancel</Button>
+          </SheetClose>
+          <Button type="submit">Save changes</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Size
+
+You can adjust the `size` of the sheet using CSS classes:
+
+```js copy /className="w-96 sm:w-full"/ filename="sheet.tsx"
+<Sheet>
+  <SheetTrigger>Open</SheetTrigger>
+  <SheetContent className="w-96 sm:w-full">
+    <SheetHeader>
+      <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+      <SheetDescription>
+        This action cannot be undone. This will permanently delete your account and remove your data from our
+        servers.
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-30093&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/dialog#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the `Dialog` [WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={sheetAccessibilityData} />

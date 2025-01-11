@@ -1,0 +1,124 @@
+---
+title: Alert Dialog
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { alertDialogAccessibilityData } from "@/components/accessibility/alert-dialog.tsx";
+import { AlertDialogPreview } from "@/components/preview/alert-dialog.tsx";
+
+# Alert Dialog
+
+A modal dialog that interrupts the user with important content and expects a response.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AlertDialogPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="alert-dialog.tsx"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@c14/design-system/components/ui/alert-dialog"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function AlertDialogDemo() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="secondary">Delete account</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The AlertDialog component is a modal dialog that interrupts the current task to convey critical information or require confirmation to the user.
+
+It's crucial to use AlertDialogs sparingly to avoid disrupting the user's workflow. When an AlertDialog appears, it takes focus away from the main content and pauses task progression until the user responds to it.
+
+### When to use
+
+- **For critical information**: Use AlertDialogs for urgent information that users must acknowledge before proceeding, such as errors or warnings that prevent the current process from continuing.
+- **For confirmation of actions**: Employ AlertDialogs when you need the user to confirm or reject a significant action, especially one that is irreversible or has substantial impact, like removing a user account or overwriting data.
+- **For session timeouts**: In cases where a user's session is about to expire or has expired, an AlertDialog can be used to warn the user and offer options to either extend the session or log out.
+
+Remember to avoid using AlertDialogs for non-essential information that does not require immediate action or decision, as they can be disruptive and may negatively affect the user's experience if overused.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AlertDialogPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="alert-dialog.tsx"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@c14/design-system/components/ui/alert-dialog"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function AlertDialogDemo() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="secondary">Delete account</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-4211&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/alert-dialog#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the [Alert and Message Dialogs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={alertDialogAccessibilityData} />

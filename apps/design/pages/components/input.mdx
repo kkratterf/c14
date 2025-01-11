@@ -1,0 +1,233 @@
+---
+title: Input
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import {
+  InputPreview,
+  InputFile,
+  InputDisabled,
+  InputWithLabel,
+  InputWithButton,
+  InputWithForm,
+} from "@/components/preview/input.tsx";
+
+# Input
+
+A basic widget for getting the user input in a text field.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<InputPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="input.tsx"
+import { Input } from '@c14/design-system/components/ui/input';
+
+export function InputDemo() {
+  return <Input type="email" placeholder="Email" className="w-80"/>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Input component is a basic widget used in forms to collect user data in a text field format. It's a versatile element that allows for a range of data input, from simple text to complex data formats like dates and email addresses. The Input component is fundamental to any form, enabling users to type information directly into a UI.
+
+The Input should be clearly labeled, typically with a Label component, to indicate to the user what information is required.
+
+Placeholder text can provide hints or examples of the required input, but it should not replace a label.
+
+### When to use
+
+- **Text entry**: Use an Input component for fields where users need to enter text, numbers, or other data.
+- **Form submissions**: Employ Input components within forms for user registrations, logins, searches, and other data submission tasks.
+- **Data formatting**: Utilize specific Input types to enforce data formatting, like 'date' for calendar pickers or 'number' for numeric data.
+- **User customization**: Inputs allow for user customization and personalization, as they can fill in information that tailors the experience to their needs.
+
+Avoid using Input components for non-textual data if more suitable controls exist, like sliders for ranges or switches for binary options. Do not rely on placeholder text alone for instructions, as it disappears when the user starts typing, which can lead to confusion. Input fields should not be excessively long or short; their length can suggest the amount of text the user is expected to provide.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<InputPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="input.tsx"
+import { Input } from '@c14/design-system/components/ui/input';
+
+export function InputDemo() {
+  return <Input type="email" placeholder="Email" className="w-80"/>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### File
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<InputFile />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /type="file"/ filename="input.tsx"
+import { Input } from '@c14/design-system/components/ui/input';
+
+export function InputDemo() {
+  return <Input type="file" className="w-80"/>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Disabled
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<InputDisabled />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /disabled/ filename="input.tsx"
+import { Input } from '@c14/design-system/components/ui/input';
+
+export function InputDemo() {
+  return <Input type="email" placeholder="Email" disabled className="w-80"/>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With label
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<InputWithLabel />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /Label/ filename="input.tsx"
+import { Input } from '@c14/design-system/components/ui/input';
+import { Label } from '@c14/design-system/components/ui/label';
+
+export function InputWithLabel() {
+  return (
+    <div className="grid w-80 max-w-sm items-center gap-3">
+      <Label htmlFor="email">Email</Label>
+      <Input type="email" id="email" placeholder="Email" />
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With button
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<InputWithButton />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /Button/ filename="input.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Input } from '@c14/design-system/components/ui/input';
+
+export function InputWithButton() {
+  return (
+    <div className="flex w-80 max-w-sm items-center space-x-2">
+      <Input type="email" placeholder="Email" />
+      <Button type="submit">Subscribe</Button>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With form
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<InputWithForm />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="input.tsx"
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@c14/design-system/components/ui/form';
+import { Input } from '@c14/design-system/components/ui/input';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+const FormSchema = z.object({
+username: z.string().min(2, {
+message: 'Username must be at least 2 characters.',
+}),
+});
+
+export function InputFormDemo() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+    username: '',
+    },
+  });
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+      toast({
+      title: 'You submitted the following values:',
+      description: JSON.stringify(data, null, 2)
+      });
+  }
+return (
+  <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-[340px] space-y-6">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="@mscott" {...field} className="patch-input" />
+              </FormControl>
+              <FormDescription>This is your public display name.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+);
+}
+```
+
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-23959&t=jWCgbJWcyEzdpwjF-1"
+  />
+</Cards>

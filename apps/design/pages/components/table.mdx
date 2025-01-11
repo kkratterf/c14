@@ -1,0 +1,241 @@
+---
+title: Table
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { TablePreview } from "@/components/preview/table.tsx";
+
+# Table
+
+A responsive table component.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TablePreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="table.tsx"
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@c14/design-system/components/ui/table";
+
+const invoices = [
+{
+invoice: "INV001",
+paymentStatus: "Paid",
+totalAmount: "$250.00",
+paymentMethod: "Credit Card",
+},
+{
+invoice: "INV002",
+paymentStatus: "Pending",
+totalAmount: "$150.00",
+paymentMethod: "PayPal",
+},
+{
+invoice: "INV003",
+paymentStatus: "Unpaid",
+totalAmount: "$350.00",
+paymentMethod: "Bank Transfer",
+},
+{
+invoice: "INV004",
+paymentStatus: "Paid",
+totalAmount: "$450.00",
+paymentMethod: "Credit Card",
+},
+{
+invoice: "INV005",
+paymentStatus: "Paid",
+totalAmount: "$550.00",
+paymentMethod: "PayPal",
+},
+{
+invoice: "INV006",
+paymentStatus: "Pending",
+totalAmount: "$200.00",
+paymentMethod: "Bank Transfer",
+},
+{
+invoice: "INV007",
+paymentStatus: "Unpaid",
+totalAmount: "$300.00",
+paymentMethod: "Credit Card",
+},
+]
+
+export function TableDemo() {
+  return (
+    <Table>
+      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-24">Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead className="text-right">Amount</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {invoices.map((invoice) => (
+          <TableRow key={invoice.invoice}>
+            <TableCell className="font-medium">{invoice.invoice}</TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell className="text-right">$2,500.00</TableCell>
+        </TableRow>
+      </TableFooter>
+    </Table>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Table component is designed to display a collection of data in a structured format, consisting of rows and columns. It is ideal for comparing and analyzing related information.
+
+A responsive table adapts to different screen sizes, ensuring that content is readable and accessible on any device.
+
+### When to use
+
+- **Displaying structured data**: Use a Table when you have structured data that can be logically organized in columns and rows for clear comparison and analysis.
+- **Reporting and analytics**: Tables are suitable for reports and analytics where users need to compare values and draw insights from data.
+- **Configurable lists**: If the data includes a list of configurations or settings that need to be reviewed collectively, a Table provides a clear overview.
+
+Avoid using Tables for unstructured data that doesn't fit well into a tabular format. Tables should not be used for content that is better presented in other formats, such as paragraphs of text or images. Be mindful not to overload tables with too much data, which can overwhelm users, and ensure that any interactive elements within the Table are easy to manipulate on touch devices.
+
+## Data Table
+
+You can use the `<Table />` component to build more complex data tables. Combine it with [@tanstack/react-table](https://tanstack.com/table/v8) to create tables with sorting, filtering and pagination.
+
+See the [Data Table documentation](/components/data-table) for more information.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TablePreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="table.tsx"
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@c14/design-system/components/ui/table";
+
+const invoices = [
+{
+invoice: "INV001",
+paymentStatus: "Paid",
+totalAmount: "$250.00",
+paymentMethod: "Credit Card",
+},
+{
+invoice: "INV002",
+paymentStatus: "Pending",
+totalAmount: "$150.00",
+paymentMethod: "PayPal",
+},
+{
+invoice: "INV003",
+paymentStatus: "Unpaid",
+totalAmount: "$350.00",
+paymentMethod: "Bank Transfer",
+},
+{
+invoice: "INV004",
+paymentStatus: "Paid",
+totalAmount: "$450.00",
+paymentMethod: "Credit Card",
+},
+{
+invoice: "INV005",
+paymentStatus: "Paid",
+totalAmount: "$550.00",
+paymentMethod: "PayPal",
+},
+{
+invoice: "INV006",
+paymentStatus: "Pending",
+totalAmount: "$200.00",
+paymentMethod: "Bank Transfer",
+},
+{
+invoice: "INV007",
+paymentStatus: "Unpaid",
+totalAmount: "$300.00",
+paymentMethod: "Credit Card",
+},
+]
+
+export function TableDemo() {
+  return (
+    <Table>
+      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-24">Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead className="text-right">Amount</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {invoices.map((invoice) => (
+          <TableRow key={invoice.invoice}>
+            <TableCell className="font-medium">{invoice.invoice}</TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell className="text-right">$2,500.00</TableCell>
+        </TableRow>
+      </TableFooter>
+    </Table>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-31055&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card title="📄 TanStack Table Docs" href="https://tanstack.com/table/v8" />
+</Cards>

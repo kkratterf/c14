@@ -1,0 +1,65 @@
+---
+title: Accessibility
+---
+
+import { FoundationsAccessibility } from "@/components/foundations/accessibility.mdx";
+
+# Accessibility
+
+Accessible design ensures our products are intuitive and usable for everyone, regardless of ability.
+
+## Get started
+
+In the realm of modern design systems, accessibility is not just an afterthought but a core principle that guides the entire design process. By integrating accessibility standards from the outset, we lay a robust foundation for products that cater to a diverse range of human experiences and abilities. This approach not only helps in avoiding costly redesigns and reducing both technical and design debts but also conserves resources significantly.
+
+Our design philosophy embraces inclusivity, ensuring that every user, regardless of their abilities or circumstances, receives a quality experience. This encompasses individuals with low vision, blindness, hearing impairments, cognitive and motor impairments, as well as those facing situational disabilities like a temporary injury.
+
+By adhering to established guidelines such as the [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/), [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.2/), and European standards, our components are crafted to be perceivable, operable and understandable, enhancing usability for everyone.
+
+## WAI-ARIA
+
+[WAI-ARIA](https://www.w3.org/TR/wai-aria-1.2/), developed and upheld by the W3C, outlines the essential semantics for numerous familiar UI patterns featured in **C14**. This framework is crafted to imbue non-standard browser elements with meaningful functionalities. For instance, transforming a `div` into a functional `button` requires adding specific attributes to inform screen readers or voice recognition systems of its intended role as a `button`.
+
+Moreover, WAI-ARIA goes beyond mere semantics to define the expected behaviors of different component types. For example, a standard `button` element naturally reacts differently to user interactions compared to a `div` element. It falls upon the developer's shoulders to replicate these interactive behaviors using JavaScript. [WAI-ARIA's authoring practices](https://www.w3.org/WAI/ARIA/apg/) serve as a comprehensive guide for programming these interactive features into the varied controls found within **C14**.
+
+## Accessible Labels
+
+Accessible Labels play a crucial role in enhancing the usability of form controls. In standard HTML forms, the `label` element is used to give semantic meaning and context to the associated `input` fields. However, for non-standard form elements or custom controls, like those in our components, the [WAI-ARIA guidelines](https://www.w3.org/TR/wai-aria-1.2/#namecalculation) step in to offer a framework for assigning accessible names and descriptions.
+
+## Keyboard Navigation
+
+Keyboard Navigation is an integral aspect of user interaction, especially for complex components such as `Tabs` and `Dialogs`. Users often expect to be able to navigate through these components using a keyboard or alternative input methods that don't involve a mouse.
+
+In alignment with this expectation, **C14** is equipped with fundamental keyboard navigation capabilities. These capabilities are developed following the guidelines of the [WAI-ARIA authoring practices](https://www.w3.org/WAI/ARIA/apg/), ensuring that users can interact with these components efficiently using keyboard-based inputs. This approach enhances the accessibility and usability of these components, making them more inclusive and user-friendly.
+
+## Focus Management
+
+Focus Management is a key component in ensuring seamless keyboard navigation and effective labeling. It involves dynamically adjusting the focus in response to user interactions. When a user engages with an element causing a change, adjusting the focus accordingly helps maintain a logical flow of navigation within the application's updated context. This is particularly vital for users of screen readers, as shifting focus can trigger announcements that describe the new context, depending heavily on accurate labeling.
+
+In the context of **C14**, focus management is tailored to the typical interactions a user would have with a specific component. For instance, in the `AlertDialog` component, when the modal opens, the focus is automatically shifted to the `Cancel` button. This proactive focus shift is designed to intuitively guide the user's next action in response to the prompt, showing an understanding of user interaction patterns and enhancing the overall user experience.
+
+## Contrast Ratio
+
+Contrast ratios are a critical aspect of design, especially in distinguishing text and various elements visually. They are essential for ensuring that images and text are easily discernible, particularly under varying light conditions, such as bright sunlight or in darker settings.
+
+These ratios are a way to measure the difference in visual luminance or brightness between two colors, typically expressed in values ranging from 1:1 to 21:1. A higher ratio indicates a greater difference in luminance, making it easier to distinguish one color from another. The World Wide Web Consortium (W3C) sets standards for these ratios, considering the luminance - or the amount of light emitted - of a color against its background, with the scale going from 1 to 21.
+
+For text and images, the [W3C](https://www.w3.org/WAI/standards-guidelines/wcag/) recommends specific contrast ratios to ensure readability and clarity. For large text (equivalent to 14 pt bold or 18 pt regular and above) and graphical elements, a minimum contrast ratio of 3:1 against their background is suggested. For smaller text, a higher contrast ratio of 4.5:1 is recommended to ensure legibility. However, elements that are disabled or inoperable are not required to meet these contrast standards. This guidance helps in designing interfaces that are accessible and easy to read for a wide range of users under different viewing conditions.
+
+<FoundationsAccessibility />
+
+## Meaningful text
+
+Meaningful text is essential in user interfaces, particularly for those relying on screen readers. All textual content, whether visible like UI labels, headings, and buttons, or non-visible like alternative text for images, should be accessible and supportive of easy navigation. The key is to be concise and use plain language, facilitating quicker and easier comprehension, especially for non-native English speakers. Avoiding idioms and clearly explaining acronyms on their first use are also important practices.
+
+Consistency in labeling is crucial for recognition across different contexts. For example, buttons and menu items should be clearly labeled with action verbs, indicating the specific action or outcome. For instance, use 'Edit preferences' instead of just 'Preferences', and ensure that hyperlinks are descriptive of their destinations.
+
+## Testing and research
+
+While these recommendations are designed to enhance accessibility in your applications, they cannot assure complete accessibility.
+
+Additionally, we advise you to:
+
+- Conduct comprehensive testing of the entire application and user paths with different assistive tools and text resizing options
+- Involve individuals with disabilities in the testing process
+- Make sure that all tasks within your applications are achievable by users of all abilities

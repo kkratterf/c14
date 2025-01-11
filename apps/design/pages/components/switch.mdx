@@ -1,0 +1,221 @@
+---
+title: Switch
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { switchAccessibilityData } from "@/components/accessibility/switch.tsx";
+import {
+  SwitchPreview,
+  SwitchWithLabel,
+  SwitchDisabled,
+  SwitchWithForm,
+} from "@/components/preview/switch.tsx";
+
+# Switch
+
+A control that allows the user to toggle between checked and not checked.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SwitchPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="switch.tsx"
+import { Switch } from '@c14/design-system/components/ui/switch';
+
+export function SwitchDemo() {
+  return <Switch />
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Switch component is a control that offers a binary choice, such as on/off or yes/no. It's a visual toggle between two mutually exclusive states and is a common control in user interfaces for settings.
+
+Unlike checkboxes, which can be used for multiple selections, a Switch represents a one-or-the-other option and is typically used to activate or deactivate a specific feature or setting.
+
+### When to use
+
+- **Immediate action settings**: Use a Switch when the user's action should have an immediate effect, without the need for a "Submit" button. For example, toggling dark mode on or off.
+- **Binary options**: Employ a Switch for settings that can only be either enabled or disabled, where no intermediate states are possible.
+- **Space-saving**: A Switch is a good choice when space is at a premium, and you want to avoid cluttering the interface with larger controls like sliders or buttons.
+- **Preference settings**: They are ideal for preference settings that a user might want to toggle frequently, such as turning Wi-Fi or Bluetooth on a mobile device on and off.
+
+Avoid using a Switch when the action requires further confirmation or has significant consequences that the user might not fully understand from the toggle alone. Do not use a Switch for actions that require more granular control or for settings that need to be saved before taking effect.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SwitchPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="switch.tsx"
+import { Switch } from '@c14/design-system/components/ui/switch';
+
+export function SwitchDemo() {
+  return <Switch />
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With label
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SwitchWithLabel />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /Label/ filename="switch.tsx"
+import { Label } from '@c14/design-system/components/ui/label';
+import { Switch } from '@c14/design-system/components/ui/switch';
+
+export function SwitchDemo() {
+  return (
+    <div className="flex items-center space-x-2">
+      <Switch id="airplane-mode" />
+      <Label htmlFor="airplane-mode">Airplane Mode</Label>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Disabled
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SwitchDisabled />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="switch.tsx"
+import { Switch } from '@c14/design-system/components/ui/switch';
+
+export function SwitchDemo() {
+  return <Switch disabled/>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With form
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SwitchWithForm />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="switch.tsx"
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+} from '@c14/design-system/components/ui/form';
+import { Switch } from '@c14/design-system/components/ui/switch';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+const FormSchema = z.object({
+marketing_emails: z.boolean().default(false).optional(),
+security_emails: z.boolean(),
+});
+
+export function SwitchDemo() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      security_emails: true,
+    },
+  });
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    toast({
+      title: 'You submitted the following values:',
+      description: JSON.stringify(data, null, 2)
+    });
+  }
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+        <div>
+          <h3 className="text-lg-medium mb-4">Email Notifications</h3>
+          <div className="space-y-4">
+            <FormField
+              control={form.control}
+              name="marketing_emails"
+              render={({ field }) => (
+                <FormItem className="border-default flex flex-row items-center justify-between gap-4 rounded-lg border p-4">
+                  <div className="space-y-0.5">
+                    <FormLabel className="text-base">Marketing emails</FormLabel>
+                    <FormDescription>Receive emails about new products, features, and more.</FormDescription>
+                  </div>
+                  <FormControl>
+                    <Switch checked={field.value} onCheckedChange={field.onChange} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="security_emails"
+              render={({ field }) => (
+                <FormItem className="border-default flex flex-row items-center justify-between rounded-lg border p-4">
+                  <div className="space-y-0.5">
+                    <FormLabel className="text-base">Security emails</FormLabel>
+                    <FormDescription>Receive emails about your account security.</FormDescription>
+                  </div>
+                  <FormControl>
+                    <Switch checked={field.value} onCheckedChange={field.onChange} disabled aria-readonly />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-30416&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/switch#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the `switch` [role requirements](https://www.w3.org/WAI/ARIA/apg/patterns/switch/).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={switchAccessibilityData} />

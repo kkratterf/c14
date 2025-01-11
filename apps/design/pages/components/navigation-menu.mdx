@@ -1,0 +1,269 @@
+---
+title: Navigation Menu
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import {
+  NavigationMenuPreview,
+  NavigationMenuVertical,
+  NavigationMenuSmall,
+} from "@/components/preview/navigation-menu.tsx";
+
+# Navigation Menu
+
+A collection of links for navigating websites.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<NavigationMenuPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="navigation-menu.tsx"
+import Link from "next/link";
+import { Lightbulb, MapIcon, Users } from "lucide-react";
+
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@c14/design-system/components/ui/navigation-menu'
+
+export const NavigationMenuDemo = () => (
+    <NavigationMenu>
+      <NavigationMenuList orientation="horizontal">
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink active={true}>
+              <Lightbulb />
+              Ideas
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <MapIcon />
+              Roadmap
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <Users />
+              Community
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+);
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Navigation Menu component serves as a collection of links that help users navigate through a website's various pages and sections. It is a critical component for any website, providing a roadmap to the content and making the site's structure understandable at a glance.
+
+Navigation Menus are typically located at the top of a webpage, but can also be found on the side or bottom, depending on the layout and design.
+
+### When to use
+
+- **Primary navigation**: Use a Navigation Menu as the primary means for users to find and access the main areas of your site or application.
+- **Structured content access**: Employ a Navigation Menu to provide structured access to your content, presenting it in a hierarchical, easy-to-understand manner.
+- **User orientation**: Navigation Menus help users understand where they are within your website and how to return to previously visited pages or access new areas.
+
+Avoid using overly complex Navigation Menus that can confuse users or make it difficult to find content. Keep the number of top-level items manageable, and be cautious of deep nested structures in dropdowns or flyouts. Don't rely on the Navigation Menu as the only means of accessing content; provide alternative pathways and search functionality for a comprehensive navigation system.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<NavigationMenuPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="navigation-menu.tsx"
+import Link from "next/link";
+import { Lightbulb, MapIcon, Users } from "lucide-react";
+
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@c14/design-system/components/ui/navigation-menu'
+
+export const NavigationMenuDemo = () => (
+    <NavigationMenu>
+      <NavigationMenuList orientation="horizontal">
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink active={true}>
+              <Lightbulb />
+              Ideas
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <MapIcon />
+              Roadmap
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <Users />
+              Community
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+);
+```
+</Tabs.Tab>
+</Tabs>
+
+### Vertical
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<NavigationMenuVertical />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="navigation-menu.tsx"
+import Link from "next/link";
+import { Lightbulb, MapIcon, Users } from "lucide-react";
+
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@c14/design-system/components/ui/navigation-menu'
+
+export const NavigationMenuDemo = () => (
+    <NavigationMenu>
+      <NavigationMenu>
+      <NavigationMenuList orientation="vertical">
+        <NavigationMenuItem className="w-full">
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink active={true} className="w-full justify-start">
+              <Lightbulb />
+              Ideas
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem className="w-full">
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className="w-full justify-start">
+              <MapIcon />
+              Roadmap
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem className="w-full">
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className="w-full justify-start">
+              <Users />
+              Community
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+);
+```
+</Tabs.Tab>
+</Tabs>
+
+### Small
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<NavigationMenuSmall />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="navigation-menu.tsx"
+import Link from "next/link";
+import { Lightbulb, MapIcon, Users } from "lucide-react";
+
+import { Separator } from '@c14/design-system/components/ui/separator';
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@c14/design-system/components/ui/navigation-menu'
+
+export const NavigationMenuDemo = () => (
+  <div className="flex flex-col gap-4">
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink size="small" active={true}>
+                <Lightbulb />
+                Ideas
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink size="small">
+                <MapIcon />
+                Roadmap
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/docs" legacyBehavior passHref>
+              <NavigationMenuLink size="small">
+                <Users />
+                Community
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      <Separator />
+      <NavigationMenu>
+        <NavigationMenuList orientation="vertical">
+          <NavigationMenuItem className="w-full">
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink size="small" className="w-full justify-start" active={true}>
+                <Lightbulb />
+                Ideas
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem className="w-full">
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink size="small" className="w-full justify-start">
+                <Map />
+                Roadmap
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem className="w-full">
+            <Link href="/docs" legacyBehavior passHref>
+              <NavigationMenuLink size="small" className="w-full justify-start">
+                <Users />
+                Community
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
+);
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=8295-15561&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/navigation-menu#accessibility"
+  />
+</Cards>
+
+## Accessibility
+
+This component adheres to the `navigation` [role requirements](https://www.w3.org/TR/wai-aria-1.2/#navigation).

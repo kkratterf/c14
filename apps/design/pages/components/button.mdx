@@ -1,0 +1,236 @@
+---
+title: Button
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import {
+  ButtonPreview,
+  ButtonPrimary,
+  ButtonSecondary,
+  ButtonText,
+  ButtonLink,
+  ButtonDanger,
+  ButtonWithIcon,
+  ButtonIcon,
+  ButtonSize,
+  ButtonAsChild,
+} from "@/components/preview/button.tsx";
+
+# Button
+
+Triggers an event or action. They let users know what will happen next.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function ButtonDemo() {
+  return <Button>Button</Button>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Button component is an essential interface element that triggers events or actions when clicked or tapped by the user.
+
+Buttons are used to initiate various tasks like form submission, modal opening, feature activation, or navigating to another section of the application.
+
+A well-designed Button should clearly communicate its purpose and indicate to users what will happen when it is activated.
+
+### When to use
+
+- **Form submission**: Use Buttons for submitting forms after users have entered their information.
+- **Action initiation**: Employ Buttons to initiate actions like creating, editing, deleting, or sharing content.
+- **Navigation**: Utilize Buttons to navigate users to different areas of your application or to progress through multi-step workflows.
+- **Command execution**: Use Buttons to execute commands such as starting a process, refreshing data, or applying settings.
+
+Avoid using Buttons for non-interactive elements, such as status indicators or badges. Do not overcrowd your interface with too many Buttons, as this can lead to decision fatigue for users.
+
+## Example
+
+### Primary
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonPrimary />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="primary"/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function ButtonDemo() {
+    return <Button variant="primary">Primary</Button>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Secondary
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonSecondary />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="secondary"/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function ButtonDemo() {
+  return <Button variant="secondary">Secondary</Button>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Text
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonText />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="text"/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function ButtonDemo() {
+  return <Button variant="text">Text</Button>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Link
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonLink />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="link"/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function ButtonDemo() {
+  return <Button variant="link">Link</Button>
+}
+```
+ </Tabs.Tab>
+</Tabs>
+
+### Danger
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonDanger />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="danger"/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function ButtonDemo() {
+  return <Button variant="danger">Danger</Button>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With Icon
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonWithIcon />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /Download/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+import { Download } from 'lucide-react'
+
+export function ButtonDemo() {
+    return (
+      <Button variant="primary">
+        <Download />
+        Button
+      </Button>
+    );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Icon
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonIcon />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /icon={true}/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+import { Search } from 'lucide-react'
+
+export function ButtonDemo() {
+    return (
+      <Button variant="secondary" icon={true}>
+        <Search/>
+      </Button>
+    );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Size
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonSize />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /size="small"/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+
+export function ButtonDemo() {
+    return <Button size="small" variant="primary">Small</Button>
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### As child
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<ButtonAsChild />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /asChild/ filename="button.tsx"
+import { Button } from "@c14/design-system/components/ui/button"
+import Link from "next/link"
+
+export function ButtonDemo() {
+  return (
+    <Button variant="secondary" asChild>
+      <Link href="/login">Login</Link>
+    </Button>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-9194&t=jWCgbJWcyEzdpwjF-1"
+  />
+</Cards>

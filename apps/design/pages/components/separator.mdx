@@ -1,0 +1,126 @@
+---
+title: Separator
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { SeparatorPreview, SeparatorHorizontal, SeparatorVertical } from "@/components/preview/separator.tsx";
+
+# Separator
+
+Visually or semantically separates content.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SeparatorPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="separator.tsx"
+import { Separator } from '@c14/design-system/components/ui/separator';
+
+export function SeparatorDemo() {
+  return (
+    <div>
+      <div className="space-y-1">
+        <h4 className="text-lg-semibold leading-none">C14</h4>
+        <p className="text-md text-description">Open-source startup database</p>
+      </div>
+      <Separator className="my-4" />
+      <div className="flex h-5 items-center space-x-4 text-md">
+        <div>Blog</div>
+        <Separator orientation="vertical" />
+        <div>Docs</div>
+        <Separator orientation="vertical" />
+        <div>Source</div>
+      </div>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Separator component is used to create a clear visual or semantic division between sections of content.
+
+Separators help organize content and group related items together, making the interface easier to navigate and understand.
+
+### When to use
+
+- **Grouping elements**: Use Separators to define groups within lists or layouts, such as between navigation items, form inputs, or within dropdown menus.
+- **Enhancing readability**: Employ Separators to break up long stretches of content, like in articles, forms, or sidebars, to enhance readability and prevent visual fatigue.
+- **Structural clarity**: Utilize Separators to clarify the structure of the layout, especially in complex interfaces with multiple nested sections or levels of hierarchy.
+- **Content hierarchy**: Separators can help establish a content hierarchy by marking the beginning and end of different sections, making it easier for users to scan and find information.
+
+Avoid using Separators to decorate the interface or add visual flair; their primary purpose is to organize and structure content. Don't rely on Separators to create space between elements; instead, use proper padding and margin for that purpose. Additionally, excessive use of Separators can lead to a cluttered and visually overwhelming interface, so use them judiciously.
+
+## Examples
+
+### Horizontal
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SeparatorHorizontal />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /orientation="horizontal"/ filename="separator.tsx"
+import { Separator } from '@c14/design-system/components/ui/separator';
+
+export function SeparatorDemo() {
+  return (
+    <div>
+      <h4 className="text-lg-semibold leading-none">C14</h4>
+      <Separator orientation="horizontal" className="my-4" />
+      <p className="text-md text-description">Open-source startup database
+      </p>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Vertical
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SeparatorVertical />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /orientation="vertical"/ filename="separator.tsx"
+import { Separator } from '@c14/design-system/components/ui/separator';
+
+export function SeparatorDemo() {
+  return (
+    <div className="flex h-5 items-center space-x-4 text-md">
+      <div>Blog</div>
+      <Separator orientation="vertical" />
+      <div>Docs</div>
+      <Separator orientation="vertical" />
+      <div>Source</div>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-29721&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/separator#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the `separator` [role requirements](https://www.w3.org/TR/wai-aria-1.2/#separator).

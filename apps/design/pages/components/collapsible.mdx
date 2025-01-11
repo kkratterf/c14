@@ -1,0 +1,154 @@
+---
+title: Collapsible
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { collapsibleAccessibilityData } from "@/components/accessibility/collapsible.tsx";
+import { CollapsiblePreview } from "@/components/preview/collapsible.tsx";
+
+# Collapsible
+
+An interactive component which expands/collapses a panel.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<CollapsiblePreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="collapsible.tsx"
+import * as React from 'react';
+import { ChevronsUpDown } from 'lucide-react';
+
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@c14/design-system/components/ui/collapsible";
+import { Button } from "@c14/design-system/components/ui/button";
+
+export const CollapsibleDemo = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  return (
+    <Collapsible
+      open={isOpen}
+      onOpenChange={setIsOpen}
+      className="w-[340px] space-y-2"
+    >
+      <div className="flex items-center justify-between space-x-4 px-4">
+        <p className="text-md-semibold">@kkratterf starred 3 repositories</p>
+        <CollapsibleTrigger asChild>
+          <Button variant="text" icon={true}>
+            <ChevronsUpDown />
+            <span className="sr-only">Toggle</span>
+          </Button>
+        </CollapsibleTrigger>
+      </div>
+      <div className="rounded shadow-sm border border-default px-4 py-3 font-mono text-md">
+        @fucina/ui
+      </div>
+      <CollapsibleContent className="space-y-2">
+        <div className="rounded shadow-sm border border-default px-4 py-3 font-mono text-md">
+          @fucina/visualizations
+        </div>
+        <div className="rounded shadow-sm border border-default px-4 py-3 font-mono text-md">
+          @fucina/tailwind
+        </div>
+        <div className="rounded shadow-sm border border-default px-4 py-3 font-mono text-md">
+          @fucina/utils
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+};
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Collapsible component is an interactive UI element that allows users to expand and collapse sections of content.
+
+Unlike an accordion, which typically only allows one section to be open at a time, collapsible components can be used independently to hide or reveal content as needed. This is particularly useful for managing the display of lengthy or optional information without overwhelming the user with too much content at once.
+
+### When to use
+
+- **Long content management**: Use Collapsibles to manage long sections of content that are not essential to be displayed all at once, such as FAQs or detailed descriptions.
+- **Progressive disclosure**: Employ Collapsibles to implement progressive disclosure—only showing users the information they need when they need it.
+- **Optional information**: Utilize Collapsibles for optional or supplementary information that users can choose to view if they are interested.
+- **Space-saving**: Collapsibles are ideal for saving space on the page while still making all content accessible to the user.
+
+Avoid using Collapsible components for critical information that users must see. Do not overuse them on a page, as too many collapsible sections can lead to a confusing and fragmented user experience.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<CollapsiblePreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="collapsible.tsx"
+import * as React from 'react';
+import { ChevronsUpDown } from 'lucide-react';
+
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@c14/design-system/components/ui/collapsible";
+import { Button } from "@c14/design-system/components/ui/button";
+
+export const CollapsibleDemo = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  return (
+    <Collapsible
+      open={isOpen}
+      onOpenChange={setIsOpen}
+      className="w-[340px] space-y-2"
+    >
+      <div className="flex items-center justify-between space-x-4 px-4">
+        <p className="text-md-semibold">@kkratter starred 3 repositories</p>
+        <CollapsibleTrigger asChild>
+          <Button variant="text" icon={true}>
+            <ChevronsUpDown />
+            <span className="sr-only">Toggle</span>
+          </Button>
+        </CollapsibleTrigger>
+      </div>
+      <div className="rounded border border-default px-4 py-3 font-mono text-md">
+        @fucina/ui
+      </div>
+      <CollapsibleContent className="space-y-2">
+        <div className="rounded border border-default px-4 py-3 font-mono text-md">
+          @fucina/visualizations
+        </div>
+        <div className="rounded border border-default px-4 py-3 font-mono text-md">
+          @fucina/tailwind
+        </div>
+        <div className="rounded border border-default px-4 py-3 font-mono text-md">
+          @fucina/utils
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+};
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-12465&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={collapsibleAccessibilityData} />

@@ -1,0 +1,172 @@
+---
+title: Slider
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { sliderAccessibilityData } from "@/components/accessibility/slider.tsx";
+import { SliderPreview, SliderRange, SliderStep, SliderOverlap } from "@/components/preview/slider.tsx";
+
+# Slider
+
+An input where the user selects a value from within a given range.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SliderPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="slider.tsx"
+import { Slider } from "@c14/design-system/components/ui/slider";
+
+export function SliderDemo() {
+  return (
+    <Slider
+      defaultValue={[25]}
+      max={100}
+      step={1}
+    />
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Slider component allows users to select a specific value from a range by sliding a thumb along a track.
+
+It's a user-friendly alternative to entering a number and is used for settings that reflect intensity levels, such as volume, brightness, or color saturation.
+
+## When to use
+
+- **Adjusting settings**: Use a Slider when the user needs to make fine-grained adjustments within a defined range, such as adjusting the volume or screen brightness.
+- **Quick selection**: Employ a Slider for settings that benefit from quick, in-the-moment adjustments rather than precise input values.
+- **Visual representation of range**: Sliders give a visual representation of the range of possible values and the current position within that range, making them useful for filters like price ranges on e-commerce sites.
+
+Avoid using Sliders for binary inputs, precise value entry (where a text box or a spin button would be more appropriate), or very large ranges where a Slider would be too sensitive to practical adjustments. Additionally, it's not ideal for situations where the exact value needs to be known or entered, as the thumb position might not provide sufficient precision.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SliderPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="slider.tsx"
+import { Slider } from "@c14/design-system/components/ui/slider";
+
+export function SliderDemo() {
+  return (
+    <Slider
+      defaultValue={[25]}
+      max={100}
+      step={1}
+    />
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Range
+
+Add multiple `values` to create a range slider.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SliderRange />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /[25, 75]/ filename="slider.tsx"
+import { Slider } from "@c14/design-system/components/ui/slider";
+
+export function SliderDemo() {
+  return (
+    <Slider
+      defaultValue={[25, 75]}
+      max={100}
+      step={1}
+    />
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Step size
+
+Use the `step` prop to increase the stepping interval.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SliderStep />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /step/ filename="slider.tsx"
+import { Slider } from "@c14/design-system/components/ui/slider";
+
+export function SliderDemo() {
+  return (
+    <Slider
+      defaultValue={[50]}
+      max={100}
+      step={10}
+    />
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Prevent thumb overlap
+
+Use `minStepsBetweenThumbs` to avoid thumbs with equal values.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SliderOverlap />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /minStepsBetweenThumbs/ filename="slider.tsx"
+import { Slider } from "@c14/design-system/components/ui/slider";
+
+export function SliderDemo() {
+  return (
+    <Slider
+      defaultValue={[25, 75]}
+      step={10}
+      max={100}
+      minStepsBetweenThumbs={1}
+    />
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-30286&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/slider#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the `slider` [WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={sliderAccessibilityData} />

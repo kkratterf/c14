@@ -14,7 +14,10 @@ export const config: Config = {
     './components/**/*.{ts,tsx}',
     './lib/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
+    './pages/**/*.{tsx,mdx}',
     './providers/**/*.{ts,tsx}',
+    './theme.config.tsx',
+    './public/**/*.svg',
     './packages/design-system/styles/**/*.css',
   ],
   theme: {

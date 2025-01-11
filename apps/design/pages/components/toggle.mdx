@@ -1,0 +1,140 @@
+---
+title: Toggle
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { toggleAccessibilityData } from "@/components/accessibility/toggle.tsx";
+import {
+  TogglePreview,
+  ToggleDefault,
+  ToggleWithText,
+  ToggleDisabled,
+} from "@/components/preview/toggle.tsx";
+
+# Toggle
+
+A two-state button that can be either on or off.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TogglePreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="toggle.tsx"
+import { Bold } from "lucide-react"
+import { Toggle } from '@c14/design-system/components/ui/toggle';
+
+export function ToggleDemo() {
+  return (
+    <Toggle aria-label="Toggle bold">
+        <Bold />
+    </Toggle>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Toggle component functions as a switch that allows users to change a setting between two states, such as "on" or "off". Toggles are an intuitive choice for options that have an immediate effect and do not require a submission action to apply changes.
+
+### When to use
+
+- **Instant changes**: Use a Toggle for settings that take effect immediately when changed, like enabling/disabling options in preferences or settings.
+- **Binary settings**: Toggles are suitable for binary options where there are only two possible choices and no intermediate states.
+- **Reducing clutter**: Employ Toggles when you want to reduce the clutter of having submit buttons for small actions.
+- **Space efficiency**: Toggles are more space-efficient than other form elements like dropdowns or radio buttons for binary choices.
+
+Avoid using Toggles for actions that require more deliberate consideration or have significant consequences, such as deleting data or logging out of an account. For actions that need confirmation or involve multiple steps, consider using buttons that trigger a confirmation dialog.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToggleDefault />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /variant="default"/ filename="toggle.tsx"
+import { Bold } from "lucide-react"
+import { Toggle } from '@c14/design-system/components/ui/toggle';
+
+export function ToggleDemo() {
+  return (
+    <Toggle aria-label="Toggle bold" variant="default">
+        <Bold />
+    </Toggle>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With text
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToggleWithText />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /Bold/ filename="toggle.tsx"
+import { Bold } from "lucide-react"
+import { Toggle } from '@c14/design-system/components/ui/toggle';
+
+export function ToggleDemo() {
+  return (
+    <Toggle aria-label="Toggle bold">
+        <Bold /> Bold
+    </Toggle>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Disabled
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToggleDisabled />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /disabled/ filename="toggle.tsx"
+import { Bold } from "lucide-react"
+import { Toggle } from '@c14/design-system/components/ui/toggle';
+
+export function ToggleDemo() {
+  return (
+    <Toggle aria-label="Toggle bold" disabled>
+        <Bold />
+    </Toggle>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-31819&t=pkpssGCtSsrQ20kI-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/toggle#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+### Keyboard interactions
+
+<AccessibilityTable rows={toggleAccessibilityData} />

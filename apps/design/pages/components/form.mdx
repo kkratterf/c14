@@ -1,0 +1,314 @@
+---
+title: Form
+---
+
+import { Tabs, Cards, Card, Steps } from "nextra/components";
+
+import { FormPreview } from "@/components/preview/form.tsx";
+
+# Form
+
+Allows users to input information.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<FormPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="form.tsx"
+'use client';
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@c14/design-system/components/ui/form';
+import { Input } from '@c14/design-system/components/ui/input';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+const FormSchema = z.object({
+username: z.string().min(2, {
+message: 'Username must be at least 2 characters.',
+}),
+});
+
+export function InputFormDemo() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      username: '',
+    },
+  });
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+  toast({
+    title: 'You submitted the following values:',
+    description: JSON.stringify(data, null, 2)
+    });
+  }
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-[340px] space-y-6">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="@mscott" {...field} className="patch-input" />
+              </FormControl>
+              <FormDescription>This is your public display name.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Form component is a container for various form elements like inputs, checkboxes, and buttons.
+
+It's used to collect user information and facilitate user interactions that require data entry and submission.
+
+Forms are the backbone of tasks like registration, search, and feedback, making them an integral part of user interfaces.
+
+### When to use
+
+- **Data collection**: Use Forms when you need to collect information from users, such as during sign-ups, checkouts, or profile updates.
+- **User interactions**: Employ Forms to facilitate interactions where user input is required, such as search bars or contact pages.
+- **Task completion**: Utilize Forms to guide users through multi-step tasks, using appropriate controls and validation to ensure the collection of necessary data.
+- **Feedback gathering**: Forms are essential for gathering user feedback, whether through surveys, contact forms, or review submissions.
+
+Avoid overly complex forms that can overwhelm users; break them into manageable sections if needed. Do not ask for unnecessary information—keep form fields to a minimum to reduce user fatigue. Ensure that forms are not a barrier to user tasks; they should be helpful tools that facilitate user actions, not hinder them.
+
+## React Hook Form
+
+Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.
+
+Well-designed HTML forms are:
+
+- Well-structured and semantically correct.
+- Easy to use and navigate (keyboard).
+- Accessible with ARIA attributes and proper labels.
+- Has support for client and server side validation.
+- Well-styled and consistent with the rest of the application.
+
+In this guide, we will take a look at building forms with [react-hook-form](https://react-hook-form.com/) and [zod](https://zod.dev/). We're going to use a `<FormField>` component to compose accessible forms using Radix UI components.
+
+### Features
+
+The `<Form />` component is a wrapper around the `react-hook-form` library. It provides a few things:
+
+- Composable components for building forms.
+- A `<FormField />` component for building controlled form fields.
+- Form validation using `zod`.
+- Handles accessibility and error messages.
+- Uses `React.useId()` for generating unique IDs.
+- Applies the correct `aria` attributes to form fields based on states.
+
+### Anatomy
+
+```js copy
+<Form>
+  <FormField
+    control={...}
+    name="..."
+    render={() => (
+      <FormItem>
+        <FormLabel />
+        <FormControl>
+          { /* Your form field */}
+        </FormControl>
+        <FormDescription />
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+</Form>
+```
+
+### Example
+
+```js copy
+const form = useForm()
+
+<FormField
+  control={form.control}
+  name="username"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <Input placeholder="shadcn" {...field} />
+      </FormControl>
+      <FormDescription>This is your public display name.</FormDescription>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+```
+
+## How to use
+
+<Steps>
+### Create a form schema
+
+Define the shape of your form using a Zod schema. You can read more about using Zod in the [Zod documentation](https://zod.dev/).
+
+```js copy
+"use client";
+
+import * as z from "zod";
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+});
+```
+
+### Define a form
+
+Use the `useForm` hook from `react-hook-form` to create a form.
+
+```js copy
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+});
+
+export function ProfileForm() {
+  // 1. Define your form.
+  const form =
+    useForm <
+    z.infer <
+    typeof formSchema >>
+      {
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+          username: "",
+        },
+      };
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
+}
+```
+
+Since `FormField` is using a controlled component, you need to provide a default value for the field. See the [React Hook Form docs](https://react-hook-form.com/docs/usecontroller) to learn more about controlled components.
+
+### Build your form
+
+We can now use the `<Form />` components to build our form.
+
+```js copy
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@c14/design-system/components/ui/form';
+import { Input } from '@c14/design-system/components/ui/input';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+});
+
+export function ProfileForm() {
+  // ...
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="shadcn" {...field} />
+              </FormControl>
+              <FormDescription>This is your public display name.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+```
+
+### Done
+
+That's it. You now have a fully accessible form that is type-safe with client-side validation.
+
+<div className="mt-6">
+  <FormPreview />
+</div>
+
+</Steps>
+
+## Examples
+
+See the following links for more examples on how to use the `<Form />` component with other components:
+
+- [Checkbox](/components/checkbox)
+- [Input](/components/input)
+- [Radio Group](/components/radio-group)
+- [Select](/components/select)
+- [Switch](/components/switch)
+- [Textarea](/components/textarea)
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-22154&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card title="📄 React Hook Form Docs" href="https://react-hook-form.com/" />
+  <Card title="📄 Zod Docs" href="https://zod.dev/" />
+</Cards>

@@ -1,27 +1,19 @@
 import Empty from '@/components/empty';
+import Pictogram from '@/components/pictogram';
 import type { DocsThemeConfig } from 'nextra-theme-docs';
 
 const config: DocsThemeConfig = {
-  logo: <span className="logo">C14</span>,
+  logo: <Pictogram size={36} />,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/kkratterf/c14',
   },
-  color: {
-    hue: 271,
-    saturation: 81,
-    lightness: {
-      dark: 60,
-      light: 46,
-    },
-  },
-
-  backgroundColor: {
-    light: '251, 251, 251',
-    dark: '27, 29, 33',
-  },
-
   head: <link rel="icon" type="image/svg" href="/icon.svg" />,
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/kkratterf/c14',
+  useNextSeoProps() {
+    return {
+      titleTemplate: 'C14 – %s',
+    };
+  },
   footer: {
     component: Empty,
   },

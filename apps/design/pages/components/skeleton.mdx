@@ -1,0 +1,130 @@
+---
+title: Skeleton
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import {
+  SkeletonPreview,
+  SkeletonCircle,
+  SkeletonLine,
+  SkeletonCard,
+} from "@/components/preview/skeleton.tsx";
+
+# Skeleton
+
+Use to show a placeholder while content is loading.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SkeletonPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="skeleton.tsx"
+import { Card } from '@c14/design-system/components/ui/card';
+import { Skeleton } from '@c14/design-system/components/ui/skeleton';
+
+export function SkeletonDemo() {
+  return (
+    <div className="flex items-center space-x-4">
+      <Skeleton shape="circle" />
+      <div className="space-y-2">
+        <Skeleton shape="line" className="w-60" />
+        <Skeleton shape="line" className="w-40" />
+      </div>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Skeleton component is a visual indicator used as a placeholder for content as it loads, preventing a flash of empty space or a loading spinner. It’s typically used to maintain the layout's structure and provide a smooth visual cue that content is forthcoming.
+
+Skeleton components often take the form of shapes resembling the content that will eventually be loaded, such as rectangular blocks for images or lines for text.
+
+### When to use
+
+- **Progressive loading**: Use Skeletons to enhance the user experience during progressive content loading, especially when fetching data that might take time.
+- **Reducing perceived latency**: Implement Skeletons to reduce the perceived latency of content loading and to keep users informed that the content is on its way.
+- **Placeholder for media content**: Skeletons are useful as placeholders for images, videos, or text that take time to load, maintaining the layout's flow and preventing jarring shifts when content pops in.
+- **Complex layouts**: They are particularly effective in complex layouts with multiple data points, like dashboards or detailed lists, where different elements might load at different times.
+
+Avoid using Skeleton screens for content that loads quickly, as their presence might be more distracting than beneficial. Also, refrain from using Skeletons as a substitute for good performance optimization—while they improve the experience of loading, they should not replace efforts to make applications faster. Lastly, be cautious of over-animation or elaborate styling that might be more attention-grabbing than the content itself.
+
+## Examples
+
+### Circle
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SkeletonCircle />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /shape="circle"/ filename="skeleton.tsx"
+import { Skeleton } from '@c14/design-system/components/ui/skeleton';
+
+export function SkeletonDemo() {
+  return <Skeleton shape="circle" />;
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Line
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SkeletonLine />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /shape="line"/ filename="skeleton.tsx"
+import { Skeleton } from '@c14/design-system/components/ui/skeleton';
+
+export function SkeletonDemo() {
+  return <Skeleton shape="line" />;
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With card
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <SkeletonCard />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /Card/ filename="skeleton.tsx"
+import { Card } from '@c14/design-system/components/ui/card';
+import { Skeleton } from '@c14/design-system/components/ui/skeleton';
+
+export function SkeletonDemo() {
+  return (
+    <Card>
+      <div className="flex items-center space-x-4">
+        <Skeleton shape="circle" />
+        <div className="space-y-2">
+          <Skeleton shape="line" className="w-60" />
+          <Skeleton shape="line" className="w-40" />
+        </div>
+      </div>
+    </Card>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-30188&t=jWCgbJWcyEzdpwjF-1"
+  />
+</Cards>

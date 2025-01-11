@@ -1,0 +1,9 @@
+{
+  "color": "Color",
+  "font": "Font",
+  "space": "Space",
+  "size": "Size",
+  "border": "Border",
+  "screen": "Screen",
+  "opacity": "Opacity"
+}

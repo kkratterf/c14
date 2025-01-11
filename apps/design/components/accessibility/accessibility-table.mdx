@@ -1,0 +1,26 @@
+export const AccessibilityTable = ({ rows }) => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">Key</th>
+            <th align="left">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={index}>
+              <td>
+                <div className="cell-accessibility-key">
+                  <code>{row.key}</code>
+                </div>
+              </td>
+              <td className="cell-accessibility-description">{row.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    }
+  </>
+);

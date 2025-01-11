@@ -1,0 +1,106 @@
+---
+title: Color
+---
+
+import { FoundationsColor, ColorRoles } from "@/components/foundations/color.mdx";
+
+export const colorRolesData = [
+  { name: "brand", token: "brand-[]", previewClass: "--color-bg-brand-default" },
+  { name: "neutral", token: "neutral-[]", previewClass: "--color-bg-inverse" },
+  { name: "danger", token: "red-[]", previewClass: "--color-bg-danger-default" },
+  { name: "warning", token: "amber-[]", previewClass: "--color-bg-warning-default" },
+];
+
+# Color
+
+Color not only defines our brand but is also crucial in creating consistent experiences across products and platforms.
+
+## Color anatomy
+
+Color anatomy dissects the essential roles and psychological impacts of different hues within our design language. Vibrant colors breathe life into the interface, signaling important actions and guiding users with visual cues. On the other hand, neutral tones provide a subtle backdrop, ensuring content readability and conveying operational states without unnecessary distraction.
+
+### Brand
+
+<FoundationsColor color="brand" />
+
+### Neutral color
+
+<FoundationsColor color="neutral" />
+
+### Red
+
+<FoundationsColor color="red" />
+
+### Orange
+
+<FoundationsColor color="orange" />
+
+### Amber
+
+<FoundationsColor color="amber" />
+
+### Yellow
+
+<FoundationsColor color="yellow" />
+
+### Lime
+
+<FoundationsColor color="lime" />
+
+### Green
+
+<FoundationsColor color="green" />
+
+### Emerald
+
+<FoundationsColor color="emerald" />
+
+### Teal
+
+<FoundationsColor color="teal" />
+
+### Cyan
+
+<FoundationsColor color="cyan" />
+
+### Sky
+
+<FoundationsColor color="sky" />
+### Blue
+<FoundationsColor color="blue" />
+
+### Indigo
+
+<FoundationsColor color="indigo" />
+
+### Violet
+
+<FoundationsColor color="violet" />
+
+### Purple
+
+<FoundationsColor color="purple" />
+
+### Fuchsia
+
+<FoundationsColor color="fuchsia" />
+
+### Pink
+
+<FoundationsColor color="pink" />
+
+### Rose
+
+<FoundationsColor color="rose" />
+
+## Color roles
+
+Color roles describe the intention behind the color. They are constructed using some colors from the palette and are applied using [design tokens](/tokens/color).
+This means rather than choosing a certain shade or value, you'll choose a design token to apply colors.
+
+<ColorRoles colorRoles={colorRolesData} />
+
+- **Brand**: use for primary actions or elements that represent and convey our brand identity.
+- **Neutral**: use for standard text and less prominent user interface components, like secondary buttons or navigational elements.
+- **Danger**: use for user interface elements that signify danger or critical error conditions.
+- **Warning**: use for user interface elements that signal caution to avoid potential mistakes or errors.

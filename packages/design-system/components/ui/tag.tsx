@@ -21,9 +21,9 @@ const tagVariants = tv({
       teal: "bg-chart-teal-subtlest text-chart-teal-strong stroke-icon-chart-teal-strong border-chart-teal-subtlest",
       cyan: "bg-chart-cyan-subtlest text-chart-cyan-strong stroke-icon-chart-cyan-strong border-chart-cyan-subtlest",
       blue: "bg-chart-blue-subtlest text-chart-blue-strong stroke-icon-chart-blue-strong border-chart-blue-subtlest",
-      purple:
-        "bg-chart-purple-subtlest text-chart-purple-strong stroke-icon-chart-purple-strong border-chart-purple-subtlest",
-      pink: "bg-chart-pink-subtlest text-chart-pink-strong stroke-icon-chart-pink-strong border-chart-pink-subtlest",
+      violet:
+        "bg-chart-violet-subtlest text-chart-violet-strong stroke-icon-chart-violet-strong border-chart-violet-subtlest",
+      fuchsia: "bg-chart-fuchsia-subtlest text-chart-fuchsia-strong stroke-icon-chart-fuchsia-strong border-chart-fuchsia-subtlest",
     },
   },
   defaultVariants: {

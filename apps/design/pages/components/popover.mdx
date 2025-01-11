@@ -1,0 +1,164 @@
+---
+title: Popover
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { popoverAccessibilityData } from "@/components/accessibility/popover.tsx";
+import { PopoverPreview } from "@/components/preview/popover.tsx";
+
+# Popover
+
+Displays rich content in a portal, triggered by a button.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<PopoverPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="popover.tsx"
+import { Button } from "@c14/design-system/components/ui/button";
+import { Input } from "@c14/design-system/components/ui/input";
+import { Label } from "@c14/design-system/components/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from '@c14/design-system/components/ui/popover'
+
+export function PopoverDemo() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="secondary">Open popover</Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="grid gap-4">
+          <div className="grid gap-2">
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="width">Width</Label>
+              <Input id="width" defaultValue="100%" className="col-span-2" />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="maxWidth">Max. width</Label>
+              <Input
+                id="maxWidth"
+                defaultValue="300px"
+                className="col-span-2"
+              />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="height">Height</Label>
+              <Input id="height" defaultValue="25px" className="col-span-2" />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="maxHeight">Max. height</Label>
+              <Input
+                id="maxHeight"
+                defaultValue="none"
+                className="col-span-2"
+              />
+            </div>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Popover component is used to display content in a small overlay that floats over the main content. It is typically anchored to another element, such as a button, and appears in response to a user action like a click or hover.
+
+Popovers can contain a wide variety of content, including forms, menus, or informational text.
+
+### When to use
+
+- **Contextual information**: Use a Popover to provide additional information or context that is directly related to the triggering element, such as explanations of complex terms or features.
+- **Additional actions or options**: Employ a Popover to present additional actions or settings that are secondary to the main workflow, such as advanced options for an item in a list.
+- **Interactive content**: Utilize a Popover for interactive content like forms, calendars, or color pickers that users can engage with without leaving the current context.
+- **Space-saving**: A Popover is ideal for conserving space on the main canvas by temporarily housing content that doesn't need to be visible at all times.
+
+Avoid using Popovers for content that should be accessible at all times or for critical actions that users need to perform regularly. Popovers should not be overused, as they can clutter the interface and confuse users if they appear too frequently or unexpectedly. Additionally, ensure that Popovers do not obscure important content or become a hindrance to users' primary tasks.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<PopoverPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="popover.tsx"
+import { Button } from "@c14/design-system/components/ui/button";
+import { Input } from "@c14/design-system/components/ui/input";
+import { Label } from "@c14/design-system/components/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from '@c14/design-system/components/ui/popover'
+
+export function PopoverDemo() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="secondary">Open popover</Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="grid gap-4">
+          <div className="grid gap-2">
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="width">Width</Label>
+              <Input id="width" defaultValue="100%" className="col-span-2" />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="maxWidth">Max. width</Label>
+              <Input
+                id="maxWidth"
+                defaultValue="300px"
+                className="col-span-2"
+              />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="height">Height</Label>
+              <Input id="height" defaultValue="25px" className="col-span-2" />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="maxHeight">Max. height</Label>
+              <Input
+                id="maxHeight"
+                defaultValue="none"
+                className="col-span-2"
+              />
+            </div>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
+}
+```
+
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-25610&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/popover#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the [Dialog WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={popoverAccessibilityData} />

@@ -1,0 +1,214 @@
+---
+title: Textarea
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import {
+  TextareaPreview,
+  TextareaDisabled,
+  TextareaWithText,
+  TextareaWithForm,
+} from "@/components/preview/textarea.tsx";
+
+# Textarea
+
+A text area lets users enter long form text which spans over multiple lines.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TextareaPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="textarea.tsx"
+import { Textarea } from '@c14/design-system/components/ui/textarea';
+
+export function TextareaDemo() {
+  return <Textarea placeholder="Type your message here." />
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The TextArea component allows users to enter long-form text that spans multiple lines. It is typically used in forms where more extensive user input is required, such as for feedback, comments, or any other situation where a single-line text field is insufficient.
+
+It should be clearly labeled with an accessible name and, if necessary, include a description to guide users on the expected input. Consider the default size and whether it should reflect the average length of the content expected to be entered by users.
+
+### When to use
+
+- **For lengthy input**: Use a TextArea for inputs where the user is expected to write more than a single line of text, such as a comment box or a feedback form.
+- **When formatting is secondary**: Employ a TextArea when the format of the text is not the primary concern, and the user's focus is on entering plain text.
+- **In dynamic forms**: Utilize TextAreas in forms that might require the user to provide detailed information, such as a registration form or a support ticket submission.
+- **For content creation**: TextAreas are essential for content creation features where users might draft messages, articles, or any content that requires more space and visibility.
+
+Avoid using TextAreas for inputs that should be concise or restricted to one line, such as usernames or email addresses. Similarly, they should not be used when the user input needs to be formatted in real-time, like in a rich text editor.
+
+Ensure that TextAreas are not so large as to be overwhelming, or so small as to be restrictive for the user.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TextareaPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="textarea.tsx"
+import { Textarea } from '@c14/design-system/components/ui/textarea';
+
+export function TextareaDemo() {
+  return <Textarea placeholder="Type your message here." />
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Disabled
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TextareaDisabled />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /disabled/ filename="textarea.tsx"
+import { Textarea } from '@c14/design-system/components/ui/textarea';
+
+export function TextareaDemo() {
+  return <Textarea placeholder="Type your message here." disabled />
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With text
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TextareaWithText />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="textarea.tsx"
+import { Label } from '@c14/design-system/components/ui/label';
+import { Textarea } from '@c14/design-system/components/ui/textarea';
+
+export function TextareaDemo() {
+  return (
+    <div className="grid w-full gap-3">
+      <Label htmlFor="message">Bio</Label>
+      <Textarea placeholder="Once upon a time..." id="message" />
+      <span className="text-md text-description">
+        You can @mention other users and organizations.
+      </span>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With form
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TextareaWithForm />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="textarea.tsx"
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@c14/design-system/components/ui/form';
+import { Input } from '@c14/design-system/components/ui/input';
+import { Textarea } from '@c14/design-system/components/ui/textarea';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+const FormSchema = z.object({
+bio: z
+.string()
+.min(10, {
+message: "Bio must be at least 10 characters.",
+})
+.max(160, {
+message: "Bio must not be longer than 30 characters.",
+}),
+})
+
+export function TextareaForm() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  })
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    toast({
+      title: "You submitted the following values:",
+      description: JSON.stringify(data, null, 2)
+    })
+  }
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full space-y-10"
+      >
+        <div className="space-y-6">
+          <FormItem className="space-y-2">
+            <FormLabel>Name</FormLabel>
+            <FormControl>
+              <Input value="Michael Scott" />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+          <FormField
+            control={form.control}
+            name="bio"
+            render={({ field }) => (
+              <FormItem className="space-y-2">
+                <FormLabel>Bio</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Once upon a time..."
+                    className="resize-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  You can <span>@mention</span> other users and organizations.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-31407&t=jWCgbJWcyEzdpwjF-1"
+  />
+</Cards>

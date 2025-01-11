@@ -1,0 +1,272 @@
+---
+title: Toast
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { toastAccessibilityData } from "@/components/accessibility/toast.tsx";
+import {
+  ToastPreview,
+  ToastSimple,
+  ToastWithTitle,
+  ToastWithAction,
+  ToastDanger,
+  ToastWarning,
+} from "@/components/preview/toast.tsx";
+
+# Toast
+
+A succinct message that is displayed temporarily.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToastPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="toast.tsx"
+"use client"
+import { Button } from '@c14/design-system/components/ui/button';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+export function ToastDemo() {
+  return (
+    <Button
+      variant="secondary"
+      onClick={() => {
+        toast("Your message has been sent.");
+      }}>
+      > Show Toast
+    </Button>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Toast component displays a brief, auto-expiring message to provide feedback to the user following an action. Unlike modal dialogs or persistent alerts, Toasts are non-blocking and do not require user interaction to dismiss.
+
+They are commonly used to confirm that an action has been completed successfully, to report a minor error, or to convey short, informative messages.
+
+### When to use
+
+- **Feedback after an action**: Utilize Toasts to confirm actions such as saving a form, sending a message, or copying data to the clipboard.
+- **Transient information**: Use Toasts to display temporary information that does not require user action and is not critical to the task at hand.
+- **Non-disruptive alerts**: Employ Toasts for alerts that need to be noticed but do not require immediate user attention, allowing users to continue their current task without interruption.
+- **Status updates**: Toasts can be used to provide status updates on user-initiated processes, like uploading a file or syncing data.
+
+Avoid using Toasts for critical errors or information that requires immediate action, as they may go unnoticed. Do not overload the user with too many Toasts at once, as this can lead to information overload and a poor user experience. Additionally, ensure that Toasts do not cover important interactive elements of the application.
+
+## Examples
+
+### Simple
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToastSimple />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /description/ filename="toast.tsx"
+"use client"
+import { Button } from '@c14/design-system/components/ui/button';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+export function ToastDemo() {
+  return (
+    <Button
+      variant="secondary"
+      onClick={() => {
+        toast("Your message has been sent.");
+      }}>
+      {" "}
+      > Show Toast
+    </Button>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With title
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToastWithTitle/>
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /title/ filename="toast.tsx"
+"use client"
+import { Button } from '@c14/design-system/components/ui/button';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+export function ToastDemo() {
+  return (
+    <Button
+      variant="secondary"
+      onClick={() => {
+        toast("Your message has been sent.", {
+          description: "There was a problem with your request.",
+        });
+      }}>
+    >
+      Show Toast
+    </Button>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### With action
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToastWithAction />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /action/ filename="toast.tsx"
+"use client"
+import { Button } from '@c14/design-system/components/ui/button';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+export function ToastDemo() {
+  const { toast } = useToast()
+  return (
+    <Button
+      variant="secondary"
+      onClick={() => {
+        toast("Your message has been sent.", {
+          description: "There was a problem with your request.",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        });
+      }}>
+      {" "}
+      > Show Toast
+    </Button>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Danger
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToastDanger />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /status: "danger"/ filename="toast.tsx"
+"use client"
+import { Button } from '@c14/design-system/components/ui/button';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+export function ToastDemo() {
+  const { toast } = useToast()
+  return (
+    <Button
+      variant="secondary"
+      onClick={() => {
+        toast.error("Your message has been sent.", {
+          description: "There was a problem with your request.",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        });
+      }}>
+      {" "}
+      > Show Toast
+    </Button>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Warning
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ToastWarning />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /status: "warning"/ filename="toast.tsx"
+"use client"
+import { Button } from '@c14/design-system/components/ui/button';
+import { toast } from '@c14/design-system/components/ui/toast';
+
+export function ToastDemo() {
+  const { toast } = useToast()
+  return (
+    <Button
+      variant="secondary"
+      onClick={() => {
+        toast.warning("Your message has been sent.", {
+          description: "There was a problem with your request.",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        });
+      }}>
+      >
+      Show Toast
+    </Button>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-31590&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/toast#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the [aria-live requirements](https://www.w3.org/TR/wai-aria/#aria-live).
+
+### Sensitivity
+
+Control the sensitivity of the toast for screen readers using the `type` prop.
+
+For toasts that are the result of a user action, choose `foreground`. Toasts generated from background tasks should use `background`.
+
+### Foreground
+
+Foreground toasts are announced immediately. Assistive technologies may choose to clear previously queued messages when a foreground toast appears. Try to avoid stacking distinct foreground toasts at the same time.
+
+### Background
+
+Background toasts are announced at the next graceful opportunity, for example, when the screen reader has finished reading its current sentence. They do not clear queued messages so overusing them can be perceived as a laggy user experience for screen reader users when used in response to a user interaction.
+
+### Alternative action
+
+Use the `altText` prop on the `Action` to instruct an alternative way of actioning the toast to screen reader users.
+
+You can direct the user to a permanent place in your application where they can action it or implement your own custom hotkey logic. If implementing the latter, use `foreground` type to announce immediately and increase the duration to give the user ample time.
+
+### Close icon button
+
+When providing an icon (or font icon), remember to label it correctly for screen reader users.
+
+### Keyboard interactions
+
+<AccessibilityTable rows={toastAccessibilityData} />

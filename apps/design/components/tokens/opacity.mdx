@@ -1,0 +1,44 @@
+import opacity from "@/tokens/tokens";
+
+export const TokensOpacity = () => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">Token and description</th>
+            <th align="right">
+              <span className="pr-4">Value</span>
+            </th>
+            <th className="hidden sm:table-cell" align="left">
+              Preview
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(opacity.tokens.light.opacity).map(([tokenName, tokenInfo]) => {
+            const opacityValue = parseInt(tokenInfo.value.replace("px", ""), 10) / 100;
+            return (
+              <tr key={tokenName}>
+                <td className="w-full">
+                  <div className="cell-tokens-name">
+                    <code className="font-medium">opacity-{tokenName}</code>
+                    <div className="cell-description-tokens">{tokenInfo.description}</div>
+                  </div>
+                </td>
+                <td>
+                  <div className="cell-value-scale" align="right">
+                    {opacityValue.toFixed(1)}
+                  </div>
+                </td>
+                <td className="hidden sm:table-cell">
+                  <div className="cell-preview-opacity" style={{ opacity: opacityValue }}></div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    }
+  </>
+);

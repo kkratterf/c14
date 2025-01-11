@@ -1,0 +1,171 @@
+---
+title: Resizable
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { ResizablePreview, ResizableVertical, ResizableWithHandle } from "@/components/preview/resizable.tsx";
+
+# Resizable
+
+Accessible resizable panel groups and layouts with keyboard support.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ResizablePreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="resizable.tsx"
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '@c14/design-system/components/ui/resizable';
+
+export function ResizableDemo() {
+  return (
+    <ResizablePanelGroup direction="horizontal" className="border-default max-w-md rounded-lg border">
+      <ResizablePanel defaultSize={50}>
+        <div className="flex h-[200px] items-center justify-center p-6">
+          <span className="font-semibold">One</span>
+        </div>
+      </ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel defaultSize={50}>
+        <ResizablePanelGroup direction="vertical">
+          <ResizablePanel defaultSize={25}>
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">Two</span>
+            </div>
+          </ResizablePanel>
+          <ResizableHandle />
+          <ResizablePanel defaultSize={75}>
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">Three</span>
+            </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </ResizablePanel>
+    </ResizablePanelGroup>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The "Resizable Panel" component consists of panels or layout sections that users can resize dynamically. This functionality is particularly useful in user interfaces where the ability to adjust the size of different content areas on the fly enhances the user experience.
+
+The component supports keyboard interactions, making it accessible to a wide range of users, including those who rely on keyboard navigation.
+
+### When to use
+
+- **Flexible content display**: Use the Resizable Panel in interfaces where the size of content areas needs to be adjustable. For example, in dashboard layouts, sidebars in editors, or split views.
+- **User preference**: Employ this component in applications where it is beneficial for users to adjust the layout to suit their preferences, such as in data analysis tools or code editors.
+- **Responsive design**: Utilize Resizable Panels to enhance responsive design, allowing users to adjust the layout based on the device or screen size they are using.
+- **Accessibility**: The keyboard support makes it suitable for applications that require accessibility compliance, ensuring that the UI can be navigated and used effectively with keyboard-only controls.
+
+Avoid using the Resizable Panel in contexts where simplicity and layout stability are paramount, such as in fixed layouts, interfaces for mobile devices with limited space, or when the addition of resizable functionality does not significantly enhance the user experience.
+
+## About
+
+The `Resizable` component is built on top of [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels).
+
+## Examples
+
+### Vertical
+
+Use the `direction` prop to set the direction of the resizable panels.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ResizableVertical />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /direction="vertical"/ filename="resizable.tsx"
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '@c14/design-system/components/ui/resizable';
+
+export function ResizableDemo() {
+  return (
+    <ResizablePanelGroup
+      direction="vertical"
+      className="min-h-[200px] max-w-md rounded-lg border border-default"
+    >
+      <ResizablePanel defaultSize={25}>
+          <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Header</span>
+          </div>
+      </ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel defaultSize={75}>
+          <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Content</span>
+          </div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Handle
+
+You can set or hide the handle by using the `withHandle` prop on the `ResizableHandle` component.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <ResizableWithHandle />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /withHandle/ filename="resizable.tsx"
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '@c14/design-system/components/ui/resizable';
+
+export function ResizableDemo() {
+  return (
+    <ResizablePanelGroup
+      direction="horizontal"
+      className="min-h-[200px] max-w-md rounded-lg border border-default"
+    >
+        <ResizablePanel defaultSize={25}>
+            <div className="flex h-full items-center justify-center p-6">
+            <span className="font-semibold">Sidebar</span>
+            </div>
+        </ResizablePanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel defaultSize={75}>
+            <div className="flex h-full items-center justify-center p-6">
+            <span className="font-semibold">Content</span>
+            </div>
+        </ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```
+
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=2322-3533&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels"
+  />
+</Cards>

@@ -1,0 +1,45 @@
+import font from "@/tokens/tokens";
+
+export const TokensFont = ({ type }) => (
+  <>
+    {
+      <table className="docs my-6">
+        <thead>
+          <tr>
+            <th align="left">Token and description</th>
+            <th align="right">
+              <span className="pr-4">Value</span>
+            </th>
+            <th className="hidden sm:table-cell" align="left">
+              Preview
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(font.tokens.light.font[type]).map(([tokenName, tokenInfo]) => (
+            <tr key={tokenName}>
+              <td className="w-full">
+                <div className="cell-tokens-name">
+                  <code className="font-medium">
+                    font-{type}-{tokenName}
+                  </code>
+                  <div className="cell-description-tokens">{tokenInfo.description}</div>
+                </div>
+              </td>
+              <td>
+                <div className="cell-value-scale" align="right">
+                  {tokenInfo.value}
+                </div>
+              </td>
+              <td className="hidden sm:table-cell">
+                <div
+                  className="cell-preview-size"
+                  style={{ width: tokenInfo.value, height: tokenInfo.value }}></div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    }
+  </>
+);

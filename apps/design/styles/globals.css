@@ -1,0 +1,179 @@
+@import "@c14/design-system/styles/shared-globals.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --nextra-primary-hue: 271deg;
+    --nextra-primary-saturation: 81%;
+  }
+
+  .link {
+    @apply text-brand underline-offset-1;
+  }
+
+  .code {
+    @apply font-mono;
+  }
+
+  input {
+    @apply text-sm block w-full appearance-none rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 leading-tight transition-colors focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-200 focus:ring-offset-1 focus:ring-offset-transparent dark:border-zinc-800 dark:bg-zinc-900 dark:focus:border-fuchsia-500 dark:focus:ring-fuchsia-800 !important;
+  }
+}
+
+/* FIX NEXTRA */
+
+.nx-px-2 {
+  @apply px-4 !important;
+}
+
+.nx-rounded {
+  @apply rounded-lg !important;
+}
+
+.nx-rounded-lg {
+  @apply rounded-xl !important;
+}
+
+.callout-grid {
+  @apply grid w-full grid-cols-1 gap-x-6 gap-y-0 sm:grid-cols-2;
+}
+
+tr:is(html[class~="dark"] .even\:dark\:nx-bg-gray-600\/20):nth-child(2n) {
+  background-color: transparent !important;
+}
+
+.alert-success {
+  @apply border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300;
+}
+
+.patch-input > input {
+  @apply focus:border-brand focus:ring-brand-subtlest text border-item bg-item placeholder:text-placeholder disabled:border-disabled disabled:bg-neutral-disabled disabled:text-disabled h-9 w-full rounded-lg shadow-sm focus:ring-1 !important;
+}
+
+/* TABLES FIX */
+.docs table {
+  @apply w-full !important;
+}
+
+.docs thead {
+  @apply w-full !important;
+}
+
+.docs tr {
+  @apply w-full border-0 bg-transparent even:bg-transparent dark:bg-transparent !important;
+}
+
+.docs th {
+  @apply border-x-0 border-t-0 p-1.5 !important;
+}
+
+.docs tbody {
+  @apply w-full !important;
+}
+
+.docs td {
+  @apply border-x-0 border-t-0 p-1.5 !important;
+}
+
+.cell-title {
+  @apply w-full font-medium capitalize;
+}
+
+.cell-value {
+  @apply text-sm w-16 font-mono uppercase opacity-70 sm:w-28;
+}
+
+.cell-token {
+  @apply w-44;
+}
+
+.cell-token-scale {
+  @apply w-32;
+}
+
+.cell-preview {
+  @apply h-8 w-16 rounded-lg sm:w-32;
+}
+
+.cell-value-scale {
+  @apply text-sm w-24 pr-4 font-mono opacity-70;
+}
+
+.cell-preview-scale {
+  @apply bg-brand h-6 rounded-md;
+}
+
+.cell-preview-tokens {
+  @apply h-8 w-24 rounded-lg sm:w-40 md:w-24 lg:w-40;
+}
+
+.cell-token-tokens {
+  @apply text-sm w-24 opacity-80 sm:w-40 md:w-24 lg:w-40;
+}
+
+.cell-description-tokens {
+  @apply text-sm pl-0.5 pt-2 opacity-80;
+}
+
+.cell-tokens {
+  @apply grid gap-2;
+}
+
+.cell-tokens-name {
+  @apply py-2 pr-4;
+}
+
+.cell-preview-space {
+  @apply bg-brand h-8 rounded-md;
+}
+
+.cell-preview-size {
+  @apply bg-brand h-8 w-8 rounded-md;
+}
+
+.cell-preview-border-radius {
+  @apply bg-brand h-8 w-24;
+}
+
+.cell-preview-border-width {
+  @apply border-brand h-8 w-24 rounded-lg bg-transparent;
+}
+
+.cell-preview-opacity {
+  @apply bg-brand h-8 w-24 rounded-lg;
+}
+
+.cell-preview-screen {
+  @apply bg-brand h-8 rounded-md;
+}
+
+.cell-accessibility-key {
+  @apply w-40 font-medium;
+}
+
+.cell-accessibility-description {
+  @apply w-full;
+}
+
+.cell-accessibility-code {
+  @apply bg-brand-subtlest border-brand-subtlest text-brand-strong text-sm font-medium rounded-lg border px-1 py-0.5 font-mono opacity-80;
+}
+
+.cell-accessibility-contrast {
+  @apply w-40 font-mono uppercase opacity-80 lg:w-80;
+}
+
+.cell-typography {
+  @apply w-40 font-mono opacity-80 sm:w-64 lg:w-96;
+}
+
+.calendar-fix td {
+  @apply p-0 !important;
+}
+
+.calendar-fix table {
+  @apply mb-0 mt-4 !important;
+}

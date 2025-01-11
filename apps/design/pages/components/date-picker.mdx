@@ -1,0 +1,243 @@
+---
+title: Date Picker
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { Alert } from "@c14/design-system/components/ui/alert";
+
+# Date Picker
+
+{/*
+import { DatePickerPreview, DateRangePicker } from "@/components/preview/date-picker.tsx";
+*/}
+
+A date time picker allows the user to select an associated date and time.
+
+<Alert variant="warning" className="mt-6" title="🚧 Coming soon...">
+  This part of the documentation is under construction
+</Alert>
+
+{/*
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<DatePickerPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="date-picker.tsx"
+"use client"
+
+import * as React from "react";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import { Calendar } from '@c14/design-system/components/ui/calendar';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@c14/design-system/components/ui/popover';
+
+export function DatePickerDemo() {
+  const [date, setDate] = React.useState(new Date())
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant={'secondary'}
+          className={cn(
+            'w-[280px] justify-start text-left font-normal',
+            !date && 'text-description'
+          )}
+        >
+          <CalendarIcon />
+          {date ? format(date, 'PPP') : <span>Pick a date</span>}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0">
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          initialFocus
+          className="calendar-fix"
+        />
+      </PopoverContent>
+    </Popover>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+*/}
+
+## Usage
+
+The Date Picker component is an interface that allows users to select dates from a structured calendar view.
+
+It simplifies the process of inputting dates by providing a visual and interactive way to select a date, eliminating formatting errors and improving the accuracy of data entry.
+
+### When to use
+
+- **Form input**: Use a Date Picker in forms where users need to enter a date, such as for booking flights, making appointments, or setting reminders.
+- **Data filtering**: Employ a Date Picker to enable users to filter data by date, such as in reports, logs, or activity feeds.
+- **Event creation**: Utilize a Date Picker when users are scheduling events or setting deadlines to ensure they can select the correct date and time without error.
+- **User convenience**: Offer a Date Picker to streamline data entry, minimizing the need for manual typing and reducing the likelihood of input errors.
+
+Avoid using Date Pickers for date ranges that are better served by a simpler input method, like entering an age or year. Do not use a Date Picker if the exact date is not necessary, or when it could overcomplicate a simple task. Ensure that the Date Picker is not the only method of entering a date, as some users may prefer to type a date manually.
+
+## About
+
+The `Date Picker` is built using a composition of the `<Popover />` and the `<Calendar />` components.
+
+See installation instructions for the [Popover](/components/popover) and the [Calendar](/components/calendar) components.
+
+## Example
+
+<Alert variant="warning" className="mt-6" title="🚧 Coming soon...">
+  This part of the documentation is under construction
+</Alert>
+
+{/*
+### Date Picker
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<DatePickerPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="date-picker.tsx"
+"use client"
+
+import * as React from "react";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import { Calendar } from '@c14/design-system/components/ui/calendar';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@c14/design-system/components/ui/popover';
+
+export function DatePickerDemo() {
+  const [date, setDate] = React.useState(new Date())
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant={'secondary'}
+          className={cn(
+            'w-[280px] justify-start text-left font-normal',
+            !date && 'text-description'
+          )}
+        >
+          <CalendarIcon />
+          {date ? format(date, 'PPP') : <span>Pick a date</span>}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0">
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          initialFocus
+          className="calendar-fix"
+        />
+      </PopoverContent>
+    </Popover>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Date Range Picker
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<DateRangePicker />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="date-picker.tsx"
+"use client"
+
+import * as React from "react";
+import { addDays, format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+import { DateRange } from "react-day-picker";
+
+import { Button } from '@c14/design-system/components/ui/button';
+import { Calendar } from '@c14/design-system/components/ui/calendar';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@c14/design-system/components/ui/popover';
+
+export function DatePickerWithRange({
+  className,
+  }: React.HTMLAttributes<HTMLDivElement>) {
+  const [date, setDate] = React.useState<DateRange | undefined>({
+    from: new Date(2022, 0, 20),
+    to: addDays(new Date(2022, 0, 20), 20),
+  })
+  return (
+    <div className={cn('grid gap-2')}>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            id="date"
+            variant={'secondary'}
+            className={cn(
+              'w-80 justify-start text-left font-normal',
+              !date && 'text-description'
+            )}
+          >
+            <CalendarIcon />
+            {date?.from ? (
+              date.to ? (
+                <>
+                  {format(date.from, 'LLL dd, y')} -{' '}
+                  {format(date.to, 'LLL dd, y')}
+                </>
+              ) : (
+                format(date.from, 'LLL dd, y')
+              )
+            ) : (
+              <span>Pick a date</span>
+            )}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-auto p-0" align="start">
+          <Calendar
+            initialFocus
+            mode="range"
+            defaultMonth={date?.from}
+            selected={date}
+            onSelect={setDate}
+            numberOfMonths={2}
+            className="calendar-fix"
+          />
+        </PopoverContent>
+      </Popover>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+*/}
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-20967&t=pkpssGCtSsrQ20kI-1"
+  />
+</Cards>

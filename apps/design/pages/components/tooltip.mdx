@@ -1,0 +1,146 @@
+---
+title: Tooltip
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { tooltipAccessibilityData } from "@/components/accessibility/tooltip.tsx";
+import { TooltipPreview, TooltipSide } from "@/components/preview/tooltip.tsx";
+
+# Tooltip
+
+A floating, non-actionable label used to explain a user interface element or feature.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TooltipPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="tooltip.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Tooltip } from '@c14/design-system/components/ui/tooltip';
+import { FilePlus } from "lucide-react"
+
+export function TooltipDemo() {
+  return (
+    <Tooltip content="Add to library">
+      <Button variant="secondary" icon={true}>
+        <FilePlus />
+      </Button>
+    </Tooltip>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The Tooltip component is a non-actionable, floating label that provides additional information about a user interface element or feature. It appears temporarily when users hover over, focus on, or tap an element.
+
+The Tooltip is used to offer brief, context-specific explanations or to guide users without adding clutter to the interface.
+
+When designing a Tooltip, keep the text concise and informative. It should be instantly readable, so avoid lengthy descriptions that may overwhelm the users.
+
+### When to use
+
+- **To explain functionality**: Use Tooltips to describe the action or effect of interactive elements like buttons, icons, or other controls when the function is not immediately apparent.
+- **To provide additional context**: Employ Tooltips to offer extra context that can help users understand less obvious interface elements.
+- **For abbreviations and jargon**: If your interface includes technical terms, acronyms, or jargon, Tooltips can be used to provide the full meaning or explanation.
+- **To avoid interface clutter**: Instead of crowding your UI with explanatory text, Tooltips can maintain a clean layout while still offering the necessary descriptions on demand.
+
+Avoid using Tooltips for critical information that users must know since they are only visible on hover or focus and not discoverable by touch on mobile devices.
+Information necessary for completing tasks should be visible and not hidden within Tooltips.
+
+Additionally, refrain from using Tooltips to provide instructions that are complex or require significant interaction, as this can lead to a frustrating user experience.
+
+## Examples
+
+### Default
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TooltipPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="tooltip.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Tooltip } from '@c14/design-system/components/ui/tooltip';
+import { FilePlus } from "lucide-react"
+
+export function TooltipDemo() {
+  return (
+    <Tooltip content="Add to library">
+      <Button variant="secondary" icon={true}>
+        <FilePlus />
+      </Button>
+    </Tooltip>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Side
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+  <TooltipSide />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /side/ filename="tooltip.tsx"
+import { Button } from '@c14/design-system/components/ui/button';
+import { Tooltip } from '@c14/design-system/components/ui/tooltip';
+import { FilePlus } from "lucide-react"
+
+export function TooltipDemo() {
+  return (
+    <div className="grid justify-items-center sm:flex gap-5">
+        <Tooltip content="Add to library" side="top">
+        <Button variant="secondary" icon={true}>
+          <FilePlus />
+        </Button>
+      </Tooltip>
+      <Tooltip content="Add to library" side="bottom">
+        <Button variant="secondary" icon={true}>
+          <FilePlus />
+        </Button>
+      </Tooltip>
+      <Tooltip content="Add to library" side="left">
+        <Button variant="secondary" icon={true}>
+          <FilePlus />
+        </Button>
+      </Tooltip>
+      <Tooltip content="Add to library" side="right">
+        <Button variant="secondary" icon={true}>
+          <FilePlus />
+        </Button>
+      </Tooltip>
+    </div>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=639-31932&t=pkpssGCtSsrQ20kI-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/tooltip#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+### Keyboard interactions
+
+<AccessibilityTable rows={tooltipAccessibilityData} />

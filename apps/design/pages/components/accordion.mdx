@@ -1,0 +1,236 @@
+---
+title: Accordion
+---
+
+import { Tabs, Cards, Card } from "nextra/components";
+
+import { AccessibilityTable } from "@/components/accessibility/accessibility-table.mdx";
+import { accordionAccessibilityData } from "@/components/accessibility/accordion";
+import {
+  AccordionPreview,
+  AccordionSingle,
+  AccordionMultiple,
+  AccordionCollapsible,
+  AccordionDefaultValue,
+} from "@/components/preview/accordion.tsx";
+
+# Accordion
+
+A vertically stacked set of interactive headings that each reveal a section of content.
+
+<Tabs items={['Preview', 'Code']} className="my-8">
+<Tabs.Tab>
+<AccordionPreview />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy filename="accordion.tsx"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@c14/design-system/components/ui/accordion";
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>Yes. It&apos;s animated by default.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+
+The accordion component efficiently presents extensive content within a confined space by revealing information progressively. The header title provides users with a summarized view of the content, empowering them to choose which sections to explore further.
+
+Accordions enhance information processing and discovery, optimizing effectiveness. However, it's essential to consider that accordions conceal content, and there's a possibility that users may not notice or read all the included information. If users are likely to read all content, it's recommended to avoid using an accordion, as it introduces the additional step of clicking. Instead, opt for a full-scrolling page with regular headers.
+
+### When to use
+
+- **Organizing Related Information**: Use accordions to structure and present related pieces of information together.
+- **Reducing Scrolling on Non-Crucial Content**: Implement accordions to condense pages and minimize scrolling when it's not essential for users to read the entire content.
+- **Limited Space Scenarios**: Deploy accordions in situations where space is limited, and displaying lengthy content all at once is impractical, such as on mobile interfaces or within side panels.
+
+## Examples
+
+### Single item open at the same time
+
+Set the `type` property to `single` to enable only one item to open at a time.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AccordionSingle />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /single/ filename="accordion.tsx"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@c14/design-system/components/ui/accordion"
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>Yes. It&apos;s animated by default.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Multiple items open at the same time
+
+Set the `type` prop to `multiple` to enable opening multiple items at once.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AccordionMultiple />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /multiple/ filename="accordion.tsx"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@c14/design-system/components/ui/accordion"
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="multiple" className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It&apos;s animated by default.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Allow collapsing all items
+
+Use the `collapsible` prop to allow all items to close.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AccordionCollapsible />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /collapsible/ filename="accordion.tsx"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@c14/design-system/components/ui/accordion"
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>Yes. It&apos;s animated by default.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Default value
+
+Use the `defaultValue` prop to define the open item by default.
+
+<Tabs items={['Preview', 'Code']}>
+<Tabs.Tab>
+<AccordionDefaultValue />
+</Tabs.Tab>
+<Tabs.Tab>
+```js copy /defaultValue/ filename="accordion.tsx"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@c14/design-system/components/ui/accordion"
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible className="w-full" defaultValue="item-2">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>Yes. It&apos;s animated by default.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+## Useful links
+
+**Here you go!** Here are all the resources you might need if you are a designer, a developer or a content manager:
+
+<Cards className="mt-8">
+  <Card
+    title="🪄 Figma"
+    href="https://www.figma.com/design/GURLNa08cG0eTbioJtPwub/%F0%9F%92%BE-C14%2Fdesign-system?node-id=612-22584&t=jWCgbJWcyEzdpwjF-1"
+  />
+  <Card
+    title="🐝 API Reference"
+    href="https://www.radix-ui.com/primitives/docs/components/accordion#api-reference"
+  />
+</Cards>
+
+## Accessibility
+
+Adheres to the [Accordion WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/#accordion).
+
+### Keyboard interactions
+
+<AccessibilityTable rows={accordionAccessibilityData} />
