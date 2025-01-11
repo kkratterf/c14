@@ -13,7 +13,7 @@
     "@c14/design-system": "workspace:*",
     "@c14/tailwind-config": "workspace:*",
     "@hookform/resolvers": "^3.9.1",
-    "@prisma/client": "6.0.1",
+    "@prisma/client": "6.2.1",
     "@sentry/nextjs": "^8.47.0",
     "date-fns": "^3.0.0",
     "import-in-the-middle": "^1.11.3",
