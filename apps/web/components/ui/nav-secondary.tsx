@@ -1,3 +1,6 @@
+import type { LucideIcon } from 'lucide-react';
+import type * as React from 'react';
+
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -5,8 +8,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@c14/design-system/components/ui/sidebar';
-import type { LucideIcon } from 'lucide-react';
-import type * as React from 'react';
+
+import NewsletterBanner from '@/components/ui/newsletter-banner';
+import Link from 'next/link';
+
 export function NavSecondary({
   items,
   ...props
@@ -19,16 +24,16 @@ export function NavSecondary({
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
   return (
     <SidebarGroup {...props}>
-      <div>Newsletter</div>
+      <NewsletterBanner />
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild size="sm">
-                <a href={item.url}>
+              <SidebarMenuButton asChild size="sm" tooltip={item.title}>
+                <Link href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

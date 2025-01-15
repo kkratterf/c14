@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers';
 import type React from 'react';
 
+import { SidebarProvider } from '@c14/design-system/components/ui/sidebar';
+
 import { AppSidebar } from '@/components/ui/app-sidebar';
-import {
-  SidebarProvider,
-  SidebarTrigger,
-} from '@c14/design-system/components/ui/sidebar';
+import { CommandProvider } from '@/components/ui/command-provider';
+import NavMobile from '@/components/ui/nav-mobile';
 
 export default async function MainLayout({
   children,
@@ -16,10 +16,11 @@ export default async function MainLayout({
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       <AppSidebar />
-      <main className="mt-2 w-full rounded-tl-3xl border border-t border-l bg-background px-6 py-10 shadow-sm">
-        <SidebarTrigger />
+      <main className="mt-2 h-[calc(100vh-8px)] w-full overflow-auto rounded-tl-3xl border border-t border-l bg-background px-6 py-10 shadow-sm">
+        <NavMobile />
         {children}
       </main>
+      <CommandProvider />
     </SidebarProvider>
   );
 }

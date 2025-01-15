@@ -17,8 +17,6 @@ const Hero = () => {
       <div className="grid grid-cols-2 gap-3">
         <HeroCard url="/startups" title="Startups" number="1672" />
         <HeroCard url="/benchmark" title="Benchmark" />
-        <HeroCard url="/" title="Categories" number="coming soon" disabled />
-        <HeroCard url="/" title="Categories" number="coming soon" disabled />
       </div>
     </section>
   );

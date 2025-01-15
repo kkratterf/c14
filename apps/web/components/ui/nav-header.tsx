@@ -1,87 +1,52 @@
 'use client';
 
-import { ChevronsUpDown, Plus } from 'lucide-react';
-import * as React from 'react';
+import Link from 'next/link';
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@c14/design-system/components/ui/dropdown-menu';
 import {
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
   useSidebar,
 } from '@c14/design-system/components/ui/sidebar';
+import { cn, focusRing } from '@c14/design-system/lib/utils';
 
-export function NavHeader({
-  teams,
-}: {
-  teams: {
-    name: string;
-    logo: React.ElementType;
-    plan: string;
-  }[];
-}) {
-  const { isMobile } = useSidebar();
-  const [activeTeam, setActiveTeam] = React.useState(teams[0]);
+import Pictogram from '@/components/ui/pictogram';
+
+export function NavHeader() {
+  const { isMobile, state } = useSidebar();
+  const isCollapsed = state === 'collapsed';
+
   return (
-    <SidebarMenu>
-      <SidebarMenuItem>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+    <>
+      {!isMobile && (
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <div
+              className={cn(
+                'flex w-full items-center justify-between pt-4 pb-2 transition-all duration-200',
+                isCollapsed ? 'px-[1px]' : 'px-2'
+              )}
             >
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <activeTeam.logo className="size-4" />
-              </div>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">
-                  {activeTeam.name}
-                </span>
-                <span className="truncate text-xs">{activeTeam.plan}</span>
-              </div>
-              <ChevronsUpDown className="ml-auto" />
-            </SidebarMenuButton>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-            align="start"
-            side={isMobile ? 'bottom' : 'right'}
-            sideOffset={4}
-          >
-            <DropdownMenuLabel className="text-muted-foreground text-xs">
-              Teams
-            </DropdownMenuLabel>
-            {teams.map((team, index) => (
-              <DropdownMenuItem
-                key={team.name}
-                onClick={() => setActiveTeam(team)}
-                className="gap-2 p-2"
-                shortcut={`⌘${index + 1}`}
+              <Link
+                href="/"
+                className={cn('z-50 w-auto rounded-lg bg-subtle', focusRing)}
               >
-                <div className="flex size-6 items-center justify-center rounded-sm border">
-                  <team.logo className="size-4 shrink-0" />
-                </div>
-                {team.name}
-              </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="gap-2 p-2">
-              <div className="flex size-6 items-center justify-center rounded-md border bg-background">
-                <Plus className="size-4" />
+                <Pictogram size={32} />
+              </Link>
+              <div
+                className={cn(
+                  'transition-all duration-200',
+                  isCollapsed
+                    ? 'invisible w-0 opacity-0'
+                    : 'visible w-auto opacity-100'
+                )}
+              >
+                <SidebarTrigger className={cn(isCollapsed ? 'hidden' : '')} />
               </div>
-              <div className="font-medium text-muted-foreground">Add team</div>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </SidebarMenuItem>
-    </SidebarMenu>
+            </div>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      )}
+    </>
   );
 }

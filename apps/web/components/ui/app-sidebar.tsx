@@ -1,16 +1,23 @@
 'use client';
 
-import { ChartBar, Rocket } from 'lucide-react';
-import type React from 'react';
-
-import { ModeToggle } from '@c14/design-system/components/mode-toggle';
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarHeader,
-  SidebarTrigger,
+  SidebarSeparator,
 } from '@c14/design-system/components/ui/sidebar';
+import {
+  ChartBar,
+  Coins,
+  Info,
+  MessageCircle,
+  PlusCircle,
+  Rocket,
+} from 'lucide-react';
+import type React from 'react';
 
+import { ModeToggle } from '@/components/ui/mode-toggle';
 import { NavHeader } from '@/components/ui/nav-header';
 import { NavMain } from '@/components/ui/nav-main';
 import { NavSecondary } from '@/components/ui/nav-secondary';
@@ -21,7 +28,6 @@ const data = {
       title: 'Startups',
       url: '/startups',
       icon: Rocket,
-      isActive: true,
     },
     {
       title: 'Benchmark',
@@ -31,31 +37,24 @@ const data = {
   ],
   navSecondary: [
     {
-      title: 'Support',
-      url: '#',
-      icon: Rocket,
+      title: 'Submit',
+      url: '/',
+      icon: PlusCircle,
+    },
+    {
+      title: 'Advertise',
+      url: '/advertise',
+      icon: Coins,
+    },
+    {
+      title: 'About',
+      url: '/about',
+      icon: Info,
     },
     {
       title: 'Feedback',
-      url: '#',
-      icon: Rocket,
-    },
-  ],
-  teams: [
-    {
-      name: 'Acme Inc',
-      logo: Rocket,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: Rocket,
-      plan: 'Startup',
-    },
-    {
-      name: 'Evil Corp.',
-      logo: Rocket,
-      plan: 'Free',
+      url: '/',
+      icon: MessageCircle,
     },
   ],
 };
@@ -64,14 +63,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props} collapsible="icon" {...props}>
       <SidebarHeader>
-        <NavHeader teams={data.teams} />
+        <NavHeader />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <SidebarTrigger />
-        <ModeToggle />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
+      <SidebarSeparator />
+      <SidebarFooter>
+        <ModeToggle />
+      </SidebarFooter>
     </Sidebar>
   );
 }
