@@ -8,7 +8,7 @@ import {
   SidebarSeparator,
 } from '@c14/design-system/components/ui/sidebar';
 import {
-  ChartBar,
+  ChartColumn,
   Coins,
   Info,
   MessageCircle,
@@ -32,14 +32,15 @@ const data = {
     {
       title: 'Benchmark',
       url: '/benchmark',
-      icon: ChartBar,
+      icon: ChartColumn,
     },
   ],
   navSecondary: [
     {
       title: 'Submit',
-      url: '/',
+      url: 'https://tally.so/r/3lKZEW',
       icon: PlusCircle,
+      isExternal: true,
     },
     {
       title: 'Advertise',
@@ -53,8 +54,9 @@ const data = {
     },
     {
       title: 'Feedback',
-      url: '/',
+      url: 'https://tally.so/r/mOdyN8',
       icon: MessageCircle,
+      isExternal: true,
     },
   ],
 };

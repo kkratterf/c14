@@ -78,16 +78,16 @@ export function NavMain({
             </SidebarMenuItem>
           </Collapsible>
         ))}
+        <div
+          className={cn(
+            'mt-2 flex flex-col gap-2 px-[1px] transition-opacity duration-200',
+            isCollapsed ? 'opacity-100' : 'opacity-0'
+          )}
+        >
+          <SidebarSeparator />
+          <SidebarTrigger className={cn(isCollapsed ? '' : 'hidden')} />
+        </div>
       </SidebarMenu>
-      <div
-        className={cn(
-          'mt-2 flex flex-col gap-2 px-[1px] transition-opacity duration-200',
-          isCollapsed ? 'opacity-100' : 'opacity-0'
-        )}
-      >
-        <SidebarSeparator />
-        <SidebarTrigger className={cn(isCollapsed ? '' : 'hidden')} />
-      </div>
     </SidebarGroup>
   );
 }

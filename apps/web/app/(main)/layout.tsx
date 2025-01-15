@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import type React from 'react';
 
+import { ScrollArea } from '@c14/design-system/components/ui/scroll-area';
 import { SidebarProvider } from '@c14/design-system/components/ui/sidebar';
 
 import { AppSidebar } from '@/components/ui/app-sidebar';
@@ -16,9 +17,9 @@ export default async function MainLayout({
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       <AppSidebar />
-      <main className="mt-2 h-[calc(100vh-8px)] w-full overflow-auto rounded-tl-3xl border border-t border-l bg-background px-6 py-10 shadow-sm">
+      <main className="mt-2 h-[calc(100vh-8px)] w-full overflow-auto rounded-tl-3xl border border-t border-l bg-background shadow-sm">
         <NavMobile />
-        {children}
+        <ScrollArea className="h-full w-full">{children}</ScrollArea>
       </main>
       <CommandProvider />
     </SidebarProvider>
