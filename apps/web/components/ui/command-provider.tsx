@@ -76,6 +76,7 @@ export function CommandProvider() {
           </CommandGroup>
           <CommandGroup heading="Help">
             <Link
+              target="_blank"
               href="https://tally.so/r/mOdyN8"
               onClick={() => setOpen(false)}
             >
@@ -85,6 +86,7 @@ export function CommandProvider() {
               </CommandItem>
             </Link>
             <Link
+              target="_blank"
               href="mailto:kkratterf@gmail.com"
               onClick={() => setOpen(false)}
             >

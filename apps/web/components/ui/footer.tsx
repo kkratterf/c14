@@ -29,7 +29,7 @@ const Footer = () => {
               href="https://join.slack.com/t/c14dotso/shared_invite/zt-2wsuiiiis-2bBr9Rj7BY7GGq3zfmhu8g"
             >
               <SlackIcon />
-              <span className="sr-only">Join our Slack</span>
+              <span className="sr-only">Join us on Slack</span>
             </Link>
           </Button>
         </Tooltip>

@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import Footer from '@/components/ui/footer';
 
+import AdImg from '@/components/ui/ad-img';
 import { Button } from '@c14/design-system/components/ui/button';
 import { Separator } from '@c14/design-system/components/ui/separator';
 
@@ -13,7 +13,8 @@ export default function AdvertisePage() {
         <div className="flex flex-col gap-6">
           <h1 className="font-brand text-4xl">Advertise</h1>
           <p className="text-base text-description">
-            Promote your product or service among startup enthusiasts.
+            Got something awesome to share with the startup world? We’ve got the
+            perfect spot for you to shine.
           </p>
         </div>
         <Button className="w-fit" asChild>
@@ -37,22 +38,17 @@ export default function AdvertisePage() {
         <div className="flex flex-col gap-4">
           <h3 className="font-brand text-2xl">Placement</h3>
           <p className="text-base text-description">
-            Your banner will be placed in such a way on every page of the C14
-            website that ensures its visibility to users throughout their entire
-            time on the site.
+            Your banner will be displayed on most pages of the C14 website,
+            ensuring high visibility to users throughout their entire time on
+            the site.
           </p>
         </div>
-        <Image
-          src="/images/advertise.png"
-          alt="Advertise"
-          width={1000}
-          height={1000}
-          className="h-72 w-full rounded-xl bg-red-200"
-        />
-        <p className="font-mono text-description text-xs">
+        <AdImg />
+        <p className="font-mono text-description text-sm">
           Banner includes an image, title, subtitle, and a CTA button.
         </p>
       </div>
+      {/* Add Statistics block
       <Separator />
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4">
@@ -66,9 +62,10 @@ export default function AdvertisePage() {
           alt="Advertise"
           width={1000}
           height={1000}
-          className="h-72 w-full rounded-xl bg-red-200"
+          className="bg-red-200 rounded-xl w-full h-72"
         />
       </div>
+      */}
       <Footer />
     </div>
   );
