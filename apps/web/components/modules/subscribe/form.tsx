@@ -13,8 +13,8 @@ const SUCCESS = 'SUCCESS';
 const formStates = [INIT, SUBMITTING, ERROR, SUCCESS] as const;
 const formStyles = {
   id: 'cm3oa5uyr05lmkk91wz4oup3v',
-  name: 'Newsletter',
-  userGroup: 'subscribe',
+  name: 'Default',
+  userGroup: 'Newsletter',
 };
 const domain = 'app.loops.so';
 
@@ -28,15 +28,15 @@ interface ApiResponse {
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [formState, setFormState] = useState<(typeof formStates)[number]>(INIT);
   const [errorMessage, setErrorMessage] = useState('');
 
   const resetForm = () => {
     setEmail('');
-    setName('');
-    setSurname('');
+    setFirstName('');
+    setLastName('');
     setFormState(INIT);
     setErrorMessage('');
   };
@@ -85,7 +85,7 @@ export default function SubscribeForm() {
     // build body
     const formBody = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(
       email
-    )}`;
+    )}&firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}`;
 
     // API request to add user to newsletter
     fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
@@ -165,23 +165,22 @@ export default function SubscribeForm() {
             <div className="flex flex-col gap-4">
               <Input
                 type="text"
-                name="name"
+                name="firstName"
                 placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required={true}
+                required
                 className="w-full"
                 autoFocus
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
               <Input
                 type="text"
-                name="surname"
+                name="lastName"
                 placeholder="Surname"
-                value={surname}
-                onChange={(e) => setSurname(e.target.value)}
-                required={true}
+                required
                 className="w-full"
-                autoFocus
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
               <Input
                 type="email"
@@ -189,15 +188,8 @@ export default function SubscribeForm() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required={true}
+                required
                 className="w-full"
-                autoFocus
-              />
-              <Input
-                type="hidden"
-                name="userGroup"
-                value="newsletter"
-                className="hidden"
               />
             </div>
             <Button isLoading={formState === SUBMITTING} type="submit">
