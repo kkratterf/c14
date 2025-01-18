@@ -17,7 +17,7 @@ const Submit = () => {
         <div className="flex w-full flex-col gap-6 border-border border-x p-6">
           <div className="flex flex-col gap-4">
             <h2 className="font-brand text-heading-section">
-              Submit your startup
+              Submit your favourite startup
             </h2>
             <p className="text-base text-description">
               Help us grow our open-source list of startups.

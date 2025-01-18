@@ -6,10 +6,11 @@ import {
   AvatarImage,
 } from '@c14/design-system/components/ui/avatar';
 import { Button } from '@c14/design-system/components/ui/button';
+import { Tag } from '@c14/design-system/components/ui/tag';
 import { cn } from '@c14/design-system/lib/utils';
 
 interface AdvertiseCardProps {
-  type: 'popular' | 'startups' | 'startup-page';
+  type: 'popular' | 'startups';
   item: {
     name: string;
     description: string;
@@ -31,12 +32,6 @@ const AdvertiseCard = ({ type, item }: AdvertiseCardProps) => {
     popular: 'size-12',
     startups: 'size-10',
     'startup-page': 'size-14',
-  };
-
-  const buttonSizes = {
-    popular: 'default',
-    startups: 'small',
-    'startup-page': 'default',
   };
 
   const textContainerDirection = {
@@ -66,7 +61,8 @@ const AdvertiseCard = ({ type, item }: AdvertiseCardProps) => {
           {item.description}
         </p>
       </div>
-      <Button size={buttonSizes[type] as 'default' | 'small'} asChild>
+      <Tag variant="brand">ADV</Tag>
+      <Button asChild>
         <Link target="_blank" href={item.url}>
           {item.cta}
         </Link>

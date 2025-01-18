@@ -7,9 +7,9 @@ const Hero = () => {
         <h1 className="font-base font-brand text-heading-screen">
           Discover the best startups
         </h1>
-        <p className="text-base text-description">
-          Browse a curated list of the best startups shaping tomorrow’s
-          technology.
+        <p className="text-base text-description leading-7">
+          Browse a curated list of the best italian startups 🇮🇹 shaping
+          tomorrow’s technology.
           <br />
           Designed for founders, investors, and industry analysts.
         </p>
