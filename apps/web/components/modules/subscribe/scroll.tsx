@@ -10,10 +10,8 @@ import { subscribeScroll } from '@/lib/data/subscribe-scroll';
 interface StartupCardProps {
   item: {
     name: string;
-    description: string;
     avatar_url: string;
     avatar_fallback: string;
-    url: string;
   };
 }
 
