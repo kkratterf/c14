@@ -30,7 +30,7 @@ const StartupsFilters = () => {
         onOpenChange={setIsOpen}
         className={cn('flex flex-col', isOpen ? 'gap-3' : 'gap-0')}
       >
-        <div className="flex flex-row items-center justify-between gap-2">
+        <div className="flex flex-row items-center justify-between gap-4">
           <Input placeholder="Search" className="max-w-96" />
           <div className="flex flex-row gap-2">
             <CollapsibleTrigger asChild>

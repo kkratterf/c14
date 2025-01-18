@@ -12,7 +12,7 @@ export default function BenchmarkPage() {
       <Card className="h-96 w-full rounded-xl border border-border bg-card shadow-sm">
         <FirstChart />
       </Card>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-col gap-4 lg:flex-row">
         <Card className="h-96 w-full rounded-xl border border-border bg-card shadow-sm">
           <SecondChart />
         </Card>
