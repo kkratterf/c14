@@ -61,13 +61,17 @@ export function CommandProvider() {
                 <span>Subscribe the newsletter</span>
               </CommandItem>
             </Link>
-            <Link href="/submit" onClick={() => setOpen(false)}>
+            <Link
+              href="https://tally.so/r/3lKZEW"
+              target="_blank"
+              onClick={() => setOpen(false)}
+            >
               <CommandItem>
                 <PlusCircle className="size-4" />
                 <span>Submit startup</span>
               </CommandItem>
             </Link>
-            <Link href="/subscribe" onClick={() => setOpen(false)}>
+            <Link href="/advertise" onClick={() => setOpen(false)}>
               <CommandItem>
                 <Coins className="size-4" />
                 <span>Advertise a project</span>

@@ -5,7 +5,7 @@ import {
 } from '@c14/design-system/components/ui/avatar';
 
 import Marquee from '@/components/ui/marquee';
-import { subscribeScroll } from '@/lib/subscribe-scroll';
+import { subscribeScroll } from '@/lib/data/subscribe-scroll';
 
 interface StartupCardProps {
   item: {

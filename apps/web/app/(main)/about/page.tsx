@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { Separator } from '@c14/design-system/components/ui/separator';
 
 import Footer from '@/components/ui/footer';
-import { partners } from '@/lib/partners';
+import { partners } from '@/lib/data/partners';
 import { cn, focusRing } from '@c14/design-system/lib/utils';
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto flex max-w-screen-lg flex-col gap-10 p-6 py-12 sm:p-10 sm:py-16 md:p-16">
+    <div className="flex flex-col gap-10 mx-auto py-12 sm:py-16 p-6 sm:p-10 md:p-16 max-w-screen-lg">
       <div className="flex flex-col gap-6">
         <h1 className="font-brand text-4xl">About</h1>
         <p className="text-base text-description">
@@ -68,7 +68,7 @@ export default function AboutPage() {
       <Separator />
       <div className="flex flex-col gap-6">
         <h3 className="font-brand text-2xl">Partners</h3>
-        <div className="grid grid-cols-2 gap-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="gap-2 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {partners.map((partner, index) => (
             <Link
               target="_blank"
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 height={40}
                 alt={partner.name}
                 src={`/images/partners/${partner.image}`}
-                className="h-10 w-40 px-2 brightness-0 dark:invert"
+                className="brightness-0 px-2 w-40 h-10 dark:invert"
               />
             </Link>
           ))}

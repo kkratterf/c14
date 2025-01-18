@@ -3,7 +3,7 @@
 import { AreaChart } from '@c14/design-system/components/visualizations/area-chart';
 import { BarChart } from '@c14/design-system/components/visualizations/bar-chart';
 
-import { chartdata } from '@/lib/chart';
+import { chartdata } from '@/lib/data/chart';
 
 export const FirstChart = () => {
   return (

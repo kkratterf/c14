@@ -1,8 +1,8 @@
 import AdvertiseCard from '@/components/ui/advertise-card';
 import PopularCard from '@/components/ui/popular-card';
 
-import { advertise } from '@/lib/advertise';
-import { popular } from '@/lib/popular';
+import { advertise } from '@/lib/data/advertise';
+import { popular } from '@/lib/data/popular';
 
 const Popular = () => {
   return (
