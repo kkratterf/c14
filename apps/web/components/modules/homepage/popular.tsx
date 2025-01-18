@@ -14,7 +14,7 @@ const Popular = () => {
         {popular.slice(0, 2).map((item) => (
           <PopularCard key={item.name} item={item} />
         ))}
-        <AdvertiseCard item={advertise} />
+        <AdvertiseCard item={advertise} type="popular" />
         {popular.slice(2).map((item) => (
           <PopularCard key={item.name} item={item} />
         ))}
