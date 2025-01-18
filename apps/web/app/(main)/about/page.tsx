@@ -1,8 +1,11 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
-import Footer from '@/components/ui/footer';
-
 import { Separator } from '@c14/design-system/components/ui/separator';
+
+import Footer from '@/components/ui/footer';
+import { partners } from '@/lib/partners';
+import { cn, focusRing } from '@c14/design-system/lib/utils';
 
 export default function AboutPage() {
   return (
@@ -61,6 +64,28 @@ export default function AboutPage() {
             Telegram
           </Link>
         </p>
+      </div>
+      <Separator />
+      <div className="flex flex-col gap-6">
+        <h3 className="font-brand text-2xl">Partners</h3>
+        <div className="grid grid-cols-2 gap-2 lg:grid-cols-3 xl:grid-cols-4">
+          {partners.map((partner, index) => (
+            <Link
+              target="_blank"
+              href={partner.url}
+              key={index}
+              className={cn('rounded-lg hover:opacity-50', focusRing)}
+            >
+              <Image
+                width={160}
+                height={40}
+                alt={partner.name}
+                src={`/images/partners/${partner.image}`}
+                className="h-10 w-40 px-2 brightness-0 dark:invert"
+              />
+            </Link>
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
