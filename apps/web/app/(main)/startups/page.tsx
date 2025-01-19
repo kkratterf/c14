@@ -8,8 +8,8 @@ interface IProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export default async function StartupsPage(props: Promise<IProps>) {
-  const { searchParams } = await props;
+export default async function Page(props: IProps) {
+  const { searchParams } = props;
   const waited = await searchParams;
   const parsed = parseSearchParams(waited);
   const { name, page } = parsed;
