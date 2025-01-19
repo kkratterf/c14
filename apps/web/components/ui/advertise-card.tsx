@@ -8,17 +8,11 @@ import {
 import { Button } from '@c14/design-system/components/ui/button';
 import { Tag } from '@c14/design-system/components/ui/tag';
 import { cn } from '@c14/design-system/lib/utils';
+import { Startup } from '@prisma/client';
 
 interface AdvertiseCardProps {
   type: 'popular' | 'startups';
-  item: {
-    name: string;
-    description: string;
-    avatar_url: string;
-    avatar_fallback: string;
-    url: string;
-    cta: string;
-  };
+  item: Startup;
 }
 
 const AdvertiseCard = ({ type, item }: AdvertiseCardProps) => {
@@ -50,21 +44,21 @@ const AdvertiseCard = ({ type, item }: AdvertiseCardProps) => {
       <Avatar
         className={cn('rounded-xl border border-border', avatarSizes[type])}
       >
-        <AvatarImage src={item.avatar_url} />
-        <AvatarFallback className="rounded-xl border border-border">
+        <AvatarImage src={item.logo ?? undefined} />
+        {/* <AvatarFallback className="rounded-xl border border-border">
           {item.avatar_fallback}
-        </AvatarFallback>
+        </AvatarFallback> */}
       </Avatar>
       <div className={cn('flex w-full', textContainerDirection[type])}>
         <p className="font-semibold text-base">{item.name}</p>
         <p className="line-clamp-1 text-description text-sm">
-          {item.description}
+          {item.shortDescription}
         </p>
       </div>
       <Tag variant="brand">ADV</Tag>
       <Button asChild>
-        <Link target="_blank" href={item.url}>
-          {item.cta}
+        <Link target="_blank" href={item.id}>
+          Visit {item.name}
         </Link>
       </Button>
     </div>

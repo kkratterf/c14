@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+
+model Startup {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  logo     String?
+  shortDescription String
+  longDescription String
+  website  String?
+  linkedin String?
+  teamSize TeamSize? @relation(fields: [teamSizeid], references: [id])
+teamSizeid String?
+location Location @relation(fields: [locationid], references: [id])
+locationid String
+foundedAt DateTime
+businessModel String
+amountRaised Float
+foundingStage FoundingStage? @relation(fields: [foundingStageid], references: [id])
+foundingStageid String?
+  isPopular Boolean @default(false)
+  isFeatured Boolean @default(false)
+
+  FounderStartup FounderStartup[]
+
+  InvestorStartup InvestorStartup[]
+
+  StartupTag StartupTag[]
+}
+
+model StartupTag {
+  id        String   @id @default(uuid())
+  startup   Startup @relation(fields: [startupid], references: [id])
+  startupid String
+  tag       Tag @relation(fields: [tagid], references: [id])
+  tagid     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tag {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  StartupTag StartupTag[]
+}
+
+model Location {
+  id        String   @id @default(uuid())
+  name      String
+  country  String
+  city  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Startup Startup[]
+}
+
+model TeamSize {
+  id        String   @id @default(uuid())
+  name      String
+  upperLimit Int
+  lowerLimit Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Startup Startup[]
+}
+
+model FoundingStage {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Startup Startup[]
+}
+
+model FounderStartup {
+  id        String   @id @default(uuid())
+  founder   Founder @relation(fields: [founderid], references: [id])
+  founderid String
+  startup   Startup @relation(fields: [startupid], references: [id])
+  startupid String
+  role     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Founder {
+  id        String   @id @default(uuid())
+  firstName      String
+  lastName String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  linkedin  String?
+  photo     String?
+
+  FounderStartup FounderStartup[]
+}
+
+model InvestorStartup {
+  id        String   @id @default(uuid())
+  investor   Investor @relation(fields: [investorid], references: [id])
+  investorid String
+  startup   Startup @relation(fields: [startupid], references: [id])
+  startupid String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Investor {
+  id        String   @id @default(uuid())
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  linkedin  String?
+  website  String?
+  photo     String?
+
+  InvestorStartup InvestorStartup[]
+}

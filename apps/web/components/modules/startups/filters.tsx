@@ -1,7 +1,7 @@
 'use client';
 
 import { Coins, Filter, MapPin, Tags, Users } from 'lucide-react';
-import { useState } from 'react';
+import { useOptimistic, useState, useTransition } from 'react';
 
 import { Button } from '@c14/design-system/components/ui/button';
 import {
@@ -20,9 +20,57 @@ import {
 import { Toggle } from '@c14/design-system/components/ui/toggle';
 import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 import { cn } from '@c14/design-system/lib/utils';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { parseSearchParams } from '@/app/utils';
 
-const StartupsFilters = () => {
+interface IProps {
+  searchParams: URLSearchParams;
+}
+
+export interface SearchParams {
+  name?: string;
+  page: string;
+}
+export function stringifySearchParams(params: SearchParams): string {
+  const urlParams = new URLSearchParams();
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined) {
+      urlParams.append(key, value);
+    }
+  });
+  return urlParams.toString();
+}
+
+
+const StartupsFiltersWithParams = ({
+  searchParams
+}: IProps) => {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
+  const initialFilters = parseSearchParams(Object.fromEntries(searchParams));
+  const [optimisticFilters, setOptimisticFilters] =
+    useOptimistic<SearchParams>(initialFilters);
+
+  const updateURL = (newFilters: SearchParams) => {
+    const queryString = stringifySearchParams(newFilters);
+    router.push(queryString ? `startups/?${queryString}` : '/startups');
+  };
+
+  const handleFilterChange = (
+    filterType: keyof SearchParams,
+    value: string | undefined
+  ) => {
+    startTransition(() => {
+      const newFilters = { ...optimisticFilters, [filterType]: value, page: "1" };
+      if (!value) {
+        delete newFilters[filterType];
+      }
+      setOptimisticFilters(newFilters);
+      updateURL(newFilters);
+    });
+  };
+
   return (
     <div className="sticky top-0 z-20 border-border border-b bg-background px-6 py-4">
       <Collapsible
@@ -31,7 +79,10 @@ const StartupsFilters = () => {
         className={cn('flex flex-col', isOpen ? 'gap-3' : 'gap-0')}
       >
         <div className="flex flex-row items-center justify-between gap-4">
-          <Input placeholder="Search" className="max-w-96" />
+          <Input placeholder="Search" className="max-w-96"
+            value={optimisticFilters.name ?? ""}
+            onChange={(e) => handleFilterChange('name', e.target.value)}
+          />
           <div className="flex flex-row gap-2">
             <CollapsibleTrigger asChild>
               <Tooltip
@@ -86,4 +137,9 @@ const StartupsFilters = () => {
   );
 };
 
-export default StartupsFilters;
+const StartupFilters = () => {
+  const searchParams = useSearchParams();
+  return <StartupsFiltersWithParams searchParams={searchParams} />;
+}
+
+export default StartupFilters;

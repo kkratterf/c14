@@ -1,4 +1,4 @@
-export const startup = {
+export const startupDefault = {
   name: 'Jet HR',
   summary:
     'Rendiamo incredibilmente semplice la gestione HR e paghe di un’azienda',
