@@ -1,4 +1,4 @@
-import { getStartups, PAGE_SIZE } from '@/api/startup/serverActions';
+import { PAGE_SIZE, getStartups } from '@/api/startup/serverActions';
 import { parseSearchParams } from '@/app/utils';
 import { StartupPagination } from '@/components/modules/startups/pagination';
 import AdvertiseCard from '@/components/ui/advertise-card';
@@ -16,7 +16,7 @@ export default async function Page(props: IProps) {
   const { startups, count: total } = await getStartups({
     positionForFeatured: 5,
     name: Array.isArray(name) ? name[0] : name,
-    page: parseInt(page, 10)
+    page: Number.parseInt(page, 10)
   });
   if (!startups) {
     //TODO: empty state page
@@ -25,7 +25,7 @@ export default async function Page(props: IProps) {
   const pages = Math.ceil(total / PAGE_SIZE);
   return (
     <>
-      <div className="flex flex-col gap-1 px-3 py-4 w-full h-full">
+      <div className='flex h-full w-full flex-col gap-1 px-3 py-4'>
         {startups.map((startup) => startup.isFeatured ?
 
           <AdvertiseCard key={startup.id} item={startup} type="startups" /> :
@@ -34,7 +34,7 @@ export default async function Page(props: IProps) {
       </div>
 
       <StartupPagination
-        currentPage={parseInt(page, 10)}
+        currentPage={Number.parseInt(page, 10)}
         searchParams={parsed}
         totalPages={pages}
         totalResults={total}

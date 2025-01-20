@@ -26,6 +26,7 @@ C14 is an open-source startup database that provides transparent and reliable da
 - **[Vercel](https://vercel.com/)** – deployments
 - **[Turborepo](https://turbo.build/repo)** – monorepo
 - **[Lucide](https://lucide.dev/)** – icons
+- **[PostHog](https://posthog.com/)** - analytics
 - **[Storybook](https://storybook.js.org/)** – testing
 - **[Nextra](https://nextra.site/)** – documentation
 - **[Figma](https://www.figma.com/)** - design
@@ -49,4 +50,4 @@ We love our contributors! Here's how you can contribute:
 
 ## License
 
-Inspired by [Plausible](https://plausible.io/), Feely is open-source under the GNU Affero General Public License Version 3 (AGPLv3) or any later version. You can [find it here](https://github.com/fucinastudio/fucina/blob/main/LICENSE.md).
+Inspired by [Plausible](https://plausible.io/), C14 is open-source under the GNU Affero General Public License Version 3 (AGPLv3) or any later version. You can [find it here](https://github.com/fucinastudio/fucina/blob/main/LICENSE.md).

@@ -1,21 +1,20 @@
 import type { ReactNode } from 'react';
 import { GoogleAnalytics } from './google';
+import { PostHogProvider } from './posthog/client';
 import { VercelAnalytics } from './vercel';
 
 type AnalyticsProviderProps = {
   readonly children: ReactNode;
-  readonly gaId?: string;
 };
 
 export const AnalyticsProvider = ({
   children,
-  gaId,
 }: AnalyticsProviderProps) => (
-  <>
+  <PostHogProvider>
     {children}
     <VercelAnalytics />
-    {process.env.NODE_ENV !== 'development' && gaId && (
-      <GoogleAnalytics gaId={gaId} />
+    {process.env.NODE_ENV !== 'development' && process.env.NEXT_PUBLIC_GA_ID && (
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
     )}
-  </>
+  </PostHogProvider>
 );
