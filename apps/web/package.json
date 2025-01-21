@@ -17,6 +17,7 @@
     "@hookform/resolvers": "^3.9.1",
     "@prisma/client": "^6.2.1",
     "@sentry/nextjs": "^8.47.0",
+    "@t3-oss/env-nextjs": "^0.11.1",
     "date-fns": "^3.0.0",
     "import-in-the-middle": "^1.11.3",
     "lucide-react": "^0.468.0",
