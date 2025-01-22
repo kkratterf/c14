@@ -8,7 +8,7 @@ import {
 import { Button } from '@c14/design-system/components/ui/button';
 import { Tag } from '@c14/design-system/components/ui/tag';
 import { cn } from '@c14/design-system/lib/utils';
-import { Startup } from '@prisma/client';
+import type { Startup } from '@prisma/client';
 
 interface AdvertiseCardProps {
   type: 'popular' | 'startups';
@@ -45,9 +45,9 @@ const AdvertiseCard = ({ type, item }: AdvertiseCardProps) => {
         className={cn('rounded-xl border border-border', avatarSizes[type])}
       >
         <AvatarImage src={item.logo ?? undefined} />
-        {/* <AvatarFallback className="rounded-xl border border-border">
-          {item.avatar_fallback}
-        </AvatarFallback> */}
+        <AvatarFallback className='rounded-xl border border-border'>
+          {item.name.slice(0, 2)}
+        </AvatarFallback>
       </Avatar>
       <div className={cn('flex w-full', textContainerDirection[type])}>
         <p className="font-semibold text-base">{item.name}</p>

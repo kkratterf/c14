@@ -3,7 +3,6 @@
 import {
   AtSign,
   ChartColumn,
-  Coins,
   Info,
   Mail,
   MessageCircle,
@@ -39,7 +38,7 @@ export function CommandProvider() {
   return (
     <>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="Search for actions..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Actions">
@@ -55,12 +54,6 @@ export function CommandProvider() {
                 <span>See benchmark</span>
               </CommandItem>
             </Link>
-            <Link href="/subscribe" onClick={() => setOpen(false)}>
-              <CommandItem>
-                <Mail className="size-4" />
-                <span>Subscribe the newsletter</span>
-              </CommandItem>
-            </Link>
             <Link
               href="https://tally.so/r/3lKZEW"
               target="_blank"
@@ -71,12 +64,20 @@ export function CommandProvider() {
                 <span>Submit startup</span>
               </CommandItem>
             </Link>
+            <Link href="/subscribe" onClick={() => setOpen(false)}>
+              <CommandItem>
+                <Mail className="size-4" />
+                <span>Subscribe the newsletter</span>
+              </CommandItem>
+            </Link>
+            {/* 
             <Link href="/advertise" onClick={() => setOpen(false)}>
               <CommandItem>
                 <Coins className="size-4" />
                 <span>Advertise a project</span>
               </CommandItem>
             </Link>
+            */}
           </CommandGroup>
           <CommandGroup heading="Help">
             <Link

@@ -605,10 +605,10 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
           onClick={
             hasOnValueChange && (activeLegend || activeDot)
               ? () => {
-                  setActiveDot(undefined);
-                  setActiveLegend(undefined);
-                  onValueChange?.(null);
-                }
+                setActiveDot(undefined);
+                setActiveLegend(undefined);
+                onValueChange?.(null);
+              }
               : undefined
           }
           margin={{
@@ -829,7 +829,8 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
                   strokeWidth={2}
                   strokeLinejoin="round"
                   strokeLinecap="round"
-                  isAnimationActive={false}
+                  isAnimationActive={true}
+                  animationDuration={500}
                   connectNulls={connectNulls}
                   stackId={stacked ? "stack" : undefined}
                   fill={`url(#${categoryId})`}
@@ -840,26 +841,26 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
           {/* hidden lines to increase clickable target area */}
           {onValueChange
             ? categories.map((category) => (
-                <Line
-                  className={cn("cursor-pointer")}
-                  strokeOpacity={0}
-                  key={category}
-                  name={category}
-                  type="linear"
-                  dataKey={category}
-                  stroke="transparent"
-                  fill="transparent"
-                  legendType="none"
-                  tooltipType="none"
-                  strokeWidth={12}
-                  connectNulls={connectNulls}
-                  onClick={(props: CurveClickProps, event: React.MouseEvent) => {
-                    event.stopPropagation();
-                    const { dataKey } = props;
-                    if (dataKey) onCategoryClick(String(dataKey));
-                  }}
-                />
-              ))
+              <Line
+                className={cn("cursor-pointer")}
+                strokeOpacity={0}
+                key={category}
+                name={category}
+                type="linear"
+                dataKey={category}
+                stroke="transparent"
+                fill="transparent"
+                legendType="none"
+                tooltipType="none"
+                strokeWidth={12}
+                connectNulls={connectNulls}
+                onClick={(props: CurveClickProps, event: React.MouseEvent) => {
+                  event.stopPropagation();
+                  const { dataKey } = props;
+                  if (dataKey) onCategoryClick(String(dataKey));
+                }}
+              />
+            ))
             : null}
         </RechartsAreaChart>
       </ResponsiveContainer>

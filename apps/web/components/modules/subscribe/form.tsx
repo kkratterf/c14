@@ -125,7 +125,7 @@ export default function SubscribeForm() {
   switch (formState) {
     case SUCCESS:
       return (
-        <div className="flex w-full flex-col gap-2 px-6 py-8 sm:px-8 sm:py-10">
+        <div className='flex w-full flex-col gap-2 px-6 py-8 sm:px-8 sm:py-10'>
           <p className="font-brand text-lg">Yay, can you feel the joy?</p>
           <p className="text-description text-sm">
             You&apos;ve just joined <b>C14</b> newsletter.
@@ -142,7 +142,7 @@ export default function SubscribeForm() {
     case ERROR:
       return (
         <>
-          <div className="flex w-full flex-col gap-2 px-6 py-8 sm:px-8 sm:py-10">
+          <div className='flex w-full flex-col gap-2 px-6 py-8 sm:px-8 sm:py-10'>
             <p className="font-brand text-lg">Hey hey, slow down</p>
             <p className="text-description text-sm">
               Seems like you tried a little bit too hard:{' '}
@@ -160,8 +160,9 @@ export default function SubscribeForm() {
       );
     default:
       return (
+
         <form onSubmit={handleSubmit} className="w-full">
-          <div className="flex flex-col gap-8 px-6 py-8 sm:px-8 sm:py-10">
+          <div className='flex flex-col gap-8 px-6 py-8 sm:px-8 sm:py-10'>
             <div className="flex flex-col gap-4">
               <Input
                 type="text"
@@ -193,10 +194,11 @@ export default function SubscribeForm() {
               />
             </div>
             <Button isLoading={formState === SUBMITTING} type="submit">
-              {formState === SUBMITTING ? 'Wait a sec' : 'Join the waitlist'}
+              {formState === SUBMITTING ? 'Wait a sec' : 'Subscribe for free'}
             </Button>
           </div>
         </form>
+
       );
   }
 }

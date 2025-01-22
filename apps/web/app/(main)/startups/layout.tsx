@@ -1,6 +1,5 @@
-import type React from 'react';
-
 import StartupsFilters from '@/components/modules/startups/filters';
+import type React from 'react';
 
 export default function StartupsLayout({
   children,

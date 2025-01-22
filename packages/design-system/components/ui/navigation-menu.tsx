@@ -37,7 +37,7 @@ const navigationMenuVariants = tv({
 const NavigationMenuList = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List> &
-    VariantProps<typeof navigationMenuVariants>
+  VariantProps<typeof navigationMenuVariants>
 >(({ className, orientation, ...props }, ref) => (
   <NavigationMenuPrimitive.List
     ref={ref}
@@ -60,7 +60,7 @@ NavigationMenuItem.displayName = NavigationMenuPrimitive.Item.displayName;
 const NavigationMenuLink = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Link> &
-    VariantProps<typeof navigationMenuVariants>
+  VariantProps<typeof navigationMenuVariants>
 >(({ className, children, size = "default", ...props }, ref) => (
   <NavigationMenuPrimitive.Link
     ref={ref}

@@ -1,13 +1,11 @@
 'use client';
 
-import { AreaChart } from '@c14/design-system/components/visualizations/area-chart';
-import { BarChart } from '@c14/design-system/components/visualizations/bar-chart';
-
 import { chartdata } from '@/lib/data/chart';
+import { BarChart } from '@c14/design-system/components/visualizations/bar-chart';
 
 export const FirstChart = () => {
   return (
-    <AreaChart
+    <BarChart
       className="h-80"
       data={chartdata}
       index="date"

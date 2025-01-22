@@ -42,9 +42,9 @@ export function ModeToggle() {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="sm"
-              className="rounded-lg data-[state=open]:bg-item-hover"
+              className='rounded-lg data-[state=open]:bg-item-hover'
             >
-              <Icon className="size-[1.2rem] transition-all duration-200" />
+              <Icon className='size-[1.2rem] transition-all duration-200' />
               <span
                 className={cn(
                   'transition-all duration-200',
@@ -57,7 +57,7 @@ export function ModeToggle() {
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+            className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg'
             side={isMobile ? 'bottom' : 'right'}
             align="end"
             sideOffset={4}

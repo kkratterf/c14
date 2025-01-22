@@ -9,7 +9,6 @@ import {
 } from '@c14/design-system/components/ui/sidebar';
 import {
   ChartColumn,
-  Coins,
   Info,
   MessageCircle,
   PlusCircle,
@@ -41,11 +40,6 @@ const data = {
       url: 'https://tally.so/r/3lKZEW',
       icon: PlusCircle,
       isExternal: true,
-    },
-    {
-      title: 'Advertise',
-      url: '/advertise',
-      icon: Coins,
     },
     {
       title: 'About',

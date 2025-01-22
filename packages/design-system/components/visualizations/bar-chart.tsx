@@ -119,7 +119,7 @@ const LegendItem = ({
   activeLegend,
 }: LegendItemProps) => {
   const hasOnValueChange = !!onClick;
-  
+
   const handleInteraction = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
     onClick?.(name, color);
@@ -671,10 +671,10 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             onClick={
               hasOnValueChange && (activeLegend || activeBar)
                 ? () => {
-                    setActiveBar(undefined);
-                    setActiveLegend(undefined);
-                    onValueChange?.(null);
-                  }
+                  setActiveBar(undefined);
+                  setActiveLegend(undefined);
+                  onValueChange?.(null);
+                }
                 : undefined
             }
             margin={{
@@ -714,23 +714,23 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               minTickGap={tickGap}
               {...(layout !== 'vertical'
                 ? {
-                    padding: {
-                      left: paddingValue,
-                      right: paddingValue,
-                    },
-                    dataKey: index,
-                    interval: startEndOnly ? 'preserveStartEnd' : intervalType,
-                    ticks: startEndOnly
-                      ? [data[0][index], data[data.length - 1][index]] as (string | number)[]
-                      : undefined,
-                  }
+                  padding: {
+                    left: paddingValue,
+                    right: paddingValue,
+                  },
+                  dataKey: index,
+                  interval: startEndOnly ? 'preserveStartEnd' : intervalType,
+                  ticks: startEndOnly
+                    ? [data[0][index], data[data.length - 1][index]] as (string | number)[]
+                    : undefined,
+                }
                 : {
-                    type: 'number',
-                    domain: yAxisDomain as AxisDomain,
-                    tickFormatter:
-                      type === 'percent' ? valueToPercent : valueFormatter,
-                    allowDecimals: allowDecimals,
-                  })}
+                  type: 'number',
+                  domain: yAxisDomain as AxisDomain,
+                  tickFormatter:
+                    type === 'percent' ? valueToPercent : valueFormatter,
+                  allowDecimals: allowDecimals,
+                })}
             >
               {xAxisLabel && (
                 <Label
@@ -761,20 +761,20 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               }}
               {...(layout !== 'vertical'
                 ? {
-                    type: 'number',
-                    domain: yAxisDomain as AxisDomain,
-                    tickFormatter:
-                      type === 'percent' ? valueToPercent : valueFormatter,
-                    allowDecimals: allowDecimals,
-                  }
+                  type: 'number',
+                  domain: yAxisDomain as AxisDomain,
+                  tickFormatter:
+                    type === 'percent' ? valueToPercent : valueFormatter,
+                  allowDecimals: allowDecimals,
+                }
                 : {
-                    dataKey: index,
-                    ticks: startEndOnly
-                      ? [data[0][index], data[data.length - 1][index]] as (string | number)[]
-                      : undefined,
-                    type: 'category',
-                    interval: 'equidistantPreserveStart',
-                  })}
+                  dataKey: index,
+                  ticks: startEndOnly
+                    ? [data[0][index], data[data.length - 1][index]] as (string | number)[]
+                    : undefined,
+                  type: 'category',
+                  interval: 'equidistantPreserveStart',
+                })}
             >
               {yAxisLabel && (
                 <Label
@@ -849,7 +849,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                     activeLegend,
                     hasOnValueChange
                       ? (clickedLegendItem: string) =>
-                          onCategoryClick(clickedLegendItem)
+                        onCategoryClick(clickedLegendItem)
                       : undefined,
                     enableLegendSlider,
                     legendPosition,
@@ -872,7 +872,8 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 type="linear"
                 dataKey={category}
                 stackId={stacked ? 'stack' : undefined}
-                isAnimationActive={false}
+                isAnimationActive={true}
+                animationDuration={500}
                 fill=""
                 shape={(props: unknown) =>
                   renderShape(props as ShapeProps, activeBar, activeLegend, layout)

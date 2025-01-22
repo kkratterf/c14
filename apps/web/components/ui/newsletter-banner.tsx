@@ -13,8 +13,8 @@ const NewsletterBanner = () => {
       className={cn(
         'mb-4 flex flex-col gap-5 rounded-xl border border-border bg-background p-4 shadow-sm',
         isCollapsed
-          ? 'w-0 scale-20 opacity-0'
-          : 'w-auto scale-100 opacity-100 transition-all delay-200 duration-400'
+          ? 'size-0 scale-20 opacity-0'
+          : 'size-auto scale-100 opacity-100 transition-all delay-200 duration-400'
       )}
     >
       <div className="flex flex-col gap-2">

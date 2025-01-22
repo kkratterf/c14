@@ -32,7 +32,6 @@ export default async function Page(props: IProps) {
           <StartupCard key={startup.id} item={startup} />
         )}
       </div>
-
       <StartupPagination
         currentPage={Number.parseInt(page, 10)}
         searchParams={parsed}

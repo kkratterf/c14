@@ -80,3 +80,14 @@ export const getFeaturedStartup = async () => {
     });
     return startup;
 }
+
+//TODO: To be reviewed
+export const getStartupsCount = async () => {
+    try {
+        const count = await prisma.startup.count();
+        return count;
+    } catch {
+        // Add a log or toast here
+        return 0;
+    }
+};

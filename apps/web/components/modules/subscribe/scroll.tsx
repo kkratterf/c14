@@ -4,38 +4,40 @@ import {
   AvatarImage,
 } from '@c14/design-system/components/ui/avatar';
 
+import { getStartups } from '@/api/startup/serverActions';
 import Marquee from '@/components/ui/marquee';
-import { subscribeScroll } from '@/lib/data/subscribe-scroll';
+import type { Startup } from '@prisma/client';
 
 interface StartupCardProps {
-  item: {
-    name: string;
-    avatar_url: string;
-    avatar_fallback: string;
-  };
+  item: Startup;
 }
 
 const StartupCard = ({
-  item: { name, avatar_url, avatar_fallback },
+  item: { name, logo },
 }: StartupCardProps) => {
   return (
-    <Avatar key={name} className="size-20 rounded-xl border border-border">
-      <AvatarImage src={avatar_url} />
-      <AvatarFallback>{avatar_fallback}</AvatarFallback>
+    <Avatar key={name} className='size-20 rounded-xl border border-border'>
+      <AvatarImage src={logo ?? undefined} />
+      <AvatarFallback>{name.slice(0, 2)}</AvatarFallback>
     </Avatar>
   );
 };
 
-export function StartupsScroll() {
+const StartupsScroll = async () => {
+  const { startups: scrollStartups } = await getStartups({
+    isPopular: false,
+  });
   return (
-    <div className="absolute z-0 h-20 w-full">
+    <div className='absolute z-0 h-20 w-full'>
       <Marquee pauseOnHover className="[--duration:20s]">
-        {subscribeScroll.map((startup) => (
+        {scrollStartups.map((startup) => (
           <StartupCard key={startup.name} item={startup} />
         ))}
       </Marquee>
-      <div className="absolute top-0 left-0 h-20 w-8 bg-gradient-to-l from-white/0 to-white/100 dark:from-[#1B1D21]/0 dark:to-[#1B1D21]/100" />
-      <div className="absolute top-0 right-0 h-20 w-8 bg-gradient-to-r from-white/0 to-white/100 dark:from-[#1B1D21]/0 dark:to-[#1B1D21]/100" />
+      <div className='absolute top-0 left-0 h-20 w-8 bg-gradient-to-l from-white/0 to-white/100 dark:from-[#1B1D21]/0 dark:to-[#1B1D21]/100' />
+      <div className='absolute top-0 right-0 h-20 w-8 bg-gradient-to-r from-white/0 to-white/100 dark:from-[#1B1D21]/0 dark:to-[#1B1D21]/100' />
     </div>
   );
 }
+
+export default StartupsScroll;

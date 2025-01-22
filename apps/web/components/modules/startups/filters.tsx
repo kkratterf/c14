@@ -1,27 +1,14 @@
 'use client';
 
-import { Coins, Filter, MapPin, Tags, Users } from 'lucide-react';
+import { Coins, Pin, Tags, Users, } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useOptimistic, useState, useTransition } from 'react';
 
 import { Button } from '@c14/design-system/components/ui/button';
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@c14/design-system/components/ui/collapsible';
 import { Input } from '@c14/design-system/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@c14/design-system/components/ui/select';
-import { Toggle } from '@c14/design-system/components/ui/toggle';
-import { Tooltip } from '@c14/design-system/components/ui/tooltip';
-import { cn } from '@c14/design-system/lib/utils';
-import { useRouter, useSearchParams } from 'next/navigation';
+
 import { parseSearchParams } from '@/app/utils';
+import { StartupsFilter } from '@/components/ui/startups-filter';
 
 interface IProps {
   searchParams: URLSearchParams;
@@ -29,6 +16,10 @@ interface IProps {
 
 export interface SearchParams {
   name?: string;
+  categories?: string;
+  fundingStage?: string;
+  teamSize?: string;
+  location?: string;
   page: string;
 }
 export function stringifySearchParams(params: SearchParams): string {
@@ -54,7 +45,9 @@ const StartupsFiltersWithParams = ({
 
   const updateURL = (newFilters: SearchParams) => {
     const queryString = stringifySearchParams(newFilters);
-    router.push(queryString ? `startups/?${queryString}` : '/startups');
+    router.replace(queryString ? `/startups?${queryString}` : '/startups', {
+      scroll: false
+    });
   };
 
   const handleFilterChange = (
@@ -71,68 +64,108 @@ const StartupsFiltersWithParams = ({
     });
   };
 
+  const categoryOptions = [
+    { label: "SaaS", value: "saas" },
+    { label: "AI", value: "ai" },
+    { label: "Fintech", value: "fintech" },
+    // Aggiungi altre categorie secondo necessità
+  ]
+
+  const fundingStageOptions = [
+    { label: "Pre-seed", value: "pre-seed" },
+    { label: "Seed", value: "seed" },
+    { label: "Series A", value: "series-a" },
+    { label: "Series B", value: "series-b" },
+  ]
+
+  const teamSizeOptions = [
+    { label: "1-10", value: "1-10" },
+    { label: "11-50", value: "11-50" },
+    { label: "51-100", value: "51-100" },
+    { label: "101+", value: "101+" },
+  ]
+
+  const locationOptions = [
+    { label: "Italy", value: "italy" },
+    { label: "Europe", value: "europe" },
+    { label: "Worldwide", value: "worldwide" },
+  ]
+
+  const handleFacetedFilterChange = (
+    filterType: keyof SearchParams,
+    values: string[] | undefined
+  ) => {
+    startTransition(() => {
+      const newFilters = {
+        ...optimisticFilters,
+        [filterType]: values?.join(','),
+        page: "1"
+      };
+      if (!values?.length) {
+        delete newFilters[filterType];
+      }
+      setOptimisticFilters(newFilters);
+      updateURL(newFilters);
+    });
+  };
+
+  const getSelectedValues = (filterType: keyof SearchParams): Set<string> => {
+    return new Set(optimisticFilters[filterType]?.split(',') || []);
+  };
+
+  const hasActiveFilters = () => {
+    return Object.entries(optimisticFilters).some(([key, value]) =>
+      key !== 'page' && value !== undefined
+    );
+  };
+
   return (
-    <div className="sticky top-0 z-20 border-border border-b bg-background px-6 py-4">
-      <Collapsible
-        open={isOpen}
-        onOpenChange={setIsOpen}
-        className={cn('flex flex-col', isOpen ? 'gap-3' : 'gap-0')}
-      >
-        <div className="flex flex-row items-center justify-between gap-4">
-          <Input placeholder="Search" className="max-w-96"
-            value={optimisticFilters.name ?? ""}
-            onChange={(e) => handleFilterChange('name', e.target.value)}
-          />
-          <div className="flex flex-row gap-2">
-            <CollapsibleTrigger asChild>
-              <Tooltip
-                content={isOpen ? 'Hide filters' : 'Show filters'}
-                className="z-50"
-              >
-                <Toggle
-                  aria-label="Toggle filters"
-                  className={cn(
-                    'cursor-pointer',
-                    isOpen
-                      ? 'border-brand-subtle bg-brand-subtle bg-brand-subtle text-brand-strong hover:bg-brand-subtle [&>svg]:stroke-icon-brand-strong'
-                      : ''
-                  )}
-                  pressed={isOpen}
-                >
-                  <Filter />
-                </Toggle>
-              </Tooltip>
-            </CollapsibleTrigger>
-            <Select>
-              <SelectTrigger className="w-48">
-                <SelectValue placeholder="Order by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="asc">Ascending</SelectItem>
-                <SelectItem value="desc">Descending</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <CollapsibleContent className="flex flex-row gap-2">
-          <Button variant="secondary">
-            <Tags />
-            Categories
+    <div className='sticky top-0 z-20 border-border border-b bg-background px-6 py-4'>
+      <div className='flex flex-col items-center gap-2 md:flex-row'>
+        <Input placeholder="Search" className="max-w-64"
+          value={optimisticFilters.name ?? ""}
+          onChange={(e) => handleFilterChange('name', e.target.value)}
+        />
+        <StartupsFilter
+          icon={<Tags />}
+          title="Categories"
+          options={categoryOptions}
+          selectedValues={getSelectedValues('categories')}
+          onFilterChange={(values) => handleFacetedFilterChange('categories', values)}
+        />
+        <StartupsFilter
+          icon={<Coins />}
+          title="Funding stage"
+          options={fundingStageOptions}
+          selectedValues={getSelectedValues('fundingStage')}
+          onFilterChange={(values) => handleFacetedFilterChange('fundingStage', values)}
+        />
+        <StartupsFilter
+          icon={<Users />}
+          title="Team size"
+          options={teamSizeOptions}
+          selectedValues={getSelectedValues('teamSize')}
+          onFilterChange={(values) => handleFacetedFilterChange('teamSize', values)}
+        />
+        <StartupsFilter
+          icon={<Pin />}
+          title="Location"
+          options={locationOptions}
+          selectedValues={getSelectedValues('location')}
+          onFilterChange={(values) => handleFacetedFilterChange('location', values)}
+        />
+        {hasActiveFilters() && (
+          <Button
+            variant="text"
+            onClick={() => {
+              setOptimisticFilters({ page: "1" });
+              updateURL({ page: "1" });
+            }}
+          >
+            Reset
           </Button>
-          <Button variant="secondary">
-            <Coins />
-            Funding stage
-          </Button>
-          <Button variant="secondary">
-            <Users />
-            Team size
-          </Button>
-          <Button variant="secondary">
-            <MapPin />
-            Location
-          </Button>
-        </CollapsibleContent>
-      </Collapsible>
+        )}
+      </div>
     </div>
   );
 };
