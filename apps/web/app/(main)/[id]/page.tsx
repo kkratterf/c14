@@ -33,7 +33,7 @@ interface IProps {
   }>
 }
 
-export default async function StartupPage({
+export default async function StartupDetailPage({
   params
 }: IProps) {
   const { id } = await params;

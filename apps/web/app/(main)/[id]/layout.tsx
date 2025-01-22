@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 
 import Loading from './loading';
 
-export default async function MainLayout({
+export default async function StartupDetailLayout({
     children,
 }: {
     children: React.ReactNode;
