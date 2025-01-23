@@ -161,6 +161,8 @@ const Sidebar = React.forwardRef<
     side?: 'left' | 'right';
     variant?: 'sidebar' | 'floating' | 'inset';
     collapsible?: 'offcanvas' | 'icon' | 'none';
+    mobileTitle?: React.ReactNode;
+    mobileContent?: React.ReactNode;
   }
 >(
   (
@@ -170,6 +172,8 @@ const Sidebar = React.forwardRef<
       collapsible = 'offcanvas',
       className,
       children,
+      mobileTitle,
+      mobileContent,
       ...props
     },
     ref
@@ -197,7 +201,6 @@ const Sidebar = React.forwardRef<
           <SheetContent
             data-sidebar="sidebar"
             data-mobile="true"
-            className=""
             style={
               {
                 '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
@@ -206,9 +209,9 @@ const Sidebar = React.forwardRef<
           >
             <div className="flex flex-col w-full h-full">
               <SheetHeader>
-                <SheetTitle className='font-brand text-2xl'>C14</SheetTitle>
+                <SheetTitle>{mobileTitle}</SheetTitle>
               </SheetHeader>
-              {children}
+              {mobileContent}
             </div>
           </SheetContent>
         </Sheet>
@@ -291,8 +294,8 @@ const SidebarTrigger = React.forwardRef<
       <Button
         ref={ref}
         data-sidebar="trigger"
-        size='small'
-        variant="text"
+        size={isMobile ? 'default' : 'small'}
+        variant={isMobile ? "secondary" : "text"}
         icon
         className={cn(className)}
         onClick={(event) => {

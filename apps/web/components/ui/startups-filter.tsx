@@ -41,9 +41,9 @@ export function StartupsFilter({
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button variant="secondary" className='border-dashed [&>svg]:stroke-2'>
+                <Button variant="secondary" className='w-full border-dashed md:w-auto [&>svg]:stroke-2'>
                     {icon}
-                    {title}
+                    <span className='hidden lg:flex'>{title}</span>
                     {selectedValues?.size > 0 && (
                         <>
                             <Separator orientation="vertical" className="mx-1 h-4" />
@@ -78,6 +78,7 @@ export function StartupsFilter({
                         </>
                     )}
                 </Button>
+
             </PopoverTrigger>
             <PopoverContent className='w-[240px] p-0' align="start">
                 <Command>

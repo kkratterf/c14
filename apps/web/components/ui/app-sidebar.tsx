@@ -16,10 +16,12 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 
+import { MobileTitle } from '@/components/ui/mobile-title';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import { NavHeader } from '@/components/ui/nav-header';
 import { NavMain } from '@/components/ui/nav-main';
 import { NavSecondary } from '@/components/ui/nav-secondary';
+import { MobileContent } from './mobile-content';
 
 const data = {
   navMain: [
@@ -57,7 +59,12 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar variant="inset" {...props} collapsible="icon" {...props}>
+    <Sidebar
+      variant="inset" {...props}
+      collapsible="icon" {...props}
+      mobileTitle={<MobileTitle />}
+      mobileContent={<MobileContent mainItems={data.navMain} secondaryItems={data.navSecondary} />}
+    >
       <SidebarHeader>
         <NavHeader />
       </SidebarHeader>

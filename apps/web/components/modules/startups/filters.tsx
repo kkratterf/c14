@@ -1,11 +1,13 @@
 'use client';
 
-import { Coins, Pin, Tags, Users, } from 'lucide-react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { Coins, Pin, Tags, Users, X, } from 'lucide-react';
+import { useRouter, useSearchParams, } from 'next/navigation';
 import { useOptimistic, useState, useTransition } from 'react';
 
 import { Button } from '@c14/design-system/components/ui/button';
+import { } from '@c14/design-system/components/ui/collapsible';
 import { Input } from '@c14/design-system/components/ui/input';
+import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 
 import { parseSearchParams } from '@/app/utils';
 import { StartupsFilter } from '@/components/ui/startups-filter';
@@ -68,7 +70,6 @@ const StartupsFiltersWithParams = ({
     { label: "SaaS", value: "saas" },
     { label: "AI", value: "ai" },
     { label: "Fintech", value: "fintech" },
-    // Aggiungi altre categorie secondo necessità
   ]
 
   const fundingStageOptions = [
@@ -122,48 +123,54 @@ const StartupsFiltersWithParams = ({
   return (
     <div className='sticky top-0 z-20 border-border border-b bg-background px-6 py-4'>
       <div className='flex flex-col items-center gap-2 md:flex-row'>
-        <Input placeholder="Search" className="max-w-64"
+        <Input placeholder="Search" className="md:max-w-64"
           value={optimisticFilters.name ?? ""}
           onChange={(e) => handleFilterChange('name', e.target.value)}
         />
-        <StartupsFilter
-          icon={<Tags />}
-          title="Categories"
-          options={categoryOptions}
-          selectedValues={getSelectedValues('categories')}
-          onFilterChange={(values) => handleFacetedFilterChange('categories', values)}
-        />
-        <StartupsFilter
-          icon={<Coins />}
-          title="Funding stage"
-          options={fundingStageOptions}
-          selectedValues={getSelectedValues('fundingStage')}
-          onFilterChange={(values) => handleFacetedFilterChange('fundingStage', values)}
-        />
-        <StartupsFilter
-          icon={<Users />}
-          title="Team size"
-          options={teamSizeOptions}
-          selectedValues={getSelectedValues('teamSize')}
-          onFilterChange={(values) => handleFacetedFilterChange('teamSize', values)}
-        />
-        <StartupsFilter
-          icon={<Pin />}
-          title="Location"
-          options={locationOptions}
-          selectedValues={getSelectedValues('location')}
-          onFilterChange={(values) => handleFacetedFilterChange('location', values)}
-        />
+        <div className='flex w-full flex-row gap-2 md:w-auto'>
+          <StartupsFilter
+            icon={<Tags />}
+            title="Categories"
+            options={categoryOptions}
+            selectedValues={getSelectedValues('categories')}
+            onFilterChange={(values) => handleFacetedFilterChange('categories', values)}
+          />
+          <StartupsFilter
+            icon={<Coins />}
+            title="Funding stage"
+            options={fundingStageOptions}
+            selectedValues={getSelectedValues('fundingStage')}
+            onFilterChange={(values) => handleFacetedFilterChange('fundingStage', values)}
+          />
+          <StartupsFilter
+            icon={<Users />}
+            title="Team size"
+            options={teamSizeOptions}
+            selectedValues={getSelectedValues('teamSize')}
+            onFilterChange={(values) => handleFacetedFilterChange('teamSize', values)}
+          />
+          <StartupsFilter
+            icon={<Pin />}
+            title="Location"
+            options={locationOptions}
+            selectedValues={getSelectedValues('location')}
+            onFilterChange={(values) => handleFacetedFilterChange('location', values)}
+          />
+        </div>
         {hasActiveFilters() && (
-          <Button
-            variant="text"
-            onClick={() => {
-              setOptimisticFilters({ page: "1" });
-              updateURL({ page: "1" });
-            }}
-          >
-            Reset
-          </Button>
+          <Tooltip content="Reset filters" className='z-50 hidden md:flex lg:hidden'>
+            <Button
+              className='w-full md:w-auto'
+              variant="text"
+              onClick={() => {
+                setOptimisticFilters({ page: "1" });
+                updateURL({ page: "1" });
+              }}
+            >
+              <X className='hidden md:flex lg:hidden' />
+              <span className='flex md:hidden lg:flex'>Reset</span>
+            </Button>
+          </Tooltip>
         )}
       </div>
     </div>

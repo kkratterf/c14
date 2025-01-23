@@ -1,7 +1,6 @@
 import { PAGE_SIZE, getStartups } from '@/api/startup/serverActions';
 import { parseSearchParams } from '@/app/utils';
 import { StartupPagination } from '@/components/modules/startups/pagination';
-import AdvertiseCard from '@/components/ui/advertise-card';
 import StartupCard from '@/components/ui/startup-card';
 
 interface IProps {
@@ -26,12 +25,19 @@ export default async function Page(props: IProps) {
   return (
     <>
       <div className='flex h-full w-full flex-col gap-1 px-3 py-4'>
+        {startups.map((startup) => (
+          <StartupCard key={startup.id} item={startup} />
+        ))}
+      </div>
+      {/* TODO: Add the advertise block here
+      <div className='flex flex-col gap-1 px-3 py-4 w-full h-full'>
         {startups.map((startup) => startup.isFeatured ?
 
           <AdvertiseCard key={startup.id} item={startup} type="startups" /> :
           <StartupCard key={startup.id} item={startup} />
         )}
       </div>
+      */}
       <StartupPagination
         currentPage={Number.parseInt(page, 10)}
         searchParams={parsed}

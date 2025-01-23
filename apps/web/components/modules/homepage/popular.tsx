@@ -1,5 +1,4 @@
 import { getStartups } from '@/api/startup/serverActions';
-import AdvertiseCard from '@/components/ui/advertise-card';
 import PopularCard from '@/components/ui/popular-card';
 
 const Popular = async () => {
@@ -13,12 +12,19 @@ const Popular = async () => {
         Popular startups
       </h2>
       <div className="flex flex-col gap-1">
+        {popularStartups.map((item) => (
+          <PopularCard key={item.id} item={item} />
+        ))}
+      </div>
+      {/* TODO: Add the advertise block here
+      <div className="flex flex-col gap-1">
         {popularStartups.map((item) => item.isFeatured ?
           <AdvertiseCard key={item.id} item={item} type="popular" />
           :
           <PopularCard key={item.id} item={item} />
         )}
       </div>
+      */}
     </section>
   );
 };

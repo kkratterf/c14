@@ -177,20 +177,21 @@ export default async function StartupDetailPage({
               <p className="text-heading-body">{startup.amountRaised}</p>
             </Card>
           </div>
-          {featuredStartup && <Card className='flex w-full flex-col gap-4 bg-subtle'>
-            <div className='flex w-full flex-row items-center gap-3'>
-              <Avatar className='size-14 rounded-xl border border-border'>
+          {/* TODO: Add the advertise block here
+          {featuredStartup && <Card className='flex flex-col gap-4 bg-subtle w-full'>
+            <div className='flex flex-row items-center gap-3 w-full'>
+              <Avatar className='border border-border rounded-xl size-14'>
                 <AvatarImage src={featuredStartup.logo ?? undefined} />
                 {featuredStartup.name.slice(0, 2)}
               </Avatar>
-              <div className='flex w-full flex-col'>
+              <div className='flex flex-col w-full'>
                 <p className="text-heading-body">{featuredStartup.name}</p>
                 <p className="line-clamp-1 w-full text-description">
                   {featuredStartup.shortDescription}
                 </p>
               </div>
             </div>
-            <div className='flex flex-row items-end justify-between gap-2'>
+            <div className='flex flex-row justify-between items-end gap-2'>
               <Button asChild>
                 <Link target="_blank" href={featuredStartup.website ?? ""}>
                   Visit {featuredStartup.name}
@@ -199,6 +200,7 @@ export default async function StartupDetailPage({
               <Tag variant="brand">AD</Tag>
             </div>
           </Card>}
+          */}
           <div className='flex w-full flex-row items-center justify-between px-6 py-3 pb-12'>
             <p className="font-mono text-description text-sm">Share</p>
             <div className="flex flex-row gap-2">
