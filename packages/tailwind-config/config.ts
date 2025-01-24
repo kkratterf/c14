@@ -17,7 +17,6 @@ export const config: Config = {
     './pages/**/*.{tsx,mdx}',
     './providers/**/*.{ts,tsx}',
     './theme.config.tsx',
-    './public/**/*.svg',
     './packages/design-system/styles/**/*.css',
   ],
   theme: {
@@ -254,6 +253,7 @@ export const config: Config = {
         'warning-subtlest': 'var(--color-border-warning-subtlest)',
       },
       ringColor: {
+        background: 'var(--color-bg-background)',
         brand: 'var(--color-border-brand-default)',
         'brand-subtlest': 'var(--color-border-brand-subtlest)',
         danger: 'var(--color-border-danger)',
