@@ -9,8 +9,8 @@ import { } from '@c14/design-system/components/ui/collapsible';
 import { Input } from '@c14/design-system/components/ui/input';
 import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 
-import { parseSearchParams } from '@/app/utils';
 import { StartupsFilter } from '@/components/ui/startups-filter';
+import { parseSearchParams } from '@/lib/utils';
 
 interface IProps {
   searchParams: URLSearchParams;

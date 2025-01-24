@@ -1,5 +1,5 @@
 import { PAGE_SIZE, getStartups } from '@/api/startup/serverActions';
-import { parseSearchParams } from '@/app/utils';
+import { parseSearchParams } from '@/lib/utils';
 import { StartupPagination } from '@/components/modules/startups/pagination';
 import StartupCard from '@/components/ui/startup-card';
 
@@ -24,7 +24,7 @@ export default async function Page(props: IProps) {
   const pages = Math.ceil(total / PAGE_SIZE);
   return (
     <>
-      <div className='flex h-full w-full flex-col gap-1 px-3 py-4'>
+      <div className='flex flex-col gap-1 px-3 py-4 w-full h-full'>
         {startups.map((startup) => (
           <StartupCard key={startup.id} item={startup} />
         ))}

@@ -10,7 +10,7 @@ import { NumberTicker } from '@/components/ui/number-ticker';
 export default function BenchmarkPage() {
   return (
     <div className='flex h-full w-full flex-col gap-4 px-6 py-6'>
-      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4'>
         <Card className='flex flex-col gap-1'>
           <p className='font-mono text-description text-sm'>Startups</p>
           <NumberTicker

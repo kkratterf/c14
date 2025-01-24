@@ -28,8 +28,8 @@ const StartupCard = ({ item }: StartupCardProps) => {
           </AvatarFallback>
         </Avatar>
         <div className='flex w-full flex-row items-center gap-2'>
-          <p className="font-semibold text-base">{item.name}</p>
-          <p className='truncate text-description text-sm'>
+          <p className='whitespace-nowrap font-semibold text-base'>{item.name}</p>
+          <p className='line-clamp-1 text-description text-sm'>
             {item.shortDescription}
           </p>
         </div>

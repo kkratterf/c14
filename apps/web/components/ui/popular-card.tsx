@@ -28,8 +28,8 @@ const PopularCard = ({ item }: PopularCardProps) => {
           </AvatarFallback>
         </Avatar>
         <div className='flex w-full flex-col'>
-          <p className="font-semibold text-base">{item.name}</p>
-          <p className="text-description text-sm">{item.shortDescription}</p>
+          <p className="line-clamp-1 font-semibold text-base">{item.name}</p>
+          <p className="line-clamp-1 text-description text-sm">{item.shortDescription}</p>
         </div>
         <ChevronRight className='size-5 stroke-icon opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
       </div>
