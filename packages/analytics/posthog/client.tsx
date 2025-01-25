@@ -6,11 +6,11 @@ import type { ReactNode } from 'react';
 import { keys } from '../keys';
 
 export const analytics = posthogRaw.init(keys().NEXT_PUBLIC_POSTHOG_KEY, {
-    api_host: '/ingest',
+    api_host: keys().NEXT_PUBLIC_POSTHOG_HOST,
     ui_host: keys().NEXT_PUBLIC_POSTHOG_HOST,
     person_profiles: 'identified_only',
-    capture_pageview: false, // Disable automatic pageview capture, as we capture manually
-    capture_pageleave: true, // Overrides the `capture_pageview` setting
+    capture_pageview: true,
+    capture_pageleave: true,
 }) as PostHog;
 
 type PostHogProviderProps = {
