@@ -1,5 +1,5 @@
 <a href="https://www.c14.so">
-  <img alt="Open-source startup database" src="https://github.com/kkratterf/C14/">
+  <img alt="Open-source startup database" src="[https://github.com/kkratterf/C14/](https://github.com/kkratterf/C14/blob/main/.github/readme.png)">
 </a>
 
 <h3 align="center">C14</h3>
