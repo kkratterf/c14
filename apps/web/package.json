@@ -6,23 +6,29 @@
     "build": "next build",
     "start": "next start",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "postinstall": "prisma generate",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build"
   },
   "dependencies": {
     "@c14/analytics": "workspace:*",
     "@c14/design-system": "workspace:*",
     "@c14/tailwind-config": "workspace:*",
     "@hookform/resolvers": "^3.9.1",
-    "@prisma/client": "6.0.1",
+    "@prisma/client": "^6.2.1",
     "@sentry/nextjs": "^8.47.0",
+    "@t3-oss/env-nextjs": "^0.11.1",
     "date-fns": "^3.0.0",
     "import-in-the-middle": "^1.11.3",
     "lucide-react": "^0.468.0",
+    "motion": "^11.17.0",
     "next": "15.1.0",
     "next-themes": "^0.4.4",
+    "prisma": "^6.2.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hook-form": "^7.54.2",
+    "react-wrap-balancer": "^1.1.1",
     "require-in-the-middle": "^7.4.0",
     "zod": "^3.24.1"
   },
@@ -31,7 +37,9 @@
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
+    "autoprefixer": "^10.4.20",
     "jsdom": "^25.0.1",
+    "postcss-import": "^16.1.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   }

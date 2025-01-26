@@ -4,17 +4,12 @@ import { ToastProvider } from './components/ui/toast';
 import { TooltipProvider } from './components/ui/tooltip';
 import { ThemeProvider } from './providers/theme';
 
-type DesignSystemProviderProperties = ThemeProviderProps & {
-  gaId?: string;
-};
-
 export const DesignSystemProvider = ({
   children,
-  gaId,
   ...properties
-}: DesignSystemProviderProperties) => (
+}: ThemeProviderProps) => (
   <ThemeProvider {...properties}>
-    <AnalyticsProvider gaId={gaId}>
+    <AnalyticsProvider>
       <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
       <ToastProvider />
     </AnalyticsProvider>

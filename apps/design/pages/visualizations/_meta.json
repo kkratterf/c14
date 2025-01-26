@@ -1,4 +1,7 @@
 {
-  "area-chart": "Area chart",
-  "bar-chart": "Bar chart"
+  "area-chart": "Area Chart",
+  "bar-chart": "Bar Chart",
+  "bar-list": "Bar List",
+  "category-bar": "Category Bar",
+  "donut-chart": "Donut Chart"
 }

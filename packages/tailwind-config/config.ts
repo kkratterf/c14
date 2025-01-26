@@ -17,7 +17,6 @@ export const config: Config = {
     './pages/**/*.{tsx,mdx}',
     './providers/**/*.{ts,tsx}',
     './theme.config.tsx',
-    './public/**/*.svg',
     './packages/design-system/styles/**/*.css',
   ],
   theme: {
@@ -254,6 +253,7 @@ export const config: Config = {
         'warning-subtlest': 'var(--color-border-warning-subtlest)',
       },
       ringColor: {
+        background: 'var(--color-bg-background)',
         brand: 'var(--color-border-brand-default)',
         'brand-subtlest': 'var(--color-border-brand-subtlest)',
         danger: 'var(--color-border-danger)',
@@ -461,6 +461,10 @@ export const config: Config = {
           from: { opacity: '1', transform: 'translateX(0)' },
           to: { opacity: '0', transform: 'translateX(100%)' },
         },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+        },
       },
 
       animation: {
@@ -484,6 +488,8 @@ export const config: Config = {
         drawerSlideLeftAndFade:
           'drawerSlideLeftAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         drawerSlideRightAndFade: 'drawerSlideRightAndFade 150ms ease-in',
+        // Marquee
+        marquee: 'marquee var(--duration) linear infinite',
       },
       transformOrigin: {
         'top-center': 'top center',

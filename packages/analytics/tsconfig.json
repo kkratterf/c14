@@ -1,5 +1,5 @@
 {
-  "extends": "@c14/typescript-config/react-library.json",
+  "extends": "@c14/typescript-config/nextjs.json",
   "compilerOptions": {
     "baseUrl": "."
   },
