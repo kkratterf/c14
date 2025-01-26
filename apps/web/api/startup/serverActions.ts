@@ -1,4 +1,5 @@
 import prisma from "@/prisma/client";
+import { Prisma } from "@prisma/client";
 
 const includeForUsefullDataStartup = {
     FounderStartup: {
@@ -33,6 +34,10 @@ export const getStartupFromId = async (id: string) => {
 
 interface GetStartups {
     name?: string;
+    tags?: string[];
+    fundingStages?: string[];
+    teamSizes?: string[];
+    locations?: string[];
     isPopular?: boolean;
     positionForFeatured?: number;
     page?: number;
@@ -40,14 +45,30 @@ interface GetStartups {
 
 export const PAGE_SIZE = 10;
 
-export const getStartups = async ({ name, isPopular, positionForFeatured, page = 1 }: GetStartups) => {
-    const query = {
+export const getStartups = async ({ name, tags, fundingStages, teamSizes, locations, isPopular, positionForFeatured, page = 1 }: GetStartups) => {
+    const query: Prisma.StartupFindManyArgs = {
         where: {
             isPopular: isPopular,
             //We will place the featured in the correct place later
             isFeatured: false,
             name: {
                 contains: name
+            },
+            StartupTag: {
+                some: {
+                    tagid: {
+                        in: tags
+                    }
+                }
+            },
+            foundingStageid: {
+                in: fundingStages
+            },
+            teamSizeid: {
+                in: teamSizes
+            },
+            locationid: {
+                in: locations
             }
         },
         take: PAGE_SIZE,

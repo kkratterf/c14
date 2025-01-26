@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@c14/design-system/components/ui/button"
 import {
     Command,
@@ -18,6 +20,7 @@ import { Tag } from "@c14/design-system/components/ui/tag"
 import { cn } from "@c14/design-system/lib/utils"
 import { Check, } from "lucide-react"
 import type * as React from "react"
+import { useMemo, useState } from "react"
 
 interface StartupsFilterProps {
     icon?: React.ReactNode
@@ -38,6 +41,13 @@ export function StartupsFilter({
     selectedValues,
     onFilterChange,
 }: StartupsFilterProps) {
+    const [value, setValue] = useState("")
+
+    const optionsToShow = useMemo(() => {
+        const valueToLower = value.toLocaleLowerCase()
+        return options.filter((option) => option.label.toLocaleLowerCase().includes(valueToLower)).slice(0, 10)
+    }, [options, value])
+
     return (
         <Popover>
             <PopoverTrigger asChild>
@@ -81,12 +91,17 @@ export function StartupsFilter({
 
             </PopoverTrigger>
             <PopoverContent className='w-[240px] p-0' align="start">
-                <Command>
-                    <CommandInput placeholder={title} />
+                <Command
+                    shouldFilter={false}
+                >
+                    <CommandInput placeholder={title}
+                        value={value}
+                        onValueChange={(value) => setValue(value)}
+                    />
                     <CommandList>
                         <CommandEmpty>No results found.</CommandEmpty>
                         <CommandGroup>
-                            {options.map((option) => {
+                            {optionsToShow.map((option) => {
                                 const isSelected = selectedValues.has(option.value)
                                 return (
                                     <CommandItem

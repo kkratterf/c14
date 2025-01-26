@@ -2,7 +2,7 @@
 
 import { Coins, Pin, Tags, Users, X, } from 'lucide-react';
 import { useRouter, useSearchParams, } from 'next/navigation';
-import { useOptimistic, useState, useTransition } from 'react';
+import { useMemo, useOptimistic, useState, useTransition } from 'react';
 
 import { Button } from '@c14/design-system/components/ui/button';
 import { Input } from '@c14/design-system/components/ui/input';
@@ -10,8 +10,9 @@ import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 
 import { StartupsFilter } from '@/components/ui/startups-filter';
 import { parseSearchParams } from '@/lib/utils';
+import { FoundingStage, Location, Tag, TeamSize } from '@prisma/client';
 
-interface IProps {
+interface IProps extends IPropsStartupFilters {
   searchParams: URLSearchParams;
 }
 
@@ -26,7 +27,7 @@ export interface SearchParams {
 export function stringifySearchParams(params: SearchParams): string {
   const urlParams = new URLSearchParams();
   Object.entries(params).forEach(([key, value]) => {
-    if (value !== undefined) {
+    if (value !== undefined && (Array.isArray(value) ? value.length : true)) {
       urlParams.append(key, value);
     }
   });
@@ -35,7 +36,11 @@ export function stringifySearchParams(params: SearchParams): string {
 
 
 const StartupsFiltersWithParams = ({
-  searchParams
+  searchParams,
+  tags,
+  fundingStages,
+  teamSizes,
+  locations,
 }: IProps) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -65,31 +70,25 @@ const StartupsFiltersWithParams = ({
     });
   };
 
-  const categoryOptions = [
-    { label: "SaaS", value: "saas" },
-    { label: "AI", value: "ai" },
-    { label: "Fintech", value: "fintech" },
-  ]
+  const formattedTags = useMemo(() => tags.map((tag) => ({
+    label: tag.name,
+    value: tag.id
+  })), [tags]);
 
-  const fundingStageOptions = [
-    { label: "Pre-seed", value: "pre-seed" },
-    { label: "Seed", value: "seed" },
-    { label: "Series A", value: "series-a" },
-    { label: "Series B", value: "series-b" },
-  ]
+  const formattedFundingStages = useMemo(() => fundingStages.map((fundingStage) => ({
+    label: fundingStage.name,
+    value: fundingStage.id
+  })), [fundingStages]);
 
-  const teamSizeOptions = [
-    { label: "1-10", value: "1-10" },
-    { label: "11-50", value: "11-50" },
-    { label: "51-100", value: "51-100" },
-    { label: "101+", value: "101+" },
-  ]
+  const formattedTeamSizes = useMemo(() => teamSizes.map((teamSize) => ({
+    label: teamSize.name,
+    value: teamSize.id
+  })), [teamSizes]);
 
-  const locationOptions = [
-    { label: "Italy", value: "italy" },
-    { label: "Europe", value: "europe" },
-    { label: "Worldwide", value: "worldwide" },
-  ]
+  const formattedLocations = useMemo(() => locations.map((location) => ({
+    label: location.name,
+    value: location.id
+  })), [locations]);
 
   const handleFacetedFilterChange = (
     filterType: keyof SearchParams,
@@ -110,7 +109,7 @@ const StartupsFiltersWithParams = ({
   };
 
   const getSelectedValues = (filterType: keyof SearchParams): Set<string> => {
-    return new Set(optimisticFilters[filterType]?.split(',') || []);
+    return new Set(optimisticFilters[filterType]?.split(",") || []);
   };
 
   const hasActiveFilters = () => {
@@ -130,28 +129,28 @@ const StartupsFiltersWithParams = ({
           <StartupsFilter
             icon={<Tags />}
             title="Categories"
-            options={categoryOptions}
+            options={formattedTags}
             selectedValues={getSelectedValues('categories')}
             onFilterChange={(values) => handleFacetedFilterChange('categories', values)}
           />
           <StartupsFilter
             icon={<Coins />}
             title="Funding stage"
-            options={fundingStageOptions}
+            options={formattedFundingStages}
             selectedValues={getSelectedValues('fundingStage')}
             onFilterChange={(values) => handleFacetedFilterChange('fundingStage', values)}
           />
           <StartupsFilter
             icon={<Users />}
             title="Team size"
-            options={teamSizeOptions}
+            options={formattedTeamSizes}
             selectedValues={getSelectedValues('teamSize')}
             onFilterChange={(values) => handleFacetedFilterChange('teamSize', values)}
           />
           <StartupsFilter
             icon={<Pin />}
             title="Location"
-            options={locationOptions}
+            options={formattedLocations}
             selectedValues={getSelectedValues('location')}
             onFilterChange={(values) => handleFacetedFilterChange('location', values)}
           />
@@ -176,9 +175,18 @@ const StartupsFiltersWithParams = ({
   );
 };
 
-const StartupFilters = () => {
+interface IPropsStartupFilters {
+  tags: Tag[];
+  fundingStages: FoundingStage[];
+  teamSizes: TeamSize[];
+  locations: Location[];
+}
+
+const StartupFilters = (props: IPropsStartupFilters) => {
   const searchParams = useSearchParams();
-  return <StartupsFiltersWithParams searchParams={searchParams} />;
+  return <StartupsFiltersWithParams searchParams={searchParams}
+    {...props}
+  />;
 }
 
 export default StartupFilters;

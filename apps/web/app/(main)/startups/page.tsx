@@ -11,11 +11,15 @@ export default async function Page(props: IProps) {
   const { searchParams } = props;
   const waited = await searchParams;
   const parsed = parseSearchParams(waited);
-  const { name, page } = parsed;
+  const { name, page, categories, fundingStage, location, teamSize } = parsed;
   const { startups, count: total } = await getStartups({
     positionForFeatured: 5,
     name: Array.isArray(name) ? name[0] : name,
-    page: Number.parseInt(page, 10)
+    page: Number.parseInt(page, 10),
+    tags: categories?.split(','),
+    fundingStages: fundingStage?.split(','),
+    locations: location?.split(','),
+    teamSizes: teamSize?.split(','),
   });
   if (!startups) {
     //TODO: empty state page
