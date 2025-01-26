@@ -10,7 +10,7 @@ const ShareButtons = () => {
     const shareOnLinkedIn = () => {
         const currentUrl = window.location.href;
         const shareText = "Ho trovato questa pagina interessante!";
-        const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&summary=${encodeURIComponent(`${shareText}\n\n${currentUrl}`)}`;
+        const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(`${shareText}\n\n${currentUrl}`)}`;
         window.open(linkedInShareUrl, '_blank', 'width=600,height=600');
     };
 
@@ -27,7 +27,7 @@ const ShareButtons = () => {
                 </Button>
             </Tooltip>
             <Tooltip content="Share on Linkedin">
-                <Button variant="secondary" disabled icon onClick={shareOnLinkedIn}>
+                <Button variant="secondary" icon onClick={shareOnLinkedIn}>
                     <LinkedinIcon />
                 </Button>
             </Tooltip>
