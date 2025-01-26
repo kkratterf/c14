@@ -24,12 +24,8 @@ const StartupCard = ({ item: { name, logo } }: StartupCardProps) => {
 const StartupsScroll = async () => {
   try {
     const { startups: scrollStartups } = await getStartups({
-      isPopular: false,
+      isPopular: true,
     });
-
-    if (!scrollStartups?.length) {
-      return null;
-    }
 
     return (
       <div className='absolute z-0 h-20 w-full'>
@@ -42,7 +38,7 @@ const StartupsScroll = async () => {
         <div className='absolute top-0 right-0 h-20 w-8 bg-gradient-to-r from-white/0 to-white/100 dark:from-[#1B1D21]/0 dark:to-[#1B1D21]/100' />
       </div>
     );
-  } catch {
+  } catch (error) {
     return null;
   }
 };
