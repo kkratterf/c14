@@ -102,7 +102,6 @@ export const getFeaturedStartup = async () => {
     return startup;
 }
 
-//TODO: To be reviewed
 export const getStartupsCount = async () => {
     try {
         const count = await prisma.startup.count();
@@ -112,3 +111,61 @@ export const getStartupsCount = async () => {
         return 0;
     }
 };
+
+
+export const getStartupsByCategory = async () => {
+    //Use LEFT join instead of join if you want to include the categories with 0 startups
+    const raw: {
+        tagid: string;
+        name: string;
+        startups: number;
+    }[] = await prisma.$queryRaw`
+    SELECT "Tag"."id", name,
+    COUNT("StartupTag"."tagid")::int AS startups
+     FROM "Tag" JOIN "StartupTag" ON "Tag"."id" = "StartupTag"."tagid"
+        GROUP BY "Tag"."id", "name" 
+    `
+    return raw;
+}
+
+export const getStartupsByTeamSize = async () => {
+    const raw: {
+        teamSizeid: string;
+        name: string;
+        startups: number;
+    }[] = await prisma.$queryRaw`
+    SELECT "TeamSize"."id", "TeamSize".name,
+    COUNT("Startup"."teamSizeid")::int AS startups
+     FROM "TeamSize" JOIN "Startup" ON "TeamSize"."id" = "Startup"."teamSizeid"
+        GROUP BY "TeamSize"."id", "TeamSize"."name" 
+    `
+    return raw;
+}
+
+export const getStartupsByFundingStage = async () => {
+    const raw: {
+        foundingStageid: string;
+        name: string;
+        startups: number;
+    }[] = await prisma.$queryRaw`
+    SELECT "FoundingStage"."id", "FoundingStage".name,
+    COUNT("Startup"."foundingStageid")::int AS startups
+     FROM "FoundingStage" JOIN "Startup" ON "FoundingStage"."id" = "Startup"."foundingStageid"
+        GROUP BY "FoundingStage"."id", "FoundingStage"."name" 
+    `
+    return raw;
+}
+
+export const getStartupsByLocation = async () => {
+    const raw: {
+        locationid: string;
+        name: string;
+        startups: number;
+    }[] = await prisma.$queryRaw`
+    SELECT "Location"."id", "Location".name,
+    COUNT("Startup"."locationid")::int AS startups
+     FROM "Location" JOIN "Startup" ON "Location"."id" = "Startup"."locationid"
+        GROUP BY "Location"."id", "Location"."name" 
+    `
+    return raw;
+}

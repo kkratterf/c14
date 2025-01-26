@@ -57,10 +57,20 @@ model Tag {
   StartupTag StartupTag[]
 }
 
+model Country {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Location Location[]
+}
+
 model Location {
   id        String   @id @default(uuid())
   name      String
-  country  String
+  countryid String
+  country   Country @relation(fields: [countryid], references: [id])
   city  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
