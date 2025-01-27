@@ -10,7 +10,7 @@ import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 
 import { StartupsFilter } from '@/components/ui/startups-filter';
 import { parseSearchParams } from '@/lib/utils';
-import { FoundingStage, Location, Tag, TeamSize } from '@prisma/client';
+import type { FoundingStage, Location, Tag, TeamSize } from '@prisma/client';
 
 interface IProps extends IPropsStartupFilters {
   searchParams: URLSearchParams;
@@ -119,13 +119,13 @@ const StartupsFiltersWithParams = ({
   };
 
   return (
-    <div className='top-0 z-20 sticky bg-background px-6 py-4 border-b border-border'>
-      <div className='flex md:flex-row flex-col items-center gap-2'>
+    <div className='sticky top-0 z-20 border-border border-b bg-background px-6 py-4'>
+      <div className='flex flex-col items-center gap-2 md:flex-row'>
         <Input placeholder="Search" className="md:max-w-64"
           value={optimisticFilters.name ?? ""}
           onChange={(e) => handleFilterChange('name', e.target.value)}
         />
-        <div className='flex flex-row gap-2 w-full md:w-auto'>
+        <div className='flex w-full flex-row gap-2 md:w-auto'>
           <StartupsFilter
             icon={<Tags />}
             title="Categories"
@@ -156,7 +156,7 @@ const StartupsFiltersWithParams = ({
           />
         </div>
         {hasActiveFilters() && (
-          <Tooltip content="Reset filters" className='z-50 md:flex hidden lg:hidden'>
+          <Tooltip content="Reset filters" className='z-50 hidden md:flex lg:hidden'>
             <Button
               className='w-full md:w-auto'
               variant="text"
@@ -165,8 +165,8 @@ const StartupsFiltersWithParams = ({
                 updateURL({ page: "1" });
               }}
             >
-              <X className='md:flex hidden lg:hidden' />
-              <span className='flex lg:flex md:hidden'>Reset</span>
+              <X className='hidden md:flex lg:hidden' />
+              <span className='flex md:hidden lg:flex'>Reset</span>
             </Button>
           </Tooltip>
         )}
