@@ -28,17 +28,17 @@ export default function DialogBenchmark({ items }: DialogBenchmarkProps) {
                 <Button variant="secondary">See all</Button>
             </DialogTrigger>
             <DialogContent className='rounded-xl p-0'>
-                <DialogHeader className='border-border border-b px-6 pt-6 pb-4'>
+                <DialogHeader className='border-border border-b px-5 py-4'>
                     <DialogTitle className='flex items-center justify-between'>
                         Startup by industry
                     </DialogTitle>
                 </DialogHeader>
-                <div className='relative max-h-96 overflow-y-auto p-6'>
+                <div className='relative max-h-96 overflow-y-auto p-5'>
                     <BenchmarkBarList
                         data={items}
                     />
                 </div>
-                <DialogFooter className='border-border border-t px-6 pt-4 pb-6'>
+                <DialogFooter className='border-border border-t px-5 py-4'>
                     <DialogClose asChild>
                         <Button>
                             Go back
