@@ -72,10 +72,7 @@ const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => 
       />
       <p
         className={cn(
-          // base
-          "truncate whitespace-nowrap",
-          // text color
-          "text-description",
+          "truncate whitespace-nowrap text-description",
           hasOnValueChange && "group-hover:text",
           activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100",
           activeLegend ? "!text" : ""
@@ -119,7 +116,6 @@ const ScrollButton = ({ icon, onClick, disabled }: ScrollButtonProps) => {
     <button
       type="button"
       className={cn(
-        // base
         "flex size-6 items-center justify-center truncate rounded-lg transition",
         disabled ? 'cursor-not-allowed text-disabled' : 'hover:cursor-pointer hover:bg-item-active'
       )}
@@ -257,10 +253,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
         <>
           <div
             className={cn(
-              // base
-              "absolute inset-y-0 right-0 flex h-full items-center justify-center pr-1",
-              // background color
-              "bg-background"
+              "absolute bg-background inset-y-0 right-0 flex h-full items-center justify-center pr-1",
             )}>
             <ScrollButton
               icon={ChevronLeft}
@@ -332,8 +325,6 @@ const ChartLegend = (
   );
 };
 
-//#region Tooltip
-
 type TooltipProps = Pick<ChartTooltipProps, "active" | "payload" | "label">;
 
 type PayloadItem = {
@@ -356,12 +347,7 @@ const ChartTooltip = ({ active, payload, label, valueFormatter }: ChartTooltipPr
     return (
       <div
         className={cn(
-          // base
-          "rounded-lg border shadow-md",
-          // border color
-          "border-default",
-          // background color
-          "bg-elevated"
+          "rounded-lg border-default border shadow-md bg-elevated",
         )}>
         <div className={cn('border-inherit border-b px-4 py-2')}>
           <p className={cn("font-medium")}>{label}</p>
@@ -376,17 +362,13 @@ const ChartTooltip = ({ active, payload, label, valueFormatter }: ChartTooltipPr
                 />
                 <p
                   className={cn(
-                    // base
-                    "whitespace-nowrap text-right",
-                    // text color
-                    "text-description"
+                    "whitespace-nowrap text-description text-right",
                   )}>
                   {category}
                 </p>
               </div>
               <p
                 className={cn(
-                  // base
                   "whitespace-nowrap text-right font-medium tabular-nums"
                 )}>
                 {valueFormatter(value)}
@@ -399,8 +381,6 @@ const ChartTooltip = ({ active, payload, label, valueFormatter }: ChartTooltipPr
   }
   return null;
 };
-
-//#region AreaChart
 
 interface ActiveDot {
   index?: number;
