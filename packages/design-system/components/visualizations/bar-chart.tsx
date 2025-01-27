@@ -57,51 +57,72 @@ function deepEqual<T>(obj1: T, obj2: T): boolean {
   return true;
 }
 
-// Per le props del renderShape
-type ShapeProps = {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  fillOpacity: number;
-  name: string;
-  value: number;
-  payload: Record<string, unknown>;
-} & Record<string, unknown>;
-
 const renderShape = (
-  props: ShapeProps,
-  activeBar: Record<string, unknown> | undefined,
+  props: any,
+  activeBar: any | undefined,
   activeLegend: string | undefined,
-  layout: string
+  strokeClass: string,
+  layout: string,
 ) => {
-  const { fillOpacity, name, payload, value } = props;
-  let { x, width, y, height } = props;
+  const { name, payload, value } = props
+  let { x, width, y, height } = props
+  let lineX1, lineY1, lineX2, lineY2
 
-  if (layout === 'horizontal' && height < 0) {
-    y += height;
-    height = Math.abs(height); // height must be a positive number
-  } else if (layout === 'vertical' && width < 0) {
-    x += width;
-    width = Math.abs(width); // width must be a positive number
+  if (layout === "horizontal" && height < 0) {
+    y += height
+    height = Math.abs(height) // height must be a positive number
+  } else if (layout === "vertical" && width < 0) {
+    x += width
+    width = Math.abs(width) // width must be a positive number
+  }
+
+  if (layout === "horizontal") {
+    lineX1 = x
+    lineY1 = y
+    lineX2 = x + width
+    lineY2 = y
+  } else {
+    // vertical layout
+    lineX1 = x + width
+    lineY1 = y
+    lineX2 = x + width
+    lineY2 = y + height
   }
 
   return (
-    <rect
-      x={x}
-      y={y}
-      width={width}
-      height={height}
-      opacity={
-        activeBar || (activeLegend && activeLegend !== name)
-          ? deepEqual(activeBar, { ...payload, value })
-            ? fillOpacity
+    <g>
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        opacity={
+          activeBar || (activeLegend && activeLegend !== name)
+            ? deepEqual(activeBar, { ...payload, value })
+              ? 0.5
+              : 0.1
             : 0.3
-          : fillOpacity
-      }
-    />
-  );
-};
+        }
+      />
+      <line
+        x1={lineX1}
+        y1={lineY1}
+        x2={lineX2}
+        y2={lineY2}
+        stroke=""
+        className={strokeClass}
+        strokeWidth="2"
+        opacity={
+          activeBar || (activeLegend && activeLegend !== name)
+            ? deepEqual(activeBar, { ...payload, value })
+              ? 1
+              : 0.6
+            : 1
+        }
+      />
+    </g>
+  )
+}
 
 //#region Legend
 
@@ -492,7 +513,7 @@ const ChartTooltip = ({
                 <p
                   className={cn(
                     // base
-                    'whitespace-nowrap text-right',
+                    'whitespace-nowrap capitalize text-right',
                     // text color
                     'text-description'
                   )}
@@ -558,15 +579,18 @@ interface BarChartProps extends React.HTMLAttributes<HTMLDivElement> {
   customTooltip?: React.ComponentType<TooltipProps>;
 }
 
-// Per il mapping dei payload
 type TooltipItem = Payload<number, string>;
 
-// Per le props del Bar shape
-type BarProps = ShapeProps & {
+type BarProps = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  value: number;
+  payload: any;
   tooltipPayload?: TooltipItem[];
 };
 
-// Aggiungi questo tipo vicino agli altri tipi del tooltip
 type TooltipPayload = Payload<number, string>;
 
 const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
@@ -863,21 +887,31 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 className={cn(
                   getColorClassName(
                     categoryColors.get(category) as AvailableChartColorsKeys,
-                    'fill'
+                    "fill",
                   ),
-                  onValueChange ? 'cursor-pointer' : ''
+                  onValueChange ? "cursor-pointer" : "",
                 )}
                 key={category}
                 name={category}
                 type="linear"
                 dataKey={category}
-                stackId={stacked ? 'stack' : undefined}
+                stackId={stacked ? "stack" : undefined}
                 isAnimationActive={true}
                 animationDuration={500}
                 fill=""
-                shape={(props: unknown) =>
-                  renderShape(props as ShapeProps, activeBar, activeLegend, layout)
-                }
+                shape={(props: any) => {
+                  const strokeClass = getColorClassName(
+                    categoryColors.get(category) as AvailableChartColorsKeys,
+                    "stroke",
+                  )
+                  return renderShape(
+                    props,
+                    activeBar,
+                    activeLegend,
+                    strokeClass,
+                    layout,
+                  )
+                }}
                 onClick={onBarClick}
               />
             ))}
