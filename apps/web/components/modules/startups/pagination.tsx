@@ -47,7 +47,7 @@ export function StartupPagination({
         return null;
     }
     return (
-        <div className='flex w-full flex-row items-center justify-between gap-2 border-border border-t px-8 py-4'>
+        <div className='sticky bottom-0 flex w-full flex-row items-center justify-between gap-2 border-border border-t bg-background px-8 py-4'>
             <div className='flex flex-row gap-2 font-mono text-description text-sm'>
                 <p><span className='text'>{totalResults.toLocaleString()}</span> Results</p>
                 -

@@ -1,9 +1,9 @@
 import { Card } from '@c14/design-system/components/ui/card';
 
-import { getCountryCount } from '@/api/country/serverActions';
-import { getCityCount } from '@/api/locations/serverActions';
-import { getStartupsByCategory, getStartupsByFundingStage, getStartupsByLocation, getStartupsByTeamSize, getStartupsCount } from '@/api/startup/serverActions';
-import { getTagsCount } from '@/api/tag/serverActions';
+import { getCountryCount } from '@/actions/country';
+import { getCityCount } from '@/actions/locations';
+import { getStartupsByCategory, getStartupsByFundingStage, getStartupsByLocation, getStartupsByTeamSize, getStartupsCount } from '@/actions/startup';
+import { getTagsCount } from '@/actions/tag';
 import { BenchmarkBarChart, } from '@/components/modules/benchmark/charts';
 import DialogBenchmark from '@/components/modules/benchmark/dialog';
 import { NumberTicker } from '@/components/ui/number-ticker';

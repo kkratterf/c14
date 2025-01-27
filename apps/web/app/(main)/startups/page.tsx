@@ -1,4 +1,4 @@
-import { PAGE_SIZE, getStartups } from '@/api/startup/serverActions';
+import { PAGE_SIZE, getStartups } from '@/actions/startup';
 import { StartupPagination } from '@/components/modules/startups/pagination';
 import StartupCard from '@/components/ui/startup-card';
 import { parseSearchParams } from '@/lib/utils';

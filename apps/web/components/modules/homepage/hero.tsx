@@ -1,4 +1,4 @@
-import { getStartupsCount } from '@/api/startup/serverActions';
+import { getStartupsCount } from '@/actions/startup';
 import HeroCard from '@/components/ui/hero-card';
 
 const Hero = async () => {
