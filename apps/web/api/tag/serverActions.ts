@@ -6,6 +6,12 @@ export const getTags = async () => {
 }
 
 export const getTagsCount = async () => {
-    const tagsCount = await prisma.tag.count();
-    return tagsCount;
+    try {
+        const tagsCount = await prisma.tag.count();
+        await prisma.$disconnect();
+        return tagsCount;
+    } catch (error) {
+        await prisma.$disconnect();
+        throw error;
+    }
 }

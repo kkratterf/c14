@@ -365,6 +365,7 @@ export const config: Config = {
           fuchsia: 'var(--color-icon-chart-fuchsia)',
           'fuchsia-strong': 'var(--color-icon-chart-fuchsia-strong)',
         },
+        'brand-subtle': 'var(--color-bg-chart-brand-subtle)',
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],

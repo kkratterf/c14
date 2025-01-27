@@ -49,11 +49,11 @@ export const chartColors = {
     fill: "fill-icon-chart-violet",
     text: "text-chart-violet",
   },
-  pink: {
-    bg: "bg-chart-pink",
-    stroke: "stroke-icon-chart-pink",
-    fill: "fill-icon-chart-pink",
-    text: "text-chart-pink",
+  fuchsia: {
+    bg: "bg-chart-fuchsia",
+    stroke: "stroke-icon-chart-fuchsia",
+    fill: "fill-icon-chart-fuchsia",
+    text: "text-chart-fuchsia",
   },
 } as const satisfies {
   [color: string]: {
