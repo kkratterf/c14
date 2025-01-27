@@ -1,5 +1,5 @@
 import prisma from "@/prisma/client";
-import { Prisma } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 const includeForUsefullDataStartup = {
     FounderStartup: {
@@ -106,8 +106,7 @@ export const getStartupsCount = async () => {
     try {
         const count = await prisma.startup.count();
         return count;
-    } catch {
-        // Add a log or toast here
+    } catch (error) {
         return 0;
     }
 };
