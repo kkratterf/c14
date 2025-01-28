@@ -1,3 +1,4 @@
+import type { Startup } from '@prisma/client';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -7,7 +8,6 @@ import {
   AvatarImage,
 } from '@c14/design-system/components/ui/avatar';
 import { cn, focusRing } from '@c14/design-system/lib/utils';
-import type { Startup } from '@prisma/client';
 
 interface PopularCardProps {
   item: Startup;
@@ -20,7 +20,7 @@ const PopularCard = ({ item }: PopularCardProps) => {
       href={item.id}
       className={cn('rounded-xl', focusRing)}
     >
-      <div className='flew-row group flex items-center gap-3 rounded-xl py-3 pr-6 pl-4 hover:bg-item-hover'>
+      <div className='group flew-row flex items-center gap-3 rounded-xl py-3 pr-6 pl-4 hover:bg-item-hover'>
         <Avatar className='size-12 rounded-xl'>
           <AvatarImage src={item.logo ?? undefined} />
           <AvatarFallback className="rounded-xl">

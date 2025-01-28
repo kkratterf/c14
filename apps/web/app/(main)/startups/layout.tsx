@@ -4,8 +4,9 @@ import { getFundingStages } from '@/actions/fundingStage';
 import { getLocations } from '@/actions/locations';
 import { getTags } from '@/actions/tag';
 import { getTeamSizes } from '@/actions/teamSize';
+
+import NavMobile from '@/components/layouts/nav-mobile';
 import StartupsFilters from '@/components/modules/startups/filters';
-import NavMobile from '@/components/ui/nav-mobile';
 
 export default async function StartupsLayout({
   children,

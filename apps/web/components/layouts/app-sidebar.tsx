@@ -1,13 +1,6 @@
 'use client';
 
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarSeparator,
-} from '@c14/design-system/components/ui/sidebar';
-import {
   ChartColumn,
   Info,
   MessageCircle,
@@ -16,12 +9,20 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 
-import { MobileTitle } from '@/components/ui/mobile-title';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarSeparator,
+} from '@c14/design-system/components/ui/sidebar';
+
+import { MobileContent } from '@/components/layouts/mobile-content';
+import { MobileTitle } from '@/components/layouts/mobile-title';
+import { NavHeader } from '@/components/layouts/nav-header';
+import { NavMain } from '@/components/layouts/nav-main';
+import { NavSecondary } from '@/components/layouts/nav-secondary';
 import { ModeToggle } from '@/components/ui/mode-toggle';
-import { NavHeader } from '@/components/ui/nav-header';
-import { NavMain } from '@/components/ui/nav-main';
-import { NavSecondary } from '@/components/ui/nav-secondary';
-import { MobileContent } from './mobile-content';
 
 const data = {
   navMain: [

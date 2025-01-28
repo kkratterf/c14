@@ -1,6 +1,5 @@
 'use client';
 
-import { BenchmarkBarList } from '@/components/modules/benchmark/charts';
 import { Button } from '@c14/design-system/components/ui/button';
 import {
     Dialog,
@@ -12,6 +11,8 @@ import {
     DialogTrigger,
 } from '@c14/design-system/components/ui/dialog';
 
+import { BenchmarkBarList } from '@/components/modules/benchmark/charts';
+
 type DialogBenchmarkProps = {
     items: {
         id?: string;
@@ -21,7 +22,7 @@ type DialogBenchmarkProps = {
     }[]
 }
 
-export default function DialogBenchmark({ items }: DialogBenchmarkProps) {
+export const DialogBenchmark = ({ items }: DialogBenchmarkProps) => {
     return (
         <Dialog>
             <DialogTrigger asChild>

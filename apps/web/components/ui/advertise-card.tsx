@@ -1,3 +1,4 @@
+import type { Startup } from '@prisma/client';
 import Link from 'next/link';
 
 import {
@@ -8,7 +9,6 @@ import {
 import { Button } from '@c14/design-system/components/ui/button';
 import { Tag } from '@c14/design-system/components/ui/tag';
 import { cn } from '@c14/design-system/lib/utils';
-import type { Startup } from '@prisma/client';
 
 interface AdvertiseCardProps {
   type: 'popular' | 'startups';

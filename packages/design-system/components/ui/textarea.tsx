@@ -13,13 +13,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref={forwardedRef}
         className={cn(
           // base
-          "text-sm flex min-h-20 w-full rounded-lg border px-3 py-1.5 shadow-sm outline-none transition-colors",
-          // text color
-          "text",
-          // border color
-          "border-item",
-          // background color
-          "bg-item",
+          "text-sm bg-item text border-item flex min-h-20 w-full rounded-lg border px-3 py-1.5 shadow-sm outline-none transition-colors",
           // placeholder color
           "placeholder:text-placeholder placeholder:text-sm",
           // disabled

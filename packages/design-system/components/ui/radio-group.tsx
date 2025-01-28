@@ -24,9 +24,7 @@ const RadioGroupIndicator = React.forwardRef<
       <div
         className={cn(
           // base
-          "size-1.5 shrink-0 rounded-full",
-          // indicator
-          "bg-white",
+          "size-1.5 bg-white shrink-0 rounded-full",
           // disabled
           "group-data-[disabled]:bg-neutral-disabled"
         )}
@@ -53,11 +51,7 @@ const RadioGroupItem = React.forwardRef<
       <div
         className={cn(
           // base
-          "flex size-4 shrink-0 items-center justify-center rounded-full border shadow-sm",
-          // border color
-          "border-item",
-          // background color
-          "bg-item",
+          "flex size-4 bg-item border-item shrink-0 items-center justify-center rounded-full border shadow-sm",
           // checked
           "group-data-[state=checked]:bg-brand group-data-[state=checked]:border-0 group-data-[state=checked]:border-transparent",
           // disabled

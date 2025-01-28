@@ -1,5 +1,6 @@
 'use client';
 
+import type { FoundingStage, Location, Tag, TeamSize } from '@prisma/client';
 import { Coins, Pin, Tags, Users, X, } from 'lucide-react';
 import { useRouter, useSearchParams, } from 'next/navigation';
 import { useMemo, useOptimistic, useState, useTransition } from 'react';
@@ -10,7 +11,6 @@ import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 
 import { StartupsFilter } from '@/components/ui/startups-filter';
 import { parseSearchParams } from '@/lib/utils';
-import type { FoundingStage, Location, Tag, TeamSize } from '@prisma/client';
 
 interface IProps extends IPropsStartupFilters {
   searchParams: URLSearchParams;

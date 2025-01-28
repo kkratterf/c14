@@ -1,14 +1,14 @@
 import Link from 'next/link';
 
-import Footer from '@/components/ui/footer';
-
-import AdImg from '@/components/ui/ad-img';
 import { Button } from '@c14/design-system/components/ui/button';
 import { Separator } from '@c14/design-system/components/ui/separator';
 
+import Footer from '@/components/layouts/footer';
+import AdImg from '@/components/ui/ad-img';
+
 export default function AdvertisePage() {
   return (
-    <div className="mx-auto flex max-w-screen-lg flex-col gap-10 p-6 py-12 sm:p-10 sm:py-16 md:p-16">
+    <div className='mx-auto flex max-w-screen-lg flex-col gap-10 p-6 py-12 sm:p-10 sm:py-16 md:p-16'>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-6">
           <h1 className="font-brand text-4xl">Advertise</h1>

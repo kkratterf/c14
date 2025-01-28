@@ -1,6 +1,7 @@
 'use client';
 
 import { ChevronRight, type LucideIcon } from 'lucide-react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import {
@@ -22,7 +23,6 @@ import {
   useSidebar,
 } from '@c14/design-system/components/ui/sidebar';
 import { cn } from '@c14/design-system/lib/utils';
-import Link from 'next/link';
 
 export function NavMain({
   items,

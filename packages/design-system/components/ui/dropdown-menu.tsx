@@ -58,15 +58,7 @@ const DropdownMenuSubMenuContent = React.forwardRef<
       collisionPadding={collisionPadding}
       className={cn(
         // base
-        "text-sm relative z-50 overflow-hidden rounded-lg border p-1 shadow-xl",
-        // widths
-        "min-w-32",
-        // heights
-        "max-h-[var(--radix-popper-available-height)]",
-        // background color
-        "bg-elevated",
-        // border color
-        "border-default",
+        "text-sm border-default bg-elevated max-h-[var(--radix-popper-available-height)] min-w-32 relative z-50 overflow-hidden rounded-lg border p-1 shadow-xl",
         // transition
         "will-change-[transform,opacity]",
         // "data-[state=open]:animate-slideDownAndFade",
@@ -93,15 +85,7 @@ const DropdownMenuContent = React.forwardRef<
         ref={forwardedRef}
         className={cn(
           // base
-          "text-sm relative z-50 overflow-hidden rounded-lg border p-1 shadow-lg",
-          // widths
-          "min-w-48",
-          // heights
-          "max-h-[var(--radix-popper-available-height)]",
-          // background color
-          "bg-elevated",
-          // border color
-          "border-default",
+          "text-sm border-default bg-elevated max-h-[var(--radix-popper-available-height)] min-w-48 relative z-50 overflow-hidden rounded-lg border p-1 shadow-lg",
           // transition
           "will-change-[transform,opacity]",
           "data-[state=closed]:animate-hide",
@@ -220,7 +204,6 @@ const DropdownMenuLabel = React.forwardRef<
   <DropdownMenuPrimitives.Label
     ref={forwardedRef}
     className={cn(
-      // base
       "text-description text-sm flex h-9 items-center justify-start px-3 font-medium tracking-wide",
       className
     )}

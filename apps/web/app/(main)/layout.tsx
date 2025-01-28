@@ -2,8 +2,8 @@ import { SidebarProvider } from '@c14/design-system/components/ui/sidebar';
 import { cookies } from 'next/headers';
 import type React from 'react';
 
-import { AppSidebar } from '@/components/ui/app-sidebar';
-import { CommandProvider } from '@/components/ui/command-provider';
+import { AppSidebar } from '@/components/layouts/app-sidebar';
+import { CommandProvider } from '@/components/layouts/command-provider';
 
 export default async function MainLayout({
   children,

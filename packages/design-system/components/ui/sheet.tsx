@@ -39,9 +39,7 @@ const SheetOverlay = React.forwardRef<
       ref={forwardedRef}
       className={cn(
         // base
-        "text-sm fixed inset-0 z-50 overflow-y-auto",
-        // background color
-        "bg-mask",
+        "text-sm bg-mask fixed inset-0 z-50 overflow-y-auto",
         // transition
         "data-[state=closed]:animate-hide data-[state=open]:animate-dialogOverlayShow",
         className
@@ -68,11 +66,7 @@ const SheetContent = React.forwardRef<
           ref={forwardedRef}
           className={cn(
             // base
-            "text-sm fixed inset-y-2 mx-auto flex w-[95vw] flex-1 flex-col overflow-y-auto rounded-xl border p-4 shadow-lg focus:outline-none max-sm:inset-x-2 sm:inset-y-2 sm:right-2 sm:max-w-lg sm:p-6",
-            // border color
-            "border-default",
-            // background color
-            "bg-elevated",
+            "text-sm bg-elevated border-default fixed inset-y-2 mx-auto flex w-[95vw] flex-1 flex-col overflow-y-auto rounded-xl border p-4 shadow-lg focus:outline-none max-sm:inset-x-2 sm:inset-y-2 sm:right-2 sm:max-w-lg sm:p-6",
             // transition
             "data-[state=closed]:animate-drawerSlideRightAndFade data-[state=open]:animate-drawerSlideLeftAndFade",
             focusRing,

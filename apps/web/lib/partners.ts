@@ -1,4 +1,10 @@
-export const partners = [
+type Partners = {
+  name: string;
+  image: string;
+  url: string;
+}
+
+export const partners: Partners[] = [
   {
     name: 'Sprintaly',
     image: 'sprintaly.svg',

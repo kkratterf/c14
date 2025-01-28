@@ -1,13 +1,14 @@
 'use client';
 
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Form from 'next/form';
 import { useFormStatus } from 'react-dom';
 
 import { Button } from '@c14/design-system/components/ui/button';
 import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 import { cn } from '@c14/design-system/lib/utils';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import type { SearchParams } from './filters';
+
+import type { SearchParams } from '@/components/modules/startups/filters';
 
 function FormValues({
     searchParams,

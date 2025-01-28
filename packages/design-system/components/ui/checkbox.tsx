@@ -14,13 +14,7 @@ const Checkbox = React.forwardRef<
       checked={checked}
       className={cn(
         // base
-        "text-sm relative inline-flex size-4 shrink-0 appearance-none items-center justify-center rounded-md border shadow-sm outline-none transition duration-100 enabled:cursor-pointer",
-        // text color
-        "text-white",
-        // background color
-        "bg-card",
-        // border color
-        "border-item",
+        "text-sm border-item bg-card text-white relative inline-flex size-4 shrink-0 appearance-none items-center justify-center rounded-md border shadow-sm outline-none transition duration-100 enabled:cursor-pointer",
         // disabled
         "data-[disabled]:bg-neutral-disabled data-[disabled]:text-disabled data-[disabled]:border-disabled",
         // checked and enabled

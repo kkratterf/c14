@@ -1,4 +1,5 @@
 import { getStartups } from '@/actions/startup';
+
 import PopularCard from '@/components/ui/popular-card';
 
 const Popular = async () => {

@@ -1,3 +1,5 @@
+import type { Startup } from '@prisma/client';
+
 import {
   Avatar,
   AvatarFallback,
@@ -6,7 +8,6 @@ import {
 
 import { getStartups } from '@/actions/startup';
 import Marquee from '@/components/ui/marquee';
-import type { Startup } from '@prisma/client';
 
 interface StartupCardProps {
   item: Startup;
