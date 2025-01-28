@@ -1,10 +1,10 @@
 import { Separator } from '@c14/design-system/components/ui/separator';
 
+import Footer from '@/components/layouts/footer';
+import NavMobile from '@/components/layouts/nav-mobile';
 import Hero from '@/components/modules/homepage/hero';
 import Popular from '@/components/modules/homepage/popular';
 import Submit from '@/components/modules/homepage/submit';
-import Footer from '@/components/ui/footer';
-import NavMobile from '@/components/ui/nav-mobile';
 
 export default function MainPage() {
   return (

@@ -9,6 +9,7 @@ import {
   PlusCircle,
   Rocket,
 } from 'lucide-react';
+import Link from 'next/link';
 import * as React from 'react';
 
 import {
@@ -19,7 +20,6 @@ import {
   CommandItem,
   CommandList,
 } from '@c14/design-system/components/ui/command';
-import Link from 'next/link';
 
 export function CommandProvider() {
   const [open, setOpen] = React.useState(false);

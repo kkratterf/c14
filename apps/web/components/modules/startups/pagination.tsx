@@ -1,13 +1,14 @@
 'use client';
 
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Form from 'next/form';
 import { useFormStatus } from 'react-dom';
 
 import { Button } from '@c14/design-system/components/ui/button';
 import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 import { cn } from '@c14/design-system/lib/utils';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import type { SearchParams } from './filters';
+
+import type { SearchParams } from '@/components/modules/startups/filters';
 
 function FormValues({
     searchParams,
@@ -47,7 +48,7 @@ export function StartupPagination({
         return null;
     }
     return (
-        <div className='flex w-full flex-row items-center justify-between gap-2 border-border border-t px-8 py-4'>
+        <div className='sticky bottom-0 flex w-full flex-row items-center justify-between gap-2 border-border border-t bg-background px-8 py-4'>
             <div className='flex flex-row gap-2 font-mono text-description text-sm'>
                 <p><span className='text'>{totalResults.toLocaleString()}</span> Results</p>
                 -

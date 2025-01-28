@@ -1,12 +1,13 @@
+import type { Startup } from '@prisma/client';
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@c14/design-system/components/ui/avatar';
 
-import { getStartups } from '@/api/startup/serverActions';
+import { getStartups } from '@/actions/startup';
 import Marquee from '@/components/ui/marquee';
-import type { Startup } from '@prisma/client';
 
 interface StartupCardProps {
   item: Startup;

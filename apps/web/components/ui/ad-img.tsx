@@ -13,7 +13,7 @@ export default function AdImg() {
       alt="Picture of the product"
       height={900}
       width={1400}
-      className="w-full rounded-xl border border-border"
+      className='w-full rounded-xl border border-border'
       draggable={false}
     />
   );

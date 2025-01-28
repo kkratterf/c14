@@ -3,11 +3,10 @@ import { Suspense } from 'react';
 
 import Loading from './loading';
 
-export default async function StartupDetailLayout({
+export default function StartupDetailLayout({
     children,
 }: {
     children: React.ReactNode;
-
 }) {
     return (
         <Suspense fallback={<Loading className='h-[calc(100vh-8px)]' />}>

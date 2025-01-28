@@ -7,7 +7,9 @@ import Pictogram from "@/components/ui/pictogram"
 export const MobileTitle = () => {
     return (
         <SheetClose asChild>
-            <Link href="/"><Pictogram size={32} /></Link>
+            <Link href="/">
+                <Pictogram size={32} />
+            </Link>
         </SheetClose>
     )
 }

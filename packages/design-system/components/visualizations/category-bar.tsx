@@ -8,7 +8,6 @@ import {
     getColorClassName,
 } from "@c14/design-system/lib/chart"
 import { cn } from "@c14/design-system/lib/utils"
-
 import { Tooltip } from "@c14/design-system/components/ui/tooltip"
 
 const getMarkerBgColor = (

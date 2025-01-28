@@ -17,12 +17,8 @@ const buttonVariants = tv({
   variants: {
     variant: {
       primary: [
-        // border
-        "border-transparent",
-        // text color
-        "text-inverse",
-        // background color
-        "bg-neutral",
+        // base
+        "border-transparent bg-neutral text-inverse",
         // hover color
         "hover:bg-neutral-hover",
         // active color
@@ -31,50 +27,34 @@ const buttonVariants = tv({
         "disabled:bg-neutral-disabled disabled:border-disabled disabled:text-disabled",
       ],
       secondary: [
-        // border
-        "border-item",
-        // text color
-        "text",
-        // background color
-        "bg-item",
+        // base
+        "border-item text bg-item",
         //hover color
         "hover:bg-item-hover",
-        //hover color
+
         "active:bg-item-active",
         // disabled
         "disabled:text-disabled disabled:border-disabled disabled:bg-neutral-disabled",
       ],
       text: [
         // base
-        "shadow-none",
-        // border
-        "border-transparent",
-        // text color
-        "text",
+        "shadow-none bg-transparent border-transparent text",
         // hover color
-        "bg-transparent hover:bg-item-active active:bg-item-hover dark:active:bg-item-selected",
+        "hover:bg-item-active active:bg-item-hover dark:active:bg-item-selected",
         // disabled
         "disabled:text-disabled",
       ],
       link: [
         // base
-        "shadow-none underline underline-offset-4",
-        // border
-        "border-transparent",
-        // text color
-        "text-brand",
+        "shadow-none bg-transparent text-brand border-transparent underline underline-offset-4",
         // hover color
-        "bg-transparent hover:text-brand-hover active:text-brand-active",
+        "hover:text-brand-hover active:text-brand-active",
         // disabled
         "disabled:text-disabled",
       ],
       danger: [
-        // text color
-        "text-danger-inverse",
-        // border
-        "border-transparent",
-        // background color
-        "bg-danger",
+        // base
+        "text-danger-inverse border-transparent bg-danger",
         // hover color
         "hover:bg-danger-hover",
         // active color

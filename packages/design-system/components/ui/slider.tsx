@@ -51,11 +51,7 @@ const Slider = React.forwardRef<React.ComponentRef<typeof SliderPrimitive.Root>,
             key={index}
             className={cn(
               // base
-              "block size-[17px] shrink-0 rounded-full border shadow-sm transition-colors",
-              // boder color
-              "border-item-hover",
-              // background color
-              "bg-white",
+              "block bg-white border-item-hover size-[17px] shrink-0 rounded-full border shadow-sm transition-colors",
               // disabled
               "data-[disabled]:border-disabled data-[disabled]:bg-neutral-disabled data-[disabled]:pointer-events-none data-[disabled]:shadow-none",
               focusRing,

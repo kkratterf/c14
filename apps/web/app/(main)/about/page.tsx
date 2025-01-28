@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { Separator } from '@c14/design-system/components/ui/separator';
 import { cn, focusRing } from '@c14/design-system/lib/utils';
 
-import Footer from '@/components/ui/footer';
-import NavMobile from '@/components/ui/nav-mobile';
-import { partners } from '@/lib/data/partners';
+import Footer from '@/components/layouts/footer';
+import NavMobile from '@/components/layouts/nav-mobile';
+import { partners } from '@/lib/partners';
 
 export default function AboutPage() {
   return (

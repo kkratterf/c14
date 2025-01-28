@@ -3,7 +3,7 @@ import { DesignSystemProvider } from '@c14/design-system';
 import { fonts } from '@c14/design-system/lib/fonts';
 import type { ReactNode } from 'react';
 
-export { metadata } from '@/lib/config/metadata';
+export { metadata } from '@/lib/metadata';
 
 type RootLayoutProperties = {
   readonly children: ReactNode;

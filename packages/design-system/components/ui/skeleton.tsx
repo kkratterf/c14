@@ -18,7 +18,7 @@ const skeletonVariants = tv({
 
 export interface SkeletonProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof skeletonVariants> {}
+  VariantProps<typeof skeletonVariants> { }
 
 function Skeleton({ className, shape, ...props }: SkeletonProps) {
   return <div className={cn(skeletonVariants({ shape }), className)} {...props} />;

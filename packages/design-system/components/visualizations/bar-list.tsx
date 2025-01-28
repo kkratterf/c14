@@ -67,31 +67,20 @@ function BarListInner<T>(
                             onValueChange?.(item)
                         }}
                         className={cn(
-                            // base
                             "group w-full rounded-lg",
-                            // focus
                             focusRing,
                             onValueChange
-                                ? [
-                                    "!-m-0 cursor-pointer",
-                                    // hover
-                                    "hover:bg-subtle",
-                                ]
+                                ? ["!-m-0 cursor-pointer hover:bg-subtle"]
                                 : "",
                         )}
                     >
                         <div
                             className={cn(
-                                // base
-                                "flex items-center rounded-lg transition-all",
+                                "flex items-center bg-brand-subtle rounded-lg transition-all",
                                 rowHeight,
-                                // background color
-                                "bg-brand-subtle",
-                                // TO ADD HOVER EFFECT
                                 onValueChange
                                     ? "group-hover:bg-brand-subtle"
                                     : "",
-                                // margin and duration
                                 {
                                     "mb-0": index === sortedData.length - 1,
                                     "duration-800": showAnimation,
@@ -104,13 +93,7 @@ function BarListInner<T>(
                                     <a
                                         href={item.href}
                                         className={cn(
-                                            // base
-                                            "truncate whitespace-nowrap rounded-lg text-sm",
-                                            // text color
-                                            "text",
-                                            // hover
-                                            "hover:underline hover:underline-offset-2",
-                                            // focus
+                                            "truncate text hover:underline hover:underline-offset-2 whitespace-nowrap rounded-lg text-sm",
                                             focusRing,
                                         )}
                                         target="_blank"
@@ -122,10 +105,7 @@ function BarListInner<T>(
                                 ) : (
                                     <p
                                         className={cn(
-                                            // base
-                                            "truncate whitespace-nowrap text-sm",
-                                            // text color
-                                            "text-",
+                                            "truncate whitespace-nowrap text text-sm",
                                         )}
                                     >
                                         {item.name}
@@ -148,10 +128,7 @@ function BarListInner<T>(
                     >
                         <p
                             className={cn(
-                                // base
-                                "truncate whitespace-nowrap text-sm leading-none",
-                                // text color
-                                "text-description",
+                                "truncate whitespace-nowrap text-description text-sm leading-none",
                             )}
                         >
                             {valueFormatter(item.value)}

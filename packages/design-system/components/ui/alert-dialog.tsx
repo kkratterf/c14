@@ -26,9 +26,7 @@ const AlertDialogOverlay = React.forwardRef<
       ref={forwardedRef}
       className={cn(
         // base
-        "fixed inset-0 z-50 overflow-y-auto",
-        // background color
-        "bg-mask",
+        "fixed inset-0 z-50 bg-mask overflow-y-auto",
         // transition
         "data-[state=open]:animate-dialogOverlayShow",
         className
@@ -51,11 +49,7 @@ const AlertDialogContent = React.forwardRef<
           ref={forwardedRef}
           className={cn(
             // base
-            "text-sm fixed left-1/2 top-1/2 z-50 w-[95vw] max-w-lg -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg border p-6 shadow-lg",
-            // border color
-            "border-default",
-            // background color
-            "bg-elevated",
+            "text-sm bg-elevated border-default fixed left-1/2 top-1/2 z-50 w-[95vw] max-w-lg -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg border p-6 shadow-lg",
             // transition
             "data-[state=open]:animate-dialogContentShow",
             focusRing,
@@ -83,7 +77,6 @@ const AlertDialogTitle = React.forwardRef<
   <AlertDialogPrimitive.Title
     ref={forwardedRef}
     className={cn(
-      // base
       "text-heading-body",
       className
     )}

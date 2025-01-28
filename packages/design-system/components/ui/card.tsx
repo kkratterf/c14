@@ -13,12 +13,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(({ className, asChild, 
     <Component
       ref={forwardedRef}
       className={cn(
-        // base
-        "text-sm relative w-full rounded-2xl border p-6 text-left shadow-sm",
-        // background color
-        "bg-card",
-        // border color
-        "border-default",
+        "text-sm relative border-default bg-card w-full rounded-2xl border p-6 text-left shadow-sm",
         className
       )}
       {...props}

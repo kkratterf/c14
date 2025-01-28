@@ -1,6 +1,6 @@
 import type React from 'react';
 
-import NavMobile from '@/components/ui/nav-mobile';
+import NavMobile from '@/components/layouts/nav-mobile';
 
 export default function BenchmarkLayout({
   children,

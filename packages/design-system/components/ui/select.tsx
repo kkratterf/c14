@@ -16,15 +16,9 @@ SelectValue.displayName = "SelectValue";
 const selectTriggerStyles = [
   cn(
     // base
-    "group/trigger text-sm flex h-9 w-full select-none items-center justify-between gap-1 truncate rounded-lg border px-3 py-1 shadow-sm outline-none transition",
-    // border color
-    "border-item",
-    // text color
-    "text",
+    "group/trigger bg-item text border-item text-sm flex h-9 w-full select-none items-center justify-between gap-1 truncate rounded-lg border px-3 py-1 shadow-sm outline-none transition",
     // placeholder
     "data-[placeholder]:text-placeholder",
-    // background color
-    "bg-item",
     // hover
     "hover:bg-item-hover",
     // disabled
@@ -49,9 +43,7 @@ const SelectTrigger = React.forwardRef<
         <ChevronsUpDown
           className={cn(
             // base
-            "size-4 shrink-0",
-            // text color
-            "stroke-icon",
+            "size-4 shrink-0 stroke-icon",
             // disabled
             "group-data-[disabled]/trigger:stroke-icon-disabled"
           )}
@@ -102,17 +94,11 @@ const SelectContent = React.forwardRef<
         ref={forwardedRef}
         className={cn(
           // base
-          "text-sm relative z-50 overflow-hidden rounded-lg border shadow-lg",
+          "text-sm border-default text bg-elevated relative z-50 overflow-hidden rounded-lg border shadow-lg",
           // widths
           "min-w-[calc(var(--radix-select-trigger-width)-2px)] max-w-[95vw]",
           // heights
           "max-h-[--radix-select-content-available-height]",
-          // background color
-          "bg-elevated",
-          // text color
-          "text",
-          // border color
-          "border-default",
           // transition
           "will-change-[transform,opacity]",
           // "data-[state=open]:animate-slideDownAndFade",
@@ -129,7 +115,7 @@ const SelectContent = React.forwardRef<
           className={cn(
             "p-1",
             position === "popper" &&
-              "h-[var(--radix-select-trigger-height)] w-full min-w-[calc(var(--radix-select-trigger-width))]"
+            "h-[var(--radix-select-trigger-height)] w-full min-w-[calc(var(--radix-select-trigger-width))]"
           )}>
           {children}
         </SelectPrimitives.Viewport>
@@ -148,10 +134,7 @@ const SelectGroupLabel = React.forwardRef<
   <SelectPrimitives.Label
     ref={forwardedRef}
     className={cn(
-      // base
-      "text-sm h-9 px-3 py-2 font-medium tracking-wide",
-      // text color
-      "text-description",
+      "text-sm text-description h-9 px-3 py-2 font-medium tracking-wide",
       className
     )}
     {...props}
@@ -169,9 +152,7 @@ const SelectItem = React.forwardRef<
       ref={forwardedRef}
       className={cn(
         // base
-        "data-[state=checked]:text-brand text-sm data-[state=checked]:stroke-icon-brand flex h-9 cursor-pointer items-center justify-between gap-2 rounded-md px-3 py-1 outline-none transition-colors",
-        // text color
-        "text",
+        "data-[state=checked]:text-brand text text-sm data-[state=checked]:stroke-icon-brand flex h-9 cursor-pointer items-center justify-between gap-2 rounded-md px-3 py-1 outline-none transition-colors",
         // disabled
         "data-[disabled]:text-disabled data-[disabled]:pointer-events-none data-[disabled]:hover:bg-none",
         // focus
@@ -198,10 +179,7 @@ const SelectSeparator = React.forwardRef<
   <SelectPrimitives.Separator
     ref={forwardedRef}
     className={cn(
-      // base
-      "-mx-1 my-1 h-px",
-      // background color
-      "bg-border",
+      "-mx-1 bg-border my-1 h-px",
       className
     )}
     {...props}

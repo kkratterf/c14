@@ -31,10 +31,8 @@ const NavigationButton = React.forwardRef<HTMLButtonElement, NavigationButtonPro
         type="button"
         disabled={disabled}
         className={cn(
-          "group flex size-7 shrink-0 select-none items-center justify-center rounded-lg border p-1 outline-none transition",
-          // border color
-          "border-item",
-          // background color
+          "group border-item flex size-7 shrink-0 select-none items-center justify-center rounded-lg border p-1 outline-none transition",
+          // hover & active
           "hover:bg-item-hover active:bg-item-active",
           // disabled
           "disabled:pointer-events-none",
@@ -63,14 +61,14 @@ type RangeProps = OmitKeys<DayPickerRangeProps, KeysToOmit>;
 
 type CalendarProps =
   | ({
-      mode: "single";
-    } & SingleProps)
+    mode: "single";
+  } & SingleProps)
   | ({
-      mode?: undefined;
-    } & SingleProps)
+    mode?: undefined;
+  } & SingleProps)
   | ({
-      mode: "range";
-    } & RangeProps);
+    mode: "range";
+  } & RangeProps);
 
 const Calendar = ({
   mode = "single",

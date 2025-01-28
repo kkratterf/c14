@@ -1,5 +1,6 @@
-import type { SearchParams } from "@/components/modules/startups/filters";
 import type { Founder } from "@prisma/client";
+
+import type { SearchParams } from "@/components/modules/startups/filters";
 
 export const founderFullName = (founder: Founder) => {
     return `${founder.firstName} ${founder.lastName}`;

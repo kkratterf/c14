@@ -23,9 +23,11 @@ const NewsletterBanner = () => {
           Insights, benchmarks, and updates in your inbox.
         </p>
       </div>
-      <Button asChild>
-        <Link href="/subscribe">Subscribe for free</Link>
-      </Button>
+      {!isCollapsed && (
+        <Button asChild>
+          <Link href="/subscribe">Subscribe for free</Link>
+        </Button>
+      )}
     </div>
   );
 };

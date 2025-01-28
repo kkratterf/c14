@@ -46,8 +46,6 @@ const parseLabelInput = (
     valueKey: string,
 ): string => labelInput || valueFormatter(calculateDefaultLabel(data, valueKey))
 
-//#region Tooltip
-
 type TooltipProps = Pick<ChartTooltipProps, "active" | "payload">
 
 type PayloadItem = {
@@ -71,12 +69,7 @@ const ChartTooltip = ({
         return (
             <div
                 className={cn(
-                    // base
-                    "rounded-lg border text-sm shadow-md",
-                    // border color
-                    "border-border",
-                    // background color
-                    "bg-background",
+                    "rounded-lg border border-border bg-background text-sm shadow-md",
                 )}
             >
                 <div className={cn("space-y-1 px-3 py-2")}>
@@ -95,10 +88,7 @@ const ChartTooltip = ({
                                 />
                                 <p
                                     className={cn(
-                                        // base
-                                        "whitespace-nowrap text-right",
-                                        // text color
-                                        "text-description",
+                                        "whitespace-nowrap text-description text-right",
                                     )}
                                 >
                                     {category}
@@ -106,10 +96,7 @@ const ChartTooltip = ({
                             </div>
                             <p
                                 className={cn(
-                                    // base
-                                    "whitespace-nowrap text-right font-medium tabular-nums",
-                                    // text color
-                                    "text font-semibold",
+                                    "whitespace-nowrap text-right text font-medium tabular-nums",
                                 )}
                             >
                                 {valueFormatter(value)}

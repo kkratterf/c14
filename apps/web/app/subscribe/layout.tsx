@@ -1,7 +1,7 @@
 import type React from 'react';
 
-import SubscribeNavigation from '@/components/modules/subscribe/navigation';
-import { CommandProvider } from '@/components/ui/command-provider';
+import { CommandProvider } from '@/components/layouts/command-provider';
+import SubscribeNavigation from '@/components/layouts/nav-subscribe';
 
 export default function SubscribeLayout({
   children,

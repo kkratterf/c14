@@ -31,8 +31,6 @@ import {
   getYAxisDomain,
 } from '@c14/design-system/lib/y-axis';
 
-//#region Shape
-
 function deepEqual<T>(obj1: T, obj2: T): boolean {
   if (obj1 === obj2) return true;
 
@@ -70,10 +68,10 @@ const renderShape = (
 
   if (layout === "horizontal" && height < 0) {
     y += height
-    height = Math.abs(height) // height must be a positive number
+    height = Math.abs(height)
   } else if (layout === "vertical" && width < 0) {
     x += width
-    width = Math.abs(width) // width must be a positive number
+    width = Math.abs(width)
   }
 
   if (layout === "horizontal") {
@@ -82,7 +80,6 @@ const renderShape = (
     lineX2 = x + width
     lineY2 = y
   } else {
-    // vertical layout
     lineX1 = x + width
     lineY1 = y
     lineX2 = x + width
@@ -123,8 +120,6 @@ const renderShape = (
     </g>
   )
 }
-
-//#region Legend
 
 interface LegendItemProps {
   name: string;
@@ -170,10 +165,7 @@ const LegendItem = ({
       />
       <p
         className={cn(
-          // base
-          'truncate whitespace-nowrap',
-          // text color
-          'text-description',
+          'truncate whitespace-nowrap text-description',
           hasOnValueChange && 'group-hover:text',
           activeLegend && activeLegend !== name ? 'opacity-40' : 'opacity-100',
           activeLegend ? '!text' : ''
@@ -366,10 +358,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
         <>
           <div
             className={cn(
-              // base
-              'absolute inset-y-0 right-0 flex h-full items-center justify-center pr-1',
-              // background color
-              'bg-background'
+              'absolute inset-y-0 right-0 flex h-full items-center justify-center pr-1 bg-background',
             )}
           >
             <ScrollButton
@@ -397,7 +386,6 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
 
 Legend.displayName = 'Legend';
 
-// Per il payload della legenda
 type RechartsPayload = {
   value: string;
   type?: LegendType | undefined;
@@ -455,8 +443,6 @@ const ChartLegend = (
   );
 };
 
-//#region Tooltip
-
 type TooltipProps = Pick<ChartTooltipProps, 'active' | 'payload' | 'label'>;
 
 type PayloadItem = {
@@ -485,12 +471,7 @@ const ChartTooltip = ({
     return (
       <div
         className={cn(
-          // base
-          'rounded-lg border shadow-md',
-          // border color
-          'border-default',
-          // background color
-          'bg-elevated'
+          'rounded-lg border-default bg-elevated border shadow-md',
         )}
       >
         <div className={cn('border-inherit border-b px-4 py-2')}>
@@ -512,10 +493,7 @@ const ChartTooltip = ({
                 />
                 <p
                   className={cn(
-                    // base
-                    'whitespace-nowrap capitalize text-right',
-                    // text color
-                    'text-description'
+                    'whitespace-nowrap text-description capitalize text-right',
                   )}
                 >
                   {category}
@@ -523,7 +501,6 @@ const ChartTooltip = ({
               </div>
               <p
                 className={cn(
-                  // base
                   'whitespace-nowrap text-right font-medium tabular-nums'
                 )}
               >
@@ -537,8 +514,6 @@ const ChartTooltip = ({
   }
   return null;
 };
-
-//#region BarChart
 
 type BaseEventProps = {
   eventType: 'category' | 'bar';
@@ -714,7 +689,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             {showGridLines ? (
               <CartesianGrid
                 className={cn(
-                  'stroke-1 stroke-neutral-200 dark:stroke-neutral-800'
+                  'stroke-1 stroke-[#E9EAEC] dark:stroke-[#313337]'
                 )}
                 horizontal={layout !== 'vertical'}
                 vertical={layout === 'vertical'}
@@ -729,7 +704,6 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               fill=""
               stroke=""
               className={cn(
-                // text fill
                 'fill-neutral-500 dark:fill-neutral-500',
                 { 'mt-4': layout !== 'vertical' }
               )}
@@ -774,7 +748,6 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               fill=""
               stroke=""
               className={cn(
-                // text fill
                 'fill-neutral-500 dark:fill-neutral-500'
               )}
               tick={{

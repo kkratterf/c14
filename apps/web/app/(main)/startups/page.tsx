@@ -1,5 +1,7 @@
-import { PAGE_SIZE, getStartups } from '@/api/startup/serverActions';
+import { PAGE_SIZE, getStartups } from '@/actions/startup';
+
 import { StartupPagination } from '@/components/modules/startups/pagination';
+import Empty from '@/components/ui/empty';
 import StartupCard from '@/components/ui/startup-card';
 import { parseSearchParams } from '@/lib/utils';
 
@@ -22,16 +24,19 @@ export default async function Page(props: IProps) {
     teamSizes: teamSize?.split(','),
   });
   if (!startups) {
-    //TODO: empty state page
-    return <div>Startups not found</div>;
+    return <Empty description='Something went wrong. But hey, don’t give up! Try again later.' />;
   }
   const pages = Math.ceil(total / PAGE_SIZE);
   return (
     <>
       <div className='flex h-full w-full flex-col gap-1 px-3 py-4'>
-        {startups.map((startup) => (
-          <StartupCard key={startup.id} item={startup} />
-        ))}
+        {startups.length === 0 ? (
+          <Empty description='Don’t give up! Try tweaking the filters and see what comes up.' />
+        ) : (
+          startups.map((startup) => (
+            <StartupCard key={startup.id} item={startup} />
+          ))
+        )}
       </div>
       {/* TODO: Add the advertise block here
       <div className='flex flex-col gap-1 px-3 py-4 w-full h-full'>

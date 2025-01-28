@@ -7,15 +7,7 @@ import { cn, focusInput, focusRing, hasErrorInput } from "@c14/design-system/lib
 const inputStyles = tv({
   base: [
     // base
-    "relative block items-center text-sm w-full h-9 appearance-none rounded-lg border px-3 py-1.5 shadow-sm outline-none transition",
-    // border color
-    "border-item",
-    // text color
-    "text",
-    // placeholder color
-    "placeholder:text-placeholder",
-    // background color
-    "bg-item",
+    "relative bg-item placeholder:text-placeholder text border-item block items-center text-sm w-full h-9 appearance-none rounded-lg border px-3 py-1.5 shadow-sm outline-none transition",
     // disabled
     "disabled:border-disabled disabled:bg-neutral-disabled disabled:text-disabled",
     // file
@@ -74,7 +66,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {isSearch && (
           <div
             className={cn(
-              // base
               "pointer-events-none absolute bottom-0 left-3 flex h-full items-center justify-center"
             )}>
             <Search className="shrink-0 size-4 stroke-icon" aria-hidden="true" />
@@ -85,7 +76,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <button
               aria-label="Change password visibility"
               className={cn(
-                // base
                 "size-fit rounded-md outline-none transition-all",
                 focusRing
               )}

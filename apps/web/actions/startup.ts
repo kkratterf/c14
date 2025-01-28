@@ -1,5 +1,6 @@
-import prisma from "@/prisma/client";
 import type { Prisma } from "@prisma/client";
+
+import prisma from "@/prisma/client";
 
 const includeForUsefullDataStartup = {
     FounderStartup: {
@@ -107,7 +108,8 @@ export const getStartupsCount = async () => {
         const count = await prisma.startup.count();
         return count;
     } catch (error) {
-        return 0;
+        await prisma.$disconnect();
+        throw error;
     }
 };
 

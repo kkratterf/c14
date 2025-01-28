@@ -1,5 +1,9 @@
 "use client";
 
+import { Check, } from "lucide-react"
+import type * as React from "react"
+import { useMemo, useState } from "react"
+
 import { Button } from "@c14/design-system/components/ui/button"
 import {
     Command,
@@ -18,9 +22,6 @@ import {
 import { Separator } from "@c14/design-system/components/ui/separator"
 import { Tag } from "@c14/design-system/components/ui/tag"
 import { cn } from "@c14/design-system/lib/utils"
-import { Check, } from "lucide-react"
-import type * as React from "react"
-import { useMemo, useState } from "react"
 
 interface StartupsFilterProps {
     icon?: React.ReactNode
@@ -88,7 +89,6 @@ export function StartupsFilter({
                         </>
                     )}
                 </Button>
-
             </PopoverTrigger>
             <PopoverContent className='w-[240px] p-0' align="start">
                 <Command

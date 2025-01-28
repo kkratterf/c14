@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-
 import { ChevronDown } from "lucide-react";
+
 import { cn } from "@c14/design-system/lib/utils";
 
 const Accordion = React.forwardRef<

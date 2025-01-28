@@ -1,4 +1,5 @@
-import { getStartups } from '@/api/startup/serverActions';
+import { getStartups } from '@/actions/startup';
+
 import PopularCard from '@/components/ui/popular-card';
 
 const Popular = async () => {
