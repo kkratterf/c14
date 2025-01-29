@@ -1,9 +1,14 @@
+import { Suspense } from 'react';
+
 import { getStartupsCount } from '@/actions/startup';
 import HeroCard from '@/components/ui/hero-card';
 
-const Hero = async () => {
-  const startupsCount = await getStartupsCount();
+const StartupCount = async () => {
+  const count = await getStartupsCount();
+  return <HeroCard url="/startups" title="Startups" number={count} />;
+};
 
+const Hero = () => {
   return (
     <section className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
@@ -18,7 +23,9 @@ const Hero = async () => {
         </p>
       </div>
       <div className='grid gap-4 sm:grid-cols-2'>
-        <HeroCard url="/startups" title="Startups" number={startupsCount} />
+        <Suspense fallback={<HeroCard url="/startups" title="Startups" />}>
+          <StartupCount />
+        </Suspense>
         <HeroCard url="/benchmark" title="Benchmark" />
       </div>
     </section>

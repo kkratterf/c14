@@ -1,4 +1,5 @@
 import type React from 'react';
+import { Suspense } from 'react';
 
 import { getFundingStages } from '@/actions/fundingStage';
 import { getLocations } from '@/actions/locations';
@@ -6,29 +7,42 @@ import { getTags } from '@/actions/tag';
 import { getTeamSizes } from '@/actions/teamSize';
 
 import NavMobile from '@/components/layouts/nav-mobile';
-import StartupsFilters from '@/components/modules/startups/filters';
+import StartupsFilters, { StartupFiltersSkeleton } from '@/components/modules/startups/filters';
+import Loading from './loading';
 
-export default async function StartupsLayout({
+const Filters = async () => {
+  const [tags, fundingStages, teamSizes, locations] = await Promise.all([
+    getTags(),
+    getFundingStages(),
+    getTeamSizes(),
+    getLocations()
+  ]);
+
+  return (
+    <StartupsFilters
+      tags={tags ?? []}
+      fundingStages={fundingStages ?? []}
+      teamSizes={teamSizes ?? []}
+      locations={locations ?? []}
+    />
+  );
+};
+
+export default function StartupsLayout({
   children,
 }: { children: React.ReactNode }) {
-
-  const tags = await getTags();
-  const fundingStages = await getFundingStages();
-  const teamSizes = await getTeamSizes();
-  const locations = await getLocations();
   return (
     <div className="flex flex-col pt-6">
       <div className='flex items-center justify-between px-7'>
         <h1 className="font-brand text-3xl">Startups</h1>
         <NavMobile />
       </div>
-      <StartupsFilters
-        tags={tags ?? []}
-        fundingStages={fundingStages ?? []}
-        teamSizes={teamSizes ?? []}
-        locations={locations ?? []}
-      />
-      {children}
+      <Suspense fallback={<StartupFiltersSkeleton />}>
+        <Filters />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        {children}
+      </Suspense>
     </div>
   );
 }

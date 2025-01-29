@@ -24,8 +24,9 @@ teamSizeid String?
 location Location @relation(fields: [locationid], references: [id])
 locationid String
 foundedAt DateTime
-businessModel String
-amountRaised Float
+businessModel String?
+amountRaised Float?
+amountRaisedCurrency String?
 foundingStage FoundingStage? @relation(fields: [foundingStageid], references: [id])
 foundingStageid String?
   isPopular Boolean @default(false)

@@ -7,6 +7,7 @@ import {
   AvatarImage,
 } from '@c14/design-system/components/ui/avatar';
 import { Button } from '@c14/design-system/components/ui/button';
+import { Card } from '@c14/design-system/components/ui/card';
 import { Tag } from '@c14/design-system/components/ui/tag';
 import { cn } from '@c14/design-system/lib/utils';
 
@@ -66,3 +67,28 @@ const AdvertiseCard = ({ type, item }: AdvertiseCardProps) => {
 };
 
 export default AdvertiseCard;
+
+export const AdvertiseCardDetail = () => {
+  return <Card className='flex w-full flex-col gap-4 bg-subtle'>
+    <div className='flex w-full flex-row items-center gap-3'>
+      <Avatar className='size-14 rounded-xl border border-border'>
+        <AvatarImage src={''} />
+        <AvatarFallback className='rounded-xl border border-border'>KK</AvatarFallback>
+      </Avatar>
+      <div className='flex w-full flex-col'>
+        <p className="text-heading-body">Title</p>
+        <p className="line-clamp-1 w-full text-description">
+          Description
+        </p>
+      </div>
+    </div>
+    <div className='flex flex-row items-end justify-between gap-2'>
+      <Button asChild>
+        <Link target="_blank" href="#">
+          Visit website
+        </Link>
+      </Button>
+      <Tag variant="brand">AD</Tag>
+    </div>
+  </Card>;
+};

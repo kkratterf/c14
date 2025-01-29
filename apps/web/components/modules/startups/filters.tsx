@@ -11,6 +11,7 @@ import { Tooltip } from '@c14/design-system/components/ui/tooltip';
 
 import { StartupsFilter } from '@/components/ui/startups-filter';
 import { parseSearchParams } from '@/lib/utils';
+import { Skeleton } from '@c14/design-system/components/ui/skeleton';
 
 interface IProps extends IPropsStartupFilters {
   searchParams: URLSearchParams;
@@ -161,8 +162,10 @@ const StartupsFiltersWithParams = ({
               className='w-full md:w-auto'
               variant="text"
               onClick={() => {
-                setOptimisticFilters({ page: "1" });
-                updateURL({ page: "1" });
+                startTransition(() => {
+                  setOptimisticFilters({ page: "1" });
+                  updateURL({ page: "1" });
+                });
               }}
             >
               <X className='hidden md:flex lg:hidden' />
@@ -190,3 +193,19 @@ const StartupFilters = (props: IPropsStartupFilters) => {
 }
 
 export default StartupFilters;
+
+export const StartupFiltersSkeleton = () => {
+  return (
+    <div className='sticky top-0 z-20 border-border border-b bg-background px-6 py-4'>
+      <div className='flex flex-col items-center gap-2 md:flex-row'>
+        <Skeleton className='h-9 md:max-w-64' />
+        <div className='flex w-full flex-row gap-2 md:w-auto'>
+          <Skeleton className='h-9 w-full md:w-20' />
+          <Skeleton className='h-9 w-full md:w-20' />
+          <Skeleton className='h-9 w-full md:w-20' />
+          <Skeleton className='h-9 w-full md:w-20' />
+        </div>
+      </div>
+    </div>
+  );
+}

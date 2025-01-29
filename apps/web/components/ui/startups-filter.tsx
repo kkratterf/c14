@@ -46,7 +46,9 @@ export function StartupsFilter({
 
     const optionsToShow = useMemo(() => {
         const valueToLower = value.toLocaleLowerCase()
-        return options.filter((option) => option.label.toLocaleLowerCase().includes(valueToLower)).slice(0, 10)
+        return options.filter((option) =>
+            option.label.toLocaleLowerCase().includes(valueToLower)
+        )
     }, [options, value])
 
     return (

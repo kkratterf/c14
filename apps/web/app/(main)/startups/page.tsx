@@ -38,15 +38,6 @@ export default async function Page(props: IProps) {
           ))
         )}
       </div>
-      {/* TODO: Add the advertise block here
-      <div className='flex flex-col gap-1 px-3 py-4 w-full h-full'>
-        {startups.map((startup) => startup.isFeatured ?
-
-          <AdvertiseCard key={startup.id} item={startup} type="startups" /> :
-          <StartupCard key={startup.id} item={startup} />
-        )}
-      </div>
-      */}
       <StartupPagination
         currentPage={Number.parseInt(page, 10)}
         searchParams={parsed}
