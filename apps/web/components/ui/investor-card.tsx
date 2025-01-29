@@ -7,7 +7,7 @@ interface InvestorCardProps {
     investor: {
         id: string;
         name: string;
-        linkedin: string;
+        linkedin: string | null;
         photo: string | null;
     };
 }

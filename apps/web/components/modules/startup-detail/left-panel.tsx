@@ -21,7 +21,7 @@ interface ExtendedStartup extends Startup {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            linkedin: string;
+            linkedin: string | null;
             firstName: string;
             lastName: string;
             photo: string | null;
@@ -33,7 +33,7 @@ interface ExtendedStartup extends Startup {
             id: string;
             name: string;
             photo: string | null;
-            linkedin: string;
+            linkedin: string | null;
         };
     }>;
 }

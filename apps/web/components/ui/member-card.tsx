@@ -8,7 +8,7 @@ interface MemberCardProps {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        linkedin: string;
+        linkedin: string | null;
         firstName: string;
         lastName: string;
         photo: string | null;
