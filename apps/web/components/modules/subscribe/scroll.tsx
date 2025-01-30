@@ -1,5 +1,4 @@
-import type { Startup } from '@prisma/client';
-import { Suspense } from 'react';
+
 
 import {
   Avatar,
@@ -7,12 +6,12 @@ import {
   AvatarImage,
 } from '@c14/design-system/components/ui/avatar';
 
-import { getStartups } from '@/actions/startup';
 import Marquee from '@/components/ui/marquee';
-import { Skeleton } from '@c14/design-system/components/ui/skeleton';
+import { startups } from '@/lib/data/subscribe';
+import type { SubscribeStartup } from '@/lib/data/subscribe';
 
 interface StartupCardProps {
-  item: Startup;
+  item: SubscribeStartup;
 }
 
 const StartupCard = ({ item: { name, logo } }: StartupCardProps) => {
@@ -24,11 +23,7 @@ const StartupCard = ({ item: { name, logo } }: StartupCardProps) => {
   );
 };
 
-const StartupsList = async () => {
-  const { startups } = await getStartups({
-    isPopular: true,
-  });
-
+const StartupsList = () => {
   return (
     <Marquee pauseOnHover className="[--duration:20s]">
       {startups?.map((startup) => (
@@ -41,18 +36,7 @@ const StartupsList = async () => {
 const StartupsScroll = () => {
   return (
     <div className='absolute z-0 h-20 w-full'>
-      <Suspense fallback={
-        <Marquee pauseOnHover className="[--duration:20s]">
-          {Array.from({ length: 10 }, (_, i) => (
-            <Skeleton
-              key={i}
-              className='size-20 rounded-xl'
-            />
-          ))}
-        </Marquee>
-      }>
-        <StartupsList />
-      </Suspense>
+      <StartupsList />
       <div className='absolute top-0 left-0 h-20 w-8 bg-gradient-to-l from-white/0 to-white/100 dark:from-[#1B1D21]/0 dark:to-[#1B1D21]/100' />
       <div className='absolute top-0 right-0 h-20 w-8 bg-gradient-to-r from-white/0 to-white/100 dark:from-[#1B1D21]/0 dark:to-[#1B1D21]/100' />
     </div>

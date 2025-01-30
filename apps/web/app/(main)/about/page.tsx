@@ -6,7 +6,7 @@ import { cn, focusRing } from '@c14/design-system/lib/utils';
 
 import Footer from '@/components/layouts/footer';
 import NavMobile from '@/components/layouts/nav-mobile';
-import { partners } from '@/lib/partners';
+import { partners } from '@/lib/data/partners';
 
 export default function AboutPage() {
   return (

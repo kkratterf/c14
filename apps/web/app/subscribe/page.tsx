@@ -4,6 +4,7 @@ import Balancer from 'react-wrap-balancer';
 import { cn, focusRing } from '@c14/design-system/lib/utils';
 
 import SubscribeForm from '@/components/modules/subscribe/form';
+import StartupsScroll from '@/components/modules/subscribe/scroll';
 import Pictogram from '@/components/ui/pictogram';
 
 export default function SubscribePage() {
@@ -13,7 +14,7 @@ export default function SubscribePage() {
                 <Pictogram size={48} />
             </Link>
             <div className='relative flex w-full items-center justify-center'>
-                {/* <StartupsScroll /> */}
+                <StartupsScroll />
                 <div className='relative m-6 flex min-h-96 max-w-screen-md flex-col rounded-3xl border border-border bg-subtle shadow-sm md:flex-row'>
                     <div className='flex w-full flex-col gap-10 border-border border-b px-6 py-8 sm:px-8 sm:py-10 md:justify-between md:border-r md:border-b-0'>
                         <div className="flex flex-col gap-4">
