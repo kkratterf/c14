@@ -49,7 +49,7 @@ export const ColorRoles = ({ colorRoles }) => (
           <tr>
             <th align="left">Name</th>
             <th align="left">Token</th>
-            <th className="hidden sm:table-cell" align="left">
+            <th align="left">
               Preview
             </th>
           </tr>
@@ -63,7 +63,7 @@ export const ColorRoles = ({ colorRoles }) => (
                   <code>color-{role.token}</code>
                 </div>
               </td>
-              <td className="hidden sm:table-cell">
+              <td>
                 <div className="cell-preview" style={{ backgroundColor: `var(${role.previewClass})` }}></div>
               </td>
             </tr>

@@ -19,7 +19,7 @@
   }
 
   input {
-    @apply text-sm block w-full appearance-none rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 leading-tight transition-colors focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-200 focus:ring-offset-1 focus:ring-offset-transparent dark:border-zinc-800 dark:bg-zinc-900 dark:focus:border-fuchsia-500 dark:focus:ring-fuchsia-800 !important;
+    @apply text-sm block w-full appearance-none rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 leading-tight transition-colors focus:border-purple-600 focus:ring-1 focus:ring-purple-200 focus:ring-offset-1 focus:ring-offset-transparent dark:border-zinc-800 dark:bg-zinc-900 dark:focus:border-purple-500 dark:focus:ring-purple-800 !important;
   }
 }
 

@@ -56,7 +56,7 @@ export default async function BenchmarkPage() {
           title='Startups by funding stage'
         >
           <BenchmarkBarChart
-            yAxisWidth={80}
+            yAxisWidth={96}
             showXAxis={false}
             colors={['teal']}
             className='p-6'

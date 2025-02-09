@@ -7,7 +7,12 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/kkratterf/c14',
   },
-  head: <link rel="icon" type="image/svg" href="/icon.svg" />,
+  head: (
+    <>
+      <link rel="icon" type="image/svg" href="/icon.svg" />
+      <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/apple-icon.png" />
+    </>
+  ),
   docsRepositoryBase: 'https://github.com/kkratterf/c14',
   useNextSeoProps() {
     return {
