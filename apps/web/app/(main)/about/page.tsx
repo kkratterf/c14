@@ -10,7 +10,7 @@ import { partners } from '@/lib/data/partners';
 
 export default function AboutPage() {
   return (
-    <div className='mx-auto flex max-w-screen-lg flex-col gap-10 p-6 pt-6 pb-12 sm:p-10 sm:pb-16 md:p-16'>
+    <div className='mx-auto flex max-w-screen-lg flex-col gap-10 p-6 pt-6 pb-12 sm:pb-16 md:p-16'>
       <div className='flex items-end justify-end px-4'><NavMobile /></div>
       <div className="flex flex-col gap-6">
         <h1 className="font-brand text-4xl">About</h1>
