@@ -1,8 +1,13 @@
 'use client';
+
+import { useEffect, useState } from 'react';
+
 import { BarChart } from '@c14/design-system/components/visualizations/bar-chart';
 import { BarList } from '@c14/design-system/components/visualizations/bar-list';
 import { DonutChart } from '@c14/design-system/components/visualizations/donut-chart';
+import { useIsTablet } from '@c14/design-system/hooks/useTablet';
 import type { AvailableChartColorsKeys } from '@c14/design-system/lib/chart';
+
 interface IPropsChart {
   data: {
     id?: string;
@@ -19,9 +24,20 @@ interface IPropsChart {
 }
 
 export const BenchmarkBarChart = ({ data, layout, className, yAxisWidth, colors, showXAxis, showYAxis }: IPropsChart) => {
+  const isTablet = useIsTablet();
+  const [itemsToShow, setItemsToShow] = useState(10);
+
+  useEffect(() => {
+    if (isTablet) {
+      setItemsToShow(5);
+    } else {
+      setItemsToShow(9);
+    }
+  }, [isTablet]);
+
   const sortedData = [...data]
     .sort((a, b) => b.startups - a.startups)
-    .slice(0, 10);
+    .slice(0, itemsToShow);
 
   return (
     <BarChart
