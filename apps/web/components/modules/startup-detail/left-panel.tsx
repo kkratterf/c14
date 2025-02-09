@@ -1,6 +1,7 @@
 import type { Startup } from '@prisma/client'
 import Link from 'next/link';
 
+import NavMobile from '@/components/layouts/nav-mobile';
 import { InvestorCard } from '@/components/ui/investor-card';
 import { MemberCard } from '@/components/ui/member-card';
 import { Avatar, AvatarFallback, AvatarImage } from "@c14/design-system/components/ui/avatar";
@@ -45,8 +46,8 @@ interface LeftProps {
 const LeftPanel = ({ startup }: LeftProps) => {
     return (
         <div className='mb-0 flex h-full w-full flex-col gap-6 p-0 lg:mb-10 lg:w-3/5 lg:p-4'>
-            <div className="flex flex-col gap-3">
-                <div className="flex flex-row items-center gap-3">
+            <div className='flex w-full flex-col gap-3'>
+                <div className='flex w-full flex-row items-center gap-3'>
                     <Avatar
                         size="xl"
                         className='size-12 rounded-xl border border-border'
@@ -56,7 +57,10 @@ const LeftPanel = ({ startup }: LeftProps) => {
                             {startup.name.slice(0, 2)}
                         </AvatarFallback>
                     </Avatar>
-                    <h1 className="font-brand text-3xl">{startup.name}</h1>
+                    <div className='flex w-full flex-row justify-between gap-2'>
+                        <h1 className='w-full min-w-0 shrink break-words font-brand text-3xl'>{startup.name}</h1>
+                        <NavMobile />
+                    </div>
                 </div>
                 <p className="text-description">{startup.shortDescription}</p>
             </div>

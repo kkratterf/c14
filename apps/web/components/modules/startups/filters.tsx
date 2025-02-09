@@ -130,6 +130,7 @@ const StartupsFiltersWithParams = ({
           <StartupsFilter
             icon={<Tags />}
             title="Categories"
+            tooltip="Categories"
             options={formattedTags}
             selectedValues={getSelectedValues('categories')}
             onFilterChange={(values) => handleFacetedFilterChange('categories', values)}
@@ -137,6 +138,7 @@ const StartupsFiltersWithParams = ({
           <StartupsFilter
             icon={<Coins />}
             title="Funding stage"
+            tooltip="Funding stage"
             options={formattedFundingStages}
             selectedValues={getSelectedValues('fundingStage')}
             onFilterChange={(values) => handleFacetedFilterChange('fundingStage', values)}
@@ -144,6 +146,7 @@ const StartupsFiltersWithParams = ({
           <StartupsFilter
             icon={<Users />}
             title="Team size"
+            tooltip="Team size"
             options={formattedTeamSizes}
             selectedValues={getSelectedValues('teamSize')}
             onFilterChange={(values) => handleFacetedFilterChange('teamSize', values)}
@@ -151,6 +154,7 @@ const StartupsFiltersWithParams = ({
           <StartupsFilter
             icon={<Pin />}
             title="Location"
+            tooltip="Location"
             options={formattedLocations}
             selectedValues={getSelectedValues('location')}
             onFilterChange={(values) => handleFacetedFilterChange('location', values)}

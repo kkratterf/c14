@@ -5,11 +5,15 @@ import {
   useSidebar,
 } from '@c14/design-system/components/ui/sidebar';
 
-const NavMobile = () => {
+interface NavMobileProps {
+  className?: string;
+}
+
+const NavMobile = ({ className }: NavMobileProps) => {
   const { isMobile } = useSidebar();
   return (
     <>
-      {isMobile && <SidebarTrigger />}
+      {isMobile && <SidebarTrigger className={className} />}
     </>
   );
 };
