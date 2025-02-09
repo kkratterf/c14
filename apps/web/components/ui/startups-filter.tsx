@@ -21,11 +21,13 @@ import {
 } from "@c14/design-system/components/ui/popover"
 import { Separator } from "@c14/design-system/components/ui/separator"
 import { Tag } from "@c14/design-system/components/ui/tag"
+import { Tooltip } from "@c14/design-system/components/ui/tooltip";
 import { cn } from "@c14/design-system/lib/utils"
 
 interface StartupsFilterProps {
     icon?: React.ReactNode
     title?: string
+    tooltip?: string
     options: {
         label: string
         value: string
@@ -38,6 +40,7 @@ interface StartupsFilterProps {
 export function StartupsFilter({
     icon,
     title,
+    tooltip,
     options,
     selectedValues,
     onFilterChange,
@@ -53,46 +56,48 @@ export function StartupsFilter({
 
     return (
         <Popover>
-            <PopoverTrigger asChild>
-                <Button variant="secondary" className='w-full border-dashed md:w-auto [&>svg]:stroke-2'>
-                    {icon}
-                    <span className='hidden lg:flex'>{title}</span>
-                    {selectedValues?.size > 0 && (
-                        <>
-                            <Separator orientation="vertical" className="mx-1 h-4" />
-                            <Tag
-                                variant="neutral"
-                                className='border-0 lg:hidden'
-                            >
-                                {selectedValues.size}
-                            </Tag>
-                            <div className='hidden space-x-1 lg:flex'>
-                                {selectedValues.size > 2 ? (
-                                    <Tag
-                                        variant="neutral"
-                                        className='border-0'
-                                    >
-                                        {selectedValues.size} selected
-                                    </Tag>
-                                ) : (
-                                    options
-                                        .filter((option) => selectedValues.has(option.value))
-                                        .map((option) => (
-                                            <Tag
-                                                variant="neutral"
-                                                className='border-0'
-                                                key={option.value}
-                                            >
-                                                {option.label}
-                                            </Tag>
-                                        ))
-                                )}
-                            </div>
-                        </>
-                    )}
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent className='w-[240px] p-0' align="start">
+            <Tooltip content={tooltip} className='z-50 flex xl:hidden'>
+                <PopoverTrigger asChild>
+                    <Button variant="secondary" className='w-full border-dashed md:w-auto [&>svg]:stroke-2'>
+                        {icon}
+                        <span className='xl:flex hidden'>{title}</span>
+                        {selectedValues?.size > 0 && (
+                            <>
+                                <Separator orientation="vertical" className="mx-1 h-4" />
+                                <Tag
+                                    variant="neutral"
+                                    className='border-0 xl:hidden'
+                                >
+                                    {selectedValues.size}
+                                </Tag>
+                                <div className='xl:flex space-x-1 hidden'>
+                                    {selectedValues.size > 2 ? (
+                                        <Tag
+                                            variant="neutral"
+                                            className='border-0'
+                                        >
+                                            {selectedValues.size} selected
+                                        </Tag>
+                                    ) : (
+                                        options
+                                            .filter((option) => selectedValues.has(option.value))
+                                            .map((option) => (
+                                                <Tag
+                                                    variant="neutral"
+                                                    className='border-0'
+                                                    key={option.value}
+                                                >
+                                                    {option.label}
+                                                </Tag>
+                                            ))
+                                    )}
+                                </div>
+                            </>
+                        )}
+                    </Button>
+                </PopoverTrigger>
+            </Tooltip>
+            <PopoverContent className='p-0 w-[240px]' align="start">
                 <Command
                     shouldFilter={false}
                 >
@@ -120,7 +125,7 @@ export function StartupsFilter({
                                         }}
                                     >
                                         <span className={cn('text line-clamp-1 w-full px-1', isSelected && "text-brand")}>{option.label}</span>
-                                        {isSelected && <Check className='h-4 w-4 stroke-icon-brand' />}
+                                        {isSelected && <Check className='w-4 h-4 stroke-icon-brand' />}
                                     </CommandItem>
                                 )
                             })}
@@ -131,7 +136,7 @@ export function StartupsFilter({
                                 <CommandGroup>
                                     <CommandItem
                                         onSelect={() => onFilterChange(undefined)}
-                                        className='!text-description justify-center text-center'
+                                        className='justify-center !text-description text-center'
                                     >
                                         Clear filters
                                     </CommandItem>
