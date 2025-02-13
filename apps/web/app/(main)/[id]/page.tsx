@@ -40,7 +40,7 @@ export default async function StartupDetailPage({
   }
 
   return (
-    <div className='relative flex min-h-screen w-full flex-col gap-4 p-6 pb-0 lg:flex-row'>
+    <div className='relative flex min-h-dvh w-full flex-col gap-4 p-6 pb-0 lg:flex-row'>
       <LeftPanel startup={startup} />
       <RightPanel startup={startup} />
     </div>

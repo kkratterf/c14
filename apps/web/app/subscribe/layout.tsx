@@ -9,7 +9,7 @@ export default function SubscribeLayout({
     children: React.ReactNode;
 }) {
     return (
-        <section className='min-h-screen w-full bg-background'>
+        <section className='min-h-dvh w-full bg-background'>
             <SubscribeNavigation />
             {children}
             <CommandProvider />
