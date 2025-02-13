@@ -27,11 +27,11 @@ export interface SearchParams {
 }
 export function stringifySearchParams(params: SearchParams): string {
   const urlParams = new URLSearchParams();
-  Object.entries(params).forEach(([key, value]) => {
+  for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && (Array.isArray(value) ? value.length : true)) {
       urlParams.append(key, value);
     }
-  });
+  }
   return urlParams.toString();
 }
 
