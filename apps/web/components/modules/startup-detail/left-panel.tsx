@@ -1,5 +1,6 @@
 import type { Startup } from '@prisma/client'
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 
 import NavMobile from '@/components/layouts/nav-mobile';
 import { InvestorCard } from '@/components/ui/investor-card';
@@ -95,9 +96,9 @@ const LeftPanel = ({ startup }: LeftProps) => {
                 )}
             </div>
             <Separator />
-            <p className="text-description text-sm leading-6">
+            <ReactMarkdown className='prose prose-sm max-w-none prose-headings:font-brand prose-headings:text-foreground prose-p:text-description text-description text-sm leading-6'>
                 {startup.longDescription}
-            </p>
+            </ReactMarkdown>
             {startup.FounderStartup.length > 0 && (
                 <div>
                     <Separator />
