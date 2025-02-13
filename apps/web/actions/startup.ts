@@ -52,9 +52,10 @@ export const getStartups = async ({ name, tags, fundingStages, teamSizes, locati
             isPopular: isPopular,
             //We will place the featured in the correct place later
             isFeatured: false,
-            name: {
-                contains: name
-            },
+            name: name ? {
+                contains: name,
+                mode: 'insensitive'
+            } : undefined,
             StartupTag: {
                 some: {
                     tagid: {
@@ -75,7 +76,6 @@ export const getStartups = async ({ name, tags, fundingStages, teamSizes, locati
         take: PAGE_SIZE,
         skip: (page - 1) * PAGE_SIZE,
         include: includeForUsefullDataStartup
-
     };
     const [startups, count] = await prisma.$transaction([
         prisma.startup.findMany(query),
