@@ -52,7 +52,7 @@ const RightPanel = ({ startup }: RightProps) => {
                     </div>
                     <div className='flex w-full flex-col gap-1'>
                         <p className="font-mono text-description">Amount raised</p>
-                        {startup.amountRaised ? (
+                        {startup.amountRaised !== null && startup.amountRaised !== undefined ? (
                             <p className="text-heading-body">
                                 {startup.amountRaised.toLocaleString('it-IT')} {startup?.amountRaisedCurrency}
                             </p>
