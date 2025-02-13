@@ -44,7 +44,7 @@ interface GetStartups {
     page?: number;
 }
 
-export const PAGE_SIZE = 10;
+export const PAGE_SIZE = 25;
 
 export const getStartups = async ({ name, tags, fundingStages, teamSizes, locations, isPopular, positionForFeatured, page = 1 }: GetStartups) => {
     const query: Prisma.StartupFindManyArgs = {
