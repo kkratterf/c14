@@ -53,22 +53,22 @@ export default function ManifestoPage() {
         </p>
       </div>
       <Separator />
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-8">
         <h3 className="font-brand text-2xl">Partners</h3>
-        <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3'>
           {partners.map((partner, index) => (
             <Link
               target="_blank"
               href={partner.url}
               key={index}
-              className={cn('rounded-lg hover:opacity-70', focusRing)}
+              className={cn('rounded-lg opacity-85 hover:opacity-65', focusRing)}
             >
               <Image
                 width={160}
                 height={40}
                 alt={partner.name}
                 src={`/images/partners/${partner.image}`}
-                className='h-10 w-40 px-2 brightness-0 dark:invert'
+                className='h-12 w-44 px-2 brightness-0 dark:invert'
               />
             </Link>
           ))}
