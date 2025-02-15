@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 
 import { getStartups } from '@/actions/startup';
 import Loading from '@/components/modules/homepage/loading';
-import { PopularCard, } from '@/components/ui/popular-card';
+import { PopularCard, SeeAllCard, } from '@/components/ui/popular-card';
 
 const PopularStartups = async () => {
   const { startups: popularStartups } = await getStartups({
@@ -24,9 +24,12 @@ const Popular = () => {
       <h2 className="px-4 font-base font-brand text-heading-section">
         Popular startups
       </h2>
-      <Suspense fallback={<Loading />}>
-        <PopularStartups />
-      </Suspense>
+      <div className='flex flex-col gap-1'>
+        <Suspense fallback={<Loading />}>
+          <PopularStartups />
+        </Suspense>
+        <SeeAllCard />
+      </div>
     </section>
   );
 };
