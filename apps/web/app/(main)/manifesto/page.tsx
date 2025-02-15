@@ -8,32 +8,35 @@ import Footer from '@/components/layouts/footer';
 import NavMobile from '@/components/layouts/nav-mobile';
 import { partners } from '@/lib/data/partners';
 
-export default function AboutPage() {
+export default function ManifestoPage() {
   return (
     <div className='mx-auto flex max-w-screen-lg flex-col gap-10 p-6 pt-6 pb-12 sm:pb-16 md:p-16'>
       <div className='flex items-end justify-end px-4'><NavMobile /></div>
       <div className="flex flex-col gap-6">
-        <h1 className="font-brand text-4xl">About</h1>
-        <p className="text-base text-description">
-          Our mission is to empower startups with actionable insights and
-          unparalleled visibility.
-        </p>
-        <p className="text-base text-description">
-          We’ve created a dynamic platform that brings startups together,
-          offering them a way to showcase their projects while gaining access to
-          valuable benchmarks and market analysis.
-        </p>
-        <p className="text-base text-description">
-          We believe in transparency and collaboration, which is why we share
-          our progress through a build-in-public approach. By involving our
-          community, we aim to create a platform that truly addresses the needs
-          of startups.
-        </p>
-        <p className="text-base text-description">
-          Whether you’re looking for inspiration, insights, or a way to stand
-          out in a competitive landscape, C14 is here to support you on your
-          journey. Join us, and let’s shape the future of innovation together.
-        </p>
+        <h1 className="font-brand text-4xl">Manifesto</h1>
+        <div className='flex flex-col gap-4'>
+          <p className='text-base text-description'>
+            Startups thrive in the open, where knowledge flows freely and transparency fuels progress.
+          </p>
+          <p className='text-base text-description'>
+            We believe a stronger ecosystem is built on visibility, collaboration, and shared knowledge.
+          </p>
+          <p className='text-base text-description'>
+            C14 is an open and growing database of Italian startups, created to discover, compare, and connect.
+          </p>
+          <p className='text-base text-description'>
+            Free and community-driven, it’s not just a product but a shared resource—one that expands with every contribution, empowering those who dare to build.
+          </p>
+          <p className='text-base text-description'>
+            Better data means better decisions. A more connected ecosystem sparks new opportunities. And innovation, at its core, is never a solo journey.
+          </p>
+          <p className='text-base text-description'>
+            C14 belongs to the community. As long as there are startups to discover, our work continues.
+          </p>
+          <p className='text-base text-description'>
+            Join us, contribute, and let’s shape the future of startups—together.
+          </p>
+        </div>
       </div>
       <Separator />
       <div className="flex flex-col gap-4">

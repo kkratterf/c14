@@ -2,10 +2,10 @@
 
 import {
   ChartColumn,
-  Info,
   MessageCircle,
   PlusCircle,
   Rocket,
+  Scroll,
 } from 'lucide-react';
 import type React from 'react';
 
@@ -45,9 +45,9 @@ const data = {
       isExternal: true,
     },
     {
-      title: 'About',
-      url: '/about',
-      icon: Info,
+      title: 'Manifesto',
+      url: '/manifesto',
+      icon: Scroll,
     },
     {
       title: 'Feedback',
