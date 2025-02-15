@@ -15,11 +15,10 @@ const Hero = () => {
         <h1 className="font-base font-brand text-heading-screen">
           Discover the best startups
         </h1>
-        <p className="text-base text-description leading-7">
-          Browse a curated list of the best italian startups 🇮🇹 shaping
-          tomorrow's technology.
+        <p className='text-base text-description leading-7'>
+          A growing, open-source database of Italian startups 🇮🇹
           <br />
-          Designed for founders, investors, and industry analysts.
+          Designed to make the ecosystem more transparent and accessible
         </p>
       </div>
       <div className='grid gap-4 sm:grid-cols-2'>

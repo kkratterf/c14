@@ -13,9 +13,10 @@
 
 <br/>
 
-## Open Data. Clear Benchmarks. Smarter Startups.
+# Discover the best startups
 
-C14 is an open-source startup database that provides transparent and reliable data about the innovation ecosystem. Our mission is to offer clear and comparable metrics to help founders and investors make more informed decisions. Through the power of open data, C14 democratizes access to crucial startup ecosystem information.
+A growing, open-source database of Italian startups 🇮🇹
+Designed to make the ecosystem more transparent and accessible
 
 ## Tech Stack
 

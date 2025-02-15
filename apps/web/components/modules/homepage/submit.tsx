@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Balancer from 'react-wrap-balancer';
 
 import { Button } from '@c14/design-system/components/ui/button';
 
@@ -17,15 +18,19 @@ const Submit = () => {
         <div className='flex w-full flex-col gap-6 border-border border-x p-6'>
           <div className="flex flex-col gap-4">
             <h2 className="font-brand text-heading-section">
-              Submit your favourite startup
+              <Balancer>
+                Know a startup that should be here?
+              </Balancer>
             </h2>
-            <p className="text-base text-description">
-              Help us grow our open-source list of startups.
+            <p className='text-base text-description'>
+              <Balancer>
+                Your suggestions help us grow a transparent and open database.
+              </Balancer>
             </p>
           </div>
           <Button className="w-fit">
             <Link target="_blank" href="https://tally.so/r/3lKZEW">
-              Submit
+              Help us grow
             </Link>
           </Button>
         </div>
