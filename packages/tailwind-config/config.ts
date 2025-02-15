@@ -316,6 +316,7 @@ export const config: Config = {
           fuchsia: 'var(--color-icon-chart-fuchsia)',
           'fuchsia-strong': 'var(--color-icon-chart-fuchsia-strong)',
         },
+        'border': 'var(--color-border-default)',
       },
       fill: {
         /* fill */
