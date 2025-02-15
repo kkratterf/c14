@@ -13,7 +13,7 @@
 
 <br/>
 
-## Discover the best startups
+# Discover the best startups
 
 A growing, open-source database of Italian startups 🇮🇹
 Designed to make the ecosystem more transparent and accessible
