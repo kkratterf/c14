@@ -3,6 +3,7 @@ import { Separator } from '@c14/design-system/components/ui/separator';
 import Footer from '@/components/layouts/footer';
 import NavMobile from '@/components/layouts/nav-mobile';
 import Hero from '@/components/modules/homepage/hero';
+import Newsletter from '@/components/modules/homepage/newsletter';
 import Popular from '@/components/modules/homepage/popular';
 import Submit from '@/components/modules/homepage/submit';
 
@@ -19,6 +20,10 @@ export default function MainPage() {
         <Separator />
       </div>
       <Submit />
+      <div className="flex flex-col gap-10 px-4">
+        <Separator />
+        <Newsletter />
+      </div>
       <div className="px-4">
         <Footer />
       </div>
